@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Dependencies linker for GitHub",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "Link npm and bower dependencies with the related GitHub repository",
+    "description": "The description of the application"
+  }
+}
