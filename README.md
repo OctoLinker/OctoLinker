@@ -6,4 +6,4 @@ The "Dependencies Linker for GitHub" is a chrome extension to link npm and bower
 
 # Installation
 
-Go to [Chrome Web Store]() and click on the add button.
+Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/dependencies-linker-for-g/jlmafbaeoofdegohdhinkhilhclaklkp) and click on the add button.
