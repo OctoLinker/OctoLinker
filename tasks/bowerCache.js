@@ -12,7 +12,7 @@ module.exports = function( grunt ) {
     var done = this.async();
 
     var url = 'https://bower-component-list.herokuapp.com';
-    utils.getResource({uri: url, cache: true}, function( err, response ) {
+    utils.getResource({uri: url}, function( err, response ) {
 
       var result = {};
       var item = null;

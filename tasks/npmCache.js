@@ -181,7 +181,7 @@ module.exports = function( grunt ) {
       done();
     };
 
-    utils.getResource({uri: registryURL, cache: true}, function( err, response ) {
+    utils.getResource({uri: registryURL}, function( err, response ) {
       list = response.rows;
       countLeft = list.length;
       worker();

@@ -292,6 +292,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        'buildCache',
         'chromeManifest:dist',
         'useminPrepare',
         'concurrent:dist',
