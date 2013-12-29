@@ -2,18 +2,19 @@
 
 var missingGithubLinks = {
 
+  packageType: null,
+
   init: function() {
     var self = this;
-    var packageType = null;
     if( location.pathname.indexOf('/package.json') !== -1 ) {
-      packageType = 'npm';
+      self.packageType = 'npm';
     } else if( location.pathname.indexOf('/bower.json') !== -1 ) {
-      packageType = 'bower';
+      self.packageType = 'bower';
     } else {
       return;
     }
 
-    $.getJSON(chrome.extension.getURL('data/' + packageType + '.json'), function( settings ) {
+    $.getJSON(chrome.extension.getURL('data/' + self.packageType + '.json'), function( settings ) {
       self.registryList = settings.rows;
       self.updateDom();
     });
@@ -63,9 +64,15 @@ var missingGithubLinks = {
 
     $.each(list, function( index, item ) {
       var link = self.registryList[item.pkgName];
+      var $link = $('<a>');
+
+      if( !link && self.packageType === 'npm') {
+        link = 'https://npmjs.org/package/' + item.pkgName;
+      }
 
       if( link ) {
-        item.el.wrap('<a href="' + link + '"></a>');
+        $link.attr('href', link);
+        item.el.wrap($link);
       } else {
         item.el.addClass('tooltipped').attr('original-title', 'Sorry, there is no link for this package available');
       }

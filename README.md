@@ -2,7 +2,7 @@
 
 > Discover unknown dependencies fast and comfortable
 
-The "Dependencies Linker for GitHub" is a Google Chrome Extension to link npm and bower dependencies with the related GitHub repository.
+The "Dependencies Linker for GitHub" is a Google Chrome Extension which link npm and bower dependencies with their related GitHub repositories.
 
 ![a](showcase.gif)
 

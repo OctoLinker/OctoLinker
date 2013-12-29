@@ -4,7 +4,7 @@
     "description": "The name of the application"
   },
   "appDescription": {
-    "message": "Link npm and bower dependencies with the related GitHub repository",
+    "message": "Link npm and bower dependencies with their related GitHub repositories.",
     "description": "The description of the application"
   }
 }
