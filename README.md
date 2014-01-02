@@ -12,3 +12,6 @@ Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/dependencies-
 
 # Support
 Should you have any problems, feel free to open up an [issue](https://github.com/stefanbuck/github-linker/issues).
+
+
+[![Analytics](https://ga-beacon.appspot.com/UA-40473036-5/github-linker/readme?pixel)
