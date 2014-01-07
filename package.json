@@ -25,7 +25,8 @@
     "load-grunt-tasks": "~0.1.0",
     "grunt-chrome-manifest": "~0.1.0",
     "time-grunt": "~0.1.1",
-    "request": "~2.30.0"
+    "request": "~2.30.0",
+    "lodash": "~2.4.1"
   },
   "engines": {
     "node": ">=0.8.0"

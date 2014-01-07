@@ -4,6 +4,8 @@ module.exports = function( grunt ) {
 
   // Internal libs
   var utils = require('./lib/utils').init(grunt);
+  var npmSearch = require('./lib/npmSearch').init();
+  var _ = require('lodash');
 
   /**
    * Custom task to generate the npm registry cache
@@ -11,180 +13,134 @@ module.exports = function( grunt ) {
   grunt.registerTask('npmCache', function() {
     var done = this.async();
 
-    var list = null;
-    var result = {};
-    var noResult = [];
-    var npmregistryFile = null;
-    var countLeft = 0;
     var registryURL = 'http://isaacs.iriscouch.com/registry/_all_docs';
     var packageDetailURL = 'https://registry.npmjs.org/$1';
-    var registryPath = 'app/data/npm.json';
+    var dataPath = 'app/data/npm.json';
+    var registryPath = 'data/npm.json';
+    var noresultPath = 'data/npm_noresult.json';
+    var newresultPath = 'data/npm_new.json';
+    var queue = [];
+    var result = {};
+    var newItems = {};
+    var noResult = {};
+    var countTotal = 0;
+    var workerCount = 0;
+    var currentPackageName = '';
 
     if( grunt.file.exists(registryPath) ) {
-      npmregistryFile = JSON.parse(grunt.file.read(registryPath)).rows;
+      result = JSON.parse(grunt.file.read(registryPath)).rows;
     }
+
+    var init = function() {
+
+      utils.getResource({uri: registryURL}, function( err, response, body ) {
+        if( err ) {
+          grunt.fail.warn(err);
+        }
+        queue = _.pluck(body.rows, 'id');
+
+        var o = Object.keys(result);
+        if( o.length ) {
+          // Removed stored entries
+          queue = _.difference(queue, o);
+        }
+        worker();
+      });
+    };
+
+    var complete = function() {
+      grunt.log.debug('complete');
+      writeToFile();
+      done();
+    };
 
     var worker = function() {
-
-      if( list.length === 0 ) {
-        writeToFile();
-        return;
-      }
-
-      var pkg = list.shift().id;
-      if( !pkg || pkg === '' ) {
-        worker();
-        return;
-      }
-
-      grunt.log.writeln('Cache: ' + pkg + ' | Remaining: ' + (--countLeft) );
-
-      if( npmregistryFile && npmregistryFile[pkg] ) {
-        grunt.log.debug('Allready in the store: ' + pkg);
-        result[pkg] = npmregistryFile[pkg];
-        worker();
-        return;
-      }
-
-      var url = packageDetailURL.replace('$1', encodeURIComponent(pkg));
-
-      utils.getResource({uri: url, cache: true}, function( err, response ) {
-
-        if( err ) {
-          grunt.log.errorlns("NPMCache: " + JSON.stringify(err));
-          worker();
-          return;
-        }
-
-        var repoURL = getRepoURL(response);
-
-        if( repoURL ) {
-          result[response.name] = repoURL;
-          grunt.log.debug('Store: ' + response.name);
-          worker();
-        } else {
-          githubSearch(encodeURIComponent(pkg), response);
-        }
-      });
-    };
-
-    var getRepoURL = function( response ) {
-
-      if( response && response.name !== '' && response.repository && response.repository.url && response.repository.url !== '' ) {
-
-        var url = response.repository.url;
-        url = 'https://' + url.slice(url.indexOf('github.com'));
-        url = url.replace('github.com:', 'github.com/');
-        if( url.substr(-4) === '.git' ) {
-          url = url.slice(0, -4);
-        }
-        return url;
-      }
-
-      return null;
+      setTimeout(_worker, 0);
     }
 
-    var githubSearch = function( name, npmResponse ) {
-      var uri = 'https://api.github.com/search/repositories?q=' + name + '+in:name&client_id=bd14f266dab45f3b7b48&client_secret=1abe498fe3496cb871a9ef776f11da6eecd61600';
+    var _worker = function() {
 
-      utils.getResource({uri: uri, cache: true, headers: {'User-Agent': 'npm-search'}}, function( err, response ) {
+      if( queue.length === 0 ) {
+        complete();
+        return;
+      }
+
+      if( workerCount === 0 ) countTotal = queue.length;
+      workerCount++;
+
+      currentPackageName = queue.shift();
+      if( currentPackageName.length === 0 ) {
+        worker();
+        return;
+      }
+
+      grunt.log.writeln('Remaining: ' + ( countTotal - workerCount ) + '  Cache: ' + currentPackageName);
+
+      var url = packageDetailURL.replace('$1', encodeURIComponent(currentPackageName));
+
+      utils.getResource({uri: url}, function( err, response, body ) {
 
         if( err ) {
-
-          var time = 5000;
-          if( err.headers && err.headers['x-ratelimit-reset'] ) {
-            time = ( err.headers['x-ratelimit-reset'] * 1000 - new Date().getTime() ) + 500;
-          }
-
-          grunt.log.errorlns('Try to request it again in ' + (time / 1000) + 's');
-          setTimeout(function() {
-            githubSearch(name, npmResponse);
-          }, time);
+          utils.writeLog('Package: ' + currentPackageName + '\nError:' + JSON.stringify(err));
+          queue.push(currentPackageName);
+          worker();
           return;
         }
 
-        if( response && response.total_count > 0 ) {
-          for( var i = 0; i < response.items.length; i++ ) {
-            if( compareDescription(response.items[i], npmResponse) ) {
-              result[name] = response.items[0].html_url;
-              break;
-            }
+        npmSearch.go(body, function(error, repoURL) {
+          if(repoURL) {
+            store(repoURL);
+          } else {
+            storeNoResult();
           }
-        }
-
-        if( !result[name] ) {
-          for( var i = 0; i < response.items.length; i++ ) {
-            if( compareUsername(response.items[i], npmResponse) ) {
-              result[name] = response.items[0].html_url;
-              break;
-            }
-          }
-        }
-
-        if( !result[name] ) {
-          grunt.log.debug('NoResult: ' + name);
-          noResult.push(name);
-        }
-
-        worker();
+          worker();
+        });
       });
     };
 
-    var compareDescription = function( githubItem, npmItem ) {
+    var store = function( url, quality ) {
+      grunt.log.debug('Store (' + quality + ') : ' + currentPackageName);
+      result[currentPackageName] = {
+        url: url,
+        date: grunt.template.today('yyyy-mm-dd'),
+        quality: quality
+      };
 
-      if( githubItem.description && npmItem.description && githubItem.description.length > 1 && githubItem.description === npmItem.description ) {
-        return true;
-      }
-
-      return false;
+      newItems[currentPackageName] = url;
     };
 
-    var compareUsername = function( githubItem, npmItem ) {
-
-      var result = false;
-      var githubUser = githubItem.owner.login;
-      var npmUser = getUserFromNPM(npmItem);
-
-      if(githubUser && npmUser) {
-        result = githubUser.toLowerCase() === npmUser.toLowerCase();
-
-      }
-
-      return result;
-    };
-
-    var getUserFromNPM = function (response) {
-
-      if (response.maintainers && response.maintainers.name && response.maintainers.name.length > 0) {
-          return response.maintainers.name;
-      }
-
-      if (response.author && response.author.name && response.author.name.length > 0) {
-          return response.author.name;
-      }
-
-      return null;
+    var storeNoResult = function() {
+      grunt.log.debug('NoResult: ' + currentPackageName);
+      noResult[currentPackageName] = currentPackageName;
     };
 
     var writeToFile = function() {
-
       var content = {
         total: Object.keys(result).length,
         rows: result
       }
-      grunt.file.write('app/data/npm.json', JSON.stringify(content, null, ' '));
-      //grunt.file.write('app/data/npm_noresult.json', JSON.stringify(noResult, null, ' '));
+
+      var map = {};
+      _.each(result, function(item, key) {
+        map[key] = item.url;
+      });
+
+      var contentMap = {
+        total: Object.keys(map).length,
+        rows: map
+      }
+
+      grunt.file.write(dataPath, JSON.stringify(contentMap, null, ' '));
+      grunt.file.write(registryPath, JSON.stringify(content, null, ' '));
+      grunt.file.write(noresultPath, JSON.stringify(noResult, null, ' '));
+      grunt.file.write(newresultPath, JSON.stringify(newItems, null, ' '));
 
       grunt.log.writeln('Content: ' + content.total);
       grunt.log.writeln('NoResult: ' + Object.keys(noResult).length);
 
-      done();
+
     };
 
-    utils.getResource({uri: registryURL}, function( err, response ) {
-      list = response.rows;
-      countLeft = list.length;
-      worker();
-    });
+    init();
   });
 }
