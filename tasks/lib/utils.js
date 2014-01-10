@@ -24,13 +24,17 @@ exports.init = function( grunt ) {
 
   exports.getResource = function( options, cb ) {
 
-    options.cache = true;
-
     if( options.cache ) {
       var cache = readCacheFile(options.uri);
       if( cache ) {
-        grunt.log.debug('Read from cache: ' + options.uri);
-        cb(null, {statusCode: 200}, cache);
+        grunt.log.writeln('cached: ' + options.uri);
+
+        var body = null;
+        if(cache.statusCode === 200) {
+          body = JSON.parse(cache.body);
+        }
+
+        cb(null, {statusCode:cache.statusCode}, body);
         return;
       }
     }
@@ -42,33 +46,64 @@ exports.init = function( grunt ) {
 
     options.timeout = 5000;
 
-    grunt.log.debug('Send request: ' + options.uri);
+    grunt.log.writeln('fetching: ' + options.uri);
 
     request.get(options, function( error, response, body ) {
-      if( !error && response.statusCode == 200 ) {
-        if( options.cache ) {
-          writeCacheFile(options.uri, body);
-        }
-        cb(null, response, JSON.parse(body));
+
+      if(error) {
+        exports.writeLog('getResource error ' + options.uri);
+        exports.getResource(options, cb);
         return;
       }
-      cb(error || {message:'STATUS_CODE_NOT_200'}, response, null);
+
+      if(!error && response) {
+        if( options.cache && response.statusCode !== 403  ) {
+          if(response.statusCode !== 200) {
+            body = '';
+          } else {
+            try{
+              JSON.parse(body);
+            }catch(e) {
+              exports.writeLog('JSON PARSE ERROR ' + options.uri);
+              cb(e, response, null);
+              return;
+            }
+          }
+          writeCacheFile(options.uri, response, body);
+        }
+
+        if( response.statusCode == 200 ) {
+            cb(null, response, JSON.parse(body));
+            return;
+        }
+      }
+      cb(error, response, null);
     });
   };
 
-  var writeCacheFile = function( uri, content ) {
+  var writeCacheFile = function( uri, response, body ) {
+    grunt.log.debug('writeCacheFile');
+
     var prefix = 'cache/' + url.parse(uri).hostname + '/';
     var cacheFile = prefix + crypto.createHash('sha1').update(uri).digest('hex');
-    grunt.file.write(cacheFile, content);
+    var content = {
+      body: body,
+      statusCode: response.statusCode
+    }
+
+    grunt.log.debug('Write: ' + cacheFile);
+    grunt.file.write(cacheFile, JSON.stringify(content));
   }
 
   var readCacheFile = function( uri ) {
+    grunt.log.debug('readCacheFile');
 
     var prefix = 'cache/' + url.parse(uri).hostname + '/';
     var cacheFile = prefix + crypto.createHash('sha1').update(uri).digest('hex');
 
     if( cacheFile ) {
       if( grunt.file.exists(cacheFile) ) {
+        grunt.log.debug('Read: ' + cacheFile);
         return JSON.parse(grunt.file.read(cacheFile));
       }
     }

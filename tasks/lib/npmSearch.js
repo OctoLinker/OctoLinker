@@ -13,9 +13,9 @@ exports.init = function () {
       return done(result);
     }
 
-    var url = getURL(response);
+    result = getURL(response);
 
-    if (!url && response.versions) {
+    if (!result && response.versions) {
       var row = _.find(response.versions, function (item) {
         return getURL(item) !== null;
       });
@@ -34,11 +34,14 @@ exports.init = function () {
     if (node.repository && node.repository.path) {
       return parseURL(node.repository.path);
     }
-    if (node.repositories && node.repositories.lenght === 1 && node.repositories[0].url) {
+    if (node.repositories && node.repositories.length === 1 && node.repositories[0].url) {
       return parseURL(node.repositories[0].url);
     }
-    if (node.repositories && node.repositories.lenght === 1 && node.repositories[0].path) {
+    if (node.repositories && node.repositories.length === 1 && node.repositories[0].path) {
       return parseURL(node.repositories[0].path);
+    }
+    if(node.homepage && node.homepage.length) {
+      return parseURL(node.homepage);
     }
 
     return null;

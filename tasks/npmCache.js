@@ -5,7 +5,17 @@ module.exports = function( grunt ) {
   // Internal libs
   var utils = require('./lib/utils').init(grunt);
   var npmSearch = require('./lib/npmSearch').init();
+  var githubSearch = require('./lib/githubSearch').init(grunt);
   var _ = require('lodash');
+
+
+  var registryURL = 'http://isaacs.iriscouch.com/registry/_all_docs';
+  var packageDetailURL = 'https://registry.npmjs.org/$1';
+  var dataPath = 'app/data/npm.json';
+  var registryPath = 'data/npm.json';
+  var noresultPath = 'data/npm_noresult.json';
+  var newresultPath = 'data/npm_new.json';
+  var qualityCount = [];
 
   /**
    * Custom task to generate the npm registry cache
@@ -13,12 +23,6 @@ module.exports = function( grunt ) {
   grunt.registerTask('npmCache', function() {
     var done = this.async();
 
-    var registryURL = 'http://isaacs.iriscouch.com/registry/_all_docs';
-    var packageDetailURL = 'https://registry.npmjs.org/$1';
-    var dataPath = 'app/data/npm.json';
-    var registryPath = 'data/npm.json';
-    var noresultPath = 'data/npm_noresult.json';
-    var newresultPath = 'data/npm_new.json';
     var queue = [];
     var result = {};
     var newItems = {};
@@ -28,12 +32,14 @@ module.exports = function( grunt ) {
     var currentPackageName = '';
 
     if( grunt.file.exists(registryPath) ) {
-      result = JSON.parse(grunt.file.read(registryPath)).rows;
+      var content = JSON.parse(grunt.file.read(registryPath));
+      result = content.rows;
+      qualityCount = content.qualityCount;
     }
 
     var init = function() {
 
-      utils.getResource({uri: registryURL}, function( err, response, body ) {
+      utils.getResource({uri: registryURL, cache: true}, function( err, response, body ) {
         if( err ) {
           grunt.fail.warn(err);
         }
@@ -69,31 +75,42 @@ module.exports = function( grunt ) {
       workerCount++;
 
       currentPackageName = queue.shift();
-      if( currentPackageName.length === 0 ) {
+      if( queue.length === 0 ) {
         worker();
         return;
       }
 
-      grunt.log.writeln('Remaining: ' + ( countTotal - workerCount ) + '  Cache: ' + currentPackageName);
+      if(workerCount % 20 == 0) {
+        writeToFile();
+      }
+
+      grunt.log.debug('Remaining: ' + ( countTotal - workerCount ) + '  Cache: ' + currentPackageName);
 
       var url = packageDetailURL.replace('$1', encodeURIComponent(currentPackageName));
 
-      utils.getResource({uri: url}, function( err, response, body ) {
+      utils.getResource({uri: url, cache: true}, function( err, response, body ) {
 
-        if( err ) {
+        if( err || (response && response.statusCode !== 200)) {
           utils.writeLog('Package: ' + currentPackageName + '\nError:' + JSON.stringify(err));
           queue.push(currentPackageName);
           worker();
           return;
         }
 
-        npmSearch.go(body, function(error, repoURL) {
+        npmSearch.go(body, function(repoURL) {
           if(repoURL) {
-            store(repoURL);
+            store(repoURL, 0);
+            worker();
           } else {
-            storeNoResult();
+            githubSearch.go(body, function(repoURL) {
+              if(repoURL) {
+                store(repoURL, 1);
+              } else {
+                storeNoResult();
+              }
+              worker();
+            });
           }
-          worker();
         });
       });
     };
@@ -106,6 +123,9 @@ module.exports = function( grunt ) {
         quality: quality
       };
 
+      if(qualityCount[quality] === undefined) qualityCount[quality] = 0;
+      qualityCount[quality]++;
+
       newItems[currentPackageName] = url;
     };
 
@@ -116,6 +136,8 @@ module.exports = function( grunt ) {
 
     var writeToFile = function() {
       var content = {
+        qualityCount: qualityCount,
+        noResultCount: Object.keys(noResult).length,
         total: Object.keys(result).length,
         rows: result
       }
@@ -137,8 +159,7 @@ module.exports = function( grunt ) {
 
       grunt.log.writeln('Content: ' + content.total);
       grunt.log.writeln('NoResult: ' + Object.keys(noResult).length);
-
-
+      grunt.log.writeln('QualityCount: ' + JSON.stringify(qualityCount));
     };
 
     init();
