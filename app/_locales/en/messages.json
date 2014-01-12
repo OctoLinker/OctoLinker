@@ -4,7 +4,7 @@
     "description": "The name of the application"
   },
   "appDescription": {
-    "message": "This Google Chrome Extension links npm and bower dependencies listed in package.json / bower.json on GitHub to their project’s pages.",
+    "message": "Links npm and bower dependencies listed in package.json / bower.json on GitHub to their project’s pages.",
     "description": "The description of the application"
   }
 }

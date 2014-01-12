@@ -39,7 +39,7 @@ module.exports = function( grunt ) {
 
     var init = function() {
 
-      utils.getResource({uri: registryURL, cache: true}, function( err, response, body ) {
+      utils.getResource({uri: registryURL}, function( err, response, body ) {
         if( err ) {
           grunt.fail.warn(err);
         }
@@ -92,7 +92,7 @@ module.exports = function( grunt ) {
 
         if( err || (response && response.statusCode !== 200)) {
           utils.writeLog('Package: ' + currentPackageName + '\nError:' + JSON.stringify(err));
-          queue.push(currentPackageName);
+          //queue.push(currentPackageName);
           worker();
           return;
         }
@@ -160,6 +160,7 @@ module.exports = function( grunt ) {
       grunt.log.writeln('Content: ' + content.total);
       grunt.log.writeln('NoResult: ' + Object.keys(noResult).length);
       grunt.log.writeln('QualityCount: ' + JSON.stringify(qualityCount));
+      grunt.log.writeln('queue: ' + queue.length);
     };
 
     init();

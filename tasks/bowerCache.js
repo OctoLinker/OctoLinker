@@ -20,7 +20,7 @@ module.exports = function( grunt ) {
       result = JSON.parse(grunt.file.read(registryPath)).rows;
     }
 
-    utils.getResource({uri: url, cache:true}, function( err, response, body  ) {
+    utils.getResource({uri: url}, function( err, response, body  ) {
 
       var item = null;
       var pkg = null;
