@@ -10,7 +10,10 @@ exports.init = function (grunt) {
 
   var exports = {};
 
-  var searchURI = 'https://api.github.com/search/repositories?q=$1&client_id=facc834cea0b2ea1f542&client_secret=fc575a1bb3699905c7d823fb51edd19829e2b9ba';
+  var clientId = process.env.GITHUB_CLIENT_ID;
+  var clientSecret = process.env.GITHUB_CLIENT_SECRET;
+
+  var searchURI = 'https://api.github.com/search/repositories?q=$1&client_id=' + clientId + '&client_secret=' + clientSecret;
   var rawURI = 'https://raw2.github.com/$1/master/package.json';
 
   exports.go = function (npmResponse, next) {
