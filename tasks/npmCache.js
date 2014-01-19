@@ -14,7 +14,6 @@ module.exports = function( grunt ) {
   var dataPath = 'app/data/npm.json';
   var registryPath = 'data/npm.json';
   var noresultPath = 'data/npm_noresult.json';
-  var newresultPath = 'data/npm_new.json';
   var qualityCount = [];
 
   /**
@@ -25,16 +24,21 @@ module.exports = function( grunt ) {
 
     var queue = [];
     var result = {};
-    var newItems = {};
     var noResult = {};
     var countTotal = 0;
     var workerCount = 0;
+    var newItemsCount = 0;
     var currentPackageName = '';
 
     if( grunt.file.exists(registryPath) ) {
       var content = JSON.parse(grunt.file.read(registryPath));
       result = content.rows;
       qualityCount = content.qualityCount;
+    }
+
+    if( grunt.file.exists(noresultPath) ) {
+      var content = JSON.parse(grunt.file.read(noresultPath));
+      noResult = content;
     }
 
     var init = function() {
@@ -45,10 +49,14 @@ module.exports = function( grunt ) {
         }
         queue = _.pluck(body.rows, 'id');
 
-        var o = Object.keys(result);
-        if( o.length ) {
-          // Removed stored entries
-          queue = _.difference(queue, o);
+        var _result = Object.keys(result);
+        var _noResult = Object.keys(noResult);
+
+        if( _result.length ) {
+          queue = _.difference(queue, _result);
+        }
+        if( _noResult.length ) {
+          queue = _.difference(queue, _noResult);
         }
         worker();
       });
@@ -84,7 +92,7 @@ module.exports = function( grunt ) {
         writeToFile();
       }
 
-      grunt.log.debug('Remaining: ' + ( countTotal - workerCount ) + '  Cache: ' + currentPackageName);
+      grunt.log.writeln('Remaining: ' + ( countTotal - workerCount ) + '  Cache: ' + currentPackageName);
 
       var url = packageDetailURL.replace('$1', encodeURIComponent(currentPackageName));
 
@@ -126,7 +134,7 @@ module.exports = function( grunt ) {
       if(qualityCount[quality] === undefined) qualityCount[quality] = 0;
       qualityCount[quality]++;
 
-      newItems[currentPackageName] = url;
+      newItemsCount++;
     };
 
     var storeNoResult = function() {
@@ -155,12 +163,12 @@ module.exports = function( grunt ) {
       grunt.file.write(dataPath, JSON.stringify(contentMap, null, ' '));
       grunt.file.write(registryPath, JSON.stringify(content, null, ' '));
       grunt.file.write(noresultPath, JSON.stringify(noResult, null, ' '));
-      grunt.file.write(newresultPath, JSON.stringify(newItems, null, ' '));
 
       grunt.log.writeln('Content: ' + content.total);
       grunt.log.writeln('NoResult: ' + Object.keys(noResult).length);
       grunt.log.writeln('QualityCount: ' + JSON.stringify(qualityCount));
       grunt.log.writeln('queue: ' + queue.length);
+      grunt.log.writeln('newItemsCount: ' + newItemsCount);
     };
 
     init();

@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
     var registryPath = 'app/data/bower.json';
     var url = 'https://bower-component-list.herokuapp.com';
     var result = {};
-    var newItems = {};
+    var newItemsCount = 0;
 
     if( grunt.file.exists(registryPath) ) {
       result = JSON.parse(grunt.file.read(registryPath)).rows;
@@ -29,12 +29,10 @@ module.exports = function( grunt ) {
         item = body[i];
         pkg = item.name;
 
-        if( result[pkg] ) {
-          grunt.log.debug('Already stored: ' + pkg);
-        } else {
+        if( !result[pkg] ) {
           grunt.log.debug('Add: ' + pkg);
           result[pkg] = item.website;
-          newItems[pkg] = result[pkg];
+          newItemsCount++;
         }
       }
 
@@ -43,10 +41,8 @@ module.exports = function( grunt ) {
         rows: result
       }
       grunt.file.write('app/data/bower.json', JSON.stringify(content, null, ' '));
+      grunt.log.writeln('newItemsCount: ' + newItemsCount);
 
-      if(Object.keys(newItems).length > 0) {
-        grunt.config.set('newBowerItems', newItems);
-      }
       done();
     });
   });

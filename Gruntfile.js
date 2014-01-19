@@ -290,6 +290,8 @@ module.exports = function (grunt) {
         'mocha'
     ]);
 
+    grunt.registerTask('release', ['buildCache', 'build']);
+
     grunt.registerTask('build', [
         'clean:dist',
         'chromeManifest:dist',
