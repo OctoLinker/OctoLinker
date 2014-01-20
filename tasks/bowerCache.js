@@ -42,6 +42,7 @@ module.exports = function( grunt ) {
       }
       grunt.file.write('app/data/bower.json', JSON.stringify(content, null, ' '));
       grunt.log.writeln('newItemsCount: ' + newItemsCount);
+      grunt.config.set('newBowerItems', newItemsCount);
 
       done();
     });
