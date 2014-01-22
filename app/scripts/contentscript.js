@@ -25,7 +25,7 @@ var missingGithubLinks = {
 
     $(".code-body a span").unwrap();
 
-    var types = ['dependencies', 'devDependencies', 'peerDependencies'];
+    var types = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
     var list = types.map(function( item ) {
       return self.getPackageNodes(item);
     });
