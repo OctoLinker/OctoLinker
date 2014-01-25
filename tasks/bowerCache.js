@@ -11,7 +11,8 @@ module.exports = function( grunt ) {
   grunt.registerTask('bowerCache', function() {
     var done = this.async();
 
-    var registryPath = 'app/data/bower.json';
+    var dataPath = 'app/data/bower.js';
+    var registryPath = 'data/bower.json';
     var url = 'https://bower-component-list.herokuapp.com';
     var result = {};
     var newItemsCount = 0;
@@ -40,7 +41,12 @@ module.exports = function( grunt ) {
         total: Object.keys(result).length,
         rows: result
       }
-      grunt.file.write('app/data/bower.json', JSON.stringify(content, null, ' '));
+
+      var jsContent = 'var bowerRegistry = ' + JSON.stringify(content, null, ' ') + ';';
+
+      grunt.file.write(dataPath, jsContent);
+      grunt.file.write(registryPath, JSON.stringify(content, null, ' '));
+
       grunt.log.writeln('newItemsCount: ' + newItemsCount);
       grunt.config.set('newBowerItems', newItemsCount);
 

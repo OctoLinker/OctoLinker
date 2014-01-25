@@ -11,7 +11,7 @@ module.exports = function( grunt ) {
 
   var registryURL = 'http://isaacs.iriscouch.com/registry/_all_docs';
   var packageDetailURL = 'https://registry.npmjs.org/$1';
-  var dataPath = 'app/data/npm.json';
+  var dataPath = 'app/data/npm.js';
   var registryPath = 'data/npm.json';
   var noresultPath = 'data/npm_noresult.json';
   var qualityCount = [];
@@ -160,7 +160,9 @@ module.exports = function( grunt ) {
         rows: map
       }
 
-      grunt.file.write(dataPath, JSON.stringify(contentMap, null, ' '));
+      var jsContent = 'var npmRegistry = ' + JSON.stringify(contentMap, null, ' ') + ';';
+
+      grunt.file.write(dataPath, jsContent);
       grunt.file.write(registryPath, JSON.stringify(content, null, ' '));
       grunt.file.write(noresultPath, JSON.stringify(noResult, null, ' '));
 

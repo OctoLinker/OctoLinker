@@ -4,20 +4,19 @@ var missingGithubLinks = {
 
   packageType: null,
 
-  init: function() {
-    var self = this;
-    if( location.pathname.indexOf('/package.json') !== -1 ) {
-      self.packageType = 'npm';
-    } else if( location.pathname.indexOf('/bower.json') !== -1 ) {
-      self.packageType = 'bower';
-    } else {
+  init: function( type ) {
+    if( !type ) {
       return;
     }
 
-    $.getJSON(chrome.extension.getURL('data/' + self.packageType + '.json'), function( settings ) {
-      self.registryList = settings.rows;
-      self.updateDom();
-    });
+    var self = this;
+    if(type === 'npm') {
+      self.registryList = npmRegistry.rows;
+    }else if(type === 'bower') {
+      self.registryList = bowerRegistry.rows;
+    }
+
+    self.updateDom();
   },
 
   updateDom: function() {
@@ -66,7 +65,7 @@ var missingGithubLinks = {
       var link = self.registryList[item.pkgName];
       var $link = $('<a>');
 
-      if( !link && self.packageType === 'npm') {
+      if( !link && self.packageType === 'npm' ) {
         link = 'https://npmjs.org/package/' + item.pkgName;
       }
 
