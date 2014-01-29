@@ -1,5 +1,8 @@
 #Changelog
 
+## 1.0.15 - 2014-01-29
+- Add 506 NPM and 211 Bower links.
+
 ## 1.0.14 - 2014-01-25
 - Add 205 NPM and 8 Bower links.
 
