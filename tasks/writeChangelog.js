@@ -17,6 +17,10 @@ module.exports = function (grunt) {
 
     if (grunt.file.exists(versionFile)) {
       version = JSON.parse(grunt.file.read(versionFile)).version;
+
+      var pkg = grunt.file.read('package.json');
+      pkg.version = version;
+      grunt.file.write('package.json', pkg);
     }
 
     output += '## ';
@@ -28,15 +32,16 @@ module.exports = function (grunt) {
 
     var newBowerItems = grunt.config.get('newBowerItems');
     var newNPMItems = grunt.config.get('newNPMItems');
+    var bold = '***';
 
     if (newBowerItems || newNPMItems) {
       output += '- Add ';
       if (newBowerItems && newNPMItems) {
-        output += newNPMItems + ' NPM and ' + newBowerItems + ' Bower';
+        output += bold + newNPMItems + bold + ' NPM and ' + bold + newBowerItems + bold + ' Bower';
       } else if (newBowerItems) {
-        output += newBowerItems + ' Bower';
+        output += bold + newBowerItems + bold + ' Bower';
       } else if (newNPMItems) {
-        output += newNPMItems + ' NPM';
+        output += bold + newNPMItems + bold + ' NPM';
       }
       output += ' links.\n'
     }

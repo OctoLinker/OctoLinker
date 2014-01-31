@@ -274,6 +274,21 @@ module.exports = function (grunt) {
                     dest: ''
                 }]
             }
+        },
+        bump: {
+            options: {
+                files: ['package.json'],
+                updateConfigs: [],
+                commit: true,
+                commitMessage: 'Update npm and bower links v%VERSION%',
+                commitFiles: ['-a'],
+                createTag: true,
+                tagName: 'v%VERSION%',
+                tagMessage: 'Version %VERSION%',
+                push: false,
+                pushTo: 'master',
+                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
+            }
         }
     });
 
@@ -290,7 +305,7 @@ module.exports = function (grunt) {
         'mocha'
     ]);
 
-    grunt.registerTask('release', ['buildCache', 'build', 'writeChangelog']);
+    grunt.registerTask('release', ['buildCache', 'build', 'writeChangelog', 'bump']);
 
     grunt.registerTask('build', [
         'clean:dist',

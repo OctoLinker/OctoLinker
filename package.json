@@ -1,6 +1,6 @@
 {
   "name": "github-linker",
-  "version": "0.0.0",
+  "version": "1.0.16",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -26,7 +26,8 @@
     "grunt-chrome-manifest": "~0.1.0",
     "time-grunt": "~0.1.1",
     "request": "~2.30.0",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "grunt-bump": "0.0.13"
   },
   "engines": {
     "node": ">=0.8.0"
