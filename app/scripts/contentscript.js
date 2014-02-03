@@ -9,32 +9,43 @@ var missingGithubLinks = {
       return;
     }
 
+    this.packageType = type;
+
+    try {
+      this._run();
+    } catch(err) {
+      console.error(err);
+    }
+  },
+
+  _run: function() {
+
     var self = this;
-    if(type === 'npm') {
+    if(self.packageType === 'npm') {
       self.registryList = npmRegistry.rows;
-    }else if(type === 'bower') {
+    }else if(self.packageType === 'bower') {
       self.registryList = bowerRegistry.rows;
     }
 
-    self.updateDom();
+    self._updateDom();
   },
 
-  updateDom: function() {
+  _updateDom: function() {
     var self = this;
 
     $(".code-body a span").unwrap();
 
     var types = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
     var list = types.map(function( item ) {
-      return self.getPackageNodes(item);
+      return self._getPackageNodes(item);
     });
 
     $.each(list, function( index, item ) {
-      self.createLinkTag(item);
+      self._createLinkTag(item);
     });
   },
 
-  getPackageNodes: function( selector ) {
+  _getPackageNodes: function( selector ) {
     var root = $(".code-body .nt:contains('" + selector + "')");
 
     if( !root || root.length === 0 ) {
@@ -58,7 +69,7 @@ var missingGithubLinks = {
     return result;
   },
 
-  createLinkTag: function( list ) {
+  _createLinkTag: function( list ) {
     var self = this;
 
     $.each(list, function( index, item ) {
