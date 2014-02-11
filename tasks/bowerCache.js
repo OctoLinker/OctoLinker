@@ -49,6 +49,7 @@ module.exports = function( grunt ) {
 
       grunt.log.writeln('newItemsCount: ' + newItemsCount);
       grunt.config.set('newBowerItems', newItemsCount);
+      grunt.config.set('totalBowerItems', content.total);
 
       done();
     });

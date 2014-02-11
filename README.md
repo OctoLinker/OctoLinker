@@ -6,6 +6,12 @@ The "Dependencies Linker for GitHub" is a Google Chrome Extension which links [n
 
 ![a](showcase.gif)
 
+# Stats
+
+Total NPM packages: 51987
+
+Total bower packages: 8532
+
 # Installation
 
 Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/dependencies-linker-for-g/jlmafbaeoofdegohdhinkhilhclaklkp) and click on the add button.

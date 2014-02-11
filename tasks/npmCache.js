@@ -172,6 +172,7 @@ module.exports = function( grunt ) {
       grunt.log.writeln('queue: ' + queue.length);
       grunt.log.writeln('newItemsCount: ' + newItemsCount);
       grunt.config.set('newNPMItems', newItemsCount);
+      grunt.config.set('totalNPMItems', content.total);
     };
 
     init();

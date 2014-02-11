@@ -305,7 +305,7 @@ module.exports = function (grunt) {
         'mocha'
     ]);
 
-    grunt.registerTask('release', ['buildCache', 'build', 'writeChangelog', 'bump']);
+    grunt.registerTask('release', ['buildCache', 'build', 'writeChangelog', 'writeStats', 'bump']);
 
     grunt.registerTask('build', [
         'clean:dist',
