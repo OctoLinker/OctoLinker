@@ -52,7 +52,7 @@ exports.init = function( grunt ) {
 
       if(error) {
         exports.writeLog('getResource error ' + options.uri);
-        exports.getResource(options, cb);
+        cb(error, response, null);
         return;
       }
 
