@@ -19,12 +19,13 @@ var missingGithubLinks = {
   },
 
   _run: function() {
-
     var self = this;
     if(self.packageType === 'npm') {
       self.registryList = npmRegistry.rows;
+      chrome.runtime.sendMessage({action: 'init', value: self.packageType});
     }else if(self.packageType === 'bower') {
       self.registryList = bowerRegistry.rows;
+      chrome.runtime.sendMessage({action: 'init', value: self.packageType});
     }
 
     self._updateDom();
@@ -33,7 +34,7 @@ var missingGithubLinks = {
   _updateDom: function() {
     var self = this;
 
-    $(".code-body a span").unwrap();
+    $('.code-body a span').unwrap();
 
     var types = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
     var list = types.map(function( item ) {
@@ -46,7 +47,7 @@ var missingGithubLinks = {
   },
 
   _getPackageNodes: function( selector ) {
-    var root = $(".code-body .nt:contains('" + selector + "')");
+    var root = $('.code-body .nt:contains(\'' + selector + '\')');
 
     if( !root || root.length === 0 ) {
       return [];
@@ -81,7 +82,11 @@ var missingGithubLinks = {
       }
 
       if( link ) {
-        $link.attr('href', link);
+        $link.attr('href', link)
+        .on('click', function() {
+          var url =  $(this).attr('href');
+          chrome.runtime.sendMessage({action: 'forwarding', value: url});
+        });
         item.el.wrap($link);
       } else {
         item.el.addClass('tooltipped').attr('original-title', 'Sorry, there is no link for this package available');
