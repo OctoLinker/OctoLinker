@@ -1,5 +1,8 @@
 #Changelog
 
+## 1.0.27 - 2014-03-13
+- Add ***304*** NPM and ***91*** Bower links.
+
 ## 1.0.26 - 2014-03-12
 - Add ***277*** NPM and ***107*** Bower links.
 
