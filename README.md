@@ -6,9 +6,9 @@ The "Dependencies Linker for GitHub" is a Google Chrome Extension which links [n
 
 # Total supported repositories
 
-NPM: 57637
+NPM: 58087
 
-bower: 10333
+bower: 10447
 
 # Installation
 
