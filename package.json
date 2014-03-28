@@ -1,6 +1,6 @@
 {
   "name": "github-linker",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
