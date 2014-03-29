@@ -7918,5 +7918,19 @@
  "triangle": "triangle",
  "wmic": "wmic",
  "wmj": "wmj",
- "world": "world"
+ "world": "world",
+ "aspic": "aspic",
+ "ctospace-mysql": "ctospace-mysql",
+ "dmnode": "dmnode",
+ "dnspod": "dnspod",
+ "epp": "epp",
+ "gasp": "gasp",
+ "gist-put-002": "gist-put-002",
+ "gulp-flow": "gulp-flow",
+ "iterm2": "iterm2",
+ "jsdtmd": "jsdtmd",
+ "kingman": "kingman",
+ "learnyoukoa": "learnyoukoa",
+ "mayfly": "mayfly",
+ "requests": "requests"
 }
