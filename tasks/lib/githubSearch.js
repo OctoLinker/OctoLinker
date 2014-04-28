@@ -14,7 +14,7 @@ exports.init = function (grunt) {
   var clientSecret = process.env.GITHUB_CLIENT_SECRET;
 
   var searchURI = 'https://api.github.com/search/repositories?q=$1&client_id=' + clientId + '&client_secret=' + clientSecret;
-  var rawURI = 'https://raw2.github.com/$1/master/package.json';
+  var rawURI = 'https://raw.githubusercontent.com/$1/master/package.json';
 
   exports.go = function (npmResponse, next) {
 
