@@ -1,5 +1,8 @@
 #Changelog
 
+## 1.0.46 - 2014-06-02
+- Add ***1815*** NPM and ***529*** Bower links.
+
 ## 1.0.45 - 2014-05-21
 - Add ***1288*** NPM and ***435*** Bower links.
 
