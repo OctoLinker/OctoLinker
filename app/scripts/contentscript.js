@@ -89,7 +89,7 @@ var missingGithubLinks = {
         });
         item.el.wrap($link);
       } else {
-        item.el.addClass('tooltipped').attr('original-title', 'Sorry, there is no link for this package available');
+        item.el.addClass('tooltipped tooltipped-e').attr('aria-label', 'Sorry, there is no link for this package available');
       }
     });
   }
