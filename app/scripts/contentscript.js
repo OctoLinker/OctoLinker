@@ -65,7 +65,9 @@ var missingGithubLinks = {
         var targetURL = null;
         if(elVersion.length) {
             var versionString = elVersion.html().replace(/"/g, '');
+            // GitHub URL user/repo
             if(versionString.split('/').length === 2) {
+                versionString = versionString.replace('#', '/tree/');
                 targetURL = 'https://github.com/' + versionString;
             }
         }
