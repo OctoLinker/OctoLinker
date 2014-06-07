@@ -55,15 +55,28 @@ var missingGithubLinks = {
 
     var result = [];
     var el;
+    var elVersion = null;
     var next = root.parent().next();
 
     if( next ) {
       while( next.children().length !== 1 ) {
         el = next.children().eq(0);
-        result.push({
+        elVersion = next.children().eq(2);
+        var targetURL = null;
+        if(elVersion.length) {
+            var versionString = elVersion.html().replace(/"/g, '');
+            if(versionString.split('/').length === 2) {
+                targetURL = 'https://github.com/' + versionString;
+            }
+        }
+
+        var pkgData = {
           el: el,
-          pkgName: el.html().replace(/"/g, '')
-        });
+          pkgName: el.html().replace(/"/g, ''),
+          targetURL: targetURL
+        };
+
+        result.push(pkgData);
         next = next.next();
       }
     }
@@ -77,7 +90,9 @@ var missingGithubLinks = {
       var link = self.registryList[item.pkgName];
       var $link = $('<a>');
 
-      if( !link && self.packageType === 'npm' ) {
+      if(item.targetURL) {
+        link = item.targetURL;
+      } else if( !link && self.packageType === 'npm' ) {
         link = 'https://npmjs.org/package/' + item.pkgName;
       }
 
