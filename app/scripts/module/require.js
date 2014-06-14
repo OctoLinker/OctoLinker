@@ -1,6 +1,6 @@
 'use strict';
 
-var requireModule = function(type) {
+window.requireModule = function() {
 
     var init = function() {
         console.log('requireModule.init()');

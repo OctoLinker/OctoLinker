@@ -24,11 +24,11 @@ var getType = function() {
     return null;
 };
 
-var init = function() {
 
-    if(currentURL === location.href) {
-        return;
-    }
+var init = _.debounce(function() {
+
+    console.log('init');
+
     currentURL = location.href;
 
     var type = getType();
@@ -39,9 +39,7 @@ var init = function() {
         window.dependenciesModule(type);
         break;
     case 'js':
-        window.requireModule(type);
+        window.requireModule();
         break;
     }
-};
-
-init();
+}, 250);

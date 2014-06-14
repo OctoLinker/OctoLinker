@@ -9,9 +9,11 @@ chrome.tabs.onUpdated.addListener(function (tabId) {
 });
 
 chrome.tabs.onUpdated.addListener(function( tabId, changeInfo, tab ) {
-  if( changeInfo.status === 'complete' ) {
-    if( tab && tab.url ) {
-        chrome.tabs.executeScript(null, {code: 'init();'});
+    if( changeInfo.status === 'complete' ) {
+        if( tab && tab.url ) {
+            console.log('executeScript ' + tab.url );
+
+            chrome.tabs.executeScript(null, {code: 'init();'});
+        }
     }
-  }
 });

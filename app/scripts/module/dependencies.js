@@ -1,6 +1,6 @@
 'use strict';
 
-var dependenciesModule = function(type) {
+window.dependenciesModule = function(type) {
 
     var init = function() {
         console.log('dependenciesModule.init(' + type + ')');

@@ -12,7 +12,8 @@
         "scripts": [
             "scripts/chromereload.js",
             "scripts/background.js"
-        ]
+        ],
+        "persistent": true
     },
   "page_action": {
     "default_icon": {
@@ -32,7 +33,8 @@
         "styles/main.css"
       ],
       "js": [
-        "scripts/lib/jquery.js",
+        "lib/jquery.js",
+        "lib/underscore.js",
         "data/bower.js",
         "data/npm.js",
         "scripts/module/dependencies.js",
