@@ -1,38 +1,32 @@
 'use strict';
 
-window.requireModule = function() {
+module.exports = function() {
+    console.log('requireModule.init()');
 
-    var init = function() {
-        console.log('requireModule.init()');
+    var $requires = $('span.nx:contains(require)').next().next();
 
-        var $requires = $('span.nx:contains(require)').next().next();
+    $.each($requires, function(index, el) {
 
-        $.each($requires, function(index, el) {
+        var val = $(el).html().replace(/'|"/g, '');
+        var link = '';
 
-            var val = $(el).html().replace(/'|"/g, '');
-            var link = '';
+        if ( val.indexOf('.') === 0) {
 
-            if ( val.indexOf('.') === 0) {
+            link = val;
 
-                link = val;
-
-                var suffix = '.js';
-                if (val.indexOf(suffix) !== val.length - suffix.length ) {
-                    link += '.js';
-                }
+            var suffix = '.js';
+            if (val.indexOf(suffix) !== val.length - suffix.length ) {
+                link += '.js';
             }
+        }
 
-            if (npmRegistry.rows[val]) {
-                link = npmRegistry.rows[val];
-            }
+        if (npmRegistry.rows[val]) {
+            link = npmRegistry.rows[val];
+        }
 
-            if (link) {
-                $(el).wrap('<a href="' + link + '">');
-            }
+        if (link) {
+            $(el).wrap('<a href="' + link + '">');
+        }
 
-        });
-
-    };
-
-    init();
+    });
 };

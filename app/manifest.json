@@ -37,8 +37,6 @@
         "lib/underscore.js",
         "data/bower.js",
         "data/npm.js",
-        "scripts/module/dependencies.js",
-        "scripts/module/require.js",
         "scripts/contentscript.js"
       ],
       "run_at": "document_end",

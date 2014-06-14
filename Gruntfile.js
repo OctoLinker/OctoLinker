@@ -34,8 +34,8 @@ module.exports = function (grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/scripts/{,*/}*.js'],
-                tasks: ['jshint'],
+                files: ['<%= config.app %>/scripts/{,*/}*.js', '!<%= config.app %>/scripts/contentscript.js'],
+                tasks: ['jshint', 'browserify'],
                 options: {
                     livereload: true
                 }
@@ -115,7 +115,8 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= config.app %>/scripts/{,*/}*.js',
                 '!<%= config.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
+                'test/spec/{,*/}*.js',
+                '!<%= config.app %>/scripts/contentscript.js'
             ]
         },
         mocha: {
@@ -289,12 +290,21 @@ module.exports = function (grunt) {
                     dest: ''
                 }]
             }
+        },
+
+        browserify: {
+            dist: {
+                files: {
+                    '<%= config.app %>/scripts/contentscript.js': ['<%= config.app %>/scripts/**/*.js', '!<%= config.app %>/scripts/contentscript.js', '!<%= config.app %>/scripts/background.js', '!<%= config.app %>/scripts/chromereload.js', '!<%= config.app %>/scripts/options.js', '!<%= config.app %>/scripts/popup.js'],
+                }
+            }
         }
     });
 
     grunt.registerTask('debug', function () {
         grunt.task.run([
             'jshint',
+            'browserify',
             'concurrent:chrome',
             'connect:chrome',
             'watch'
