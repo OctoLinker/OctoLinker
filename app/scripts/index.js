@@ -28,9 +28,6 @@ module.exports = function () {
     };
 
     return _.debounce(function() {
-
-        console.log('init');
-
         var type = getType();
         switch (type) {
         case 'npm':
