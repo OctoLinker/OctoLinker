@@ -47,8 +47,10 @@ window.init = module.exports();
 },{"./module/dependencies.js":2,"./module/require.js":3}],2:[function(require,module,exports){
 'use strict';
 
+var path = require('path');
 
 var packageType = '';
+var GITHUBCOM = 'https://github.com/';
 
 var getPackageNodes = function( selector ) {
     var root = $('.code-body .nt:contains(\'' + selector + '\')');
@@ -134,9 +136,20 @@ module.exports = function(type) {
     $.each(list, function( index, item ) {
         createLinkTag(item);
     });
+
+    if (type === 'npm') {
+        var $main = $('span.nt:contains("main")').next().next();
+        var val = $main.html().replace(/'|"/g, '');
+        var basePath = location.href.replace(GITHUBCOM, '');
+        var link = path.resolve(path.dirname(basePath), val);
+
+        if (link) {
+            $main.wrap('<a href="' + link + '">');
+        }
+    }
 };
 
-},{}],3:[function(require,module,exports){
+},{"path":5}],3:[function(require,module,exports){
 'use strict';
 
 var path = require('path');
