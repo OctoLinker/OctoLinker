@@ -3,7 +3,13 @@
 var path = require('path');
 var util = require('util');
 
-var coreModules = ['fs', 'url', 'util'];
+// List of nodejs core modules (v0.11.13)
+// see: https://github.com/joyent/node/blob/master/lib/repl.js#L72
+var coreModules = ['assert', 'buffer', 'child_process', 'cluster',
+  'crypto', 'dgram', 'dns', 'domain', 'events', 'fs', 'http', 'https', 'net',
+  'os', 'path', 'punycode', 'querystring', 'readline', 'stream',
+  'string_decoder', 'tls', 'tty', 'url', 'util', 'vm', 'zlib', 'smalloc',
+  'tracing'];
 var GITHUBCOM = 'https://github.com/';
 var NODEAPICOM = 'http://nodejs.org/api/%s.html';
 
