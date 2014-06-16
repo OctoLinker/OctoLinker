@@ -2,6 +2,7 @@
 
 chrome.runtime.onInstalled.addListener(function (details) {
     console.log('previousVersion', details.previousVersion);
+    chrome.tabs.executeScript(null, {code: 'intro();'});
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId) {
@@ -28,7 +29,6 @@ chrome.tabs.onUpdated.addListener(function( tabId, changeInfo, tab ) {
 
     if( changeInfo.status === 'complete' ) {
         if( tab && tab.url ) {
-            console.log('executeScript ' + tab.url );
             // Check if we are at github
             var location = getLocation(tab.url);
             if (location && location.hostname && location.hostname.indexOf('github') !== -1) {

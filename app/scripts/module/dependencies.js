@@ -48,9 +48,9 @@ var createLinkTag = function( list ) {
     var registryList = null;
 
     if(packageType === 'npm') {
-        registryList = npmRegistry.rows;
+        registryList = require('../cache/npm.js');
     }else if(packageType === 'bower') {
-        registryList = bowerRegistry.rows;
+        registryList = require('../cache/bower.js');
     }
 
     $.each(list, function( index, item ) {

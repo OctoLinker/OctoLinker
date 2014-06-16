@@ -1,12 +1,13 @@
 {
   "name": "github-linker",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "dependencies": {},
   "devDependencies": {
     "browserify": "^4.1.10",
     "grunt": "~0.4.1",
     "grunt-bower-install": "~1.0.0",
     "grunt-browserify": "^2.1.0",
+    "grunt-bump": "0.0.14",
     "grunt-chrome-manifest": "~0.2.0",
     "grunt-concurrent": "~0.4.0",
     "grunt-contrib-clean": "~0.5.0",
@@ -25,6 +26,8 @@
     "grunt-usemin": "~0.1.10",
     "jshint-stylish": "~0.1.3",
     "load-grunt-tasks": "~0.2.0",
+    "lodash": "^2.4.1",
+    "request": "^2.36.0",
     "time-grunt": "~0.2.0"
   },
   "engines": {

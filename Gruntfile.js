@@ -116,7 +116,8 @@ module.exports = function (grunt) {
                 '<%= config.app %>/scripts/{,*/}*.js',
                 '!<%= config.app %>/scripts/vendor/*',
                 'test/spec/{,*/}*.js',
-                '!<%= config.app %>/scripts/contentscript.js'
+                '!<%= config.app %>/scripts/contentscript.js',
+                '!<%= config.app %>/scripts/cache/*.js'
             ]
         },
         mocha: {
@@ -291,7 +292,21 @@ module.exports = function (grunt) {
                 }]
             }
         },
-
+        bump: {
+            options: {
+                files: ['package.json'],
+                updateConfigs: [],
+                commit: false,
+                commitMessage: 'Update npm and bower links v%VERSION%',
+                commitFiles: ['-a'],
+                createTag: false,
+                tagName: 'v%VERSION%',
+                tagMessage: 'Version %VERSION%',
+                push: false,
+                pushTo: 'master',
+                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
+            }
+        },
         browserify: {
             dist: {
                 files: {
@@ -299,7 +314,22 @@ module.exports = function (grunt) {
                 }
             }
         }
+
     });
+
+    grunt.loadTasks('tasks');
+
+    grunt.registerTask('buildCache', [
+        'bowerCache', 'npmCache'
+    ]);
+
+    grunt.registerTask('release', [
+        'buildCache',
+        'build',
+        'writeChangelog',
+        'writeStats',
+        'bump'
+    ]);
 
     grunt.registerTask('debug', function () {
         grunt.task.run([

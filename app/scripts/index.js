@@ -2,6 +2,7 @@
 
 var requireModule = require('./module/require.js');
 var dependenciesModule = require('./module/dependencies.js');
+var intro = require('./intro.js');
 
 module.exports = function () {
 
@@ -42,3 +43,4 @@ module.exports = function () {
 };
 
 window.init = module.exports();
+window.intro = intro;
