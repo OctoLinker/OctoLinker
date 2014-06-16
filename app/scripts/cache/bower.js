@@ -1,5 +1,5 @@
 
-// Total: 14207
+// Total: 14212
 // Date: 2014-06-16
 
 module.exports = {
@@ -14209,5 +14209,10 @@ module.exports = {
  "octicons": "https://github.com/github/octicons",
  "roslibjs": "https://github.com/RobotWebTools/roslibjs",
  "scrollme": "https://github.com/nckprsn/scrollme",
- "simple-scroll": "https://github.com/ryanwalters/simple-scroll"
+ "simple-scroll": "https://github.com/ryanwalters/simple-scroll",
+ "pygal.js": "https://github.com/trinketapp/pygal.js",
+ "react-imageloader": "https://github.com/hzdg/react-imageloader",
+ "react-loadermixin": "https://github.com/hzdg/react-loadermixin",
+ "react-loadqueueloader": "https://github.com/hzdg/react-loadqueueloader",
+ "scroll-up-bar": "https://github.com/eduardomb/scroll-up-bar"
 };

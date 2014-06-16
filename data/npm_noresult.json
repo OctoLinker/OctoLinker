@@ -9821,5 +9821,9 @@
  "worldcup2014": "worldcup2014",
  "wxsnode": "wxsnode",
  "yml-config": "yml-config",
- "zhump": "zhump"
+ "zhump": "zhump",
+ "bounce8080": "bounce8080",
+ "db-math1": "db-math1",
+ "mapbox-gl-styles": "mapbox-gl-styles",
+ "tsstore": "tsstore"
 }

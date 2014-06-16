@@ -1,5 +1,8 @@
 #Changelog
 
+## 2.0.1 - 2014-06-16
+- Add ***11*** NPM and ***5*** Bower links.
+
 ## 2.0.0 - 2014-06-16
 - Link require() statements with the related file or package
 - Link the entry point "main" in a package.json with the related file. Thanks to [kwakayama](https://github.com/kwakayama).
