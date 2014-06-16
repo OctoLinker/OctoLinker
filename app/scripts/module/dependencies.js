@@ -92,12 +92,14 @@ module.exports = function(type) {
 
     if (type === 'npm') {
         var $main = $('span.nt:contains("main")').next().next();
-        var val = $main.html().replace(/'|"/g, '');
-        var basePath = location.href.replace(GITHUBCOM, '');
-        var link = path.resolve(path.dirname(basePath), val);
+        if($main.length > 0) {
+            var val = $main.html().replace(/'|"/g, '');
+            var basePath = location.href.replace(GITHUBCOM, '');
+            var link = path.resolve(path.dirname(basePath), val);
 
-        if (link) {
-            $main.wrap('<a href="' + link + '">');
+            if (link) {
+                $main.wrap('<a href="' + link + '">');
+            }
         }
     }
 };
