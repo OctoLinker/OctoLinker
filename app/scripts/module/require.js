@@ -28,14 +28,15 @@ var getRequireLink = function(requireValue) {
 
     var link = '';
     var basePath = location.href.replace(GITHUBCOM, '');
+    var npmRegistry = require('../cache/npm.js');
 
     if (coreModules.indexOf(requireValue) !== -1 ) {
 
         link = util.format(NODEAPICOM, requireValue);
 
-    } else if (npmRegistry.rows[requireValue]) {
+    } else if (npmRegistry[requireValue]) {
 
-        link = npmRegistry.rows[requireValue];
+        link = npmRegistry[requireValue];
 
     } else {
 

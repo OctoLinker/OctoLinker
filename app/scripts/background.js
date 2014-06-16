@@ -2,7 +2,6 @@
 
 chrome.runtime.onInstalled.addListener(function (details) {
     console.log('previousVersion', details.previousVersion);
-    chrome.tabs.executeScript(null, {code: 'intro();'});
 });
 
 chrome.tabs.onUpdated.addListener(function (tabId) {

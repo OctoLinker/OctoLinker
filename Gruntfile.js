@@ -296,10 +296,10 @@ module.exports = function (grunt) {
             options: {
                 files: ['package.json'],
                 updateConfigs: [],
-                commit: false,
+                commit: true,
                 commitMessage: 'Update npm and bower links v%VERSION%',
                 commitFiles: ['-a'],
-                createTag: false,
+                createTag: true,
                 tagName: 'v%VERSION%',
                 tagMessage: 'Version %VERSION%',
                 push: false,
