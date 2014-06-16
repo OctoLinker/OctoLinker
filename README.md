@@ -2,8 +2,8 @@
 
 The "Dependencies Linker for GitHub" is a Google Chrome Extension which links [npm](http://npmjs.org) and [bower](http://bower.io) dependencies listed in package.json / bower.json on GitHub to their project’s pages. It also links require() statements with the related file or package.
 
-![a](rquire.gif)
-![a](showcase.gif)
+![a](require.gif)
+![a](dependencies.gif)
 
 # Total supported repositories
 
