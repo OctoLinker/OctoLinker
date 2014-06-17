@@ -8,3 +8,4 @@ test/bower_components
 package
 .DS_Store
 cache/
+error.log

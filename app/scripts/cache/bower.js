@@ -1,6 +1,6 @@
 
-// Total: 14212
-// Date: 2014-06-16
+// Total: 14226
+// Date: 2014-06-17
 
 module.exports = {
  "66": "https://github.com/airportyh/66",
@@ -14214,5 +14214,19 @@ module.exports = {
  "react-imageloader": "https://github.com/hzdg/react-imageloader",
  "react-loadermixin": "https://github.com/hzdg/react-loadermixin",
  "react-loadqueueloader": "https://github.com/hzdg/react-loadqueueloader",
- "scroll-up-bar": "https://github.com/eduardomb/scroll-up-bar"
+ "scroll-up-bar": "https://github.com/eduardomb/scroll-up-bar",
+ "codepen-embed": "https://github.com/Jupiterrr/codepen-embed-component",
+ "jquery.speak": "https://github.com/ChrisAntaki/jquery.speak",
+ "ReptileForms": "https://github.com/bradwestfall/ReptileForms",
+ "webfont-opensans": "https://github.com/sonicparke/webfont-opensans",
+ "d3.dataset": "https://github.com/zocoi/dataset",
+ "keylime": "https://github.com/andyearnshaw/keyLime",
+ "b-type": "https://github.com/houkanshan/b-type",
+ "FormBuilder": "https://github.com/DrAlexMV/FormBuilder",
+ "inflatetext.js": "https://github.com/rjz/inflateText.js",
+ "jquery-btc": "https://github.com/alfg/jquery-btc",
+ "mossflower": "https://github.com/herereadthis/mossflower",
+ "angular-mixpanel": "https://github.com/kuhnza/angular-mixpanel",
+ "ep0PubSub": "https://github.com/cradu/ep0ps",
+ "form-builder": "https://github.com/DrAlexMV/FormBuilder"
 };

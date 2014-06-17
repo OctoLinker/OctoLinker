@@ -1,6 +1,6 @@
 {
   "name": "github-linker",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "dependencies": {},
   "devDependencies": {
     "browserify": "^4.1.10",
