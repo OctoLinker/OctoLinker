@@ -1,6 +1,5 @@
 'use strict';
 
-var path = require('path');
 var util = require('util');
 
 // List of nodejs core modules (v0.11.13)
@@ -10,7 +9,7 @@ var coreModules = ['assert', 'buffer', 'child_process', 'cluster',
   'os', 'path', 'punycode', 'querystring', 'readline', 'stream',
   'string_decoder', 'tls', 'tty', 'url', 'util', 'vm', 'zlib', 'smalloc',
   'tracing'];
-var GITHUBCOM = 'https://github.com/';
+// var GITHUBCOM = 'https://github.com/';
 var NODEAPICOM = 'http://nodejs.org/api/%s.html';
 
 /**
@@ -27,7 +26,6 @@ var NODEAPICOM = 'http://nodejs.org/api/%s.html';
 var getRequireLink = function(requireValue) {
 
     var link = '';
-    var basePath = location.href.replace(GITHUBCOM, '');
     var npmRegistry = require('../cache/npm.js');
 
     if (coreModules.indexOf(requireValue) !== -1 ) {
@@ -39,11 +37,12 @@ var getRequireLink = function(requireValue) {
         link = npmRegistry[requireValue];
 
     } else {
-
-        link = path.resolve(path.dirname(basePath), requireValue);
-        if (!path.extname(link) ) {
-            link += '/index.js';
-        }
+        // TODO https://github.com/stefanbuck/github-linker/issues/3
+        // var basePath = location.href.replace(GITHUBCOM, '');
+        // link = path.resolve(path.dirname(basePath), requireValue);
+        // if (!path.extname(link) ) {
+        //     link += '/index.js';
+        // }
     }
 
     return link;
