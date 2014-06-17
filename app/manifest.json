@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -25,9 +25,6 @@
         {
             "matches": [
                 "https://github.com/*/*"
-            ],
-            "css": [
-                "styles/main.css"
             ],
             "js": [
                 "lib/jquery.js",

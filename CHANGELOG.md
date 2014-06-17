@@ -1,5 +1,8 @@
 #Changelog
 
+## 2.0.3 - 2014-06-17
+- Fix CSS Bug. Thanks [MathiasTim](https://github.com/MathiasTim)  for the hint.
+
 ## 2.0.2 - 2014-06-17
 - Add ***54*** NPM links.
 
