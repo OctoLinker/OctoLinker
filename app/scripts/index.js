@@ -11,20 +11,15 @@ module.exports = function () {
             var url = location.href;
             return url.indexOf(indicator) === url.length - indicator.length;
         };
+        var lookup = {
+            '/package.json': 'npm',
+            '/bower.json': 'bower',
+            '.js': 'js'
+        };
 
-        if( urlContains('/package.json')) {
-            return 'npm';
-        }
-
-        if( urlContains('/bower.json')) {
-            return 'bower';
-        }
-
-        if( urlContains('.js')) {
-            return 'js';
-        }
-
-        return null;
+        return _.find(lookup, function(type, urlFragment) {
+            return urlContains(urlFragment);
+        });
     };
 
     return _.debounce(function() {
@@ -35,6 +30,7 @@ module.exports = function () {
             dependenciesModule(type);
             break;
         case 'js':
+        case 'coffee':
             requireModule();
             break;
         }
