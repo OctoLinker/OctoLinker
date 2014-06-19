@@ -1,5 +1,8 @@
 #Changelog
 
+## 2.0.4 - 2014-06-19
+- Add ***357*** NPM and ***133*** Bower links.
+
 ## 2.0.3 - 2014-06-17
 - Fix CSS Bug. Thanks [MathiasTim](https://github.com/MathiasTim)  for the hint.
 

@@ -50,7 +50,10 @@ var getRequireLink = function(requireValue) {
 
 module.exports = function() {
 
-    var $requires = $('span.nx:contains(require)').next().next();
+    // Search for require dom elements
+    var $requires = $('span.nx').filter(function() {
+        return $(this).text() === 'require';
+    }).next().next();
 
     $.each($requires, function(index, el) {
 
