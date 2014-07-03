@@ -7,9 +7,9 @@ The "GitHub Linker" is a Google Chrome Extension which links [npm](http://npmjs.
 
 # Total supported repositories
 
-NPM: 72424
+NPM: 72904
 
-bower: 14874
+bower: 14993
 
 # Installation
 
