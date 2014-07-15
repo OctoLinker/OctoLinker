@@ -1,9 +1,9 @@
 {
   "name": "github-linker",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "dependencies": {},
   "devDependencies": {
-    "browserify": "^4.1.10",
+    "browserify": "^4.2.1",
     "grunt": "~0.4.1",
     "grunt-bower-install": "~1.0.0",
     "grunt-browserify": "^2.1.0",
