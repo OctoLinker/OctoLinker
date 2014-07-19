@@ -10,9 +10,9 @@ Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/github-linker
 
 # Total supported repositories
 
-NPM: 74790
+NPM: 74651
 
-bower: 15622
+bower: 15787
 
 
 # Support
