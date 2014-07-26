@@ -1,6 +1,7 @@
 'use strict';
 
 var path = require('path');
+var $ = require('jquery');
 
 var packageType = '';
 var GITHUBCOM = 'https://github.com/';

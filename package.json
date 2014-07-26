@@ -24,10 +24,12 @@
     "grunt-mocha": "~0.4.10",
     "grunt-svgmin": "~0.4.0",
     "grunt-usemin": "~2.1.0",
+    "jquery": "^2.1.1",
     "jshint-stylish": "~0.1.5",
     "load-grunt-tasks": "~0.4.0",
     "lodash": "^2.4.1",
-    "time-grunt": "~0.3.1"
+    "time-grunt": "~0.3.1",
+    "underscore": "^1.6.0"
   },
   "engines": {
     "node": ">=0.8.0"

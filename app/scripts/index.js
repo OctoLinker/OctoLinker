@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('underscore');
 var requireModule = require('./module/require.js');
 var dependenciesModule = require('./module/dependencies.js');
 

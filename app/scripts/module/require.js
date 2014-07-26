@@ -1,6 +1,7 @@
 'use strict';
 
 var util = require('util');
+var $ = require('jquery');
 
 // List of nodejs core modules (v0.11.13)
 // see: https://github.com/joyent/node/blob/master/lib/repl.js#L72
