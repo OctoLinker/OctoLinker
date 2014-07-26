@@ -1,4 +1,4 @@
-// Generated on 2014-06-13 using generator-chrome-extension 0.2.7
+// Generated on 2014-07-15 using generator-chrome-extension 0.2.9
 'use strict';
 
 // # Globbing
@@ -18,8 +18,7 @@ module.exports = function (grunt) {
     // Configurable paths
     var config = {
         app: 'app',
-        dist: 'dist',
-        manifest: grunt.file.readJSON('app/manifest.json')
+        dist: 'dist'
     };
 
     grunt.initConfig({
@@ -282,7 +281,10 @@ module.exports = function (grunt) {
         compress: {
             dist: {
                 options: {
-                    archive: 'package/GitHub Linker<%= config.manifest.version %>.zip'
+                    archive: function() {
+                        var manifest = grunt.file.readJSON('app/manifest.json');
+                        return 'package/GitHub-Linker-' + manifest.version + '.zip';
+                    }
                 },
                 files: [{
                     expand: true,
@@ -292,21 +294,7 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        bump: {
-            options: {
-                files: ['package.json'],
-                updateConfigs: [],
-                commit: true,
-                commitMessage: 'Update npm and bower links v%VERSION%',
-                commitFiles: ['-a'],
-                createTag: true,
-                tagName: 'v%VERSION%',
-                tagMessage: 'Version %VERSION%',
-                push: false,
-                pushTo: 'master',
-                gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d' // options to use with '$ git describe'
-            }
-        },
+
         browserify: {
             dist: {
                 files: {
@@ -320,15 +308,15 @@ module.exports = function (grunt) {
     grunt.loadTasks('tasks');
 
     grunt.registerTask('buildCache', [
-        'bowerCache', 'npmCache'
+        'bowerCache',
+        'npmCache'
     ]);
 
     grunt.registerTask('release', [
         'buildCache',
         'build',
         'writeChangelog',
-        'writeStats',
-        'bump'
+        'writeStats'
     ]);
 
     grunt.registerTask('debug', function () {
@@ -352,6 +340,7 @@ module.exports = function (grunt) {
         'browserify',
         'useminPrepare',
         'concurrent:dist',
+        // 'cssmin',
         'concat',
         'uglify',
         'copy',

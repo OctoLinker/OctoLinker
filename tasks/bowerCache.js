@@ -1,8 +1,11 @@
 'use strict';
 
+var bowerList = require('bower-list');
+var _ = require('lodash');
+var path = require('path');
+
 module.exports = function( grunt ) {
 
-    var _ = require('lodash');
     var utils = require('./lib/utils').init(grunt);
     var template = grunt.file.read('./tasks/cache.tpl');
 
@@ -12,32 +15,29 @@ module.exports = function( grunt ) {
     grunt.registerTask('bowerCache', function() {
         var done = this.async();
 
-        var dataPath = 'app/scripts/cache/bower.js';
-        var url = 'https://bower-component-list.herokuapp.com';
-        var result = {};
+        var dataPath = path.resolve('app/scripts/cache/bower.js');
+        var oldResult = null;
         var newItemsCount = 0;
+        var options = {
+            filter: ['website', 'name']
+        };
 
         if( grunt.file.exists(dataPath) ) {
-            result = require('../' + dataPath);
-        }
+            oldResult = require(dataPath);
+        };
 
-        utils.getResource({uri: url}, function( err, response, body  ) {
-
-            var item = null;
-            var pkg = null;
-
-            for( var i = 0; i < body.length; i++ ) {
-                item = body[i];
-                pkg = item.name;
-
-                if( !result[pkg] ) {
+        bowerList(options, function(err, data) {
+            var result = {};
+            _.each(data,function(item) {
+                var pkg = item.name;
+                result[pkg] = item.website;
+                if( !oldResult[pkg] ) {
                     grunt.log.debug('Add: ' + pkg);
-                    result[pkg] = item.website;
                     newItemsCount++;
                 }
-            }
+            });
 
-            var total = Object.keys(result).length;
+            var total = result.length;
             var jsContent = _.template(template, {
                 total: total,
                 result: JSON.stringify(result, null, ' '),
@@ -45,9 +45,6 @@ module.exports = function( grunt ) {
             });
 
             grunt.file.write(dataPath, jsContent);
-
-            grunt.log.writeln('newItemsCount: ' + newItemsCount);
-            grunt.log.writeln('totalCount: ' + total);
             grunt.config.set('newBowerItems', newItemsCount);
             grunt.config.set('totalBowerItems', total);
 
