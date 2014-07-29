@@ -5,6 +5,7 @@
   "devDependencies": {
     "bower-list": "^0.1.1",
     "browserify": "^5.8.0",
+    "github-url-parse": "^0.1.0",
     "grunt": "^0.4.5",
     "grunt-bower-install": "~1.0.0",
     "grunt-browserify": "^2.1.3",
