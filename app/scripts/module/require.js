@@ -76,11 +76,15 @@ module.exports = function() {
                 GITHUBCOM + link+'/index.js',
                 GITHUBCOM + link.replace('blob', 'tree')
             ];
-            $('.page-context-loader').addClass('is-context-loading');
+            var $loaderContainer = $('.page-context-loader');
+            $loaderContainer.addClass('is-context-loading');
+            $el.addClass('tooltipped tooltipped-e').attr('aria-label', 'Loading ...');
             attemptToLoadURL(urls, function(link) {
-                $('.page-context-loader').removeClass('is-context-loading');
+                $loaderContainer.removeClass('is-context-loading');
                 if (link) {
                     location.href = link;
+                } else {
+                    $el.attr('aria-label', 'Can\'t resolve this require for you, sorry.');
                 }
             });
         }
