@@ -13,8 +13,8 @@
 # Features
 
 - Link dependencies in a `package.json` or `bower.json` file.
-- Link require staments to the related GitHub repository.
-- **(New)** Link require statments to the related repository file.
+- Link `require()` staments to the related GitHub repository.
+- :boom: Link `require()` statments to the related repository file.
 
 ![https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp](screencast.gif)
 
@@ -30,7 +30,7 @@ Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/github-linker
 
 npm: 75460
 
-bower: 15398
+bower: 15493
 
 
 
@@ -46,4 +46,4 @@ Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 [npm-url]: https://npmjs.org/
 [npm-image]: http://img.shields.io/badge/npm-75460-green.svg
 [bower-url]: https://bower.io/
-[bower-image]: http://img.shields.io/badge/bower-15398-green.svg
+[bower-image]: http://img.shields.io/badge/bower-15493-green.svg

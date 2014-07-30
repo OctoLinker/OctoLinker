@@ -1,6 +1,6 @@
 {
   "name": "github-linker",
-  "version": "2.0.11",
+  "version": "2.1.0",
   "dependencies": {},
   "devDependencies": {
     "bower-list": "^0.1.1",

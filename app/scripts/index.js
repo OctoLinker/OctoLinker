@@ -2,9 +2,17 @@
 
 var _ = require('underscore');
 var requireModule = require('./module/require.js');
+var intro = require('./intro.js');
 var dependenciesModule = require('./module/dependencies.js');
 
 module.exports = function () {
+
+    var version = '2.1.x';
+    var installedVersion = localStorage.getItem('github-linker-version');
+    if (installedVersion !== version) {
+        intro();
+        localStorage.setItem('github-linker-version', version);
+    }
 
     var getType = function() {
 
