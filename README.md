@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="app/images/icon-128.png"/>
+  <a href="#"><img src="app/images/icon-128.png"/></a>
 </p>
 
 # GitHub Linker
@@ -14,7 +14,7 @@
 - Link require staments to the related GitHub repository.
 - **(New)** Link require statments to the related repository file.
 
-![a](screencast.gif)
+![https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp](screencast.gif)
 
 
 
