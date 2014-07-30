@@ -74,6 +74,7 @@ module.exports = function() {
             var urls = [
                 GITHUBCOM + link+'.js',
                 GITHUBCOM + link+'/index.js',
+                GITHUBCOM + link.replace('blob', 'tree')
             ];
             $('.page-context-loader').addClass('is-context-loading');
             attemptToLoadURL(urls, function(link) {
