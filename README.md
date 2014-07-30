@@ -24,6 +24,10 @@ var lodash = require('lodash'); // => https://github.com/lodash/lodash
 var action = require('./lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
 ```
 
+
+
+# Preview
+
 ![https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp](screencast.gif)
 
 
