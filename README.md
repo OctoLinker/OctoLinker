@@ -19,7 +19,7 @@ Link `dependencies` `devDependencies` `peerDependencies` and `optionalDependenci
 Link `require()` staments to the related GitHub repository, nodejs API page or repository file.
 
 ```js
-var fs = require('fs);	// => http://nodejs.org/api/fs.html
+var fs = require('fs');	// => http://nodejs.org/api/fs.html
 var lodash = require('lodash'); // => https://github.com/lodash/lodash
 var go = require('lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
 ```
