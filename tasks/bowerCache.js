@@ -6,7 +6,6 @@ var path = require('path');
 
 module.exports = function( grunt ) {
 
-    var utils = require('./lib/utils').init(grunt);
     var template = grunt.file.read('./tasks/cache.tpl');
 
     /**
@@ -24,7 +23,7 @@ module.exports = function( grunt ) {
 
         if( grunt.file.exists(dataPath) ) {
             oldResult = require(dataPath);
-        };
+        }
 
         bowerList(options, function(err, data) {
             var result = {};
