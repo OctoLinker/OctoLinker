@@ -37,7 +37,7 @@ module.exports = function( grunt ) {
                 }
             });
 
-            var total = result.length;
+            var total = data.length;
             var jsContent = _.template(template, {
                 total: total,
                 result: JSON.stringify(result, null, ' '),
