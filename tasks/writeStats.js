@@ -13,8 +13,10 @@ module.exports = function (grunt) {
     var totalBowerItems = grunt.config.get('totalBowerItems');
     var totalNPMItems = grunt.config.get('totalNPMItems');
 
-    content = content.replace(/(NPM: )[0-9]*/g, '$1'+ totalNPMItems)
-      .replace(/(bower: )[0-9]*/g, '$1'+ totalBowerItems);
+    content = content.replace(/(npm: )[0-9]*/g, '$1'+ totalNPMItems)
+      .replace(/(bower: )[0-9]*/g, '$1'+ totalBowerItems)
+      .replace(/(badge\/npm-)[0-9]*/g, '$1'+ totalNPMItems)
+      .replace(/(badge\/bower-)[0-9]*/g, '$1'+ totalBowerItems);
 
     grunt.file.write(filename, content);
   });
