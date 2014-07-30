@@ -21,7 +21,7 @@ Link `require()` staments to the related GitHub repository, nodejs API page or r
 ```js
 var fs = require('fs');	// => http://nodejs.org/api/fs.html
 var lodash = require('lodash'); // => https://github.com/lodash/lodash
-var go = require('lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
+var action = require('./lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
 ```
 
 ![https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp](screencast.gif)
