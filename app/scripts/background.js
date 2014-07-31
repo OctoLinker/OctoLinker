@@ -32,7 +32,7 @@ chrome.tabs.onUpdated.addListener(function( tabId, changeInfo, tab ) {
             var location = getLocation(tab.url);
             if (location && location.hostname && location.hostname.indexOf('github') !== -1) {
                 chrome.pageAction.show(tabId);
-                chrome.tabs.executeScript(null, {code: 'init();'});
+                chrome.tabs.executeScript(null, {code: 'if (window.init) { window.init(); }'});
             }
         }
     }

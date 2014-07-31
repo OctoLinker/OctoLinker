@@ -1,5 +1,8 @@
 #Changelog
 
+## 2.1.1 - 2014-07-31
+- Add ***12*** NPM and ***13*** Bower links.
+
 ## 2.1.0 - 2014-07-30
 - Link require statments to the related repository file 
 - Add ***110*** Bower links.
