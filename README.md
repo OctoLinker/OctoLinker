@@ -12,9 +12,21 @@
 
 # Features
 
-- Link dependencies in a `package.json` or `bower.json` file.
-- Link `require()` staments to the related GitHub repository.
-- :boom: Link `require()` statments to the related repository file.
+## package.json & bower.json
+Link `dependencies` `devDependencies` `peerDependencies` and `optionalDependencies` to the related GitHub repository.
+
+## require()
+Link `require()` staments to the related GitHub repository, nodejs API page or repository file.
+
+```js
+var fs = require('fs');	// => http://nodejs.org/api/fs.html
+var lodash = require('lodash'); // => https://github.com/lodash/lodash
+var action = require('./lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
+```
+
+
+
+# Preview
 
 ![https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp](screencast.gif)
 
