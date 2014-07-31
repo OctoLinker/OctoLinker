@@ -7,7 +7,7 @@ var dependenciesModule = require('./module/dependencies.js');
 
 module.exports = function () {
 
-    var version = '2.1.x';
+    var version = '2.2.x';
     var installedVersion = localStorage.getItem('github-linker-version');
     if (installedVersion !== version) {
         intro();
@@ -23,7 +23,8 @@ module.exports = function () {
         var lookup = {
             '/package.json': 'npm',
             '/bower.json': 'bower',
-            '.js': 'js'
+            '.js': 'js',
+            '.coffee': 'coffee'
         };
 
         return _.find(lookup, function(type, urlFragment) {
@@ -40,7 +41,7 @@ module.exports = function () {
             break;
         case 'js':
         case 'coffee':
-            requireModule();
+            requireModule(type);
             break;
         }
     }, 250);

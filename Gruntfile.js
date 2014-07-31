@@ -315,7 +315,6 @@ module.exports = function (grunt) {
     grunt.registerTask('release', [
         'buildCache',
         'build',
-        'writeChangelog',
         'writeStats'
     ]);
 

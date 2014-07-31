@@ -24,6 +24,12 @@ var lodash = require('lodash'); // => https://github.com/lodash/lodash
 var action = require('./lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
 ```
 
+Works also with CoffeeScript:
+```coffee
+fs = require("fs") # => http://nodejs.org/api/fs.html
+lodash = require("lodash") # => https://github.com/lodash/lodash
+action = require("./lib/action") # => https://github.com/user/repo/blob/master/lib/action.coffee
+```
 
 
 # Preview

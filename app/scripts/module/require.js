@@ -40,12 +40,21 @@ var getRequireLink = function(requireValue) {
     return link;
 };
 
-module.exports = function() {
+module.exports = function(type) {
+
+    var fileExtension = '.' + type;
 
     // Search for require dom elements
     var $requires = $('span.nx').filter(function() {
         return $(this).text() === 'require';
     }).next().next();
+
+    if (type === 'coffee') {
+        var $coffeeRequires = $('span.nx').filter(function() {
+            return $(this).text() === 'require';
+        }).next();
+        $requires = $.merge($coffeeRequires, $requires);
+    }
 
     var attemptToLoadURL = function(urls, cb) {
         var url = urls.shift();
@@ -72,8 +81,8 @@ module.exports = function() {
                 link = link.slice(0, -1);
             }
             var urls = [
-                GITHUBCOM + link+'.js',
-                GITHUBCOM + link+'/index.js',
+                GITHUBCOM + link + fileExtension,
+                GITHUBCOM + link+'/index' + fileExtension,
                 GITHUBCOM + link.replace('blob', 'tree')
             ];
             var $loaderContainer = $('.page-context-loader');
