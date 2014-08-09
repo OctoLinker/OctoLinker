@@ -7,7 +7,7 @@ var packageType = '';
 var GITHUBCOM = 'https://github.com/';
 
 var getPackageNodes = function( selector ) {
-    var root = $('.code-body .nt:contains(\'' + selector + '\')');
+    var root = $('.nt:contains(\'' + selector + '\')');
 
     if( !root || root.length === 0 ) {
         return [];
@@ -16,11 +16,11 @@ var getPackageNodes = function( selector ) {
     var result = [];
     var el;
     var elVersion = null;
-    var next = root.parent().next();
+    var next = root.closest('tr').next();
 
     if( next ) {
-        while( next.children().length !== 1 ) {
-            el = next.children().eq(0);
+        while( next.find('.blob-line-code').children().length !== 1 ) {
+            el = next.find('.blob-line-code').children().eq(0);
             elVersion = next.children().eq(2);
             var targetURL = null;
             if(elVersion.length) {
