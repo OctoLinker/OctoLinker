@@ -46,9 +46,9 @@ Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/github-linker
 
 # Total supported repositories
 
-npm: 77944
+npm: 78438
 
-bower: 15903
+bower: 16027
 
 
 
@@ -62,6 +62,6 @@ Should you have any problems, feel free to open up an [issue](https://github.com
 Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 
 [npm-url]: https://npmjs.org/
-[npm-image]: http://img.shields.io/badge/npm-77944-green.svg
+[npm-image]: http://img.shields.io/badge/npm-78438-green.svg
 [bower-url]: https://bower.io/
-[bower-image]: http://img.shields.io/badge/bower-15903-green.svg
+[bower-image]: http://img.shields.io/badge/bower-16027-green.svg
