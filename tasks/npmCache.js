@@ -103,11 +103,11 @@ module.exports = function(grunt) {
         });
 
         var repoParser = es.map(function(item, cb) {
-            totalCount++;
             var repoURL = getURL(item);
             if (!repoURL) {
                 return cb();
             }
+            totalCount++;
             if (!oldResult[item.name]) {
                 newItemsCount++;
             }
