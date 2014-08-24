@@ -1,53 +1,71 @@
 'use strict';
 
-var bowerList = require('bower-list');
+var npmList = require('npm-list');
+var githubURLParser = require('github-url-from-git');
 var _ = require('lodash');
 var path = require('path');
+var fs = require('fs');
+var reqeust = require('request');
+var JSONStream = require('JSONStream');
+var es = require('event-stream');
 
-module.exports = function( grunt ) {
+module.exports = function(grunt) {
 
-    var template = grunt.file.read('./tasks/cache.tpl');
-
-    /**
-    * Custom task to generate the bower registry cache
-    */
     grunt.registerTask('bowerCache', function() {
         var done = this.async();
 
-        var dataPath = path.resolve('app/scripts/cache/bower.js');
-        var oldResult = null;
-        var newItemsCount = 0;
         var options = {
-            filter: ['website', 'name']
+            uri: 'https://bower-component-list.herokuapp.com',
+            jsonStreamPath: '*',
+            filter: ['name', 'website']
         };
 
-        if( grunt.file.exists(dataPath) ) {
+        var dataPath = path.resolve('app/scripts/cache/bower.js');
+        var oldResult = {};
+        if (fs.existsSync(dataPath)) {
             oldResult = require(dataPath);
         }
 
-        bowerList(options, function(err, data) {
-            var result = {};
-            _.each(data,function(item) {
-                var pkg = item.name;
-                result[pkg] = item.website;
-                if( !oldResult[pkg] ) {
-                    grunt.log.debug('Add: ' + pkg);
-                    newItemsCount++;
-                }
-            });
-
-            var total = data.length;
-            var jsContent = _.template(template, {
-                total: total,
-                result: JSON.stringify(result, null, ' '),
-                date: grunt.template.today('yyyy-mm-dd')
-            });
-
-            grunt.file.write(dataPath, jsContent);
-            grunt.config.set('newBowerItems', newItemsCount);
-            grunt.config.set('totalBowerItems', total);
-
-            done();
+        var filter = es.mapSync(function(item) {
+            if (options.filter && Array.isArray(options.filter)) {
+                item = _.pick(item, options.filter);
+            }
+            if (options.transformer && _.isFunction(options.transformer)) {
+                item = options.transformer(item);
+            }
+            return item;
         });
+
+        var repoParser = es.map(function(item, cb) {
+            totalCount++;
+            if (!oldResult[item.name]) {
+                newItemsCount++;
+            }
+            cb(null, [item.name, item.website]);
+        });
+
+        var totalCount = 0;
+        var newItemsCount = 0;
+
+        var handleEnd = function() {
+            grunt.log.writeln('newItemsCount: ' + newItemsCount);
+            grunt.log.writeln('totalBowerItems: ' + totalCount);
+            grunt.config.set('newBowerItems', newItemsCount);
+            grunt.config.set('totalBowerItems', totalCount);
+            done();
+        };
+
+        var handleData = function(data) {
+            grunt.log.writeln(data.name);
+        };
+
+        reqeust.get(options.uri)
+        .pipe(JSONStream.parse(options.jsonStreamPath))
+        .pipe(filter)
+        .on('data', handleData)
+        .pipe(repoParser)
+        .pipe(JSONStream.stringifyObject('module.exports = {\n', ',\n', '\n}\n'))
+        .pipe(fs.createWriteStream(dataPath))
+        .on('finish', handleEnd);
     });
 };
