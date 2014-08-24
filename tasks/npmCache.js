@@ -1,180 +1,141 @@
 'use strict';
 
-module.exports = function( grunt ) {
+var npmList = require('npm-list');
+var githubURLParser = require('github-url-from-git');
+var _ = require('lodash');
+var path = require('path');
+var fs = require('fs');
+var reqeust = require('request');
+var JSONStream = require('JSONStream');
+var es = require('event-stream');
 
-  // Internal libs
-  var utils = require('./lib/utils').init(grunt);
-  var npmSearch = require('./lib/npmSearch').init();
-  var githubSearch = require('./lib/githubSearch').init(grunt);
-  var _ = require('lodash');
-  var template = grunt.file.read('./tasks/cache.tpl');
+module.exports = function(grunt) {
 
-  var registryURL = 'http://isaacs.iriscouch.com/registry/_all_docs';
-  var packageDetailURL = 'https://registry.npmjs.org/$1';
-  var dataPath = 'app/scripts/cache/npm.js';
-  var registryPath = 'data/npm.json';
-  var noresultPath = 'data/npm_noresult.json';
-  var qualityCount = [];
+    var parseURL = function(url) {
 
-  /**
-   * Custom task to generate the npm registry cache
-   */
-  grunt.registerTask('npmCache', function() {
-    var done = this.async();
-
-    var queue = [];
-    var result = {};
-    var noResult = {};
-    var countTotal = 0;
-    var workerCount = 0;
-    var newItemsCount = 0;
-    var currentPackageName = '';
-
-    if( grunt.file.exists(registryPath) ) {
-      var content = JSON.parse(grunt.file.read(registryPath));
-      result = content.rows;
-      qualityCount = content.qualityCount;
-    }
-
-    if( grunt.file.exists(noresultPath) ) {
-      var content = JSON.parse(grunt.file.read(noresultPath));
-      noResult = content;
-    }
-
-    var init = function() {
-
-      utils.getResource({uri: registryURL}, function( err, response, body ) {
-        if( err ) {
-          grunt.fail.warn(err);
+        // Remove last trailing slash
+        if (url.slice(-1) === '/') {
+            url = url.slice(0, -1);
         }
-        queue = _.pluck(body.rows, 'id');
+        // Fix multiple forward slashes
+        url = url.replace(/([^:]\/)\/+/g, '$1');
 
-        var _result = Object.keys(result);
-        var _noResult = Object.keys(noResult);
+        // Resolve shorthand url to a qualified URL
+        if (url.split('/').length === 2) {
+            url = 'http://github.com/' + url;
+        }
 
-        if( _result.length ) {
-          queue = _.difference(queue, _result);
+        // Replace and fix invalid urls
+        url = url.replace('https+git://', 'git+https://');
+        url = url.replace('://www.github.com', '://github.com');
+
+        // Resolve detail link
+        url = url.split('/tree/master')[0];
+        url = url.split('/blob/master')[0];
+
+        var githubUrl = githubURLParser(url);
+        if (githubUrl) {
+            return githubUrl;
         }
-        if( _noResult.length ) {
-          queue = _.difference(queue, _noResult);
-        }
-        worker();
-      });
     };
 
-    var complete = function() {
-      grunt.log.debug('complete');
-      writeToFile();
-      done();
+    var getRepoURL = function(node) {
+        if (typeof node === 'string') {
+            return parseURL(node);
+        } else if (node.url) {
+            return parseURL(node.url);
+        } else if (node.path) {
+            return parseURL(node.path);
+        } else if (node.web) {
+            return parseURL(node.web);
+        } else if (node.git) {
+            return parseURL(node.git);
+        }
     };
 
-    var worker = function() {
-      setTimeout(_worker, 0);
-    }
+    var lookup = function(node) {
+        if (Array.isArray(node)) {
+            return getRepoURL(node[0]);
+        } else {
+            return getRepoURL(node);
+        }
+    };
 
-    var _worker = function() {
+    var getURL = function(node) {
+        var result = null;
 
-      if( queue.length === 0 ) {
-        complete();
-        return;
-      }
-
-      if( workerCount === 0 ) countTotal = queue.length;
-      workerCount++;
-
-      currentPackageName = queue.shift();
-      if( queue.length === 0 ) {
-        worker();
-        return;
-      }
-
-      if(workerCount % 20 == 0) {
-        writeToFile();
-      }
-
-      grunt.log.writeln('Remaining: ' + ( countTotal - workerCount ) + '  Cache: ' + currentPackageName);
-
-      var url = packageDetailURL.replace('$1', encodeURIComponent(currentPackageName));
-
-      utils.getResource({uri: url, cache: true}, function( err, response, body ) {
-
-        if( err || (response && response.statusCode !== 200)) {
-          utils.writeLog('Package: ' + currentPackageName + '\nError:' + JSON.stringify(err));
-          //queue.push(currentPackageName);
-          worker();
-          return;
+        if (node.repository) {
+            result = lookup(node.repository);
+        }
+        if (!result && node.repositories) {
+            result = lookup(node.repositories);
+        }
+        if (!result && node.homepage) {
+            result = parseURL(node.homepage);
         }
 
-        npmSearch.go(body, function(repoURL) {
-          if(repoURL) {
-            store(repoURL, 0);
-            worker();
-          } else {
-            githubSearch.go(body, function(repoURL) {
-              if(repoURL) {
-                store(repoURL, 1);
-              } else {
-                storeNoResult();
-              }
-              worker();
-            });
-          }
+        return result;
+    };
+
+    grunt.registerTask('npmCache', function() {
+        var done = this.async();
+
+        var options = {
+            uri: 'http://isaacs.iriscouch.com/registry/_all_docs?include_docs=true',
+            jsonStreamPath: 'rows.*.doc',
+            filter: ['name', 'repository', 'repositories', 'homepage']
+        };
+
+        var dataPath = path.resolve('app/scripts/cache/npm.js');
+        var oldResult = {};
+        if (fs.existsSync(dataPath)) {
+            oldResult = require(dataPath);
+        }
+
+        var filter = es.mapSync(function(item) {
+            if (options.filter && Array.isArray(options.filter)) {
+                item = _.pick(item, options.filter);
+            }
+            if (options.transformer && _.isFunction(options.transformer)) {
+                item = options.transformer(item);
+            }
+            return item;
         });
-      });
-    };
 
-    var store = function( url, quality ) {
-      grunt.log.debug('Store (' + quality + ') : ' + currentPackageName);
-      result[currentPackageName] = {
-        url: url,
-        date: grunt.template.today('yyyy-mm-dd'),
-        quality: quality
-      };
+        var repoParser = es.map(function(item, cb) {
+            totalCount++;
+            var repoURL = getURL(item);
+            if (!repoURL) {
+                return cb();
+            }
+            if (!oldResult[item.name]) {
+                newItemsCount++;
+            }
+            cb(null, [item.name, repoURL]);
+        });
 
-      if(qualityCount[quality] === undefined) qualityCount[quality] = 0;
-      qualityCount[quality]++;
+        var totalCount = 0;
+        var newItemsCount = 0;
 
-      newItemsCount++;
-    };
+        var handleEnd = function() {
+            grunt.log.writeln('newItemsCount: ' + newItemsCount);
+            grunt.log.writeln('totalNPMItems: ' + totalCount);
+            grunt.config.set('newNPMItems', newItemsCount);
+            grunt.config.set('totalNPMItems', totalCount);
+            done();
+        };
 
-    var storeNoResult = function() {
-      grunt.log.debug('NoResult: ' + currentPackageName);
-      noResult[currentPackageName] = currentPackageName;
-    };
+        var handleData = function(data) {
+            grunt.log.writeln(data.name);
+        };
 
-    var writeToFile = function() {
-      var content = {
-        qualityCount: qualityCount,
-        noResultCount: Object.keys(noResult).length,
-        total: Object.keys(result).length,
-        rows: result
-      }
-
-      var map = {};
-      _.each(result, function(item, key) {
-        map[key] = item.url;
-      });
-
-      var total = Object.keys(result).length;
-      var jsContent = _.template(template, {
-          total: total,
-          result: JSON.stringify(map, null, ' '),
-          date: grunt.template.today('yyyy-mm-dd')
-      });
-
-      grunt.file.write(dataPath, jsContent);
-      grunt.file.write(registryPath, JSON.stringify(content, null, ' '));
-      grunt.file.write(noresultPath, JSON.stringify(noResult, null, ' '));
-
-      grunt.log.writeln('Content: ' + content.total);
-      grunt.log.writeln('NoResult: ' + Object.keys(noResult).length);
-      grunt.log.writeln('QualityCount: ' + JSON.stringify(qualityCount));
-      grunt.log.writeln('queue: ' + queue.length);
-      grunt.log.writeln('newItemsCount: ' + newItemsCount);
-      grunt.config.set('newNPMItems', newItemsCount);
-      grunt.config.set('totalNPMItems', content.total);
-    };
-
-    init();
-  });
-}
+        reqeust.get(options.uri)
+        .pipe(JSONStream.parse(options.jsonStreamPath))
+        .pipe(filter)
+        .on('data', handleData)
+        .pipe(repoParser)
+        .pipe(JSONStream.stringifyObject('module.exports = {\n', ',\n', '\n}\n'))
+        .pipe(fs.createWriteStream(dataPath))
+        .on('finish', handleEnd);
+    });
+};
