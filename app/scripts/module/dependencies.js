@@ -19,8 +19,8 @@ var getPackageNodes = function( selector ) {
     var next = root.closest('tr').next();
 
     if( next ) {
-        while( next.find('.blob-line-code').children().length !== 1 ) {
-            el = next.find('.blob-line-code').children().eq(0);
+        while( next.find('.blob-code').children().length !== 1 ) {
+            el = next.find('.blob-code').children().eq(0);
             elVersion = next.children().eq(2);
             var targetURL = null;
             if(elVersion.length) {
