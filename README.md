@@ -48,7 +48,7 @@ Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/github-linker
 
 npm: 75151
 
-bower: 16800
+bower: 17239
 
 
 
@@ -64,4 +64,4 @@ Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 [npm-url]: https://npmjs.org/
 [npm-image]: http://img.shields.io/badge/npm-75151-green.svg
 [bower-url]: https://bower.io/
-[bower-image]: http://img.shields.io/badge/bower-16800-green.svg
+[bower-image]: http://img.shields.io/badge/bower-17239-green.svg
