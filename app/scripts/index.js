@@ -23,6 +23,7 @@ module.exports = function () {
         var lookup = {
             '/package.json': 'npm',
             '/bower.json': 'bower',
+            '/composer.json': 'composer',
             '.js': 'js',
             '.coffee': 'coffee'
         };
@@ -37,6 +38,7 @@ module.exports = function () {
         switch (type) {
         case 'npm':
         case 'bower':
+        case 'composer':
             dependenciesModule(type);
             break;
         case 'js':

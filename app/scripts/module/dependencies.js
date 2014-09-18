@@ -52,6 +52,8 @@ var createLinkTag = function( list ) {
         registryList = require('../cache/npm.js');
     }else if(packageType === 'bower') {
         registryList = require('../cache/bower.js');
+    }else if(packageType === 'composer') {
+        registryList = require('../cache/composer.js');
     }
 
     $.each(list, function( index, item ) {
@@ -82,7 +84,7 @@ module.exports = function(type) {
 
     $('.code-body a span').unwrap();
 
-    var types = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies'];
+    var types = ['dependencies', 'devDependencies', 'peerDependencies', 'optionalDependencies', 'require', 'require-dev', 'conflict', 'replace', 'provide', 'suggest'];
     var list = types.map(function( item ) {
         return getPackageNodes(item);
     });

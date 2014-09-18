@@ -4,9 +4,9 @@
 
 # GitHub Linker
 
-[![Supported npm package][npm-image]][npm-url] [![Supported bower package][bower-image]][bower-url]
+[![Supported npm package][npm-image]][npm-url] [![Supported bower package][bower-image]][bower-url] ![Supported composer package][composer-image]][composer-url]
 
-> The GitHub Linker is a Google Chrome Extension which links [npm](http://npmjs.org) and [bower](http://bower.io) dependencies listed in `package.json` and `bower.json` on GitHub to their project’s pages. It also links require() statements with the related package or file.
+> The GitHub Linker is a Google Chrome Extension which links [npm](http://npmjs.org), [bower](http://bower.io) and [composer](http://packagist.org) dependencies listed in `package.json`, `bower.json` and `composer.json` on GitHub to their project’s pages. It also links require() statements with the related package or file.
 
 
 
@@ -50,6 +50,8 @@ npm: 75151
 
 bower: 17558
 
+composer: 100
+
 
 
 # Support
@@ -65,3 +67,5 @@ Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 [npm-image]: http://img.shields.io/badge/npm-75151-green.svg
 [bower-url]: https://bower.io/
 [bower-image]: http://img.shields.io/badge/bower-17558-green.svg
+[composer-url]: https://packagist.org/
+[composer-image]: http://img.shields.io/badge/composer-100-green.svg
