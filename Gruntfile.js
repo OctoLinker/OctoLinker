@@ -309,7 +309,8 @@ module.exports = function (grunt) {
 
     grunt.registerTask('buildCache', [
         'bowerCache',
-        'npmCache'
+        'npmCache',
+        'composerCache'
     ]);
 
     grunt.registerTask('release', [
