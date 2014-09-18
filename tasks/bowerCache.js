@@ -1,6 +1,5 @@
 'use strict';
 
-var npmList = require('npm-list');
 var githubURLParser = require('github-url-from-git');
 var _ = require('lodash');
 var path = require('path');
