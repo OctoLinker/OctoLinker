@@ -66,9 +66,6 @@ module.exports = function(grunt) {
         if (node.repository) {
             result = lookup(node.repository);
         }
-        if (!result && node.url) {
-            result = parseURL(node.url);
-        }
 
         return result;
     };
@@ -77,9 +74,9 @@ module.exports = function(grunt) {
         var done = this.async();
 
         var options = {
-            uri: 'https://packagist.org/search.json?q=&per_page=100',
-            jsonStreamPath: 'results.*',
-            filter: ['name', 'repository', 'url']
+            uri: 'https://packagist.org/packages/list.json?fields[]=repository',
+            jsonStreamPath: 'packages.*',
+            filter: ['name', 'repository']
         };
 
         var dataPath = path.resolve('app/scripts/cache/composer.js');
@@ -126,7 +123,11 @@ module.exports = function(grunt) {
         };
 
         request.get(options.uri)
-        .pipe(JSONStream.parse(options.jsonStreamPath))
+        .pipe(JSONStream.parse(options.jsonStreamPath, 
+        		function (item, path) {
+		    		item.name = path[path.length - 1];
+		    		return item;
+		        }))
         .pipe(filter)
         .on('data', handleData)
         .pipe(repoParser)
