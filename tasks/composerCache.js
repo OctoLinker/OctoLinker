@@ -4,7 +4,7 @@ var githubURLParser = require('github-url-from-git');
 var _ = require('lodash');
 var path = require('path');
 var fs = require('fs');
-var reqeust = require('request');
+var request = require('request');
 var JSONStream = require('JSONStream');
 var es = require('event-stream');
 
@@ -115,9 +115,9 @@ module.exports = function(grunt) {
 
         var handleEnd = function() {
             grunt.log.writeln('newItemsCount: ' + newItemsCount);
-            grunt.log.writeln('totalNPMItems: ' + totalCount);
-            grunt.config.set('newNPMItems', newItemsCount);
-            grunt.config.set('totalNPMItems', totalCount);
+            grunt.log.writeln('totalComposerItems: ' + totalCount);
+            grunt.config.set('newComposerItems', newItemsCount);
+            grunt.config.set('totalComposerItems', totalCount);
             done();
         };
 
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
             grunt.log.writeln(data.name);
         };
 
-        reqeust.get(options.uri)
+        request.get(options.uri)
         .pipe(JSONStream.parse(options.jsonStreamPath))
         .pipe(filter)
         .on('data', handleData)
