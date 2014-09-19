@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "3.0.1",
+    "version": "3.0.0",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -13,13 +13,6 @@
             "scripts/chromereload.js",
             "scripts/background.js"
         ]
-    },
-    "page_action": {
-        "default_icon": {
-            "19": "images/icon-19.png",
-            "38": "images/icon-38.png"
-        },
-        "default_title": "GitHub Linker"
     },
     "content_scripts": [
         {
