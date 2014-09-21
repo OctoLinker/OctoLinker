@@ -18,6 +18,7 @@ module.exports = function () {
 
         var urlContains = function(indicator) {
             var url = location.href;
+            url = url.split('#')[0];
             return url.indexOf(indicator) === url.length - indicator.length;
         };
         var lookup = {
