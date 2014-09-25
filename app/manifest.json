@@ -1,6 +1,6 @@
 {
     "name": "__MSG_appName__",
-    "version": "2.2.11",
+    "version": "3.0.0",
     "manifest_version": 2,
     "description": "__MSG_appDescription__",
     "icons": {
@@ -10,20 +10,20 @@
     "default_locale": "en",
     "background": {
         "scripts": [
+            "scripts/chromereload.js",
             "scripts/background.js"
-        ],
-        "persistent": true
+        ]
     },
     "content_scripts": [
         {
             "matches": [
-                "https://github.com/*/*"
-            ],
-            "js": [
-                "scripts/contentscript.js"
+                "https://github.com/*"
             ],
             "css": [
                 "styles/main.css"
+            ],
+            "js": [
+                "scripts/contentscript.js"
             ],
             "run_at": "document_end",
             "all_frames": false
@@ -31,6 +31,6 @@
     ],
     "permissions": [
         "tabs",
-        "https://github.com/*/*"
+        "https://github.com/*"
     ]
 }

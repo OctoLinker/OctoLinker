@@ -7,5 +7,4 @@ app/bower_components
 test/bower_components
 package
 .DS_Store
-cache/
-error.log
+app/scripts/contentscript.js

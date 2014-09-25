@@ -4,7 +4,7 @@
     "description": "The name of the application"
   },
   "appDescription": {
-    "message": "Links npm and bower dependencies listed in package.json / bower.json on GitHub to their project’s pages.",
+    "message": "The GitHub Linker links NPM, bower, Composer & Duo dependencies to their GitHub repository page. It also tries to resolve the require() value in a .js or .coffee file.",
     "description": "The description of the application"
   }
 }

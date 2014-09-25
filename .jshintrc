@@ -20,9 +20,6 @@
     "smarttabs": true,
     "globals" : {
         "chrome": true,
-        "$": true,
-        "npmRegistry": true,
-        "bowerRegistry": true,
-        "_": true
+        "$": true
     }
 }

@@ -1,59 +1,43 @@
-<p align="center">
+ <p align="center">
   <a href="#"><img src="app/images/icon-128.png"/></a>
 </p>
 
 # GitHub Linker
 
-[![Supported npm package][npm-image]][npm-url] [![Supported bower package][bower-image]][bower-url]
+[![Chrome Web Store][webstore-image]][webstore-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
-> The GitHub Linker is a Google Chrome Extension which links [npm](http://npmjs.org) and [bower](http://bower.io) dependencies listed in `package.json` and `bower.json` on GitHub to their project’s pages. It also links require() statements with the related package or file.
-
-
-
-# Features
-
-## package.json & bower.json
-Link `dependencies` `devDependencies` `peerDependencies` and `optionalDependencies` to the related GitHub repository.
-
-## require()
-Link `require()` staments to the related GitHub repository, nodejs API page or repository file.
-
-```js
-var fs = require('fs');	// => http://nodejs.org/api/fs.html
-var lodash = require('lodash'); // => https://github.com/lodash/lodash
-var action = require('./lib/action'); // => https://github.com/user/repo/blob/master/lib/action.js
-```
-
-Works also with CoffeeScript:
-```coffee
-fs = require("fs") # => http://nodejs.org/api/fs.html
-lodash = require("lodash") # => https://github.com/lodash/lodash
-action = require("./lib/action") # => https://github.com/user/repo/blob/master/lib/action.coffee
-```
-
+The GitHub Linker is a Google Chrome Extension which links [NPM](https://npmjs.org/), [bower](http://bower.io/), [Composer](https://getcomposer.org/) & [Duo](http://duojs.org) dependencies to their GitHub repository page. It also tries to resolve the `require()` value in a `.js` or `.coffee` file.
 
 # Preview
 
-![https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp](screencast.gif)
+![d](screencast.gif)
 
+
+# `require()` examples
+```
+// Packages
+require('fs') => http://nodejs.org/api/fs.html
+require('lodash') => https://github.com/lodash/lodash
+
+// File system
+require('./index.js') =>  https://github.com/user/repo/blob/master/index.js
+require('./utils/math.js') =>  https://github.com/user/repo/blob/master/utils/math.js
+
+// Duo 
+require('user/repo') => https://github.com/user/repo
+require('user/repo@master') => https://github.com/user/tree/master
+require('user/repo@master:/folder/file.js') => https://github.com/user/repo/blob/master/folder/file.js
+```
 
 
 # Installation
 
-Go to [Chrome Web Store](https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp) and click on the add button.
-
-
-
-# Total supported repositories
-
-npm: 75151
-
-bower: 17558
+[![Chrome Web Store][install-image]][webstore-url]
 
 
 
 # Support
-Should you have any problems, feel free to open up an [issue](https://github.com/stefanbuck/github-linker/issues).
+Should you have any problems, please open up an [issue](https://github.com/stefanbuck/github-linker/issues).
 
 
 
@@ -61,7 +45,10 @@ Should you have any problems, feel free to open up an [issue](https://github.com
 
 Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 
-[npm-url]: https://npmjs.org/
-[npm-image]: http://img.shields.io/badge/npm-75151-green.svg
-[bower-url]: https://bower.io/
-[bower-image]: http://img.shields.io/badge/bower-17558-green.svg
+[webstore-url]: https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp
+[webstore-image]: http://img.shields.io/badge/version-3.0.0-green.svg
+[travis-url]: https://travis-ci.org/stefanbuck/github-linker
+[travis-image]: https://travis-ci.org/stefanbuck/github-linker.svg?branch=master
+[daviddm-url]: https://david-dm.org/stefanbuck/github-linker.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/stefanbuck/github-linker
+[install-image]: install.png

@@ -18,12 +18,13 @@ var getLocation = function(url) {
 };
 
 chrome.tabs.onUpdated.addListener(function( tabId, changeInfo, tab ) {
+
     if( changeInfo.status === 'complete' ) {
         if( tab && tab.url ) {
             // Check if we are at github
             var location = getLocation(tab.url);
             if (location && location.hostname && location.hostname.indexOf('github') !== -1) {
-                chrome.tabs.executeScript(null, {code: 'if (window.init) { window.init(); }'});
+                chrome.tabs.executeScript(null, {code: 'if (window.initGitHubLinker && typeof window.initGitHubLinker === \'function\') { window.initGitHubLinker() }'});
             }
         }
     }

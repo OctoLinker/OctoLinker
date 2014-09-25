@@ -1,16 +1,15 @@
 {
   "name": "github-linker",
-  "version": "2.2.0",
-  "dependencies": {},
+  "version": "3.0.0",
+  "dependencies": {
+    "github-linker-core": "^1.0.0",
+    "jquery": "^2.1.1",
+    "lodash": "^2.4.1"
+  },
   "devDependencies": {
-    "JSONStream": "^0.9.0",
-    "bower-list": "^0.1.1",
-    "browserify": "^5.8.0",
-    "event-stream": "^3.1.7",
-    "github-url-from-git": "^1.4.0",
-    "grunt": "^0.4.5",
+    "grunt": "~0.4.1",
     "grunt-bower-install": "~1.0.0",
-    "grunt-browserify": "^2.1.3",
+    "grunt-browserify": "^3.0.1",
     "grunt-chrome-manifest": "~0.2.0",
     "grunt-concurrent": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
@@ -27,15 +26,14 @@
     "grunt-mocha": "~0.4.10",
     "grunt-svgmin": "~0.4.0",
     "grunt-usemin": "~2.1.0",
-    "jquery": "^2.1.1",
     "jshint-stylish": "~0.1.5",
     "load-grunt-tasks": "~0.4.0",
-    "lodash": "^2.4.1",
-    "request": "^2.39.0",
-    "time-grunt": "~0.3.1",
-    "underscore": "^1.6.0"
+    "time-grunt": "~0.3.1"
   },
   "engines": {
     "node": ">=0.8.0"
+  },
+  "scripts": {
+    "build": "grunt build"
   }
 }

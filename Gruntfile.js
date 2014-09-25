@@ -1,4 +1,4 @@
-// Generated on 2014-07-15 using generator-chrome-extension 0.2.9
+// Generated on 2014-09-14 using generator-chrome-extension 0.2.9
 'use strict';
 
 // # Globbing
@@ -113,10 +113,8 @@ module.exports = function (grunt) {
             all: [
                 'Gruntfile.js',
                 '<%= config.app %>/scripts/{,*/}*.js',
-                '!<%= config.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js',
                 '!<%= config.app %>/scripts/contentscript.js',
-                '!<%= config.app %>/scripts/cache/*.js'
+                'test/spec/{,*/}*.js'
             ]
         },
         mocha: {
@@ -283,7 +281,7 @@ module.exports = function (grunt) {
                 options: {
                     archive: function() {
                         var manifest = grunt.file.readJSON('app/manifest.json');
-                        return 'package/GitHub-Linker-' + manifest.version + '.zip';
+                        return 'package/GitHub Linker-' + manifest.version + '.zip';
                     }
                 },
                 files: [{
@@ -298,25 +296,11 @@ module.exports = function (grunt) {
         browserify: {
             dist: {
                 files: {
-                    '<%= config.app %>/scripts/contentscript.js': ['<%= config.app %>/scripts/**/*.js', '!<%= config.app %>/scripts/contentscript.js', '!<%= config.app %>/scripts/background.js', '!<%= config.app %>/scripts/chromereload.js', '!<%= config.app %>/scripts/options.js', '!<%= config.app %>/scripts/popup.js'],
+                    '<%= config.app %>/scripts/contentscript.js': ['<%= config.app %>/scripts/index.js']
                 }
             }
         }
-
     });
-
-    grunt.loadTasks('tasks');
-
-    grunt.registerTask('buildCache', [
-        'bowerCache',
-        'npmCache'
-    ]);
-
-    grunt.registerTask('release', [
-        'buildCache',
-        'build',
-        'writeStats'
-    ]);
 
     grunt.registerTask('debug', function () {
         grunt.task.run([
@@ -339,7 +323,7 @@ module.exports = function (grunt) {
         'browserify',
         'useminPrepare',
         'concurrent:dist',
-        // 'cssmin',
+        'cssmin',
         'concat',
         'uglify',
         'copy',
