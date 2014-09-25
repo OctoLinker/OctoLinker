@@ -2,7 +2,7 @@
   "name": "github-linker",
   "version": "3.0.0",
   "dependencies": {
-    "github-linker-core": "stefanbuck/github-linker-core",
+    "github-linker-core": "^1.0.0",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1"
   },
