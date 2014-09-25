@@ -13,7 +13,14 @@ The GitHub Linker is a Google Chrome Extension which links [NPM](https://npmjs.o
 ![d](screencast.gif)
 
 
-# `require()` examples
+
+# Installation
+
+[![Chrome Web Store][install-image]][webstore-url]
+
+
+
+# require() examples
 ```
 // Packages
 require('fs') => http://nodejs.org/api/fs.html
@@ -28,11 +35,6 @@ require('user/repo') => https://github.com/user/repo
 require('user/repo@master') => https://github.com/user/tree/master
 require('user/repo@master:/folder/file.js') => https://github.com/user/repo/blob/master/folder/file.js
 ```
-
-
-# Installation
-
-[![Chrome Web Store][install-image]][webstore-url]
 
 
 
