@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.0.1 (2014-10-2)
+
+- Update cache list to [0.2.1](https://github.com/stefanbuck/github-linker-cache/blob/master/CHANGELOG.md#v021-2014-10-01)
+
 ## v3.0.0 (2014-09-25)
 
 - Add [Composer](https://getcomposer.org) support (Thanks [@barryvdh](https://github.com/barryvdh))
