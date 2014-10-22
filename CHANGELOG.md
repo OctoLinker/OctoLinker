@@ -1,8 +1,10 @@
 # Changelog
 
-## v3.0.1 (2014-10-2)
+## v3.1.0 (2014-10-22)
 
-- Update cache list to [0.2.1](https://github.com/stefanbuck/github-linker-cache/blob/master/CHANGELOG.md#v021-2014-10-01)
+- Update `github-linker-core` to [1.1.0](https://github.com/stefanbuck/github-linker-core/blob/master/CHANGELOG.md#v110-2014-10-22)
+    - Add links to `directories` and `bin` field [#2](https://github.com/stefanbuck/github-linker-core/issues/2)  ([Thanks @spacewander](https://github.com/spacewander))
+
 
 ## v3.0.0 (2014-09-25)
 
