@@ -48,7 +48,7 @@ Should you have any problems, please open up an [issue](https://github.com/stefa
 Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 
 [webstore-url]: https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp
-[webstore-image]: http://img.shields.io/badge/version-3.0.0-green.svg
+[webstore-image]: http://img.shields.io/badge/version-3.1.3-green.svg
 [travis-url]: https://travis-ci.org/stefanbuck/github-linker
 [travis-image]: https://travis-ci.org/stefanbuck/github-linker.svg?branch=master
 [daviddm-url]: https://david-dm.org/stefanbuck/github-linker.svg?theme=shields.io
