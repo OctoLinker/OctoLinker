@@ -33,7 +33,10 @@ module.exports = function (grunt) {
                 tasks: ['bowerInstall']
             },
             js: {
-                files: ['<%= config.app %>/scripts/{,*/}*.js', '!<%= config.app %>/scripts/contentscript.js'],
+                files: [
+                    '<%= config.app %>/scripts/_contentscript.js', '!<%= config.app %>/scripts/contentscript.js',
+                    '<%= config.app %>/scripts/_options.js', '!<%= config.app %>/scripts/options.js'
+                ],
                 tasks: ['jshint', 'browserify'],
                 options: {
                     livereload: true
@@ -114,6 +117,7 @@ module.exports = function (grunt) {
                 'Gruntfile.js',
                 '<%= config.app %>/scripts/{,*/}*.js',
                 '!<%= config.app %>/scripts/contentscript.js',
+                '!<%= config.app %>/scripts/options.js',
                 'test/spec/{,*/}*.js'
             ]
         },
@@ -296,7 +300,8 @@ module.exports = function (grunt) {
         browserify: {
             dist: {
                 files: {
-                    '<%= config.app %>/scripts/contentscript.js': ['<%= config.app %>/scripts/index.js']
+                    '<%= config.app %>/scripts/contentscript.js': ['<%= config.app %>/scripts/_contentscript.js'],
+                    '<%= config.app %>/scripts/options.js': ['<%= config.app %>/scripts/_options.js']
                 }
             }
         }
