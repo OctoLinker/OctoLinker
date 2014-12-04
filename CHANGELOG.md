@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.2.0 (2014-11-04)
+
+- Update `github-linker-core` to [1.2.0](https://github.com/stefanbuck/github-linker-core/blob/master/CHANGELOG.md#v120-2014-12-04)
+
 ## v3.1.1 (2014-10-30)
 
 - Fix selectors to solve https://github.com/stefanbuck/github-linker/issues/20
