@@ -13,4 +13,8 @@ window.initGitHubLinker = function() {
     });
 };
 
-window.initGitHubLinker();
+try {
+    window.initGitHubLinker();
+} catch(err) {
+    console.error(err);
+}
