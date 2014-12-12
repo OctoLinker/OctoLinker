@@ -1,6 +1,6 @@
 {
   "name": "github-linker",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "dependencies": {
     "github-linker-core": "^1.2.0",
     "jquery": "^2.1.1",
