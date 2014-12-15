@@ -4,7 +4,7 @@
 
 # GitHub Linker
 
-[![Chrome Web Store][webstore-image]][webstore-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
+[![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
 The GitHub Linker is a Google Chrome Extension which links [NPM](https://npmjs.org/), [bower](http://bower.io/), [Composer](https://getcomposer.org/) & [Duo](http://duojs.org) dependencies to their GitHub repository page. It also tries to resolve the `require()` value in a `.js`, `.jsx` or `.coffee` file.
 
@@ -48,7 +48,6 @@ Should you have any problems, please open up an [issue](https://github.com/stefa
 Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 
 [webstore-url]: https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp
-[webstore-image]: http://img.shields.io/badge/version-3.1.3-green.svg
 [travis-url]: https://travis-ci.org/stefanbuck/github-linker
 [travis-image]: https://travis-ci.org/stefanbuck/github-linker.svg?branch=master
 [daviddm-url]: https://david-dm.org/stefanbuck/github-linker.svg?theme=shields.io
