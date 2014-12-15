@@ -13,8 +13,4 @@ window.initGitHubLinker = function() {
     });
 };
 
-try {
-    window.initGitHubLinker();
-} catch(err) {
-    console.error(err);
-}
+window.initGitHubLinker();
