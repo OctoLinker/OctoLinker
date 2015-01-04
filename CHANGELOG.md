@@ -1,8 +1,16 @@
 # Changelog
 
+## v3.3.0 (2015-01-04)
+
+- Update `github-linker-core` to [1.3.0](https://github.com/stefanbuck/github-linker-core/blob/master/CHANGELOG.md#v130-2015-01-04)
+  - Resolve `require()` in GitHub's Pull Request and Issues view.
+  - Resolve `require()` in markdown files, if the [syntax highlighting](https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting) is set to javascript.
+
 ## v3.2.0 (2014-11-04)
 
 - Update `github-linker-core` to [1.2.0](https://github.com/stefanbuck/github-linker-core/blob/master/CHANGELOG.md#v120-2014-12-04)
+  - Add jsx support [#6](https://github.com/stefanbuck/github-linker-core/issues/6)  ([Thanks @thejameskyle](https://github.com/thejameskyle))
+  - Add options arg for the upcoming features [#7](https://github.com/stefanbuck/github-linker-core/issues/7)
 
 ## v3.1.1 (2014-10-30)
 
@@ -26,7 +34,7 @@
 - Link `require()` statements in `.coffee` script files
 
 ## v2.0.0 (2014-06-16)
-- 
+-
 - Link `require()` statements with the related file or to their GitHub repository page
 
 

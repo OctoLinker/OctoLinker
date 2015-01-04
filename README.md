@@ -6,7 +6,9 @@
 
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
-The GitHub Linker is a Google Chrome Extension which links [NPM](https://npmjs.org/), [bower](http://bower.io/), [Composer](https://getcomposer.org/) & [Duo](http://duojs.org) dependencies to their GitHub repository page. It also tries to resolve the `require()` value in a `.js`, `.jsx` or `.coffee` file.
+The GitHub Linker is a Google Chrome Extension which links [NPM](https://npmjs.org/), [bower](http://bower.io/), [Composer](https://getcomposer.org/) & [Duo](http://duojs.org) dependencies to their GitHub repository page. It also tries to link the `require()` value in a `.js`, `.jsx`, `.coffee` or `.md` file, with the related repository.
+
+Many other GitHub pages like **Pull Request or Issues** will be supported too.
 
 # Preview
 
@@ -30,7 +32,7 @@ require('lodash') => https://github.com/lodash/lodash
 require('./index.js') =>  https://github.com/user/repo/blob/master/index.js
 require('./utils/math.js') =>  https://github.com/user/repo/blob/master/utils/math.js
 
-// Duo 
+// Duo
 require('user/repo') => https://github.com/user/repo
 require('user/repo@master') => https://github.com/user/tree/master
 require('user/repo@master:/folder/file.js') => https://github.com/user/repo/blob/master/folder/file.js
