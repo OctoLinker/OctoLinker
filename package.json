@@ -1,8 +1,8 @@
 {
   "name": "github-linker",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "dependencies": {
-    "github-linker-core": "^1.2.0",
+    "github-linker-core": "^1.4.0",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1"
   },

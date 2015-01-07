@@ -1,5 +1,9 @@
 # Changelog
 
+## v3.4.0 (2015-01-07)
+- Update `github-linker-core` to [1.4.0](https://github.com/stefanbuck/github-linker-core/blob/master/CHANGELOG.md#v140-2015-01-07)
+    - Resolve git urls from mainifest files like `package.json` or `bower.json` to there GitHub repo page.
+
 ## v3.3.0 (2015-01-04)
 
 - Update `github-linker-core` to [1.3.0](https://github.com/stefanbuck/github-linker-core/blob/master/CHANGELOG.md#v130-2015-01-04)
