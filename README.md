@@ -41,7 +41,7 @@ require('user/repo@master:/folder/file.js') => https://github.com/user/repo/blob
 
 
 # Support
-Should you have any problems, please open up an [issue](https://github.com/stefanbuck/github-linker/issues).
+Should you have any problems, please open up an [issue](https://github.com/github-linker/chrome-extension/issues).
 
 
 
@@ -50,8 +50,8 @@ Should you have any problems, please open up an [issue](https://github.com/stefa
 Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
 
 [webstore-url]: https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp
-[travis-url]: https://travis-ci.org/stefanbuck/github-linker
-[travis-image]: https://travis-ci.org/stefanbuck/github-linker.svg?branch=master
-[daviddm-url]: https://david-dm.org/stefanbuck/github-linker.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/stefanbuck/github-linker
+[travis-url]: https://travis-ci.org/github-linker/chrome-extension
+[travis-image]: https://travis-ci.org/github-linker/chrome-extension.svg?branch=master
+[daviddm-url]: https://david-dm.org/github-linker/chrome-extension.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/github-linker/chrome-extension
 [install-image]: install.png
