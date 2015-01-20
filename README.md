@@ -1,5 +1,5 @@
- <p align="center">
-  <a href="#"><img src="app/images/icon-128.png"/></a>
+<p align="center">
+<a href="#"><img src="app/images/icon-128.png"/></a>
 </p>
 
 # GitHub Linker
@@ -8,7 +8,7 @@
 
 The GitHub Linker is a Google Chrome Extension which links [NPM](https://npmjs.org/), [bower](http://bower.io/), [Composer](https://getcomposer.org/) & [Duo](http://duojs.org) dependencies to their GitHub repository page. It also tries to link the `require()` value in a `.js`, `.jsx`, `.coffee` or `.md` file, with the related repository.
 
-Many other GitHub pages like **Pull Request or Issues** will be supported too.
+**Take a look to the core's README file to find out all features!** https://github.com/github-linker/core
 
 # Preview
 
@@ -22,26 +22,9 @@ Many other GitHub pages like **Pull Request or Issues** will be supported too.
 
 
 
-# require() examples
-```
-// Packages
-require('fs') => http://nodejs.org/api/fs.html
-require('lodash') => https://github.com/lodash/lodash
-
-// File system
-require('./index.js') =>  https://github.com/user/repo/blob/master/index.js
-require('./utils/math.js') =>  https://github.com/user/repo/blob/master/utils/math.js
-
-// Duo
-require('user/repo') => https://github.com/user/repo
-require('user/repo@master') => https://github.com/user/tree/master
-require('user/repo@master:/folder/file.js') => https://github.com/user/repo/blob/master/folder/file.js
-```
-
-
-
 # Support
-Should you have any problems, please open up an [issue](https://github.com/github-linker/chrome-extension/issues).
+
+Should you have any problems, please open up an [issue](https://github.com/github-linker/core/issues).
 
 
 
