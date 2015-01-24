@@ -1,26 +1,85 @@
 <!doctype html>
 <html>
-<head>
-  <!-- build:css styles/vendor.css -->
-  <!-- bower:css -->
-  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css styles/main.css -->
-  <link href="styles/main.css" rel="stylesheet">
-  <!-- endbuild -->
-</head>
-<body>
-  <div class="container">
-    <h1>Options</h1>
-  </div>
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
-  <!-- endbower -->
-  <!-- endbuild -->
+    <head>
+        <meta charset="utf-8">
+        <title>GitHub-Linker</title>
+        <link href="styles/main.css" rel="stylesheet">
+        <link href="styles/chrome-bootstrap.css" rel="stylesheet">
+        <link href="styles/options.css" rel="stylesheet">
+        <style>
+            .chrome-bootstrap .frame .view {
+                -webkit-margin-start: 170px
+            }
 
-  <!-- build:js scripts/options.js -->
-  <script src="scripts/options.js"></script>
-  <!-- endbuild -->
-</body>
+            input[type='text'] {
+                width: 350px;
+            }
+
+            #success_message {
+                margin-top: 10px;
+                padding: 5px 10px;
+                opacity: 0;
+                transition: opacity 0.5s ease-out;
+            }
+
+            #success_message.visible {
+                opacity: 1;
+            }
+        </style>
+        <script src="scripts/options.js"></script>
+    </head>
+    <body class="chrome-bootstrap">
+        <div class="frame">
+            <div class="navigation">
+                <h1>
+                    <a href="https://github.com/github-linker/chrome-extension">GitHub-Linker</a>
+                </h1>
+                <ul class="menu">
+                    <li class="selected">
+                        <a href="#settings">Settings</a>
+                    </li>
+                </ul>
+                <ul class="menu">
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mainview view">
+                <div id="settings" class="selected">
+                    <header>
+                        <h1>Settings</h1>
+                    </header>
+                    <div class="content">
+                        <section>
+                            <h3>Notifications</h3>
+                            <input type="checkbox" id="show_update_notification">
+                            <label for="show_update_notification">Inform me about new features.</label>
+                            <p class="desc">After an extension update, a notification appears on the top of GitHub.com.</p>
+                        </section>
+                        <a href="https://github.com/github-linker/chrome-extension/issues/25">More settings</a> are in the pipeline!
+                    </div>
+                </div>
+
+                <div id="about">
+                    <header>
+                        <h1>About</h1>
+                    </header>
+                    <div class="content">
+                        <div id="about-container">
+                            <img src="images/icon-128.png" width="64" />
+                            <div id="product-description">
+                                <h2>GitHub-Linker</h2>
+                                <span id="version-container"></span>
+                                <a href="https://github.com/github-linker/chrome-extension">Project on GitHub</a>
+                            </div>
+                        </div>
+                        <div id="copyright-container">
+                            Copyright &copy; 2015 Stefan Buck. Licensed under the MIT license.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

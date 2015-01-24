@@ -1,0 +1,34 @@
+
+body {
+-webkit-user-select: none;
+}
+
+#about-container {
+align-items: center;
+display: flex;
+margin-top: 10px;
+}
+
+#about-container h2 {
+margin: 5px 0;
+}
+
+#product-description {
+-webkit-margin-start: 10px;
+}
+
+#version-container {
+color: #999;
+padding-bottom: 5px;
+display: block;
+}
+
+#copyright-container {
+margin-top: 60px;
+color: #999;
+}
+
+.desc {
+margin: 3px 0 0 18px;
+color: #999;
+}
