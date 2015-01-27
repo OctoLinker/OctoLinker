@@ -8,3 +8,4 @@ test/bower_components
 package
 .DS_Store
 app/scripts/contentscript.js
+app/scripts/options.js
