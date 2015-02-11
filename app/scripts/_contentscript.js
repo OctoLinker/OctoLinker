@@ -4,16 +4,24 @@ var gitHubLinkerCore = require('github-linker-core');
 var $ = require('jquery');
 window.$ = $;
 
-// chrome.storage.sync.get('showUpdateNotification', function(options) {
-var options = options || {};
+chrome.storage.sync.get(['version'], function(store) {
+    var pkgVersion, options;
 
-options.changelog = 'https://github.com/github-linker/chrome-extension/releases';
-options.version = require('../manifest.json').version.split('.').slice(0,-1).join('.');
-options.showUpdateNotification = false;
+    pkgVersion = require('../manifest.json').version.split('.').slice(0,-1).join('.');
+    options = {
+        changelog: 'https://github.com/github-linker/chrome-extension/releases'
+    };
 
-gitHubLinkerCore(window, options, function(err) {
-    if (err) {
-        console.error(err);
+    if (store.version && store.version !== pkgVersion) {
+        options.showUpdateNotification = true;
     }
+
+    store.version = pkgVersion;
+    chrome.storage.sync.set(store);
+
+    gitHubLinkerCore(window, options, function(err) {
+        if (err) {
+            console.error(err);
+        }
+    });
 });
-// });
