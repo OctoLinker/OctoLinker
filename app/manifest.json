@@ -9,6 +9,7 @@
         "128": "images/icon-128.png"
     },
     "default_locale": "en",
+    "options_page": "options.html",
     "background": {
         "scripts": [
             "scripts/chromereload.js",

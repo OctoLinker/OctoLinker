@@ -32,21 +32,21 @@ function setStaticContent() {
 
 function initSettingStorage () {
     var storage = chrome.storage.sync;
-    var $showUpdateNotification = $('#show_update_notification')
+    var $enableUpdateNotification = $('#enable_update_notification')
 
     function loadSettings() {
-        storage.get('showUpdateNotification', function(val) {
-            $showUpdateNotification.prop('checked', (typeof val.showUpdateNotification === 'undefined') ? true : val.showUpdateNotification);
+        storage.get('enableUpdateNotification', function(val) {
+            $enableUpdateNotification.prop('checked', (typeof val.enableUpdateNotification === 'undefined') ? true : val.enableUpdateNotification);
         });
     }
 
     function saveSettings() {
         storage.set({
-            showUpdateNotification: $showUpdateNotification.is(':checked'),
+            enableUpdateNotification: $enableUpdateNotification.is(':checked'),
         });
     }
 
-    $showUpdateNotification.on('change', saveSettings);
+    $enableUpdateNotification.on('change', saveSettings);
     loadSettings();
 }
 
