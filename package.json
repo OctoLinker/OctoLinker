@@ -3,7 +3,7 @@
   "version": "3.6.0",
   "dependencies": {
     "browser-request": "^0.3.3",
-    "github-linker-core": "^1.7.0",
+    "github-linker-core": "^1.8.0",
     "jquery": "^2.1.1"
   },
   "devDependencies": {
