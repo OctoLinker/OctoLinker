@@ -1,6 +1,6 @@
 {
   "name": "github-linker-chrome-extension",
-  "version": "3.8.0",
+  "version": "3.8.1",
   "dependencies": {
     "browser-request": "^0.3.3",
     "github-linker-core": "^1.9.0",
