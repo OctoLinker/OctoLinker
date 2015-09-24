@@ -9,7 +9,10 @@
     "test": "./scripts/test",
     "watch-test": "./scripts/test --no-single-run --auto-watch"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@githublinker/filetype": "^0.1.0",
+    "jquery": "^2.1.4"
+  },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
     "babelify": "^6.3.0",

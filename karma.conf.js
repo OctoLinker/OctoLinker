@@ -5,13 +5,13 @@ module.exports = function(config) {
     files: [
       'src/**/*.js',
       'test/**/*.spec.js',
-      'test/fixtures/*.html',
+      'test/fixtures/**/*.html',
     ],
     exclude: [],
     preprocessors: {
       'src/**/*.js': ['browserify'],
       'test/**/*.spec.js': ['browserify'],
-      'test/fixtures/*.html': ['html2js'],
+      'test/fixtures/**/*.html': ['html2js'],
     },
     browserify: {
       debug: true,
