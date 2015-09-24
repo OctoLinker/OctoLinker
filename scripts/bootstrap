@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -e
+
+node=`which node 2>&1`
+if [ $? -ne 0 ]; then
+  echo "Please install NodeJS."
+  echo "http://nodejs.org/"
+  exit 1
+fi
+
+cd "$(dirname "$0")/.."
+
+echo "Installing required npm packages ..."
+npm install
+
+# Don't need git hooks in travis-ci
+if [ -z "${TRAVIS}" ]; then
+    echo "Set up git hooks ..."
+    ln -s ../../scripts/hooks/pre-commit .git/hooks/pre-commit
+fi
+
+echo "Done"
