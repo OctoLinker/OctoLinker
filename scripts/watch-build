@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -e
+
+NPM_BIN="$(npm bin)";
+cd "$(dirname "$0")/.."
+
+"$NPM_BIN/watchify" ./src/github-linker.js -t babelify --outfile ./chrome/app.js
