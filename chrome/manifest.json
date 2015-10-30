@@ -16,6 +16,7 @@
         "https://gist.github.com/*"
       ],
       "js": ["app.js"],
+      "css": ["style.css"],
       "run_at": "document_idle",
       "all_frames": false
     }
