@@ -4,4 +4,4 @@ set -e
 NPM_BIN="$(npm bin)";
 cd "$(dirname "$0")/.."
 
-"$NPM_BIN/eslint" ./src ./test
+"$NPM_BIN/eslint" ./packages

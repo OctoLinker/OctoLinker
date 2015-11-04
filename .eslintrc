@@ -1,10 +1,14 @@
 {
   "extends": "airbnb/base",
   "env": {
-    "browser": true
+    "browser": true,
+    "mocha": true
   },
   "rules": {
     "func-names": 0,
     "id-length": [1, {"exceptions": ["$"]}]
+  },
+  "globals": {
+    "fixture": true,
   }
 }

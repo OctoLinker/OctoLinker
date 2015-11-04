@@ -3,15 +3,15 @@ module.exports = function(config) {
     basePath: '',
     frameworks: ['mocha', 'browserify', 'fixture'],
     files: [
-      'src/**/*.js',
-      'test/**/*.spec.js',
-      'test/fixtures/**/*.html',
+      'packages/**/*.js',
+      'packages/*/test/*.test.js',
+      'packages/*/test/fixtures/**/*.html',
     ],
     exclude: [],
     preprocessors: {
-      'src/**/*.js': ['browserify'],
-      'test/**/*.spec.js': ['browserify'],
-      'test/fixtures/**/*.html': ['html2js'],
+      'packages/**/*.js': ['browserify'],
+      'packages/*/test/*.test.js': ['browserify'],
+      'packages/*/test/fixtures/**/*.html': ['html2js'],
     },
     browserify: {
       debug: true,

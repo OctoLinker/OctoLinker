@@ -1,5 +1,5 @@
 import assert from 'assert';
-import sourcecode from '../src/sourceReader/index.js';
+import sourcecode from '../index.js';
 
 describe('sourceReader', () => {
   afterEach(() => {
@@ -8,7 +8,7 @@ describe('sourceReader', () => {
 
   describe('blob', function() {
     it('blob', () => {
-      fixture.load('/test/fixtures/github.com/blob/foo.js.html');
+      fixture.load(__dirname + '/fixtures/github.com/blob/foo.js.html');
       const result = sourcecode('https://github.com/github-linker/testrepo/blob/6d380ffc7e2ef681f7da6b525140b817f3cb553c/sourcereader/foo.js');
 
       assert.equal(result.length, 1);
@@ -23,7 +23,7 @@ describe('sourceReader', () => {
   describe('diff', function() {
     describe('unified', function() {
       it('commit unified', () => {
-        fixture.load('/test/fixtures/github.com/commit/unified.html');
+        fixture.load(__dirname + '/fixtures/github.com/commit/unified.html');
         const result = sourcecode('https://github.com/github-linker/testrepo/commit/6d380ffc7e2ef681f7da6b525140b817f3cb553c?diff=unified');
 
         assert.equal(result.length, 2);
@@ -45,7 +45,7 @@ describe('sourceReader', () => {
 
     describe('split', function() {
       it('commit split', () => {
-        fixture.load('/test/fixtures/github.com/commit/split.html');
+        fixture.load(__dirname + '/fixtures/github.com/commit/split.html');
         const result = sourcecode('https://github.com/github-linker/testrepo/commit/6d380ffc7e2ef681f7da6b525140b817f3cb553c?diff=split');
 
         assert.equal(result.length, 2);
