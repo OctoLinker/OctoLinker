@@ -1,7 +1,18 @@
+import injection from 'github-injection';
 import liveResolver from '../live-resolver';
 
-console.time('total');
+function main() {
+  console.time('total');
 
-liveResolver();
+  liveResolver();
 
-console.timeEnd('total');
+  console.timeEnd('total');
+}
+
+injection(window, function(err) {
+  if (err) {
+    throw err;
+  }
+
+  main();
+});
