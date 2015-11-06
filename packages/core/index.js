@@ -1,10 +1,17 @@
 import injection from 'github-injection';
+import sourceReader from '../source-reader';
 import liveResolver from '../live-resolver';
+import {requireRegex} from '../live-resolver/grammar/javascript';
 
 function main() {
   console.time('total');
 
-  liveResolver();
+  const blobs = sourceReader();
+
+  liveResolver(blobs, {
+    debug: true,
+    regex: requireRegex,
+  });
 
   console.timeEnd('total');
 }
