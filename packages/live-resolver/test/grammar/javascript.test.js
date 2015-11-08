@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {requireRegex} from '../../grammar/javascript.js';
+import {requireRegex, importRegex} from '../../grammar/javascript.js';
 
 function matchHelper(regex, str) {
   const actual = [];
@@ -30,6 +30,24 @@ describe('javascript', () => {
     ].forEach(([input, output]) => {
       it(input, () => {
         assert.deepEqual(matchHelper(requireRegex, input), output);
+      });
+    });
+  });
+
+  describe('import statment', () => {
+    [
+      ['import foo from "foo"', ['foo']],
+      ['import * as bar from "foo"', ['foo']],
+      ['import { bar } from "foo"', ['foo']],
+      ['import { foo as bar } from "foo"', ['foo']],
+      ['import { foo, bar } from "foo"', ['foo']],
+      ['import { foo, bar as baz } from "foo"', ['foo']],
+      ['import foo, {bar} from "foo"', ['foo']],
+      ['import foo, * as bar from "foo"', ['foo']],
+      ['import "foo"', ['foo']],
+    ].forEach(([input, output]) => {
+      it(input, () => {
+        assert.deepEqual(matchHelper(importRegex, input), output);
       });
     });
   });
