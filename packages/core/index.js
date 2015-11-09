@@ -1,7 +1,7 @@
 import injection from 'github-injection';
 import sourceReader from '../source-reader';
 import liveResolver from '../live-resolver';
-import {requireRegex} from '../live-resolver/grammar/javascript';
+import {requireRegex, importRegex} from '../live-resolver/grammar/javascript';
 
 function main() {
   console.time('total');
@@ -10,7 +10,10 @@ function main() {
 
   liveResolver(blobs, {
     debug: true,
-    regex: requireRegex,
+    regex: [
+      requireRegex,
+      importRegex,
+    ],
   });
 
   console.timeEnd('total');

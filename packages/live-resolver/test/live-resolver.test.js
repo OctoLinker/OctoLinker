@@ -18,6 +18,24 @@ function blobBuildHelper(lines) {
 }
 
 describe('live-resolver', () => {
+  it('takes a RegExp', () => {
+    const blob = blobBuildHelper(['id-<span>foo</span>']);
+    assert.doesNotThrow(() => {
+      liveResolver(blob, {
+        regex: /id-(\w*)/g,
+      });
+    });
+  });
+
+  it('takes an array of RegExp', () => {
+    const blob = blobBuildHelper(['id-<span>foo</span>']);
+    assert.doesNotThrow(() => {
+      liveResolver(blob, {
+        regex: [/id-(\w*)/g],
+      });
+    });
+  });
+
   it('wraps the keyword element with a link element', () => {
     const blob = blobBuildHelper(['id-<span>foo</span>']);
     liveResolver(blob, {

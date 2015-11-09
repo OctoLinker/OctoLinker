@@ -1,7 +1,13 @@
 import $ from 'jquery';
 
-function getKeywords(text, regex) {
+function getKeywords(text, _regex) {
+  let regexList = _regex;
   const ret = {};
+
+  if (!Array.isArray(regexList)) {
+    regexList = [regexList];
+  }
+
   let match;
 
   function findKeywords(val) {
@@ -9,9 +15,11 @@ function getKeywords(text, regex) {
     ret[startIndex] = val;
   }
 
-  while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
-    match.slice(1).map(findKeywords);
-  }
+  regexList.forEach((regex) => {
+    while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
+      match.slice(1).map(findKeywords);
+    }
+  });
 
   return ret;
 }
