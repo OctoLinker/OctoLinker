@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import insertLink from './insert-link.js';
 
 function getKeywords(text, _regex) {
   let regexList = _regex;
@@ -22,33 +22,6 @@ function getKeywords(text, _regex) {
   });
 
   return ret;
-}
-
-function insertLink(el, keywords, options, fromIndex = 0) {
-  let charIndex = fromIndex;
-
-  Array.prototype.forEach.call(el.childNodes, (child) => {
-    if (child.childElementCount) {
-      charIndex = insertLink(child, keywords, options, charIndex);
-    } else {
-      const $el = $(child);
-      const keyword = keywords[charIndex];
-
-      if (keyword) {
-        let attr = '';
-        if (options.debug) {
-          attr = ' class="ghl-link--debug-mode"';
-        }
-
-        const linkElement = `<a${attr}>`;
-        $el.wrap(linkElement);
-      }
-
-      charIndex += child.textContent.length;
-    }
-  });
-
-  return charIndex;
 }
 
 function blober(blob, options) {
