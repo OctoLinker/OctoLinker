@@ -30,6 +30,8 @@
     "karma-mocha-reporter": "^1.1.1",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-phantomjs-shim": "^1.1.2",
+    "mocha": "^2.3.4",
+    "phantomjs": "^1.9.18",
     "watchify": "^3.6.1"
   },
   "private": true
