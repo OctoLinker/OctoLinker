@@ -1,18 +1,31 @@
 import $ from 'jquery';
 
+const CLASS_NAME = 'ghl-link';
+const DEBUG_CLASS_NAME = 'ghl-link--debug-mode';
+
 function wrapElement(child, keyword, options) {
   const $el = $(child);
-  let attr = '';
+
+  const linkElement = document.createElement('a');
+  linkElement.classList.add(CLASS_NAME);
+
   if (options.debug) {
-    attr = ' class="ghl-link--debug-mode"';
+    linkElement.classList.add(DEBUG_CLASS_NAME);
   }
 
-  const linkElement = `<a${attr}>`;
   $el.wrap(linkElement);
+}
+
+function isAlreadyWrapped(el) {
+  return !!el.getElementsByClassName(CLASS_NAME).length;
 }
 
 function insertLink(el, keywords, options = {debug: false}, fromIndex = 0) {
   let charIndex = fromIndex;
+
+  if (isAlreadyWrapped(el)) {
+    return charIndex;
+  }
 
   Array.prototype.forEach.call(el.childNodes, (child) => {
     if (child.childElementCount) {
