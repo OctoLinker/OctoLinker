@@ -1,43 +1,24 @@
-import insertLink from './insert-link.js';
+import wrapElement from '../helper-wrap-element';
+import { getGrammarByType } from './grammar';
 
-function getKeywords(text, _regex) {
-  let regexList = _regex;
-  const ret = {};
-
-  if (!Array.isArray(regexList)) {
-    regexList = [regexList];
-  }
-
-  let match;
-
-  function findKeywords(val) {
-    const startIndex = text.indexOf(val, match.index);
-    ret[startIndex] = val;
-  }
-
-  regexList.forEach((regex) => {
-    while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
-      match.slice(1).map(findKeywords);
-    }
-  });
-
-  return ret;
-}
-
-function blober(blob, options) {
+function blober(blob, grammar, options) {
   blob.lines.forEach((item) => {
-    const keywords = getKeywords(item.text, options.regex);
+    const keywords = grammar(item.text);
     if (!keywords) {
       return;
     }
 
-    insertLink(item.el, keywords, options);
+    wrapElement(item.el, keywords, options);
   });
 }
 
 function main(blobs, options = {debug: false}) {
   blobs.forEach((blob) => {
-    blober(blob, options);
+    const grammar = getGrammarByType(blob.type);
+
+    if (grammar) {
+      blober(blob, grammar, options);
+    }
   });
 }
 
