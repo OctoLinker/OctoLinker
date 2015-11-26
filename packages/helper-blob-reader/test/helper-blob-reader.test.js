@@ -1,7 +1,7 @@
 import assert from 'assert';
 import sourcecode from '../index.js';
 
-describe('sourceReader', () => {
+describe('helper-blob-reader', () => {
   afterEach(() => {
     fixture.cleanup();
   });

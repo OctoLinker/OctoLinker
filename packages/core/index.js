@@ -1,5 +1,5 @@
 import injection from 'github-injection';
-import sourceReader from '../source-reader';
+import blobReader from '../helper-blob-reader';
 import liveResolver from '../live-resolver';
 import {requireRegex, importRegex} from '../live-resolver/grammar/javascript';
 
