@@ -285,7 +285,7 @@ module.exports = function (grunt) {
                 options: {
                     archive: function() {
                         var manifest = grunt.file.readJSON('app/manifest.json');
-                        return 'package/GitHub Linker-' + manifest.version + '.zip';
+                        return 'package/Octo Linker-' + manifest.version + '.zip';
                     }
                 },
                 files: [{

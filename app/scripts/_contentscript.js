@@ -1,6 +1,6 @@
 'use strict';
 
-var gitHubLinkerCore = require('github-linker-core');
+var octoLinkerCore = require('octo-linker-core');
 var $ = require('jquery');
 window.$ = $;
 
@@ -13,7 +13,7 @@ chrome.storage.sync.get(['version', 'enableUpdateNotification'], function(store)
 
     pkgVersion = require('../manifest.json').version.split('.').slice(0,-1).join('.');
     options = {
-        changelog: 'https://github.com/github-linker/chrome-extension/releases'
+        changelog: 'https://github.com/octo-linker/chrome-extension/releases'
     };
 
     if (store.enableUpdateNotification && store.version && store.version !== pkgVersion) {
@@ -23,7 +23,7 @@ chrome.storage.sync.get(['version', 'enableUpdateNotification'], function(store)
     store.version = pkgVersion;
     chrome.storage.sync.set(store);
 
-    gitHubLinkerCore(window, options, function(err) {
+    octoLinkerCore(window, options, function(err) {
         if (err) {
             console.error(err);
         }

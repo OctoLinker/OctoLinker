@@ -1,9 +1,9 @@
 {
-  "name": "github-linker-chrome-extension",
+  "name": "octo-linker-chrome-extension",
   "version": "3.8.5",
   "dependencies": {
     "browser-request": "^0.3.3",
-    "github-linker-core": "^1.9.0",
+    "octo-linker-core": "octo-linker/core",
     "jquery": "^2.1.1"
   },
   "devDependencies": {

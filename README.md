@@ -2,11 +2,13 @@
 <a href="#"><img src="app/images/icon-128.png"/></a>
 </p>
 
-# GitHub Linker
+# Octo-Linker
+
+> Browser extension for GitHub.com
 
 [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-url]][daviddm-image]
 
-The GitHub Linker is a Google Chrome Extension which makes import statements clickable and more. Check out the core repo where all features are listed and explained! https://github.com/github-linker/core
+This Google Chrome extension allows you to navigate across files and packages on GitHub.com with ease. It works really well for JavaScript e.g. `package.json` `bower.json` `ES2015 import` and good old `CommonJS` statements. Also PHP `composer.json` is supported. Many [other languages](https://github.com/octo-linker/chrome-extension/labels/Add%20support) will be added soon.
 
 # Preview
 
@@ -22,17 +24,19 @@ The GitHub Linker is a Google Chrome Extension which makes import statements cli
 
 # Support
 
-Should you have any problems, please open up an [issue](https://github.com/github-linker/core/issues).
+Should you have any problems, please open up an [issue](https://github.com/octo-linker/chrome-extension/issues).
 
 
 
 # License
 
-Copyright (c) 2014 Stefan Buck. Licensed under the MIT license.
+THE OCTO-LINKER PROJECT IS NOT AFFILIATED WITH, SPONSORED BY, OR ENDORSED BY GITHUB, INC.
 
-[webstore-url]: https://chrome.google.com/webstore/detail/github-linker/jlmafbaeoofdegohdhinkhilhclaklkp
-[travis-url]: https://travis-ci.org/github-linker/chrome-extension
-[travis-image]: https://travis-ci.org/github-linker/chrome-extension.svg?branch=master
-[daviddm-url]: https://david-dm.org/github-linker/chrome-extension.svg?theme=shields.io
-[daviddm-image]: https://david-dm.org/github-linker/chrome-extension
+COPYRIGHT (C) 2014 STEFAN BUCK. LICENSED UNDER THE MIT LICENSE.
+
+[webstore-url]: https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp
+[travis-url]: https://travis-ci.org/octo-linker/chrome-extension
+[travis-image]: https://travis-ci.org/octo-linker/chrome-extension.svg?branch=master
+[daviddm-url]: https://david-dm.org/octo-linker/chrome-extension.svg?theme=shields.io
+[daviddm-image]: https://david-dm.org/octo-linker/chrome-extension
 [install-image]: install.png

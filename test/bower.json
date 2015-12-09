@@ -1,5 +1,5 @@
 {
-  "name": "github-linker",
+  "name": "octo-linker",
   "private": true,
   "dependencies": {
     "chai": "~1.8.0",

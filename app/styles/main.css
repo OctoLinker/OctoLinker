@@ -1,7 +1,7 @@
-.github-linker {
+.octo-linker {
     cursor: pointer;
 }
 
-.github-linker:hover {
+.octo-linker:hover {
     text-decoration: underline;
 }

@@ -1,5 +1,5 @@
 {
-  "name": "github-linker",
+  "name": "octo-linker",
   "version": "0.0.0",
   "dependencies": {
     "bootstrap": "~3.3.1"
