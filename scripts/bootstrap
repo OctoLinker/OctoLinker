@@ -8,10 +8,15 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+NPM_BIN="$(npm bin)";
+
 cd "$(dirname "$0")/.."
 
 echo "Installing required npm packages ..."
 npm install
+
+echo "link packages ..."
+"$NPM_BIN/lerna" bootstrap
 
 # Don't need git hooks in travis-ci
 if [ -z "${TRAVIS}" ]; then
