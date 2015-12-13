@@ -1,5 +1,5 @@
 {
-  "name": "github-linker",
+  "name": "octo-linker",
   "engines": {
     "node": ">=4.0.0"
   },
