@@ -1,0 +1,15 @@
+{
+  "name": "@octo-linker/core",
+  "version": "0.0.5",
+  "description": "",
+  "author": "Stefan Buck",
+  "license": "MIT",
+  "repository": "https://github.com/octo-linker/chrome-extension/tree/dev/packages/core",
+  "main": "index.js",
+  "dependencies": {
+    "github-injection": "^0.1.0",
+    "@octo-linker/helper-blob-reader": "0.0.1",
+    "@octo-linker/live-resolver": "0.0.1",
+    "@octo-linker/manifest-npm": "0.0.1"
+  }
+}

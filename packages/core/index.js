@@ -1,7 +1,7 @@
 import injection from 'github-injection';
-import blobReader from '../helper-blob-reader';
-import liveResolver from '../live-resolver';
-import manifestNpm from '../manifest-npm';
+import blobReader from '@octo-linker/helper-blob-reader';
+import liveResolver from '@octo-linker/live-resolver';
+import manifestNpm from '@octo-linker/manifest-npm';
 
 function main() {
   console.time('total');

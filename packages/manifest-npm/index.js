@@ -1,4 +1,4 @@
-import wrapElement from '../helper-wrap-element';
+import wrapElement from '@octo-linker/helper-wrap-element';
 
 const blockStartRegex = /"(d|devD|peerD|optionalD)ependencies":\s?{/;
 const blockInnerRegex = /"[^"\s]+"/;

@@ -1,4 +1,4 @@
-import wrapElement from '../helper-wrap-element';
+import wrapElement from '@octo-linker/helper-wrap-element';
 import { getGrammarByType } from './grammar';
 
 function blober(blob, grammar, options) {
