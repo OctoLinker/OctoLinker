@@ -2,7 +2,6 @@ import injection from 'github-injection';
 import blobReader from '../helper-blob-reader';
 import liveResolver from '../live-resolver';
 import manifestNpm from '../manifest-npm';
-import manifestTravis from '../manifest-travis';
 
 function main() {
   console.time('total');
@@ -13,9 +12,6 @@ function main() {
     debug: true,
   });
   manifestNpm(blobs, {
-    debug: true,
-  });
-  manifestTravis(blobs, {
     debug: true,
   });
 

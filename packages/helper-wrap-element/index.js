@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
-const CLASS_NAME = 'ghl-link';
-const DEBUG_CLASS_NAME = 'ghl-link--debug-mode';
+const CLASS_NAME = 'octo-linker-item';
+const DEBUG_CLASS_NAME = 'octo-linker-item--debug-mode';
 
 function wrapElement(child, keyword, options) {
   const $el = $(child);
