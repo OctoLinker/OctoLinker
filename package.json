@@ -12,7 +12,6 @@
     "watch-build": "./scripts/watch-build"
   },
   "dependencies": {
-    "@githublinker/filetype": "^0.1.0",
     "github-injection": "^0.1.0",
     "jquery": "^2.1.4"
   },

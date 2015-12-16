@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import fileType from '@githublinker/filetype';
+import fileType from '../helper-file-type';
 
 function readLine(el) {
   const text = $(el).text();
