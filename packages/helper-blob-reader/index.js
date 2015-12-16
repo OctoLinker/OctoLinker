@@ -14,20 +14,27 @@ function readBlobLines($blob) {
   return Array.prototype.map.call($lines, readLine);
 }
 
-function getBlobPath(blobElement, basePath) {
-  let ret = basePath;
+function getBlobPath(blobElement) {
 
-  // When current page is a diff get path from the file description
-  const filePath = $('.file-header', blobElement.parentElement).data('path');
-  if (filePath) {
-    ret += filePath;
+  // When current page is a diff view get path from "View" button
+  let ret = $('.file-actions a', blobElement.parentElement).filter(function() {
+    return $(this).text() === 'View';
+  }).attr('href');
+
+  if (!ret) {
+    ret = $('.js-permalink-shortcut').attr('href');
   }
 
   return ret;
 }
 
-function getBlobMeta(blobElement, basePath) {
-  const path = getBlobPath(blobElement, basePath);
+function getBlobMeta(blobElement) {
+  const path = getBlobPath(blobElement);
+
+  if (!path) {
+    return null;
+  }
+
   const type = fileType(path);
   const lines = readBlobLines(blobElement);
 
@@ -38,19 +45,10 @@ function getBlobMeta(blobElement, basePath) {
   };
 }
 
-export default function(location = window.location.href) {
-  let baseLocation = location;
+export default function() {
   const $blobs = $('.blob-wrapper');
 
-  // When current page is a diff get baseLocation from the commit description
-  const branch = $('.commit .branches-list a').eq(0);
-  if (branch.length) {
-    const repoUrl = branch.attr('href');
-    const branchName = branch.text();
-    baseLocation = `${repoUrl}/blob/${branchName}/`;
-  }
-
   return $.map($blobs, (el) => {
-    return getBlobMeta(el, baseLocation);
+    return getBlobMeta(el);
   });
 }
