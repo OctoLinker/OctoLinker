@@ -8,6 +8,11 @@ function main() {
 
   const blobs = blobReader();
 
+  console.log('Total blobs: ', blobs.length);
+  blobs.forEach((blob) => {
+    console.log(blob.type, blob.path);
+  });
+
   liveResolver(blobs, {
     debug: true,
   });
