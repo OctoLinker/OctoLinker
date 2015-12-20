@@ -12,7 +12,7 @@ function blober(blob, grammar, options) {
   });
 }
 
-function main(blobs, options = {debug: false}) {
+function main(blobs, options = { debug: false }) {
   blobs.forEach((blob) => {
     const grammar = getGrammarByType(blob.type);
 

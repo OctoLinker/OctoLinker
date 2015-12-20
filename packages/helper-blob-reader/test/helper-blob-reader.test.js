@@ -6,7 +6,7 @@ describe('helper-blob-reader', () => {
     fixture.cleanup();
   });
 
-  describe('blob', function() {
+  describe('blob', () => {
     it('blob', () => {
       fixture.load(__dirname + '/fixtures/github.com/blob/foo.js.html');
       const result = sourcecode();
@@ -20,8 +20,8 @@ describe('helper-blob-reader', () => {
     });
   });
 
-  describe('diff', function() {
-    describe('unified', function() {
+  describe('diff', () => {
+    describe('unified', () => {
       it('commit unified', () => {
         fixture.load(__dirname + '/fixtures/github.com/commit/unified.html');
         const result = sourcecode();
@@ -43,7 +43,7 @@ describe('helper-blob-reader', () => {
       });
     });
 
-    describe('split', function() {
+    describe('split', () => {
       it('commit split', () => {
         fixture.load(__dirname + '/fixtures/github.com/commit/split.html');
         const result = sourcecode();

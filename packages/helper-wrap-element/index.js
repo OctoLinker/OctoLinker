@@ -20,7 +20,7 @@ function isAlreadyWrapped(el) {
   return !!el.getElementsByClassName(CLASS_NAME).length;
 }
 
-function insertLink(el, keywords, options = {debug: false}, fromIndex = 0) {
+function insertLink(el, keywords, options = { debug: false }, fromIndex = 0) {
   let charIndex = fromIndex;
 
   if (isAlreadyWrapped(el)) {

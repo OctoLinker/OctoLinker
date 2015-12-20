@@ -1,6 +1,6 @@
-import {extname} from 'path';
+import { extname } from 'path';
 
-var supportedTypes = {
+const supportedTypes = {
   '.js': 'javascript',
   '.es6': 'javascript',
   '.jsx': 'javascript',

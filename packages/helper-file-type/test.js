@@ -1,6 +1,3 @@
-
-'use strict';
-
 import assert from 'assert';
 import fileType from './index.js';
 

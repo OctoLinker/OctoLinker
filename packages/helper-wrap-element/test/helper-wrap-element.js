@@ -40,7 +40,7 @@ describe('helper-wrap-element', () => {
 
     const el = document.createElement('div');
     el.innerHTML = input;
-    insertLink(el, keywords, {debug: true});
+    insertLink(el, keywords, { debug: true });
     assert.equal(el.innerHTML, expected);
   });
 });

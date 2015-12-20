@@ -15,7 +15,6 @@ function readBlobLines($blob) {
 }
 
 function getBlobPath(blobElement) {
-
   // When current page is a diff view get path from "View" button
   let ret = $('.file-actions a', blobElement.parentElement).filter(function() {
     return $(this).text() === 'View';

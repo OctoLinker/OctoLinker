@@ -1,31 +1,31 @@
 const valid = [
   [
     'import foo from "foo"',
-    {17: 'foo'},
+    { 17: 'foo' },
   ], [
     'import * as bar from "foo"',
-    {22: 'foo'},
+    { 22: 'foo' },
   ], [
     'import { bar } from "foo"',
-    {21: 'foo'},
+    { 21: 'foo' },
   ], [
     'import { foo as bar } from "foo"',
-    {28: 'foo'},
+    { 28: 'foo' },
   ], [
     'import { foo, bar } from "foo"',
-    {26: 'foo'},
+    { 26: 'foo' },
   ], [
     'import { foo, bar as baz } from "foo"',
-    {33: 'foo'},
+    { 33: 'foo' },
   ], [
     'import foo, {bar} from "foo"',
-    {24: 'foo'},
+    { 24: 'foo' },
   ], [
     'import foo, * as bar from "foo"',
-    {27: 'foo'},
+    { 27: 'foo' },
   ], [
     'import "foo"',
-    {8: 'foo'},
+    { 8: 'foo' },
   ],
 ];
 

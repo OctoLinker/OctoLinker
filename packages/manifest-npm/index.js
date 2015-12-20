@@ -58,7 +58,7 @@ function blober(blob, options) {
   });
 }
 
-function main(blobs, options = {debug: false}) {
+function main(blobs, options = { debug: false }) {
   blobs.forEach((blob) => {
     blober(blob, options);
   });
