@@ -1,6 +1,6 @@
 import injection from 'github-injection';
 import blobReader from '../helper-blob-reader';
-import liveResolver from '../live-resolver';
+import linkResolver from '../link-resolver';
 import manifestNpm from '../manifest-npm';
 
 function main() {
@@ -13,7 +13,7 @@ function main() {
     console.log(blob.type, blob.path);
   });
 
-  liveResolver(blobs, {
+  linkResolver(blobs, {
     debug: true,
   });
   manifestNpm(blobs, {
