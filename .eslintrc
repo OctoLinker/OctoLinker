@@ -6,7 +6,8 @@
   },
   "rules": {
     "func-names": 0,
-    "id-length": [1, {"exceptions": ["$"]}]
+    "id-length": [1, {"exceptions": ["$"]}],
+    "new-cap": [2, {"capIsNewExceptions": ["Deferred"]}]
   },
   "globals": {
     "fixture": true,
