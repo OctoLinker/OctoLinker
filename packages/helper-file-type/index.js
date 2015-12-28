@@ -1,12 +1,12 @@
 import { extname } from 'path';
+import languages from './languages.json';
 
-const supportedTypes = {
-  '.js': 'javascript',
-  '.es6': 'javascript',
-  '.jsx': 'javascript',
-  '.coffee': 'javascript',
-};
+export function languageByFilePath(filepath) {
+  const ext = extname(filepath);
 
-export default function(filepath) {
-  return supportedTypes[extname(filepath)];
+  for (const lang in languages) {
+    if (languages[lang].indexOf(ext) >= 0) {
+      return lang;
+    }
+  }
 }

@@ -1,0 +1,13 @@
+{
+  "JavaScript": [
+    ".js",
+    ".jsx",
+    ".es6"
+  ],
+  "CoffeeScript": [
+    ".coffee"
+  ],
+  "TypeScript": [
+    ".ts"
+  ]
+}

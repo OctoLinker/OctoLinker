@@ -8,7 +8,12 @@ Detect the file type by simply checking the file extension.
   - .js
   - .jsx
   - .es6
+
+### CoffeeScript
   - .coffee
+
+### TypeScript
+  - .ts
 
 ### Ruby
 _Please contribute_
