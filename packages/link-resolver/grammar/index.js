@@ -5,7 +5,7 @@ const grammarList = {
 };
 
 function getGrammarByType(type) {
-  const grammar = grammarList[type];
+  const grammar = grammarList[type.toLowerCase()];
 
   if (grammar) {
     return grammar;

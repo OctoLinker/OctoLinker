@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import fileType from '../helper-file-type';
+import {languageByFilePath} from '../helper-file-type';
 
 function readLine(el) {
   const text = $(el).text();
@@ -34,7 +34,7 @@ function getBlobMeta(blobElement) {
     return null;
   }
 
-  const type = fileType(path);
+  const type = languageByFilePath(path);
   const lines = readBlobLines(blobElement);
 
   return {
