@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import injection from 'github-injection';
 import blobReader from '../helper-blob-reader';
 import linkResolver from '../link-resolver';

@@ -1,5 +1,5 @@
 import wrapElement from '../helper-wrap-element';
-import { getGrammarByType } from './grammar';
+import universalGrammar from './grammar/universal';
 
 function blober(blob, grammar, options) {
   blob.lines.forEach((item) => {
@@ -14,7 +14,7 @@ function blober(blob, grammar, options) {
 
 function main(blobs, options = { debug: false }) {
   blobs.forEach((blob) => {
-    const grammar = getGrammarByType(blob.type);
+    const grammar = universalGrammar(blob.type);
 
     if (grammar) {
       blober(blob, grammar, options);
