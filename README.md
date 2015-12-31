@@ -32,7 +32,7 @@ Should you have any problems, please open up an [issue](https://github.com/octo-
 
 THE OCTO-LINKER PROJECT IS NOT AFFILIATED WITH, SPONSORED BY, OR ENDORSED BY GITHUB, INC.
 
-COPYRIGHT (C) 2014 STEFAN BUCK. LICENSED UNDER THE MIT LICENSE.
+COPYRIGHT (C) 2015 STEFAN BUCK. LICENSED UNDER THE MIT LICENSE.
 
 [webstore-url]: https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp
 [travis-url]: https://travis-ci.org/octo-linker/chrome-extension
