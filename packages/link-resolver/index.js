@@ -8,7 +8,12 @@ function blober(blob, grammar, options) {
       return;
     }
 
-    wrapElement(item.el, keywords, {}, options);
+    const {path, type} = blob;
+
+    wrapElement(item.el, keywords, {
+      type,
+      path,
+    }, options);
   });
 }
 

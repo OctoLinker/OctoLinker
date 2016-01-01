@@ -3,11 +3,14 @@ import injection from 'github-injection';
 import blobReader from '../helper-blob-reader';
 import linkResolver from '../link-resolver';
 import manifestNpm from '../manifest-npm';
+import clickHandler from '../helper-click-handler';
 
 function main() {
   console.time('total');
 
   const blobs = blobReader();
+
+  clickHandler();
 
   console.log('Total blobs: ', blobs.length);
   blobs.forEach((blob) => {

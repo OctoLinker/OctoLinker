@@ -56,4 +56,5 @@ function insertLink(el, keywords, data = {}, options = {}, fromIndex = 0) {
 
 export {
   insertLink as default,
+  CLASS_NAME,
 };

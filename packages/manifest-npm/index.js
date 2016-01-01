@@ -25,7 +25,7 @@ function blockEnd(item) {
 function blockInner(item, options) {
   const found = item.text.match(blockInnerRegex);
   if (found) {
-    wrapElement(item.el, keywordFromMatch(found), options);
+    wrapElement(item.el, keywordFromMatch(found), {}, options);
   }
 }
 
@@ -53,7 +53,7 @@ function blober(blob, options) {
 
     const nameMatch = item.text.match(nameRegex);
     if (nameMatch) {
-      wrapElement(item.el, keywordFromMatch(nameMatch), options);
+      wrapElement(item.el, keywordFromMatch(nameMatch), {}, options);
     }
   });
 }

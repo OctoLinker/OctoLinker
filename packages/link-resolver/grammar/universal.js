@@ -1,3 +1,5 @@
+import {registerHandler} from '../../helper-click-handler';
+
 const REQUIRE = /require(?:\s|\()(['"][^'"\s]+['"])\)?/g;
 const REQUIRE_RESOLVE = /require(?:.resolve)(?:\s|\()(['"][^'"\s]+['"])\)?/g;
 const IMPORT = /import\s+(?:.+\s+from\s+)?(['"][^'"\s]+['"])/g;
@@ -13,6 +15,10 @@ export default function(type) {
   if (!regexList) {
     return null;
   }
+
+  registerHandler(type, function(data) {
+    console.log('universal click handler', data);
+  });
 
   return function(text) {
     const ret = {};
