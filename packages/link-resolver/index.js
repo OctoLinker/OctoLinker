@@ -8,7 +8,7 @@ function blober(blob, grammar, options) {
       return;
     }
 
-    wrapElement(item.el, keywords, options);
+    wrapElement(item.el, keywords, {}, options);
   });
 }
 
