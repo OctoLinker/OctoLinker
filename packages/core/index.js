@@ -10,6 +10,10 @@ function main() {
 
   const blobs = blobReader();
 
+  if (blobs.length === 0) {
+    return;
+  }
+
   clickHandler();
 
   console.log('Total blobs: ', blobs.length);
