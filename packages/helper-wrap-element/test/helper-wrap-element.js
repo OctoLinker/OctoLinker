@@ -43,18 +43,6 @@ describe('helper-wrap-element', () => {
     assert.equal($('.octo-linker-link', el).length, 1);
   });
 
-  it('adds the css class for the debug mode', () => {
-    const input = 'foo <span>foo</span>';
-    const keywords = {
-      4: 'foo',
-    };
-
-    const el = document.createElement('div');
-    el.innerHTML = input;
-    insertLink(el, keywords, {}, { debug: true });
-    assert.equal($('.octo-linker-link--debug-mode', el).length, 1);
-  });
-
   it('adds the given data ad data-* attributes', () => {
     const input = 'foo <span>foo</span>';
     const keywords = {

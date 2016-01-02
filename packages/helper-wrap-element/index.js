@@ -1,16 +1,12 @@
 import $ from 'jquery';
 
 const CLASS_NAME = 'octo-linker-link';
-const DEBUG_CLASS_NAME = 'octo-linker-link--debug-mode';
 
-function createLinkElement(dataAttr = {}, options = {}) {
+function createLinkElement(dataAttr = {}) {
   const linkEl = document.createElement('a');
 
   // Add css classes
   linkEl.classList.add(CLASS_NAME);
-  if (options.debug) {
-    linkEl.classList.add(DEBUG_CLASS_NAME);
-  }
 
   // Add data-* attributes
   for (const key in dataAttr) {
@@ -26,7 +22,7 @@ function isAlreadyWrapped(el) {
   return !!el.getElementsByClassName(CLASS_NAME).length;
 }
 
-function insertLink(el, keywords, data = {}, options = {}, fromIndex = 0) {
+function insertLink(el, keywords, data = {}, fromIndex = 0) {
   let charIndex = fromIndex;
 
   if (isAlreadyWrapped(el)) {
@@ -35,7 +31,7 @@ function insertLink(el, keywords, data = {}, options = {}, fromIndex = 0) {
 
   Array.prototype.forEach.call(el.childNodes, (child) => {
     if (child.childElementCount) {
-      charIndex = insertLink(child, keywords, data, options, charIndex);
+      charIndex = insertLink(child, keywords, data, charIndex);
     } else {
       const keyword = keywords[charIndex];
 
@@ -44,7 +40,7 @@ function insertLink(el, keywords, data = {}, options = {}, fromIndex = 0) {
           value: keyword,
         });
 
-        $(child).wrap(createLinkElement(attr, options));
+        $(child).wrap(createLinkElement(attr));
       }
 
       charIndex += child.textContent.length;

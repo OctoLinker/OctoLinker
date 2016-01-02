@@ -1,3 +1,4 @@
-.octo-linker-link--debug-mode {
-  border: 1px solid red;
+body.octo-linker-debug .octo-linker-link {
+  background-color: rgba(255, 0, 255, 0.2);
+  border: 1px solid rgb(255, 0, 255);
 }

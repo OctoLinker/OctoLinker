@@ -1,7 +1,7 @@
 import wrapElement from '../helper-wrap-element';
 import universalGrammar from './grammar/universal';
 
-function blober(blob, grammar, options) {
+function blober(blob, grammar) {
   blob.lines.forEach((item) => {
     const keywords = grammar(item.text);
     if (!keywords) {
@@ -13,16 +13,16 @@ function blober(blob, grammar, options) {
     wrapElement(item.el, keywords, {
       type,
       path,
-    }, options);
+    });
   });
 }
 
-function main(blobs, options = { debug: false }) {
+function main(blobs) {
   blobs.forEach((blob) => {
     const grammar = universalGrammar(blob.type);
 
     if (grammar) {
-      blober(blob, grammar, options);
+      blober(blob, grammar);
     }
   });
 }

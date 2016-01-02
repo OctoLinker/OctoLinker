@@ -22,20 +22,20 @@ function blockEnd(item) {
   return item.text.match(blockEndRegex);
 }
 
-function blockInner(item, options) {
+function blockInner(item) {
   const found = item.text.match(blockInnerRegex);
   if (found) {
-    wrapElement(item.el, keywordFromMatch(found), {}, options);
+    wrapElement(item.el, keywordFromMatch(found));
   }
 }
 
-function block(item, options) {
+function block(item) {
   if (blockEnd(item)) {
     insideBlock = false;
   }
 
   if (insideBlock) {
-    blockInner(item, options);
+    blockInner(item);
   }
 
   if (blockStart(item)) {
@@ -43,27 +43,21 @@ function block(item, options) {
   }
 }
 
-function blober(blob, options) {
+function blober(blob) {
   if (!blob.path.endsWith('package.json')) {
     return;
   }
 
   blob.lines.forEach((item) => {
-    block(item, options);
+    block(item);
 
     const nameMatch = item.text.match(nameRegex);
     if (nameMatch) {
-      wrapElement(item.el, keywordFromMatch(nameMatch), {}, options);
+      wrapElement(item.el, keywordFromMatch(nameMatch));
     }
   });
 }
 
-function main(blobs, options = { debug: false }) {
-  blobs.forEach((blob) => {
-    blober(blob, options);
-  });
+export default function(blobs) {
+  blobs.forEach(blober);
 }
-
-export {
-  main as default,
-};

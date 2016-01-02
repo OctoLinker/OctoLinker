@@ -14,6 +14,8 @@ function main() {
     return;
   }
 
+  document.body.classList.add('octo-linker-debug');
+
   clickHandler();
 
   console.log('Total blobs: ', blobs.length);
@@ -21,12 +23,8 @@ function main() {
     console.log(blob.type, blob.path);
   });
 
-  linkResolver(blobs, {
-    debug: true,
-  });
-  manifestNpm(blobs, {
-    debug: true,
-  });
+  linkResolver(blobs);
+  manifestNpm(blobs);
 
   console.timeEnd('total');
 }
