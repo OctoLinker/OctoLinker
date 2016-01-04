@@ -1,6 +1,6 @@
 import assert from 'assert';
 import $ from 'jquery';
-import insertLink from '../index.js';
+import insertLink from './index.js';
 
 describe('helper-wrap-element', () => {
   it('wraps the elements based on their char position which is specified in the kewords map', () => {
@@ -20,6 +20,19 @@ describe('helper-wrap-element', () => {
   it('wraps a neasted element', () => {
     const input = 'foo <div><span>foo</span></div>';
     const expected = 'foo <div><a class="octo-linker-link" data-value="foo"><span>foo</span></a></div>';
+    const keywords = {
+      4: 'foo',
+    };
+
+    const el = document.createElement('div');
+    el.innerHTML = input;
+    insertLink(el, keywords);
+    assert.equal(el.innerHTML, expected);
+  });
+
+  it('wraps the parent element when keyword is divided', () => {
+    const input = 'foo <span>fo<span>o</span></span>';
+    const expected = 'foo <a class="octo-linker-link" data-value="foo"><span>fo<span>o</span></span></a>';
     const keywords = {
       4: 'foo',
     };

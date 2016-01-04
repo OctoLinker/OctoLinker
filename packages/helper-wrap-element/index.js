@@ -29,7 +29,9 @@ function insertLink(el, keywords, data = {}, fromIndex = 0) {
     return charIndex;
   }
 
-  Array.prototype.forEach.call(el.childNodes, (child) => {
+  Array.prototype.forEach.call(el.childNodes, (childEl) => {
+    let child = childEl;
+
     if (child.childElementCount) {
       charIndex = insertLink(child, keywords, data, charIndex);
     } else {
@@ -39,6 +41,10 @@ function insertLink(el, keywords, data = {}, fromIndex = 0) {
         const attr = Object.assign({}, data, {
           value: keyword,
         });
+
+        if (child.textContent !== keyword) {
+          child = child.parentNode;
+        }
 
         $(child).wrap(createLinkElement(attr));
       }
