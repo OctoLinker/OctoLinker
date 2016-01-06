@@ -1,9 +1,13 @@
 import wrapElement from '../helper-wrap-element';
-import universalGrammar from './grammar/universal';
+import JavaScript from './grammar/javascript';
+
+const grammarList = {
+  JavaScript,
+};
 
 function blober(blob, grammar) {
   blob.lines.forEach((item) => {
-    const keywords = grammar(item.text);
+    const keywords = grammar.extractKeywords(item.text);
     if (!keywords) {
       return;
     }
@@ -19,10 +23,10 @@ function blober(blob, grammar) {
 
 function main(blobs) {
   blobs.forEach((blob) => {
-    const grammar = universalGrammar(blob.type);
+    const Grammar = grammarList[blob.type];
 
-    if (grammar) {
-      blober(blob, grammar);
+    if (Grammar) {
+      blober(blob, new Grammar());
     }
   });
 }

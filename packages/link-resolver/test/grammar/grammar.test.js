@@ -1,14 +1,16 @@
 import assert from 'assert';
-import universal from '../../grammar/universal.js';
+import JavaScript from '../../grammar/javascript.js';
 import requireFixture from './fixtures/require.js';
 import importFixture from './fixtures/import.js';
 
 describe('grammar', () => {
-  describe('universal', () => {
+  describe('JavaScript', () => {
+    const instance = new JavaScript();
+
     describe('require()', () => {
       requireFixture.forEach(([input, output = {}]) => {
         it(input, () => {
-          assert.deepEqual(universal('JavaScript')(input), output);
+          assert.deepEqual(instance.extractKeywords(input), output);
         });
       });
     });
@@ -16,7 +18,7 @@ describe('grammar', () => {
     describe('import', () => {
       importFixture.forEach(([input, output = {}]) => {
         it(input, () => {
-          assert.deepEqual(universal('JavaScript')(input), output);
+          assert.deepEqual(instance.extractKeywords(input), output);
         });
       });
     });
