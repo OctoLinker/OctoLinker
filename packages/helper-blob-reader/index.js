@@ -1,19 +1,6 @@
 import $ from 'jquery';
 import {languageByFilePath} from '../helper-file-type';
 
-function readLine(el) {
-  const text = $(el).text();
-  return {
-    el,
-    text,
-  };
-}
-
-function readBlobLines($blob) {
-  const $lines = $('.blob-code-inner', $blob);
-  return Array.prototype.map.call($lines, readLine);
-}
-
 function getBlobPath(blobElement) {
   // When current page is a diff view get path from "View" button
   let ret = $('.file-actions a', blobElement.parentElement).filter(function() {
@@ -35,10 +22,9 @@ function getBlobMeta(blobElement) {
   }
 
   const type = languageByFilePath(path);
-  const lines = readBlobLines(blobElement);
 
   return {
-    lines,
+    el: blobElement,
     type,
     path,
   };

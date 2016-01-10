@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "builtins": "^1.0.3",
+    "findandreplacedomtext": "^0.4.4",
     "github-injection": "^0.1.0",
     "jquery": "^2.1.4"
   },
