@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.octo-linker-link:hover {
+  text-decoration: underline;
+}
+
 body.octo-linker-debug .octo-linker-link {
   background-color: rgba(255, 0, 255, 0.2);
   border: 1px solid rgb(255, 0, 255);

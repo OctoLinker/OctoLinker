@@ -1,31 +1,73 @@
 import {REQUIRE, REQUIRE_RESOLVE, IMPORT} from '../../helper-grammar-regex-collection/index.js';
 import tryLoad from '../../helper-try-load';
 import bulkUrls from '../../helper-bulk-url-builder';
-import Base from './base.js';
 import builtins from 'builtins';
+import findAndReplaceDOMText from 'findandreplacedomtext';
+import {registerHandler} from '../../helper-click-handler';
+import $ from 'jquery';
 
-export default class JavaScript extends Base {
+const CLASS_NAME = 'octo-linker-link';
 
-  regexList() {
-    return [REQUIRE, REQUIRE_RESOLVE, IMPORT];
+function createLinkElement(text, dataAttr = {}) {
+  const linkEl = document.createElement('span');
+
+  // Set link text
+  linkEl.innerHTML = text;
+
+  // Add css classes
+  linkEl.classList.add(CLASS_NAME);
+
+  // Add data-* attributes
+  for (const key in dataAttr) {
+    if (dataAttr.hasOwnProperty(key)) {
+      linkEl.dataset[key] = dataAttr[key];
+    }
+  }
+
+  return linkEl;
+}
+
+function replaceKeywords(blob, regex) {
+  function replace(portion, match) {
+    const value = match[1].replace(/['|"]/g, '');
+    const valueStartPos = match[0].indexOf(value);
+    const valueEndPos = valueStartPos + value.length;
+    const portionEndPos = portion.indexInMatch + portion.text.length;
+
+    if (valueStartPos === portion.indexInMatch) {
+      const {type, path} = blob;
+
+      if (portionEndPos === valueEndPos) {
+        return createLinkElement(portion.text, {value, type, path});
+      }
+
+      $(portion.node.parentNode).wrap(createLinkElement('', {value, type, path}));
+    }
+
+    return portion.text;
+  }
+
+  regex.forEach((find) => {
+    findAndReplaceDOMText(blob.el, {
+      find,
+      replace,
+    });
+  });
+}
+
+export default class JavaScript {
+
+  constructor(blob) {
+    registerHandler(this.constructor.name, this.clickHandler.bind(this));
+    replaceKeywords(blob, [REQUIRE, REQUIRE_RESOLVE, IMPORT]);
   }
 
   clickHandler(data) {
-    if (!this.apiPage(data)) {
-      this.loadFile(data);
-    }
-  }
-
-  apiPage({value}) {
-    if (builtins.indexOf(value) === -1) {
-      return false;
+    if (builtins.indexOf(data.value) > -1) {
+      window.location.href = `https://nodejs.org/api/${data.value}.html`;
+      return;
     }
 
-    window.location.href = `https://nodejs.org/api/${value}.html`;
-    return true;
-  }
-
-  loadFile(data) {
     tryLoad(bulkUrls(data), (err, url) => {
       if (err) {
         return console.error(err);
