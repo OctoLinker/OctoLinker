@@ -29,19 +29,33 @@ function createLinkElement(text, dataAttr = {}) {
 
 function replaceKeywords(blob, regex) {
   function replace(portion, match) {
+
     const value = match[1].replace(/['|"]/g, '');
-    const valueStartPos = match[0].indexOf(value);
+
+    let offset = 0;
+    if (match[1].length !== value.length) {
+      offset = 1;
+    };
+
+    const valueStartPos = match[0].indexOf(match[1]) + offset;
     const valueEndPos = valueStartPos + value.length;
     const portionEndPos = portion.indexInMatch + portion.text.length;
 
     if (valueStartPos === portion.indexInMatch) {
-      const {type, path} = blob;
+      const { type, path } = blob;
 
       if (portionEndPos === valueEndPos) {
-        return createLinkElement(portion.text, {value, type, path});
+        return createLinkElement(portion.text, { value, type, path });
       }
 
-      $(portion.node.parentNode).wrap(createLinkElement('', {value, type, path}));
+      let node = portion.node;
+      while (!node.textContent.includes(match[1])) {
+        node = node.parentNode;
+      }
+
+      if (node) {
+        $(node).wrap(createLinkElement('', { value, type, path }));
+      }
     }
 
     return portion.text;
