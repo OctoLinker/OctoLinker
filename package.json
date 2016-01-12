@@ -12,6 +12,7 @@
     "watch-build": "./scripts/watch-build"
   },
   "dependencies": {
+    "babel-polyfill": "^6.3.14",
     "builtins": "^1.0.3",
     "findandreplacedomtext": "^0.4.4",
     "github-injection": "^0.1.0",
