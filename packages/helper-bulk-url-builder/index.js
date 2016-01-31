@@ -1,6 +1,6 @@
-import {join, dirname, extname} from 'path';
+import { join, dirname, extname } from 'path';
 
-export default function(data) {
+export default function (data) {
   let basePath = join(dirname(data.path), data.value);
   const list = [
     '.js',

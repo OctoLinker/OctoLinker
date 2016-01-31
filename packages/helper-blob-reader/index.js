@@ -1,9 +1,9 @@
 import $ from 'jquery';
-import {languageByFilePath} from '../helper-file-type';
+import { languageByFilePath } from '../helper-file-type';
 
 function getBlobPath(blobElement) {
   // When current page is a diff view get path from "View" button
-  let ret = $('.file-actions a', blobElement.parentElement).filter(function() {
+  let ret = $('.file-actions a', blobElement.parentElement).filter(function () {
     return $(this).text() === 'View';
   }).attr('href');
 
@@ -30,7 +30,7 @@ function getBlobMeta(blobElement) {
   };
 }
 
-export default function() {
+export default function () {
   const $blobs = $('.blob-wrapper');
 
   return $.map($blobs, (el) => {

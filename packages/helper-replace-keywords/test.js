@@ -3,13 +3,12 @@ import $ from 'jquery';
 import insertLink from './index.js';
 
 describe('helper-replace-keywords', () => {
-
   function helper(html) {
     const el = document.createElement('div');
     el.innerHTML = html;
 
     insertLink({
-      el: el,
+      el,
       path: '',
       type: '',
     }, [/foo ("\w+")/g]);

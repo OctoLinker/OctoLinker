@@ -1,4 +1,4 @@
-import {registerHandler} from '../../helper-click-handler';
+import { registerHandler } from '../../helper-click-handler';
 
 export default class Base {
 

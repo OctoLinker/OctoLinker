@@ -23,13 +23,12 @@ function createLinkElement(text, dataAttr = {}) {
 }
 
 function replace(portion, match, type, path) {
-
   const value = match[1].replace(/['|"]/g, '');
 
   let offset = 0;
   if (match[1].length !== value.length) {
     offset = 1;
-  };
+  }
 
   const valueStartPos = match[0].indexOf(match[1]) + offset;
   const valueEndPos = valueStartPos + value.length;

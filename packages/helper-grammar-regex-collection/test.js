@@ -81,14 +81,14 @@ const fixtures = {
 
 describe('helper-grammar-regex-collection', () => {
   Object.keys(fixtures).forEach((grammar) => {
-    const {regex, valid, invalid} = fixtures[grammar];
+    const { regex, valid, invalid } = fixtures[grammar];
 
     beforeEach(() => {
       regex.lastIndex = 0;
     });
 
-    describe(grammar, function() {
-      describe('valid', function() {
+    describe(grammar, function () {
+      describe('valid', function () {
         valid.forEach((statement) => {
           const text = Array.isArray(statement) ? statement[0] : statement;
           const expected = Array.isArray(statement) ? statement[1] : ['"foo"'];
@@ -106,7 +106,7 @@ describe('helper-grammar-regex-collection', () => {
         });
       });
 
-      describe('invalid', function() {
+      describe('invalid', function () {
         invalid.forEach((statement) => {
           it(statement, () => {
             assert.equal(regex.exec(statement), null);

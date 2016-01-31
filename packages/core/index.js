@@ -29,7 +29,7 @@ function main() {
   console.timeEnd('total');
 }
 
-injection(window, function(err) {
+injection(window, function (err) {
   if (err) {
     throw err;
   }
