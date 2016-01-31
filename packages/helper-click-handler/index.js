@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {CLASS_NAME} from '../helper-wrap-element';
+import { CLASS_NAME } from '../helper-wrap-element';
 
 const LINK_SELECTOR = `.${CLASS_NAME}`;
 const $body = $('body');
@@ -31,7 +31,7 @@ function cleanup() {
   listeners.clear();
 }
 
-export default function() {
+export default function () {
   cleanup();
   init();
 }

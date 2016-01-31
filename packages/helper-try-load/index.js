@@ -6,9 +6,9 @@ function loader(urls, cb) {
   $.ajax({
     type: 'HEAD',
     url,
-  }).then(function() {
+  }).then(function () {
     cb(null, url);
-  }).fail(function() {
+  }).fail(function () {
     if (urls.length === 0) {
       return cb(new Error('Could not load any url'));
     }

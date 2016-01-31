@@ -1,7 +1,7 @@
 import assert from 'assert';
 import sinon from 'sinon';
 import $ from 'jquery';
-import clickHandler, {registerHandler} from './index.js';
+import clickHandler, { registerHandler } from './index.js';
 
 describe('helper-click-handler', () => {
   const sandbox = sinon.sandbox.create();
@@ -23,7 +23,7 @@ describe('helper-click-handler', () => {
     sandbox.restore();
   });
 
-  it('calls the corresponding handler', function() {
+  it('calls the corresponding handler', function () {
     registerHandler('foo', fooHandler);
     registerHandler('bar', barHandler);
     $link.click();
@@ -32,7 +32,7 @@ describe('helper-click-handler', () => {
     assert.equal(barHandler.callCount, 0);
   });
 
-  it('calls the corresponding handler with data-attr of the target', function() {
+  it('calls the corresponding handler with data-attr of the target', function () {
     registerHandler('foo', fooHandler);
     $link.click();
 
@@ -42,7 +42,7 @@ describe('helper-click-handler', () => {
     });
   });
 
-  it('does not attach more than one global click handler', function() {
+  it('does not attach more than one global click handler', function () {
     clickHandler();
     registerHandler('foo', fooHandler);
     $link.click();

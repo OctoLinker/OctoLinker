@@ -1,5 +1,5 @@
 import assert from 'assert';
-import {languageByFilePath} from './index.js';
+import { languageByFilePath } from './index.js';
 
 describe('helper-file-type', () => {
   describe('returns type "JavaScript" when', () => {

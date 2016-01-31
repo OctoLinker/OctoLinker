@@ -9,7 +9,7 @@ describe('helper-bulk-url-builder', () => {
     });
   }
 
-  it('./modules', function() {
+  it('./modules', function () {
     assert.deepEqual(setup('./modules'), [
       'https://github.com/lib/modules.js',
       'https://github.com/lib/modules/index.js',
@@ -17,7 +17,7 @@ describe('helper-bulk-url-builder', () => {
     ]);
   });
 
-  it('../modules', function() {
+  it('../modules', function () {
     assert.deepEqual(setup('../modules'), [
       'https://github.com/modules.js',
       'https://github.com/modules/index.js',
@@ -25,7 +25,7 @@ describe('helper-bulk-url-builder', () => {
     ]);
   });
 
-  it('./modules.js', function() {
+  it('./modules.js', function () {
     assert.deepEqual(setup('./modules.js'), [
       'https://github.com/lib/modules.js',
       'https://github.com/lib/modules/index.js',
@@ -33,7 +33,7 @@ describe('helper-bulk-url-builder', () => {
     ]);
   });
 
-  it('modules.js', function() {
+  it('modules.js', function () {
     assert.deepEqual(setup('modules.js'), [
       'https://github.com/lib/modules.js',
       'https://github.com/lib/modules/index.js',

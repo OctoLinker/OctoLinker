@@ -58,6 +58,6 @@ function blober(blob) {
   });
 }
 
-export default function(blobs) {
+export default function (blobs) {
   blobs.forEach(blober);
 }
