@@ -7,12 +7,11 @@ Turns GitHub's source code view into a unitary structure.
   {
     path: 'https://github.com/octo-linker/chrome-extension/blob/c17911bf8f04146aaf3bbfe1cabaa317cbe2eb55/index.js',
     type: 'javascript',
+    el: <div rel="the blob root element" />
     lines: [
-      {
-        text: 'var foo = require("foo")',
-        el: <div ... />
-      },
-      ...
+      'import foo from "foo"',
+      "",
+      'foo.bar()'
     ]
   },
   ...
