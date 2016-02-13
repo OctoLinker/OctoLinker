@@ -1,6 +1,17 @@
 import $ from 'jquery';
 import { languageByFilePath } from '../helper-file-type';
 
+function readLine(el) {
+  // Each array element represents a single line.
+  // Therefore we can get ride of the newline here.
+  return $(el).text().replace(/\n/, '');
+}
+
+function readBlobLines($blob) {
+  const $lines = $('.blob-code-inner', $blob);
+  return Array.prototype.map.call($lines, readLine);
+}
+
 function getBlobPath(blobElement) {
   // When current page is a diff view get path from "View" button
   let ret = $('.file-actions a', blobElement.parentElement).filter(function () {
@@ -22,8 +33,10 @@ function getBlobMeta(blobElement) {
   }
 
   const type = languageByFilePath(path);
+  const lines = readBlobLines(blobElement);
 
   return {
+    lines,
     el: blobElement,
     type,
     path,
