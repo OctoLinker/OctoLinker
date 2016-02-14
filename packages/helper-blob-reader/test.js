@@ -1,5 +1,5 @@
 import assert from 'assert';
-import sourcecode from '../index.js';
+import blobReader from './index.js';
 
 describe('helper-blob-reader', () => {
   afterEach(() => {
@@ -9,7 +9,7 @@ describe('helper-blob-reader', () => {
   describe('blob', () => {
     it('blob', () => {
       fixture.load(__dirname + '/fixtures/github.com/blob/foo.js.html');
-      const result = sourcecode();
+      const result = blobReader();
 
       assert.equal(result.length, 1);
       assert.equal(result[0].type, 'JavaScript');
@@ -26,7 +26,7 @@ describe('helper-blob-reader', () => {
     describe('unified', () => {
       it('commit unified', () => {
         fixture.load(__dirname + '/fixtures/github.com/commit/unified.html');
-        const result = sourcecode();
+        const result = blobReader();
 
         assert.equal(result.length, 2);
 
@@ -50,7 +50,7 @@ describe('helper-blob-reader', () => {
     describe('split', () => {
       it('commit split', () => {
         fixture.load(__dirname + '/fixtures/github.com/commit/split.html');
-        const result = sourcecode();
+        const result = blobReader();
 
         assert.equal(result.length, 2);
 

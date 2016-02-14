@@ -19,11 +19,3 @@ Turns GitHub's source code view into a unitary structure.
 ```
 
 **Note:** The `type` property can be undefined if the `type` was not found in the [lookup package](https://github.com/octo-linker/chrome-extension/tree/dev/packages/helper-file-type).
-
-## Supported sections
-
-- [x] Blobs (Source code view)
-- [x] Diffs (within a PR or specific commit)
-- [ ] Code review comments (not supported, yet)
-- [ ] Search (not supported, yet)
-- [ ] Gist (not supported, yet)
