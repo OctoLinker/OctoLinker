@@ -6,68 +6,131 @@ describe('helper-blob-reader', () => {
     fixture.cleanup();
   });
 
-  describe('blob', () => {
-    it('blob', () => {
-      fixture.load(__dirname + '/fixtures/github.com/blob/foo.js.html');
-      const result = blobReader();
+  describe('returned values object', () => {
+    let result;
 
-      assert.equal(result.length, 1);
-      assert.equal(result[0].type, 'JavaScript');
-      assert.equal(result[0].path, '/octo-linker/testrepo/blob/6d380ffc7e2ef681f7da6b525140b817f3cb553c/sourcereader/foo.js');
-      assert(result[0].el !== undefined);
-      assert.equal(result[0].lines.length, 3);
-      assert.equal(result[0].lines[0], 'var foo = require(\'foo\');');
-      assert.equal(result[0].lines[1], '');
-      assert.equal(result[0].lines[2], 'require(\'path\');');
+    beforeEach(() => {
+      fixture.load(__dirname + '/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
+      result = blobReader()[0];
+    });
+
+    it('contains language type', function () {
+      assert.equal(result.type, 'JavaScript');
+    });
+
+    it('contains blob path', function () {
+      assert.equal(result.path, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
+    });
+
+    it('contains blob root element', function () {
+      assert(result.el !== undefined);
+    });
+
+    it('contains lines', function () {
+      assert(Array.isArray(result.lines));
+      assert.equal(result.lines.length, 4);
+    });
+  });
+
+  describe('blob', function () {
+    let result;
+
+    beforeEach(() => {
+      fixture.load(__dirname + '/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
+      result = blobReader()[0];
+    });
+
+    it('contains four lines', function () {
+      assert.equal(result.lines.length, 4);
+    });
+
+    it('does not contain any diff meta information', function () {
+      assert.equal(result.lines.filter((line) => line.additions || line.deletions).length, 0);
+    });
+
+    it('1st line', function () {
+      assert.equal(result.lines[0].lineNumber, 1);
+      assert.equal(result.lines[0].value, '// Most popular rabbit names');
+    });
+
+    it('2nd line', function () {
+      assert.equal(result.lines[1].lineNumber, 2);
+      assert.equal(result.lines[1].value, '');
+    });
+
+    it('3rd line', function () {
+      assert.equal(result.lines[2].lineNumber, 3);
+      assert.equal(result.lines[2].value, 'Thumper');
+    });
+
+    it('4th line', function () {
+      assert.equal(result.lines[3].lineNumber, 4);
+      assert.equal(result.lines[3].value, 'Daisy');
     });
   });
 
   describe('diff', () => {
-    describe('unified', () => {
-      it('commit unified', () => {
-        fixture.load(__dirname + '/fixtures/github.com/commit/unified.html');
-        const result = blobReader();
+    describe('split', () => {
+      let result;
 
-        assert.equal(result.length, 2);
+      beforeEach(() => {
+        fixture.load(__dirname + '/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html');
+        result = blobReader()[0];
+      });
 
-        assert.equal(result[0].type, 'JavaScript');
-        assert.equal(result[0].path, '/octo-linker/testrepo/blob/6d380ffc7e2ef681f7da6b525140b817f3cb553c/sourcereader/bar.js');
-        assert(result[0].el !== undefined);
-        assert.equal(result[0].lines.length, 2);
-        assert.equal(result[0].lines[0], '@@ -0,0 +1 @@');
-        assert.equal(result[0].lines[1], '+var bar = require(\'bar\');');
+      it('1st line', function () {
+        assert.equal(result.lines[0].lineNumber, 1);
+        assert.equal(result.lines[0].value, '// Most popular rabbit names');
+      });
 
-        assert.equal(result[1].type, 'JavaScript');
-        assert.equal(result[1].path, '/octo-linker/testrepo/blob/6d380ffc7e2ef681f7da6b525140b817f3cb553c/sourcereader/foo.js');
-        assert(result[1].el !== undefined);
-        assert.equal(result[1].lines.length, 3);
-        assert.equal(result[1].lines[0], '@@ -0,0 +1,2 @@');
-        assert.equal(result[1].lines[1], '+var foo = require(\'foo\');');
-        assert.equal(result[1].lines[2], '+require(\'path\');');
+      it('additions', function () {
+        const line = result.lines[6];
+
+        assert.equal(line.lineNumber, 4);
+        assert.equal(line.value, '+Mozart');
+        assert.equal(line.addition, true);
+      });
+
+      it('deletions', function () {
+        const line = result.lines[9];
+
+        assert.equal(line.lineNumber, 5);
+        assert.equal(line.value, '-Lily');
+        assert.equal(line.deletion, true);
       });
     });
 
-    describe('split', () => {
-      it('commit split', () => {
-        fixture.load(__dirname + '/fixtures/github.com/commit/split.html');
-        const result = blobReader();
+    describe('unified', () => {
+      let result;
 
-        assert.equal(result.length, 2);
+      beforeEach(() => {
+        fixture.load(__dirname + '/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html');
+        result = blobReader()[0];
+      });
 
-        assert.equal(result[0].type, 'JavaScript');
-        assert.equal(result[0].path, '/octo-linker/testrepo/blob/6d380ffc7e2ef681f7da6b525140b817f3cb553c/sourcereader/bar.js');
-        assert(result[0].el !== undefined);
-        assert.equal(result[0].lines.length, 2);
-        assert.equal(result[0].lines[0], '@@ -0,0 +1 @@');
-        assert.equal(result[0].lines[1], '+var bar = require(\'bar\');');
+      it('contains four lines', function () {
+        assert.equal(result.lines.length, 7);
+      });
 
-        assert.equal(result[1].type, 'JavaScript');
-        assert.equal(result[1].path, '/octo-linker/testrepo/blob/6d380ffc7e2ef681f7da6b525140b817f3cb553c/sourcereader/foo.js');
-        assert(result[1].el !== undefined);
-        assert.equal(result[1].lines.length, 3);
-        assert.equal(result[1].lines[0], '@@ -0,0 +1,2 @@');
-        assert.equal(result[1].lines[1], '+var foo = require(\'foo\');');
-        assert.equal(result[1].lines[2], '+require(\'path\');');
+      it('1st line', function () {
+        assert.equal(result.lines[0].lineNumber, 1);
+        assert.equal(result.lines[0].value, '// Most popular rabbit names');
+      });
+
+      it('additions', function () {
+        const line = result.lines[3];
+
+        assert.equal(line.lineNumber, 4);
+        assert.equal(line.value, '+Mozart');
+        assert.equal(line.addition, true);
+      });
+
+      it('deletions', function () {
+        const line = result.lines[5];
+
+        assert.equal(line.lineNumber, 5);
+        assert.equal(line.value, '-Lily');
+        assert.equal(line.deletion, true);
       });
     });
   });
