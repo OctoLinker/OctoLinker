@@ -1,5 +1,5 @@
 import assert from 'assert';
-import blobReader from './index.js';
+import BlobReader from './index.js';
 
 describe('helper-blob-reader', () => {
   afterEach(() => {
@@ -11,7 +11,10 @@ describe('helper-blob-reader', () => {
 
     beforeEach(() => {
       fixture.load(__dirname + '/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
-      result = blobReader()[0];
+      const reader = new BlobReader();
+      reader.read().forEach((blob) => {
+        result = blob;
+      });
     });
 
     it('contains language type', function () {
@@ -37,7 +40,10 @@ describe('helper-blob-reader', () => {
 
     beforeEach(() => {
       fixture.load(__dirname + '/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
-      result = blobReader()[0];
+      const reader = new BlobReader();
+      reader.read().forEach((blob) => {
+        result = blob;
+      });
     });
 
     it('contains four lines', function () {
@@ -75,7 +81,10 @@ describe('helper-blob-reader', () => {
 
       beforeEach(() => {
         fixture.load(__dirname + '/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html');
-        result = blobReader()[0];
+        const reader = new BlobReader();
+        reader.read().forEach((blob) => {
+          result = blob;
+        });
       });
 
       it('1st line', function () {
@@ -105,7 +114,10 @@ describe('helper-blob-reader', () => {
 
       beforeEach(() => {
         fixture.load(__dirname + '/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html');
-        result = blobReader()[0];
+        const reader = new BlobReader();
+        reader.read().forEach((blob) => {
+          result = blob;
+        });
       });
 
       it('contains four lines', function () {

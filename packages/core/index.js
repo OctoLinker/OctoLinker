@@ -1,32 +1,22 @@
 import 'babel-polyfill';
 import injection from 'github-injection';
-import blobReader from '../helper-blob-reader';
+import BlobReader from '../helper-blob-reader';
 import linkResolver from '../link-resolver';
-import manifestNpm from '../manifest-npm';
 import clickHandler from '../helper-click-handler';
 
 function main() {
-  console.time('total');
+  document.body.classList.add('octo-linker-debug');
 
-  const blobs = blobReader();
+  const blobReader = new BlobReader();
 
-  if (blobs.length === 0) {
+  if (!blobReader.hasBlobs()) {
     return;
   }
 
-  document.body.classList.add('octo-linker-debug');
+  blobReader.read();
 
   clickHandler();
-
-  console.log('Total blobs: ', blobs.length);
-  blobs.forEach((blob) => {
-    console.log(blob.type, blob.path);
-  });
-
-  linkResolver(blobs);
-  manifestNpm(blobs);
-
-  console.timeEnd('total');
+  linkResolver(blobReader);
 }
 
 injection(window, function (err) {
@@ -34,5 +24,7 @@ injection(window, function (err) {
     throw err;
   }
 
+  console.time('total');
   main();
+  console.timeEnd('total');
 });
