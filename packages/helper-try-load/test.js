@@ -59,4 +59,22 @@ describe('helper-try-load', () => {
     assert.equal(handlerStub.callCount, 1);
     assert.equal(handlerStub.args[0][1], 'https://bar.com/200');
   });
+
+  it('calls the callback with the url of the first completed request', () => {
+    const handlerStub = sandbox.stub();
+
+    ajaxStub.onCall(0).returns(errorResponse());
+    ajaxStub.onCall(1).returns(successResponse());
+
+    helperTryLoad([
+      'https://foo.com/404',
+      'https://bar.com/200',
+    ], {
+      type: 'GET',
+    }, handlerStub);
+
+    assert.equal(handlerStub.callCount, 1);
+    assert.equal(handlerStub.args[0][1], 'https://bar.com/200');
+    assert.equal(handlerStub.args[0][2], 'SUCCESS_RESPONSE');
+  });
 });

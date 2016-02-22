@@ -1,8 +1,9 @@
 import 'babel-polyfill';
 import injection from 'github-injection';
-import BlobReader from '../helper-blob-reader';
-import linkResolver from '../link-resolver';
 import clickHandler from '../helper-click-handler';
+import BlobReader from '../helper-blob-reader';
+
+import linkResolver from '../link-resolver';
 
 function main() {
   document.body.classList.add('octo-linker-debug');
@@ -16,6 +17,7 @@ function main() {
   blobReader.read();
 
   clickHandler();
+
   linkResolver(blobReader);
 }
 

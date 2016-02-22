@@ -4,7 +4,7 @@ const grammarList = {
   JavaScript,
 };
 
-function main(blobReader) {
+export default function LinkResolver(blobReader) {
   blobReader.forEach((blob) => {
     const Grammar = grammarList[blob.type];
 
@@ -14,7 +14,3 @@ function main(blobReader) {
     }
   });
 }
-
-export {
-  main as default,
-};
