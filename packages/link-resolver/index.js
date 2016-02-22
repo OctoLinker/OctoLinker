@@ -4,8 +4,8 @@ const grammarList = {
   JavaScript,
 };
 
-function main(blobs) {
-  blobs.forEach((blob) => {
+function main(blobReader) {
+  blobReader.forEach((blob) => {
     const Grammar = grammarList[blob.type];
 
     if (Grammar) {

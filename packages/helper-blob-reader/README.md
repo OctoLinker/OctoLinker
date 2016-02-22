@@ -18,9 +18,17 @@ Turns GitHub's source code view into a unitary structure.
 ]
 ```
 
-## API
+## Example
 
-`blobReader()` - Returns a list of blob objects (See below).
+```js
+const reader = new BlobReader();
+reader.read().forEach((blob) => {
+  console.log(blob.path);
+});
+
+```
+
+## Blob
 
 ### Path
 
