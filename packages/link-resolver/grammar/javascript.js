@@ -13,18 +13,36 @@ export default class JavaScript {
   }
 
   clickHandler(data) {
-    if (builtins.indexOf(data.value) > -1) {
-      window.location.href = `https://nodejs.org/api/${data.value}.html`;
+    const { value } = data;
+
+    const isPath = !!value.match(/^\.\.?[\\|/]?/);
+    const isBuildIn = builtins.indexOf(value) > -1;
+
+    if (isBuildIn) {
+      window.location.href = `https://nodejs.org/api/${value}.html`;
       return;
     }
 
-    tryLoad(bulkUrls(data), (err, url) => {
+    let urls;
+    if (isPath) {
+      urls = bulkUrls(data);
+    } else {
+      urls = [
+        `https://githublinker.herokuapp.com/q/npm/${value}`,
+        `https://githublinker.herokuapp.com/q/bower/${value}`,
+      ];
+    }
+
+    tryLoad(urls, {
+      type: (isPath) ? undefined : 'GET',
+    }, (err, url, res) => {
       if (err) {
         return console.error(err);
       }
 
-      if (url) {
-        window.location.href = url;
+      const goto = (res && res.url) ? res.url : url;
+      if (goto) {
+        window.location.href = goto;
       }
     });
   }
