@@ -1,9 +1,41 @@
 import { REQUIRE, REQUIRE_RESOLVE, IMPORT } from '../../helper-grammar-regex-collection/index.js';
 import tryLoad from '../../helper-try-load';
-import bulkUrls from '../../helper-bulk-url-builder';
 import builtins from 'builtins';
 import { registerHandler } from '../../helper-click-handler';
 import replaceKeywords from '../../helper-replace-keywords';
+import { join, dirname, extname } from 'path';
+
+function buildBulkUrls(data) {
+  const list = [];
+  const extName = ['.js', '.json'];
+  const { path, value } = data;
+  let basePath = join(dirname(path), value);
+  const pathExt = extname(path);
+  const fileExt = extname(basePath);
+
+  if (fileExt) {
+    basePath = basePath.replace(fileExt, '');
+  }
+
+  if (pathExt && !extName.includes(pathExt)) {
+    extName.unshift(pathExt);
+  }
+
+  if (fileExt && !extName.includes(fileExt)) {
+    extName.unshift(fileExt);
+  }
+
+  extName.forEach((ext) => {
+    list.push(ext);
+    list.push(`/index${ext}`);
+  });
+
+  list.push('');
+
+  return list.map((file) => {
+    return 'https://github.com' + basePath + file;
+  });
+}
 
 export default class JavaScript {
 
@@ -13,6 +45,7 @@ export default class JavaScript {
   }
 
   clickHandler(data) {
+    let urls = [];
     const { value } = data;
 
     const isPath = !!value.match(/^\.\.?[\\|/]?/);
@@ -23,9 +56,8 @@ export default class JavaScript {
       return;
     }
 
-    let urls;
     if (isPath) {
-      urls = bulkUrls(data);
+      urls = buildBulkUrls(data);
     } else {
       urls = [
         `https://githublinker.herokuapp.com/q/npm/${value}`,
