@@ -3,30 +3,38 @@ import injection from 'github-injection';
 import clickHandler from '../helper-click-handler';
 import BlobReader from '../helper-blob-reader';
 
-import linkResolver from '../link-resolver';
+import LinkResolver from '../link-resolver';
 
-function main() {
+function enableDebugMode() {
   document.body.classList.add('octo-linker-debug');
-
-  const blobReader = new BlobReader();
-
-  if (!blobReader.hasBlobs()) {
-    return;
-  }
-
-  blobReader.read();
-
-  clickHandler();
-
-  linkResolver(blobReader);
 }
 
-injection(window, function (err) {
-  if (err) {
-    throw err;
+function initialize(self) {
+  enableDebugMode();
+  clickHandler();
+
+  self._blobReader = new BlobReader();
+  self._linkResolver = new LinkResolver();
+}
+
+function run(self) {
+  if (!self._blobReader.hasBlobs()) {
+    return false;
   }
 
-  console.time('total');
-  main();
-  console.timeEnd('total');
-});
+  self._blobReader.read();
+  self._linkResolver.run(self._blobReader);
+}
+
+class OctoLinkerCore {
+  constructor() {
+    initialize(this);
+  }
+
+  init() {
+    injection(window, run.bind(null, this));
+  }
+}
+
+const octoLinkerCore = new OctoLinkerCore();
+octoLinkerCore.init();
