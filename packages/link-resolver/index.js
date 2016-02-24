@@ -4,13 +4,15 @@ const grammarList = {
   JavaScript,
 };
 
-export default function LinkResolver(blobReader) {
-  blobReader.forEach((blob) => {
-    const Grammar = grammarList[blob.type];
+export default class LinkResolver {
+  run(blobReader) {
+    blobReader.forEach((blob) => {
+      const Grammar = grammarList[blob.type];
 
-    if (Grammar) {
-      const grammar = new Grammar(blob);
-      grammar.toString();
-    }
-  });
+      if (Grammar) {
+        const grammar = new Grammar(blob);
+        grammar.toString();
+      }
+    });
+  }
 }
