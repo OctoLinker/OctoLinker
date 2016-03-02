@@ -23,6 +23,12 @@ function createLinkElement(text, dataAttr = {}) {
 }
 
 function replace(portion, match, type, path) {
+  const isAlreadyWrapped = portion.node.parentNode.classList.contains(CLASS_NAME);
+
+  if (isAlreadyWrapped) {
+    return portion.text;
+  }
+
   const value = match[1].replace(/['|"]/g, '');
 
   let offset = 0;
