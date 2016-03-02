@@ -2,6 +2,20 @@
 
 > Dev branch of the upcoming version
 
+## Packages overview
+
+#### Stable
+- [helper-blob-reader](packages/helper-blob-reader)
+- [helper-file-type](packages/helper-file-type)
+- [helper-grammar-regex-collection](packages/helper-grammar-regex-collection)
+
+### In development
+- [core](packages/core)
+- [link-resolver](packages/link-resolver)
+- [helper-try-load](packages/helper-try-load)
+- [helper-click-handler](packages/helper-click-handler)
+- [helper-replace-keywords](packages/helper-replace-keywords)
+
 # Getting started
 
 To build and run the extension follow these steps.
