@@ -1,5 +1,6 @@
 import $ from 'jquery';
-import { CLASS_NAME } from '../helper-wrap-element';
+
+const CLASS_NAME = 'octo-linker-link';
 
 const LINK_SELECTOR = `.${CLASS_NAME}`;
 const $body = $('body');
