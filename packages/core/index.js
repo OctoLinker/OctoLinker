@@ -9,12 +9,33 @@ function enableDebugMode() {
   document.body.classList.add('octo-linker-debug');
 }
 
+const plugins = [
+  LinkResolver,
+];
+
+function createPluginCacheList() {
+  const cache = new Map();
+
+  plugins.forEach((plugin) => {
+    plugin.blobTypes.forEach((type) => {
+      const caller = cache.get(type) || [];
+      caller.push(plugin.run);
+
+      if (!cache.has(type)) {
+        cache.set(type, caller);
+      }
+    });
+  });
+
+  return cache;
+}
+
 function initialize(self) {
   enableDebugMode();
   clickHandler();
 
   self._blobReader = new BlobReader();
-  self._linkResolver = new LinkResolver();
+  self._plugins = createPluginCacheList();
 }
 
 function run(self) {
@@ -23,7 +44,12 @@ function run(self) {
   }
 
   self._blobReader.read();
-  self._linkResolver.run(self._blobReader);
+
+  self._blobReader.forEach((blob) => {
+    self._plugins.get(blob.type).forEach((plugin) => {
+      plugin(blob);
+    });
+  });
 }
 
 class OctoLinkerCore {

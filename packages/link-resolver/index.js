@@ -4,15 +4,9 @@ const grammarList = {
   JavaScript,
 };
 
-export default class LinkResolver {
-  run(blobReader) {
-    blobReader.forEach((blob) => {
-      const Grammar = grammarList[blob.type];
-
-      if (Grammar) {
-        const grammar = new Grammar(blob);
-        grammar.toString();
-      }
-    });
-  }
-}
+export default {
+  blobTypes: Object.keys(grammarList),
+  run: (blob) => {
+    new grammarList[blob.type](blob); // eslint-disable-line no-new
+  },
+};
