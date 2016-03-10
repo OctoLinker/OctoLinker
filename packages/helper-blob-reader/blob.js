@@ -16,4 +16,17 @@ export default class Blob {
     this.type = getType(this.path);
     this.lines = readLines(el);
   }
+
+  getText() {
+    return this.lines.map(({ value }) => value).join('\n');
+  }
+
+  getJSON() {
+    try {
+      return JSON.parse(this.getText());
+    } catch (err) {
+      console.error(err);
+      return {};
+    }
+  }
 }

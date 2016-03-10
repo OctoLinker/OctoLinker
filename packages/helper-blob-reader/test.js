@@ -41,6 +41,38 @@ describe('helper-blob-reader', () => {
       assert(Array.isArray(result.lines));
       assert.equal(result.lines.length, 4);
     });
+
+    describe('getText', function () {
+      it('returns a string representation of the blobs content', function () {
+        result.lines = [
+          { value: 'a' },
+          { value: 'b' },
+        ];
+        assert.equal(result.getText(), 'a\nb');
+      });
+    });
+
+    describe('getJSON', function () {
+      it('returns a JSON representation of the blobs content', function () {
+        result.lines = [
+          { value: '{' },
+          { value: '"foo": "bar"' },
+          { value: '}' },
+        ];
+        assert.deepEqual(result.getJSON(), {
+          foo: 'bar',
+        });
+      });
+
+      it('returns an empty object if JSON.parse fails', function () {
+        result.lines = [
+          { value: '{' },
+          { value: 'invalid' },
+          { value: '}' },
+        ];
+        assert.deepEqual(result.getJSON(), {});
+      });
+    });
   });
 
   describe('blob', function () {
