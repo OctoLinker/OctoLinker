@@ -1,0 +1,13 @@
+{
+  "name": "@octo-linker/helper-blob-reader",
+  "version": "0.0.5",
+  "description": "",
+  "author": "Stefan Buck",
+  "license": "MIT",
+  "repository": "https://github.com/octo-linker/chrome-extension/tree/dev/packages/helper-blob-reader",
+  "main": "index.js",
+  "dependencies": {
+    "@githublinker/filetype": "^0.1.0",
+    "jquery": "^2.1.4"
+  }
+}

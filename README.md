@@ -1,7 +1,6 @@
-<p align="center">
-<a href="#"><img src="app/images/icon-128.png"/></a>
-</p>
+# Octo-Linker
 
+<<<<<<< HEAD
 # Octo-Linker
 
 > Browser extension for GitHub.com
@@ -40,3 +39,6 @@ COPYRIGHT (C) 2014-present STEFAN BUCK. LICENSED UNDER THE MIT LICENSE.
 [daviddm-url]: https://david-dm.org/octo-linker/chrome-extension.svg?theme=shields.io
 [daviddm-image]: https://david-dm.org/octo-linker/chrome-extension
 [install-image]: install.png
+=======
+> Dev branch of the upcoming version
+>>>>>>> refs/remotes/origin/lerna
