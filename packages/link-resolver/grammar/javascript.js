@@ -41,7 +41,14 @@ export default class JavaScript {
 
   constructor(blob) {
     registerHandler(this.constructor.name, this.clickHandler.bind(this));
-    replaceKeywords(blob, [REQUIRE, REQUIRE_RESOLVE, IMPORT]);
+
+    [REQUIRE, REQUIRE_RESOLVE, IMPORT].forEach((regex) => {
+      replaceKeywords(blob.el, regex, {
+        value: '$1',
+        type: blob.type,
+        path: blob.path,
+      });
+    });
   }
 
   clickHandler(data) {
