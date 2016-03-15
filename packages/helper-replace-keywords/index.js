@@ -22,27 +22,50 @@ function createLinkElement(text, dataAttr = {}) {
   return linkEl;
 }
 
-function replace(portion, match, type, path) {
+function getIndexFromString(str) {
+  const result = str.match(/^\$([0-9]+)/);
+  if (!result || !result[1]) {
+    return undefined;
+  }
+
+  return parseInt(result[1], 10);
+}
+
+function replace(portion, match, mapping) {
   const isAlreadyWrapped = portion.node.parentNode.classList.contains(CLASS_NAME);
 
   if (isAlreadyWrapped) {
     return portion.text;
   }
 
-  const value = match[1].replace(/['|"]/g, '');
+  const dataAttr = {};
+  for (const [key, value] of Object.entries(mapping)) {
+    const index = getIndexFromString(value);
+    if (index) {
+      dataAttr[key] = match[index];
+    } else {
+      dataAttr[key] = value;
+    }
+  }
+
+  const removeQuotes = true;
+  if (removeQuotes) {
+    dataAttr.value = dataAttr.value.replace(/['|"]/g, '');
+  }
 
   let offset = 0;
-  if (match[1].length !== value.length) {
+  if (match[1].length !== dataAttr.value.length) {
     offset = 1;
   }
 
   const valueStartPos = match[0].indexOf(match[1]) + offset;
-  const valueEndPos = valueStartPos + value.length;
+  const valueEndPos = valueStartPos + dataAttr.value.length;
   const portionEndPos = portion.indexInMatch + portion.text.length;
+
 
   if (valueStartPos === portion.indexInMatch) {
     if (portionEndPos === valueEndPos) {
-      return createLinkElement(portion.text, { value, type, path });
+      return createLinkElement(portion.text, dataAttr);
     }
 
     let node = portion.node;
@@ -51,20 +74,32 @@ function replace(portion, match, type, path) {
     }
 
     if (node) {
-      $(node).wrap(createLinkElement('', { value, type, path }));
+      $(node).wrap(createLinkElement('', dataAttr));
     }
   }
 
   return portion.text;
 }
 
-export default function (blob, regexs) {
-  const { el, type, path } = blob;
+export default function (el, regex, mapping) {
+  if (!(el instanceof HTMLElement)) {
+    throw new Error('must be called with a DOM element');
+  }
 
-  regexs.forEach((regex) => {
-    findAndReplaceDOMText(el, {
-      find: regex,
-      replace: (portion, match) => replace(portion, match, type, path),
-    });
+  if (!(regex instanceof RegExp)) {
+    throw new Error('must be called with a RegExp');
+  }
+
+  if (!mapping) {
+    throw new Error('must be called with a mapping object');
+  }
+
+  if (!mapping.value) {
+    throw new Error('mapping.value is required');
+  }
+
+  findAndReplaceDOMText(el, {
+    find: regex,
+    replace: (portion, match) => replace(portion, match, mapping),
   });
 }
