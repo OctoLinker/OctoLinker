@@ -9,5 +9,8 @@
   ],
   "TypeScript": [
     ".ts"
+  ],
+  "JSON": [
+    ".json"
   ]
 }

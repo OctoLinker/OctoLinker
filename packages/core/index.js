@@ -4,6 +4,7 @@ import clickHandler from '../helper-click-handler';
 import BlobReader from '../helper-blob-reader';
 
 import LinkResolver from '../link-resolver';
+import ManifestNPM from '../manifest-npm';
 
 function enableDebugMode() {
   document.body.classList.add('octo-linker-debug');
@@ -11,6 +12,7 @@ function enableDebugMode() {
 
 const plugins = [
   LinkResolver,
+  ManifestNPM,
 ];
 
 function createPluginCacheList() {
