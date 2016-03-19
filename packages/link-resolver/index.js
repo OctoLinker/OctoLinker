@@ -4,9 +4,17 @@ const grammarList = {
   JavaScript,
 };
 
-export default {
-  blobTypes: Object.keys(grammarList),
-  run: (blob) => {
+export default class NPMmanifest {
+
+  initialize() {
+
+  }
+
+  blobTypes() {
+    return Object.keys(grammarList);
+  }
+
+  parseBlob(blob) {
     new grammarList[blob.type](blob); // eslint-disable-line no-new
-  },
-};
+  }
+}

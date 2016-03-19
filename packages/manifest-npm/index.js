@@ -1,4 +1,5 @@
 import replaceKeywords from '../helper-replace-keywords';
+import { registerHandler } from '../helper-click-handler';
 
 function replaceDep(json, blob, node) {
   Object.entries(json[node] || {}).forEach((item) => {
@@ -14,9 +15,21 @@ function replaceDep(json, blob, node) {
   });
 }
 
-export default {
-  blobTypes: ['JSON'],
-  run: (blob) => {
+export default class NPMmanifest {
+
+  initialize() {
+    registerHandler(this.constructor.name, this.clickHandler);
+  }
+
+  blobTypes() {
+    return ['JSON'];
+  }
+
+  clickHandler(data) {
+    console.log(data);
+  }
+
+  parseBlob(blob) {
     const json = blob.getJSON();
 
     [
@@ -25,5 +38,5 @@ export default {
       'peerDependencies',
       'optionalDependencies',
     ].forEach(replaceDep.bind(null, json, blob));
-  },
-};
+  }
+}

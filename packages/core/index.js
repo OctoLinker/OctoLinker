@@ -18,10 +18,12 @@ const plugins = [
 function createPluginCacheList() {
   const cache = new Map();
 
-  plugins.forEach((plugin) => {
-    plugin.blobTypes.forEach((type) => {
+  plugins.forEach((PluginClass) => {
+    const pluginInstance = new PluginClass();
+
+    pluginInstance.blobTypes().forEach((type) => {
       const caller = cache.get(type) || [];
-      caller.push(plugin.run);
+      caller.push(pluginInstance);
 
       if (!cache.has(type)) {
         cache.set(type, caller);
@@ -49,7 +51,12 @@ function run(self) {
 
   self._blobReader.forEach((blob) => {
     self._plugins.get(blob.type).forEach((plugin) => {
-      plugin(blob);
+      if (!plugin._isActive) {
+        plugin.initialize();
+        plugin._isActive = true;
+      }
+
+      plugin.parseBlob(blob);
     });
   });
 }
