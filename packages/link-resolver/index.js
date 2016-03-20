@@ -1,20 +1,30 @@
-import JavaScript from './grammar/javascript';
+import { REQUIRE, REQUIRE_RESOLVE, IMPORT } from '../helper-grammar-regex-collection/index.js';
+import replaceKeywords from '../helper-replace-keywords';
+import { registerHandler } from '../helper-click-handler';
+import javaScriptClickHandler from '../grammar-javascript';
 
-const grammarList = {
-  JavaScript,
-};
-
-export default class NPMmanifest {
+export default class LiveResolver {
 
   initialize() {
-
+    registerHandler('JavaScript', this.clickHandler.bind(this));
   }
 
   blobTypes() {
-    return Object.keys(grammarList);
+    return ['JavaScript'];
+  }
+
+  clickHandler(data) {
+    const { value, path } = data;
+    javaScriptClickHandler(value, path);
   }
 
   parseBlob(blob) {
-    new grammarList[blob.type](blob); // eslint-disable-line no-new
+    [REQUIRE, REQUIRE_RESOLVE, IMPORT].forEach((regex) => {
+      replaceKeywords(blob.el, regex, {
+        value: '$1',
+        type: blob.type,
+        path: blob.path,
+      });
+    });
   }
 }

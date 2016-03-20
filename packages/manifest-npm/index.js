@@ -1,5 +1,6 @@
 import replaceKeywords from '../helper-replace-keywords';
 import { registerHandler } from '../helper-click-handler';
+import javaScriptClickHandler from '../grammar-javascript';
 
 function replaceDep(json, blob, node) {
   Object.entries(json[node] || {}).forEach((item) => {
@@ -18,7 +19,7 @@ function replaceDep(json, blob, node) {
 export default class NPMmanifest {
 
   initialize() {
-    registerHandler(this.constructor.name, this.clickHandler);
+    registerHandler('JSON', this.clickHandler);
   }
 
   blobTypes() {
@@ -26,7 +27,8 @@ export default class NPMmanifest {
   }
 
   clickHandler(data) {
-    console.log(data);
+    const { value, path } = data;
+    javaScriptClickHandler(value, path);
   }
 
   parseBlob(blob) {
