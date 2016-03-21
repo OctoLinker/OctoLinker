@@ -1,4 +1,4 @@
-# helper-blob-reader
+# blob-reader
 
 Turns GitHub's source code view into a unitary structure.
 

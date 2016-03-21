@@ -5,14 +5,14 @@
 ## Packages overview
 
 #### Stable
-- [helper-blob-reader](packages/helper-blob-reader)
+- [blob-reader](packages/blob-reader)
 - [helper-file-type](packages/helper-file-type)
 - [helper-grammar-regex-collection](packages/helper-grammar-regex-collection)
 
 ### In development
 - [core](packages/core)
 - [link-resolver](packages/link-resolver)
-- [helper-try-load](packages/helper-try-load)
+- [try-load](packages/try-load)
 - [helper-click-handler](packages/helper-click-handler)
 - [helper-replace-keywords](packages/helper-replace-keywords)
 

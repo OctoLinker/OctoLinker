@@ -1,10 +1,10 @@
 import 'babel-polyfill';
 import injection from 'github-injection';
 import clickHandler from '../helper-click-handler';
-import BlobReader from '../helper-blob-reader';
+import BlobReader from '../blob-reader';
 
-import LinkResolver from '../link-resolver';
-import ManifestNPM from '../manifest-npm';
+import LinkResolver from '../plugin-link-resolver';
+import ManifestNPM from '../plugin-manifest-npm';
 
 function enableDebugMode() {
   document.body.classList.add('octo-linker-debug');

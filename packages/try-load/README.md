@@ -1,4 +1,4 @@
-# helper-try-load
+# try-load
 
 This package performs a [HTTP HEAD request](https://ochronus.com/http-head-request-good-uses/) for each of the given urls and returns the url of the first completed request. If none of these are found, it returns an error.
 

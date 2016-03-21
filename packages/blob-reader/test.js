@@ -1,7 +1,7 @@
 import assert from 'assert';
 import BlobReader from './index.js';
 
-describe('helper-blob-reader', () => {
+describe('blob-reader', () => {
   afterEach(() => {
     fixture.cleanup();
   });

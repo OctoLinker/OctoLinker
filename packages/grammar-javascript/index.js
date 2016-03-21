@@ -1,4 +1,4 @@
-import tryLoad from '../helper-try-load';
+import tryLoad from '../try-load';
 import builtins from 'builtins';
 import { join, dirname, extname } from 'path';
 

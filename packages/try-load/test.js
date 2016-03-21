@@ -15,7 +15,7 @@ function errorResponse() {
   return def.promise();
 }
 
-describe('helper-try-load', () => {
+describe('try-load', () => {
   const sandbox = sinon.sandbox.create();
   const ajaxStub = sandbox.stub($, 'ajax');
 
