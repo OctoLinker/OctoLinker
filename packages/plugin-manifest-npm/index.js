@@ -1,19 +1,37 @@
 import replaceKeywords from '../helper-replace-keywords';
 import { registerHandler } from '../helper-click-handler';
 import javaScriptClickHandler from '../grammar-javascript';
+import escapeRegexString from 'escape-regex-string';
 
-function replaceDep(json, blob, node) {
-  Object.entries(json[node] || {}).forEach((item) => {
-    const [key, value] = item;
+function linker(blob, result) {
+  const [key, value] = result;
+  const regexKey = escapeRegexString(key);
+  const regexValue = escapeRegexString(value);
+  const regex = new RegExp(`("${regexKey}")\\s*:\\s*"${regexValue}"`);
 
-    const regex = new RegExp(`(?:${node})(?:.|\n+?)+("${key}").+`);
-    replaceKeywords(blob.el, regex, {
-      value: key,
-      version: value,
-      type: blob.type,
-      path: blob.path,
-    });
+  replaceKeywords(blob.el, regex, {
+    value: key,
+    version: value,
+    type: blob.type,
+    path: blob.path,
   });
+}
+
+function getDependencyList(json) {
+  let result = [];
+
+  [
+    'dependencies',
+    'devDependencies',
+    'peerDependencies',
+    'optionalDependencies',
+  ].forEach((node) => {
+    if (json[node]) {
+      result = result.concat(Object.entries(json[node]));
+    }
+  });
+
+  return result;
 }
 
 export default class NPMmanifest {
@@ -34,11 +52,10 @@ export default class NPMmanifest {
   parseBlob(blob) {
     const json = blob.getJSON();
 
-    [
-      'dependencies',
-      'devDependencies',
-      'peerDependencies',
-      'optionalDependencies',
-    ].forEach(replaceDep.bind(null, json, blob));
+    linker(blob, [
+      'main', json.main,
+    ]);
+
+    getDependencyList(json).forEach(linker.bind(null, blob));
   }
 }

@@ -47,6 +47,8 @@ function run(self) {
     return false;
   }
 
+  console.time('total');
+
   self._blobReader.read();
 
   self._blobReader.forEach((blob) => {
@@ -59,6 +61,8 @@ function run(self) {
       plugin.parseBlob(blob);
     });
   });
+
+  console.timeEnd('total');
 }
 
 class OctoLinkerCore {

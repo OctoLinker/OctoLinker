@@ -14,6 +14,7 @@
   "dependencies": {
     "babel-polyfill": "^6.3.14",
     "builtins": "^1.0.3",
+    "escape-regex-string": "^1.0.4",
     "findandreplacedomtext": "^0.4.4",
     "github-injection": "^0.2.0",
     "jquery": "^2.1.4"
