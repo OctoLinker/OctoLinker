@@ -3,11 +3,11 @@ import $ from 'jquery';
 import insertLink from './index.js';
 
 describe('helper-replace-keywords', () => {
-  function helper(html, options = { value: '$1' }) {
+  function helper(html, options = { value: '$1' }, regex = /foo ("\w+")/, replaceIndex = '$1') {
     const el = document.createElement('div');
     el.innerHTML = html;
 
-    insertLink(el, /foo ("\w+")/, options);
+    insertLink(el, regex, options, replaceIndex);
 
     return el;
   }
@@ -60,5 +60,13 @@ describe('helper-replace-keywords', () => {
       value: 'foo',
       bar: 'baz',
     });
+  });
+
+  it('wraps the second regex match', () => {
+    const options = { value: '$2', xx: 'yy' };
+    const { input, output } = createExpectation('foo <i>"</i>bar<i>"</i> <i>"</i>$0baz$0<i>"</i>', options);
+    const regex = /foo ("\w+") ("\w+")/;
+
+    assert.equal(helper(input, options, regex, '$2').innerHTML, output.replace('$2', 'baz'));
   });
 });

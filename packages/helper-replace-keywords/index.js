@@ -22,66 +22,93 @@ function createLinkElement(text, dataAttr = {}) {
   return linkEl;
 }
 
-function getIndexFromString(str) {
-  const result = str.match(/^\$([0-9]+)/);
-  if (!result || !result[1]) {
+function getCaptureGroupIndex(captureGroup) {
+  const match = captureGroup.match(/^\$([0-9]+)/);
+  if (!match || !match[1]) {
     return undefined;
   }
 
-  return parseInt(result[1], 10);
+  return parseInt(match[1], 10);
 }
 
-function replace(portion, match, mapping) {
+function getCaptureGroupValue(match, captureGroup) {
+  const index = getCaptureGroupIndex(captureGroup);
+  if (index === undefined) {
+    return undefined;
+  }
+
+  return match[index];
+}
+
+function buildDataAttr(data, match) {
+  const dataAttr = {};
+  for (const [key, value] of Object.entries(data)) {
+    const index = getCaptureGroupValue(match, value);
+    if (index) {
+      dataAttr[key] = index.replace(/['|"]/g, '');
+    } else {
+      dataAttr[key] = value;
+    }
+  }
+
+  return dataAttr;
+}
+
+function getIndexes(portion, entireMatch, matchValue) {
+  let matchValueStriped = matchValue;
+
+  let offset = 0;
+  if (matchValue.length !== matchValue.replace(/['|"]/g, '').length) {
+    offset = 1;
+  }
+
+  const removeQuotes = offset === 1;
+  if (removeQuotes) {
+    matchValueStriped = matchValueStriped.replace(/['|"]/g, '');
+  }
+
+  const valueStartPos = entireMatch.indexOf(matchValue) + offset;
+  const valueEndPos = valueStartPos + matchValueStriped.length;
+  const portionEndPos = portion.indexInMatch + portion.text.length;
+
+  return {
+    valueStartPos,
+    valueEndPos,
+    portionEndPos,
+  };
+}
+
+function replace(portion, match, dataAttr, captureGroup) {
   const isAlreadyWrapped = portion.node.parentNode.classList.contains(CLASS_NAME);
 
   if (isAlreadyWrapped) {
     return portion.text;
   }
 
-  const dataAttr = {};
-  for (const [key, value] of Object.entries(mapping)) {
-    const index = getIndexFromString(value);
-    if (index) {
-      dataAttr[key] = match[index];
-    } else {
-      dataAttr[key] = value;
-    }
-  }
-
-  const removeQuotes = true;
-  if (removeQuotes) {
-    dataAttr.value = dataAttr.value.replace(/['|"]/g, '');
-  }
-
-  let offset = 0;
-  if (match[1].length !== dataAttr.value.length) {
-    offset = 1;
-  }
-
-  const valueStartPos = match[0].indexOf(match[1]) + offset;
-  const valueEndPos = valueStartPos + dataAttr.value.length;
-  const portionEndPos = portion.indexInMatch + portion.text.length;
-
+  const matchValue = getCaptureGroupValue(match, captureGroup);
+  const { valueStartPos, valueEndPos, portionEndPos } = getIndexes(portion, match[0], matchValue);
 
   if (valueStartPos === portion.indexInMatch) {
+    const dataAttrObject = buildDataAttr(dataAttr, match);
+
     if (portionEndPos === valueEndPos) {
-      return createLinkElement(portion.text, dataAttr);
+      return createLinkElement(portion.text, dataAttrObject);
     }
 
     let node = portion.node;
-    while (!node.textContent.includes(match[1])) {
+    while (!node.textContent.includes(matchValue)) {
       node = node.parentNode;
     }
 
     if (node) {
-      $(node).wrap(createLinkElement('', dataAttr));
+      $(node).wrap(createLinkElement('', dataAttrObject));
     }
   }
 
   return portion.text;
 }
 
-export default function (el, regex, mapping) {
+export default function (el, regex, mapping, replaceIndex) {
   if (!(el instanceof HTMLElement)) {
     throw new Error('must be called with a DOM element');
   }
@@ -94,12 +121,8 @@ export default function (el, regex, mapping) {
     throw new Error('must be called with a mapping object');
   }
 
-  if (!mapping.value) {
-    throw new Error('mapping.value is required');
-  }
-
   findAndReplaceDOMText(el, {
     find: regex,
-    replace: (portion, match) => replace(portion, match, mapping),
+    replace: (portion, match) => replace(portion, match, mapping, replaceIndex),
   });
 }

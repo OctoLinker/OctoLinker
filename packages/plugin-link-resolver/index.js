@@ -24,7 +24,7 @@ export default class LiveResolver {
         value: '$1',
         type: blob.type,
         path: blob.path,
-      });
+      }, '$1');
     });
   }
 }

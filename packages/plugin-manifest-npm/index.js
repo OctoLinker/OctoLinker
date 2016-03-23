@@ -3,18 +3,33 @@ import { registerHandler } from '../helper-click-handler';
 import javaScriptClickHandler from '../grammar-javascript';
 import escapeRegexString from 'escape-regex-string';
 
-function linker(blob, result) {
-  const [key, value] = result;
+function regexBuilder(key, value) {
   const regexKey = escapeRegexString(key);
   const regexValue = escapeRegexString(value);
-  const regex = new RegExp(`("${regexKey}")\\s*:\\s*"${regexValue}"`);
+  return new RegExp(`("${regexKey}")\\s*:\\s*("${regexValue}")`);
+}
+
+function linker(blob, result) {
+  const [key, value] = result;
+  const regex = regexBuilder(key, value);
 
   replaceKeywords(blob.el, regex, {
-    value: key,
-    version: value,
+    value: '$1',
+    version: '$2',
     type: blob.type,
     path: blob.path,
-  });
+  }, '$1');
+}
+
+function mainLinker(blob, result) {
+  const [key, value] = result;
+  const regex = regexBuilder(key, value);
+
+  replaceKeywords(blob.el, regex, {
+    value: '$2',
+    type: blob.type,
+    path: blob.path,
+  }, '$2');
 }
 
 function getDependencyList(json) {
@@ -52,10 +67,12 @@ export default class NPMmanifest {
   parseBlob(blob) {
     const json = blob.getJSON();
 
-    linker(blob, [
+    mainLinker(blob, [
       'main', json.main,
     ]);
 
-    getDependencyList(json).forEach(linker.bind(null, blob));
+    getDependencyList(json).forEach((item) => {
+      linker(blob, item, 0);
+    });
   }
 }
