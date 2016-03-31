@@ -60,7 +60,7 @@ describe('try-load', () => {
     assert.equal(handlerStub.args[0][1], 'https://bar.com/200');
   });
 
-  it('calls the callback with the url of the first completed request', () => {
+  it('calls the callback with the url and response of the first completed request', () => {
     const handlerStub = sandbox.stub();
 
     ajaxStub.onCall(0).returns(errorResponse());
@@ -70,11 +70,45 @@ describe('try-load', () => {
       'https://foo.com/404',
       'https://bar.com/200',
     ], {
-      type: 'GET',
+      method: 'GET',
     }, handlerStub);
 
     assert.equal(handlerStub.callCount, 1);
     assert.equal(handlerStub.args[0][1], 'https://bar.com/200');
     assert.equal(handlerStub.args[0][2], 'SUCCESS_RESPONSE');
+  });
+
+  it('makes request with individual HTTP method define per url', () => {
+    const handlerStub = sandbox.stub();
+
+    ajaxStub.onCall(0).returns(errorResponse());
+    ajaxStub.onCall(1).returns(successResponse());
+
+    helperTryLoad([
+      { url: 'https://foo.com/404', method: 'FOO' },
+      { url: 'https://bar.com/200', method: 'BAR' },
+    ], handlerStub);
+
+    assert.equal(ajaxStub.args[0][0].method, 'FOO');
+    assert.equal(ajaxStub.args[1][0].method, 'BAR');
+    assert.equal(ajaxStub.args[0][0].url, 'https://foo.com/404');
+    assert.equal(ajaxStub.args[1][0].url, 'https://bar.com/200');
+  });
+
+  it('it uses HHTP method given by option if url is just a string', () => {
+    const handlerStub = sandbox.stub();
+
+    ajaxStub.onCall(0).returns(errorResponse());
+    ajaxStub.onCall(1).returns(successResponse());
+
+    helperTryLoad([
+      'https://foo.com/404',
+      { url: 'https://bar.com/200', method: 'FOO' },
+    ], {
+      method: 'BAR',
+    }, handlerStub);
+
+    assert.equal(ajaxStub.args[0][0].method, 'BAR');
+    assert.equal(ajaxStub.args[1][0].method, 'FOO');
   });
 });

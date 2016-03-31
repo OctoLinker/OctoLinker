@@ -5,10 +5,11 @@ export default function loader(urls, options, cb) {
 
   if (typeof options === 'function') callback = options;
 
-  const url = urls.shift();
+  const req = urls.shift();
+  const url = req.url || req;
 
   $.ajax({
-    type: options.type || 'HEAD',
+    method: req.method || options.method || 'HEAD',
     url,
   }).then(function (res) {
     callback(null, url, res);

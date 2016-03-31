@@ -54,7 +54,7 @@ export default function clickHandler(value, path) {
   }
 
   tryLoad(urls, {
-    type: (isPath) ? undefined : 'GET',
+    method: (isPath) ? undefined : 'GET',
   }, (err, url, res) => {
     if (err) {
       return console.error(err);
