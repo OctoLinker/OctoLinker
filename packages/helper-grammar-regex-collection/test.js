@@ -10,6 +10,8 @@ const fixtures = {
     regex: IMPORT,
     valid: [
       'import foo from "foo"',
+      'import _ from "foo"',
+      'import $ from "foo"',
       'import * as bar from "foo"',
       'import { bar } from "foo"',
       'import { foo as bar } from "foo"',
@@ -39,6 +41,8 @@ const fixtures = {
     valid: [
       'require("foo")',
       'var foo = require("foo")',
+      'var $ = require("foo")',
+      'var _ = require("foo")',
       ['var foo = require("foo")var bar = require("bar")', ['"foo"', '"bar"']],
       ['require("foo")require("bar");', ['"foo"', '"bar"']],
       ['require("foo")require("bar");', ['"foo"', '"bar"']],
