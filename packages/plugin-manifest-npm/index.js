@@ -1,7 +1,6 @@
 import replaceKeywords from '../helper-replace-keywords';
-import { registerHandler } from '../helper-click-handler';
-import javaScriptClickHandler from '../grammar-javascript';
 import escapeRegexString from 'escape-regex-string';
+import semver from 'semver';
 
 function regexBuilder(key, value) {
   const regexKey = escapeRegexString(key);
@@ -9,15 +8,20 @@ function regexBuilder(key, value) {
   return new RegExp(`("${regexKey}")\\s*:\\s*("${regexValue}")`);
 }
 
+function isValidSemver(value) {
+  return semver.valid(value) || semver.validRange(value);
+}
+
 function linker(blob, result) {
   const [key, value] = result;
   const regex = regexBuilder(key, value);
 
+  const isSemver = isValidSemver(value);
+
   replaceKeywords(blob.el, regex, {
-    value: '$1',
-    version: '$2',
-    type: blob.type,
-    path: blob.path,
+    resolver: isSemver ? 'resolverAPI' : 'gitUrl|githubShorthand',
+    target: isSemver ? '$1' : '$2',
+    type: 'npm',
   }, '$1');
 }
 
@@ -26,9 +30,9 @@ function mainLinker(blob, result) {
   const regex = regexBuilder(key, value);
 
   replaceKeywords(blob.el, regex, {
-    value: '$2',
-    type: blob.type,
+    resolver: 'javascriptFile',
     path: blob.path,
+    target: '$2',
   }, '$2');
 }
 
@@ -52,24 +56,20 @@ function getDependencyList(json) {
 export default class NPMmanifest {
 
   initialize() {
-    registerHandler('JSON', this.clickHandler);
   }
 
   blobTypes() {
     return ['JSON'];
   }
 
-  clickHandler(data) {
-    const { value, path } = data;
-    javaScriptClickHandler(value, path);
-  }
-
   parseBlob(blob) {
     const json = blob.getJSON();
 
-    mainLinker(blob, [
-      'main', json.main,
-    ]);
+    if (json.main) {
+      mainLinker(blob, [
+        'main', json.main,
+      ]);
+    }
 
     getDependencyList(json).forEach((item) => {
       linker(blob, item, 0);

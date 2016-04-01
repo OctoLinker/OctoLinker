@@ -3,7 +3,7 @@ import sinon from 'sinon';
 import $ from 'jquery';
 import clickHandler, { registerHandler } from './index.js';
 
-describe('helper-click-handler', () => {
+describe.skip('helper-click-handler', () => {
   const sandbox = sinon.sandbox.create();
   const fooHandler = sandbox.stub();
   const barHandler = sandbox.stub();

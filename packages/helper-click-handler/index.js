@@ -1,34 +1,78 @@
 import $ from 'jquery';
+import resolverAPI from './resolver/resolver-api.js';
+import relativeFile from './resolver/relative-file.js';
+import javascriptFile from './resolver/javascript-file.js';
+import gitUrl from './resolver/git-url.js';
+import githubShorthand from './resolver/github-shorthand.js';
+import javascriptUniversal from './resolver/javascript-universal.js';
+import tryLoad from '../try-load';
 
 const CLASS_NAME = 'octo-linker-link';
-
 const LINK_SELECTOR = `.${CLASS_NAME}`;
 const $body = $('body');
 const listeners = new Map();
+const clickHandlers = {
+  resolverAPI,
+  relativeFile,
+  javascriptFile,
+  javascriptUniversal,
+  gitUrl,
+  githubShorthand,
+};
 
-function clickHandler(event) {
+function onClick(event) {
   const dataAttr = event.target.dataset;
-  const handlerFunc = listeners.get(dataAttr.type);
 
-  if (handlerFunc) {
-    handlerFunc(dataAttr);
-  }
-}
+  const resolverStrings = dataAttr.resolver.split('|');
+  let urls = resolverStrings.map((resolverName) => {
+    const func = listeners.get(resolverName);
+    if (func) {
+      return func(dataAttr);
+    }
+  });
 
-export function registerHandler(type, func) {
-  if (listeners.has(type)) {
+  urls = []
+    .concat(...urls)
+    .filter((url) => !!url);
+
+  if (!urls.length) {
     return;
   }
 
-  listeners.set(type, func);
+  console.log('resolver: ', dataAttr.resolver, urls);
+
+  tryLoad(urls, (err, url, res) => {
+    if (err) {
+      return console.error(err);
+    }
+
+    console.log(url, res);
+
+    if (res) {
+      window.location.href = res.url;
+      return undefined;
+    }
+
+    window.location.href = url;
+  });
+}
+
+export function registerHandler([name, func]) {
+  if (listeners.has(name)) {
+    return;
+  }
+
+  listeners.set(name, func);
 }
 
 function init() {
-  $body.delegate(LINK_SELECTOR, 'click', clickHandler);
+  $body.delegate(LINK_SELECTOR, 'click', onClick);
+
+  Object.entries(clickHandlers).forEach(registerHandler);
 }
 
 function cleanup() {
-  $body.undelegate(LINK_SELECTOR, 'click', clickHandler);
+  $body.undelegate(LINK_SELECTOR, 'click', onClick);
   listeners.clear();
 }
 

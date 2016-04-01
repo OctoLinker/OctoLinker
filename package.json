@@ -17,7 +17,11 @@
     "escape-regex-string": "^1.0.4",
     "findandreplacedomtext": "^0.4.4",
     "github-injection": "^0.2.0",
-    "jquery": "^2.1.4"
+    "github-url-from-git": "^1.4.0",
+    "github-url-from-username-repo": "^1.0.2",
+    "jquery": "^2.1.4",
+    "semver": "^5.1.0",
+    "semver-regex": "^1.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.3",
