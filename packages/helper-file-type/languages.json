@@ -12,5 +12,9 @@
   ],
   "JSON": [
     ".json"
+  ],
+  "Ruby": [
+    "Gemfile",
+    ".rb"
   ]
 }

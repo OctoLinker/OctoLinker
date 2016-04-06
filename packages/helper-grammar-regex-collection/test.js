@@ -3,6 +3,7 @@ import {
   IMPORT,
   REQUIRE,
   REQUIRE_RESOLVE,
+  GEM,
 } from './index.js';
 
 const fixtures = {
@@ -79,6 +80,16 @@ const fixtures = {
       'require.resolve (foo)',
       'require.resolve( "foo" )',
       'require.resolve("fo o")',
+    ],
+  },
+  GEM: {
+    regex: GEM,
+    valid: [
+      'gem "foo"',
+      ['gem \'foo\'', ['\'foo\'']],
+    ],
+    invalid: [
+      'gem     "foo"',
     ],
   },
 };

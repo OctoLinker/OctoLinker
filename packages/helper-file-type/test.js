@@ -27,4 +27,18 @@ describe('helper-file-type', () => {
       assert.equal(languageByFilePath('foo.ts'), 'TypeScript');
     });
   });
+
+  describe('returns type "Ruby" when', () => {
+    it('is called with foo.rb', () => {
+      assert.equal(languageByFilePath('foo.rb'), 'Ruby');
+    });
+
+    it('is called with Gemfile', () => {
+      assert.equal(languageByFilePath('Gemfile'), 'Ruby');
+    });
+
+    it('is called with foo/Gemfile', () => {
+      assert.equal(languageByFilePath('foo/Gemfile'), 'Ruby');
+    });
+  });
 });

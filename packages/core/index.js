@@ -5,6 +5,7 @@ import BlobReader from '../blob-reader';
 
 import LinkResolver from '../plugin-link-resolver';
 import ManifestNPM from '../plugin-manifest-npm';
+import ManifestGemfile from '../plugin-manifest-gemfile';
 
 function enableDebugMode() {
   document.body.classList.add('octo-linker-debug');
@@ -13,6 +14,7 @@ function enableDebugMode() {
 const plugins = [
   LinkResolver,
   ManifestNPM,
+  ManifestGemfile,
 ];
 
 function createPluginCacheList() {
