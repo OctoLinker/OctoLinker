@@ -1,3 +1,4 @@
+import { basename } from 'path';
 import replaceKeywords from '../helper-replace-keywords';
 import { GEM } from '../helper-grammar-regex-collection/index.js';
 
@@ -11,7 +12,7 @@ export default class GemManifest {
   }
 
   parseBlob(blob) {
-    if (blob.filename !== 'Gemfile') {
+    if (basename(blob.path) !== 'Gemfile') {
       return;
     }
 

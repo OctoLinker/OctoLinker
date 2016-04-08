@@ -25,14 +25,6 @@ describe('blob-reader', () => {
       assert.equal(result.path, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
     });
 
-    it('contains blob filename', function () {
-      assert.equal(result.filename, 'popular-rabbit-names.js');
-    });
-
-    it('contains blob dirname', function () {
-      assert.equal(result.dirname, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader');
-    });
-
     it('contains blob root element', function () {
       assert(result.el !== undefined);
     });
