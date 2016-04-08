@@ -108,7 +108,7 @@ function replace(portion, match, dataAttr, captureGroup) {
   return portion.text;
 }
 
-export default function (el, regex, mapping, captureGroup) {
+export default function (el, regex, mapping, captureGroup = '$1') {
   if (!(el instanceof HTMLElement)) {
     throw new Error('must be called with a DOM element');
   }

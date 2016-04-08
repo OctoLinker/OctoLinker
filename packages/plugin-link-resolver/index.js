@@ -16,7 +16,7 @@ export default class LiveResolver {
         resolver: 'javascriptUniversal',
         target: '$1',
         path: blob.path,
-      }, '$1');
+      });
     });
   }
 }

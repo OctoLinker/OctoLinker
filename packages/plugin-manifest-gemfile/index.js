@@ -20,6 +20,6 @@ export default class GemManifest {
       resolver: 'resolverAPI',
       target: '$1',
       type: 'rubygems',
-    }, '$1');
+    });
   }
 }

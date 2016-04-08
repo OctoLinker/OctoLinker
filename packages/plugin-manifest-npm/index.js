@@ -22,7 +22,7 @@ function linker(blob, result) {
     resolver: isSemver ? 'resolverAPI' : 'gitUrl|githubShorthand',
     target: isSemver ? '$1' : '$2',
     type: 'npm',
-  }, '$1');
+  });
 }
 
 function mainLinker(blob, result) {
