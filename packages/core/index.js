@@ -54,7 +54,12 @@ function run(self) {
   self._blobReader.read();
 
   self._blobReader.forEach((blob) => {
-    self._plugins.get(blob.type).forEach((plugin) => {
+    const pluginsForType = self._plugins.get(blob.type);
+    if (!pluginsForType) {
+      return;
+    }
+
+    pluginsForType.forEach((plugin) => {
       if (!plugin._isActive) {
         plugin.initialize();
         plugin._isActive = true;
