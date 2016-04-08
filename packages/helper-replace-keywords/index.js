@@ -108,7 +108,7 @@ function replace(portion, match, dataAttr, captureGroup) {
   return portion.text;
 }
 
-export default function (el, regex, mapping, replaceIndex) {
+export default function (el, regex, mapping, captureGroup) {
   if (!(el instanceof HTMLElement)) {
     throw new Error('must be called with a DOM element');
   }
@@ -123,6 +123,6 @@ export default function (el, regex, mapping, replaceIndex) {
 
   findAndReplaceDOMText(el, {
     find: regex,
-    replace: (portion, match) => replace(portion, match, mapping, replaceIndex),
+    replace: (portion, match) => replace(portion, match, mapping, captureGroup),
   });
 }
