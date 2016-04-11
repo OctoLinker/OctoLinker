@@ -1,7 +1,7 @@
 import assert from 'assert';
 import sinon from 'sinon';
 import $ from 'jquery';
-import clickHandler, { registerHandler } from './index.js';
+import clickHandler, { registerHandler } from '../lib/click-hanlder';
 
 describe.skip('helper-click-handler', () => {
   const sandbox = sinon.sandbox.create();

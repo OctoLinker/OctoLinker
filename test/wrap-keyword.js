@@ -1,13 +1,13 @@
 import assert from 'assert';
 import $ from 'jquery';
-import insertLink from './index.js';
+import wrapKeyword from '../lib/wrap-keyword.js';
 
 describe('helper-replace-keywords', () => {
   function helper(html, options = { value: '$1' }, regex = /foo ("\w+")/, replaceIndex = '$1') {
     const el = document.createElement('div');
     el.innerHTML = html;
 
-    insertLink(el, regex, options, replaceIndex);
+    wrapKeyword(el, regex, options, replaceIndex);
 
     return el;
   }

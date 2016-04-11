@@ -4,4 +4,4 @@ set -e
 NPM_BIN="$(npm bin)";
 cd "$(dirname "$0")/.."
 
-"$NPM_BIN/browserify" ./packages/core/index.js -t babelify --outfile ./chrome/app.js
+"$NPM_BIN/browserify" ./lib/app.js -t babelify --outfile ./chrome/app.js
