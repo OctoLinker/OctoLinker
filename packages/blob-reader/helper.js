@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import { languageByFilePath } from '../helper-file-type';
 
 function getBlobCodeInner(el) {
   return [].slice.call(el.getElementsByClassName('blob-code-inner'));
@@ -91,5 +90,4 @@ export {
   getPath,
   getBlobWrapper,
   readLines,
-  languageByFilePath as getType,
 };

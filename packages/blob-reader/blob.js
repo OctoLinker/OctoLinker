@@ -1,4 +1,4 @@
-import { getPath, getType, readLines } from './helper';
+import { getPath, readLines } from './helper';
 
 export default class Blob {
   constructor(el) {
@@ -10,7 +10,6 @@ export default class Blob {
 
     this.el = el;
     this.path = path;
-    this.type = getType(this.path);
     this.lines = readLines(el);
   }
 

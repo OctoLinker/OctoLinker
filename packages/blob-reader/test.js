@@ -17,10 +17,6 @@ describe('blob-reader', () => {
       });
     });
 
-    it('contains language type', function () {
-      assert.equal(result.type, 'JavaScript');
-    });
-
     it('contains blob path', function () {
       assert.equal(result.path, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
     });
