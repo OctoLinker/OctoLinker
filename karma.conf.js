@@ -4,12 +4,14 @@ module.exports = function(config) {
     frameworks: ['mocha', 'browserify', 'fixture', 'phantomjs-shim'],
     files: [
       'lib/**/*.js',
+      'test/**/*.js',
       'packages/**/*.js',
       'packages/*/fixtures/**/*.html',
     ],
     exclude: [],
     preprocessors: {
       'lib/**/*.js': ['browserify'],
+      'test/**/*.js': ['browserify'],
       'packages/**/*.js': ['browserify'],
       'packages/*/fixtures/**/*.html': ['html2js'],
     },
