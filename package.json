@@ -13,6 +13,7 @@
     "watch-build": "./scripts/watch-build"
   },
   "dependencies": {
+    "JSONPath": "^0.11.2",
     "babel-polyfill": "^6.3.14",
     "builtins": "^1.0.3",
     "escape-regex-string": "^1.0.4",
