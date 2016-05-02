@@ -1,5 +1,5 @@
 {
-  "name": "octo-linker",
+  "name": "OctoLinker",
   "engines": {
     "node": ">=4.0.0"
   },

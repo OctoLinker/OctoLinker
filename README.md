@@ -1,27 +1,37 @@
-# Octo-Linker
+<p align="center">
+<a href="https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://cloud.githubusercontent.com/assets/1393946/15162649/647ca490-1704-11e6-8ed8-ef0674e40fc3.png" width="375"/></a
+</p>
 
-> Dev branch of the upcoming version
+# What is OctoLinker?
 
-## Packages overview
+First of all, it's a browser extension. It's currently only available on Chrome. Once installed, it allows you to navigate through projects on GitHub.com efficiently.
 
-#### Stable
-- [blob-reader](packages/blob-reader)
-- [helper-file-type](packages/helper-file-type)
-- [helper-grammar-regex-collection](packages/helper-grammar-regex-collection)
+Most projects consist of many files and third party dependencies. Files are referencing other files and / or dependencies by language specific statements like `include` or `require`. Dependencies are most likely declared in a file called manifest e.g. `package.json` or `Gemfile`. The OctoLinker browser extensions makes theses references clickable. No more copy and search.
 
-### In development
-- [core](packages/core)
-- [link-resolver](packages/link-resolver)
-- [try-load](packages/try-load)
-- [helper-click-handler](packages/helper-click-handler)
-- [helper-replace-keywords](packages/helper-replace-keywords)
+# Install
 
-# Getting started
+Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp).
 
-To build and run the extension follow these steps.
+# Want to contribute?
 
-0. Clone this repository and checkout the `dev` branch.
-0. Setup project and install dependencies `./scripts/bootstrap`
-0. To build the extension run `./scripts/build`.
-0. If installed, deactivate Octo-Linker 3.x
-0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked
+Anyone can help make this project better - check out the [Contributing](/CONTRIBUTING.md) and [Developer](/DEVELOPER.md) guide!
+
+# Feedback please
+
+If you encounter a problem using OctoLinker, or would like to request an enhancement, feel free to create an [issue](https://github.com/OctoLinker/browser-extension/issues) or say hello [@OctoLinker](https://twitter.com/OctoLinker) on twitter.
+
+
+# Thanks
+
+- My girlfriend for being so patient with me!
+- [art-noir.net](http://art-noir.net) for the awesome mascot and website!
+- [@kkamilio](https://twitter.com/kkamilio) and [@WolnyAdrian](https://twitter.com/WolnyAdrian) for teaching me how Ruby works!
+- [@TheeApeman](https://twitter.com/TheeApeman) for code review!
+- Every early OctoLinker user, which contributed to OctoLinker by writing issues or PRs!
+- Everyone I forgot to mention here, but also influenced OctoLinker!
+
+# Legal and License
+
+The OctoLinker project is not affiliated with, sponsored by, or endorsed by github, inc.
+
+Copyright (c) 2014–present [Stefan Buck](https://github.com/stefanbuck) Licensed under the MIT license.

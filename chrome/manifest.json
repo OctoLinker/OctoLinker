@@ -1,12 +1,12 @@
 {
-  "name": "Octo-Linker - DEV",
+  "name": "OctoLinker",
   "version": "4.0.0",
   "manifest_version": 2,
   "author": "Stefan Buck",
   "description": "",
-  "homepage_url": "https://github.com/octo-linker/chrome-extension",
+  "homepage_url": "https://github.com/OctoLinker/browser-extension/",
   "icons": {
-    "128": "icons/icon-128.png"
+    "128": "icon.png"
   },
   "content_scripts": [
     {
