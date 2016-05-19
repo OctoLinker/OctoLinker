@@ -2,7 +2,7 @@
 <a href="https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://cloud.githubusercontent.com/assets/1393946/15162649/647ca490-1704-11e6-8ed8-ef0674e40fc3.png" width="375"/></a
 </p>
 
-# What is OctoLinker?
+# What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/browser-extension.svg?branch=master)](https://travis-ci.org/OctoLinker/browser-extension)
 
 First of all, it's a browser extension. It's currently only available on Chrome. Once installed, it allows you to navigate through projects on GitHub.com efficiently.
 
