@@ -50,7 +50,7 @@ const fixtures = {
       'export { \nbar\n } from "foo"',
     ],
     invalid: [
-      'export * from "fo o"'
+      'export * from "fo o"',
     ],
   },
   REQUIRE: {

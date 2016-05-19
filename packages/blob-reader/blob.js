@@ -21,7 +21,6 @@ export default class Blob {
     try {
       return JSON.parse(this.getText());
     } catch (err) {
-      console.error(err);
       return {};
     }
   }
