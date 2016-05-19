@@ -1,6 +1,7 @@
 import assert from 'assert';
 import {
   IMPORT,
+  EXPORT,
   REQUIRE,
   REQUIRE_RESOLVE,
   GEM,
@@ -35,6 +36,21 @@ const fixtures = {
       // TODO tweak IMPORT regexp so that invalid statements are not matched
       // 'import foo "foo"',
       // 'import from "foo"',
+    ],
+  },
+  EXPORT: {
+    regex: EXPORT,
+    valid: [
+      'export * from "foo"',
+      'export { foo, bar } from "foo"',
+      'export { foo as bar} from "foo"',
+      'export { foo, bar as baz } from "foo"',
+      'export {\nbar } from "foo"',
+      'export { bar\n } from "foo"',
+      'export { \nbar\n } from "foo"',
+    ],
+    invalid: [
+      'export * from "fo o"'
     ],
   },
   REQUIRE: {
