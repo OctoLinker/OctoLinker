@@ -5,6 +5,7 @@ import {
   REQUIRE,
   REQUIRE_RESOLVE,
   GEM,
+  HOMEBREW,
 } from './index.js';
 
 const fixtures = {
@@ -106,6 +107,23 @@ const fixtures = {
     ],
     invalid: [
       'gem     "foo"',
+    ],
+  },
+  HOMEBREW: {
+    regex: HOMEBREW,
+    valid: [
+      'depends_on "foo"',
+      ['depends_on \'foo\'', ['\'foo\'']],
+      'conflicts_with "foo"',
+      ['conflicts_with \'foo\'', ['\'foo\'']],
+    ],
+    // These probably aren't actually invalid, but
+    // https://github.com/Homebrew/homebrew-core/ has no occurences of multiple
+    // spaces after depends_on/conflicts_with, and I'm guessing their lint
+    // prohibits them anyway.
+    invalid: [
+      'depends_on     "foo"',
+      'conflicts_with     "foo"',
     ],
   },
 };
