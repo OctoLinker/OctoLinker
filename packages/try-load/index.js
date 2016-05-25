@@ -1,23 +1,49 @@
 import $ from 'jquery';
 
-export default function loader(urls, options, cb) {
-  let callback = cb;
+let callback;
+let urls;
+let url;
 
-  if (typeof options === 'function') callback = options;
+function thenHandler(res) {
+  callback(null, url, res);
+}
+
+function failHandler() {
+  if (urls.length === 0) {
+    return callback(new Error('Could not load any url'));
+  }
+
+  loader(urls, callback); // eslint-disable-line no-use-before-define
+}
+
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.err) {
+    failHandler();
+  } else {
+    thenHandler(msg.body);
+  }
+});
+
+export default function loader(urls2, cb) {
+  callback = cb;
+  urls = urls2;
 
   const req = urls.shift();
-  const url = req.url || req;
+  url = req.url || req;
+
+  if (!url.startsWith('https://github.com')) {
+    chrome.runtime.sendMessage({
+      method: req.method || 'HEAD',
+      url,
+    });
+
+    return;
+  }
 
   $.ajax({
-    method: req.method || options.method || 'HEAD',
+    method: req.method || 'HEAD',
     url,
-  }).then(function (res) {
-    callback(null, url, res);
-  }).fail(function () {
-    if (urls.length === 0) {
-      return callback(new Error('Could not load any url'));
-    }
-
-    loader(urls, callback, options);
-  });
+  })
+    .then(thenHandler)
+    .fail(failHandler);
 }
