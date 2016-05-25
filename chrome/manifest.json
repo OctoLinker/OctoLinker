@@ -8,6 +8,9 @@
   "icons": {
     "128": "icon.png"
   },
+  "background": {
+    "scripts": ["background.js"]
+  },
   "content_scripts": [
     {
       "matches": [
