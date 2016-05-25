@@ -1,3 +1,14 @@
 node_modules
 npm-debug.log
+
+chrome/background.js
 chrome/app.js
+chrome/icon.png
+chrome/style.css
+chrome/octolinker.*
+
+firefox/background.js
+firefox/app.js
+firefox/icon.png
+firefox/style.css
+firefox/octolinker.*

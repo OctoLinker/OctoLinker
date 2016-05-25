@@ -1,0 +1,34 @@
+{
+  "name": "OctoLinker",
+  "version": "4.0.2",
+  "manifest_version": 2,
+  "author": "Stefan Buck",
+  "description": "",
+  "homepage_url": "https://github.com/OctoLinker/browser-extension/",
+  "icons": {
+    "128": "icon.png"
+  },
+  "applications": {
+    "gecko": {
+      "id": "octolinker@stefanbuck.com"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*",
+        "https://gist.github.com/*"
+      ],
+      "js": ["app.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+      "https://githublinker.herokuapp.com/"
+  ]
+}
