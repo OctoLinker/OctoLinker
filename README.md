@@ -6,7 +6,7 @@
 
 First of all, it's a browser extension. It's currently only available on Chrome. Once installed, it allows you to navigate through projects on GitHub.com efficiently.
 
-Most projects consist of many files and third party dependencies. Files are referencing other files and / or dependencies by language specific statements like `include` or `require`. Dependencies are most likely declared in a file called manifest e.g. `package.json` or `Gemfile`. The OctoLinker browser extensions makes theses references clickable. No more copy and search.
+Most projects consist of many files and third party dependencies. Files are referencing other files and / or dependencies by language specific statements like `include` or `require`. Dependencies are most likely declared in a file called manifest e.g. `package.json` or `Gemfile`. The OctoLinker browser extensions makes these references clickable. No more copy and search.
 
 ![screenshot](https://cloud.githubusercontent.com/assets/15367484/15292991/ad6baa9a-1b3a-11e6-840c-09d87004de8c.png)
 
