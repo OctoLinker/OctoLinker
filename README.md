@@ -16,7 +16,7 @@ Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail
 
 # Want to contribute?
 
-Anyone can help make this project better - check out the [Contributing](/CONTRIBUTING.md) and [Developer](/DEVELOPER.md) guide!
+Anyone can help make this project better - check out the [Contributing](/CONTRIBUTING.md) guide!
 
 # Feedback please
 
