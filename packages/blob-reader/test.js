@@ -10,7 +10,7 @@ describe('blob-reader', () => {
     let result;
 
     beforeEach(() => {
-      fixture.load(__dirname + '/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
+      fixture.load('/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
       const reader = new BlobReader();
       reader.read().forEach((blob) => {
         result = blob;
@@ -67,7 +67,7 @@ describe('blob-reader', () => {
     let result;
 
     beforeEach(() => {
-      fixture.load(__dirname + '/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
+      fixture.load('/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
       const reader = new BlobReader();
       reader.read().forEach((blob) => {
         result = blob;
@@ -108,7 +108,7 @@ describe('blob-reader', () => {
       let result;
 
       beforeEach(() => {
-        fixture.load(__dirname + '/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html');
+        fixture.load('/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html');
         const reader = new BlobReader();
         reader.read().forEach((blob) => {
           result = blob;
@@ -141,7 +141,7 @@ describe('blob-reader', () => {
       let result;
 
       beforeEach(() => {
-        fixture.load(__dirname + '/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html');
+        fixture.load('/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html');
         const reader = new BlobReader();
         reader.read().forEach((blob) => {
           result = blob;
