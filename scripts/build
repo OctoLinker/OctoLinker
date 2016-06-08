@@ -2,6 +2,23 @@
 set -e
 
 NPM_BIN="$(npm bin)";
+TARGET=$1;
+EXT=""
+
 cd "$(dirname "$0")/.."
 
-"$NPM_BIN/browserify" ./lib/app.js -t babelify --outfile ./chrome/app.js
+"$NPM_BIN/browserify" ./lib/app.js -t babelify --outfile "./$TARGET/app.js"
+
+cp -a ./assets/. ./$TARGET
+
+cd $TARGET
+
+if [ $TARGET == "chrome" ]; then
+  EXT="zip"
+fi
+
+if [ $TARGET == "firefox" ]; then
+  EXT="xpi"
+fi
+
+zip -r "octolinker.$EXT" . -x ".*" -x "*/.*"

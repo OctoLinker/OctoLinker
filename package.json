@@ -10,7 +10,8 @@
     "lint": "./scripts/lint",
     "test": "./scripts/test",
     "watch-test": "./scripts/test --no-single-run --auto-watch",
-    "build": "./scripts/build",
+    "build-chrome": "./scripts/build chrome",
+    "build-firefox": "./scripts/build firefox",
     "watch-build": "./scripts/watch-build"
   },
   "dependencies": {
