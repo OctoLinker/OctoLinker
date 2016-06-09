@@ -6,7 +6,7 @@
   },
   "main": "lib/app.js",
   "scripts": {
-    "bootstrap": "./scripts/bootstrap",
+    "postinstall": "ln -s ./scripts/hooks/pre-commit .git/hooks/pre-commit",
     "lint": "./scripts/lint",
     "test": "./scripts/test",
     "test:watch": "./scripts/test --no-single-run --auto-watch",
