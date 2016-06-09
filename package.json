@@ -7,7 +7,7 @@
   "main": "lib/app.js",
   "scripts": {
     "postinstall": "ln -s ./scripts/hooks/pre-commit .git/hooks/pre-commit",
-    "lint": "./scripts/lint",
+    "lint": "eslint .",
     "test": "./scripts/test",
     "test:watch": "./scripts/test --no-single-run --auto-watch",
     "build": "./scripts/build",
