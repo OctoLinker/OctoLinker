@@ -11,8 +11,8 @@
     "pretest": "npm run lint",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --auto-watch",
-    "build": "./scripts/build",
-    "build:watch": "./scripts/build --watch"
+    "build": "webpack",
+    "build:watch": "webpack --watch"
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
