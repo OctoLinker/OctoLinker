@@ -8,8 +8,9 @@
   "scripts": {
     "postinstall": "ln -s ./scripts/hooks/pre-commit .git/hooks/pre-commit",
     "lint": "eslint .",
-    "test": "./scripts/test",
-    "test:watch": "./scripts/test --no-single-run --auto-watch",
+    "pretest": "npm run lint",
+    "test": "karma start",
+    "test:watch": "karma start --no-single-run --auto-watch",
     "build": "./scripts/build",
     "build:watch": "./scripts/build --watch"
   },
