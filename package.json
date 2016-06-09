@@ -11,7 +11,7 @@
     "test": "./scripts/test",
     "watch-test": "./scripts/test --no-single-run --auto-watch",
     "build": "./scripts/build",
-    "watch-build": "./scripts/watch-build"
+    "watch-build": "./scripts/build --watch"
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
