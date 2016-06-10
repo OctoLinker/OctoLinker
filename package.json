@@ -6,12 +6,13 @@
   },
   "main": "lib/app.js",
   "scripts": {
-    "bootstrap": "./scripts/bootstrap",
-    "lint": "./scripts/lint",
-    "test": "./scripts/test",
-    "watch-test": "./scripts/test --no-single-run --auto-watch",
-    "build": "./scripts/build",
-    "watch-build": "./scripts/watch-build"
+    "postinstall": "ln -s ./scripts/hooks/pre-commit .git/hooks/pre-commit",
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "karma start",
+    "test:watch": "karma start --no-single-run --auto-watch",
+    "build": "webpack",
+    "build:watch": "webpack --watch"
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
@@ -27,23 +28,25 @@
     "semver-regex": "^1.0.0"
   },
   "devDependencies": {
+    "babel-core": "^6.9.1",
     "babel-eslint": "^4.1.3",
-    "babel-preset-es2015": "^6.1.18",
-    "babelify": "^7.2.0",
-    "browserify": "^12.0.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "2.1.1",
-    "karma-browserify": "^4.4.0",
+    "json-loader": "^0.5.4",
     "karma-fixture": "^0.2.5",
     "karma-html2js-preprocessor": "^0.1.0",
     "karma-mocha": "^0.2.0",
     "karma-mocha-reporter": "^1.1.1",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-phantomjs-shim": "^1.1.2",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.18",
-    "sinon": "^1.17.2",
-    "watchify": "^3.6.1"
+    "sinon": "^2.0.0-pre",
+    "webpack": "^1.13.1"
   },
   "private": true
 }
