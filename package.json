@@ -6,7 +6,7 @@
   },
   "main": "lib/app.js",
   "scripts": {
-    "postinstall": "ln -s ./scripts/hooks/pre-commit .git/hooks/pre-commit",
+    "postinstall": "ln -sf ./scripts/hooks/pre-commit .git/hooks/pre-commit",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "karma start",
