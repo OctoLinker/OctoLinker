@@ -8,6 +8,11 @@
   "icons": {
     "128": "icon.png"
   },
+  "applications": {
+    "gecko": {
+      "id": "octolinker@stefanbuck.com"
+    }
+  },
   "background": {
     "scripts": ["background.js"]
   },

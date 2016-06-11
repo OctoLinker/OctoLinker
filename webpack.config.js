@@ -1,11 +1,19 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   entry: {
     app: './lib/app',
+    background: './lib/background',
   },
   output: {
     path: 'chrome',
     filename: '[name].js',
   },
+  plugins: [
+    new CopyWebpackPlugin([
+      { from: 'assets' },
+    ]),
+  ],
   module: {
     loaders: [
       {
