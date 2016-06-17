@@ -15,6 +15,7 @@
     "build:watch": "webpack --watch",
     "build-chrome": "webpack --output-path chrome",
     "build-firefox": "webpack --output-path firefox",
+    "open-firefox": "web-ext run --source-dir firefox",
     "dist-chrome": "webpack -p --config webpack.dist.config.js --dist=chrome",
     "dist-firefox": "webpack -p --config webpack.dist.config.js --dist=firefox",
     "dist-all": "npm run dist-chrome && npm run dist-firefox"
@@ -52,6 +53,7 @@
     "mocha": "^2.3.4",
     "phantomjs": "^1.9.18",
     "sinon": "^2.0.0-pre",
+    "web-ext": "^1.0.1",
     "webpack": "^1.13.1",
     "yargs": "^4.7.1"
   },
