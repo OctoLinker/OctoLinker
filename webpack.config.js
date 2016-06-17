@@ -5,6 +5,7 @@ module.exports = {
     app: './lib/app',
     background: './lib/background',
   },
+  devtool: 'source-map',
   output: {
     path: 'chrome',
     filename: '[name].js',
