@@ -3,7 +3,6 @@ module.exports = {
     app: './lib/app',
     background: './lib/background',
   },
-  devtool: 'source-map',
   output: {
     filename: '[name].js',
   },
