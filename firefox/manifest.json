@@ -29,6 +29,7 @@
     }
   ],
   "permissions": [
+      "https://github.com/",
       "https://githublinker.herokuapp.com/"
   ]
 }
