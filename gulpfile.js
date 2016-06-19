@@ -52,6 +52,12 @@ gulp.task('pack', () => {
 		.pipe(gulp.dest('out'));
 });
 
+gulp.task('pack-repo', () => {
+  return gulp.src(['**/*', '!node_modules{,/**/*}', '!out{,/**/*}', '!dist{,/**/*}'])
+		.pipe(zip(`octolinker-repository-${version}.zip`))
+		.pipe(gulp.dest('out'));
+});
+
 gulp.task('build', () => {
   webPackConfig.debug = true;
   webPackConfig.devtool = 'source-map';

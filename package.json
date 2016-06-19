@@ -14,7 +14,7 @@
     "start:firefox": "gulp --target=firefox && web-ext run --source-dir firefox",
     "watch": "gulp watch",
     "build": "gulp",
-    "dist": "gulp dist"
+    "dist": "gulp dist --target=chrome && gulp dist --target=firefox && gulp pack-repo"
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
