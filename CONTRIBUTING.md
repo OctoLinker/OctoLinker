@@ -10,14 +10,13 @@ First off, thanks for taking the time to contribute! :tada: :+1:
 To build and run the extension follow these steps.
 
 0. Clone the repository.
-0. Run `npm run bootstrap` to setup the project and install all required dependencies.
+0. Run `npm install` to setup the project and install all required dependencies.
 0. Start hacking. If you're adding a plugin, you may be interested in seeing the commits that add these plugins:
    * [Homebrew]
    * [Ruby]
    * [Composer]
    * [Bower]
-0. To build the extension run `./scripts/build`.
-0. If installed, deactivate the OctoLinker extension.
+0. To build the extension once run `npm run build` or `npm run build:watch` during development.
 0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
 [Homebrew]: https://github.com/OctoLinker/browser-extension/commit/b6df755208eae0b98e55fdf533b647b5d7bd4f8e

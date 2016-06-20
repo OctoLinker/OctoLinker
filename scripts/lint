@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-set -e
-
-NPM_BIN="$(npm bin)";
-cd "$(dirname "$0")/.."
-
-"$NPM_BIN/eslint" ./packages

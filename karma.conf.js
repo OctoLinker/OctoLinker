@@ -1,27 +1,26 @@
-module.exports = function(config) {
+
+const webpackConfig = require('./webpack.config');
+webpackConfig.devtool = 'inline-source-map';
+
+module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'browserify', 'fixture', 'phantomjs-shim'],
+    frameworks: ['mocha', 'fixture', 'phantomjs-shim'],
     files: [
-      'lib/**/*.js',
-      'test/**/*.js',
-      'packages/**/*.js',
+      'test/main-lib.js',
+      'test/main-packages.js',
       'packages/*/fixtures/**/*.html',
     ],
     exclude: [],
     preprocessors: {
-      'lib/**/*.js': ['browserify'],
-      'test/**/*.js': ['browserify'],
-      'packages/**/*.js': ['browserify'],
+      'test/main-lib.js': ['webpack', 'sourcemap'],
+      'test/main-packages.js': ['webpack', 'sourcemap'],
       'packages/*/fixtures/**/*.html': ['html2js'],
     },
-    browserify: {
-      debug: true,
-      transform: [
-        ['babelify'],
-      ],
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      noInfo: true,
     },
-    babelPreprocessor: {},
     reporters: ['mocha'],
     browsers: ['PhantomJS'],
     singleRun: true,
