@@ -1,10 +1,7 @@
 {
-  "name": "OctoLinker",
-  "version": "4.1.0",
   "engines": {
     "node": ">=4.0.0"
   },
-  "main": "lib/app.js",
   "scripts": {
     "postinstall": "ln -sf ./scripts/hooks/pre-commit .git/hooks/pre-commit",
     "lint": "eslint .",
@@ -56,6 +53,5 @@
     "web-ext": "^1.0.1",
     "webpack": "^1.13.1",
     "yargs": "^4.7.1"
-  },
-  "private": true
+  }
 }
