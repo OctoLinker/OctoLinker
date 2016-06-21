@@ -12,7 +12,7 @@ Most projects consist of many files and third party dependencies. Files are refe
 
 # Install
 
-Install it from the [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp).
+Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp) or [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/).
 
 # Want to contribute?
 
