@@ -7,7 +7,7 @@ module.exports = {
   },
   devtool: 'source-map',
   output: {
-    path: 'chrome',
+    path: 'dist',
     filename: '[name].js',
   },
   plugins: [
