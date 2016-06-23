@@ -15,14 +15,14 @@
     "chrome-build": "npm run chrome-manifest && webpack",
     "chrome-dist": "npm run chrome-build -- -p",
     "chrome-watch": "npm run chrome-manifest && webpack --watch",
-    "chrome-pack": "npm run chrome-dist && mkdir -p out && zip --recurse-paths out/chrome-octolinker-$npm_package_version.zip dist/ --exclude dist/ \\* out/\\* node_modules/\\*",
+    "chrome-pack": "npm run chrome-dist && mkdir -p out && zip -rj out/chrome-octolinker-$npm_package_version.zip dist",
     "firefox-manifest": "mkdir -p dist && cp assets/manifest.json dist/manifest.json",
     "firefox-build": "npm run firefox-manifest && webpack",
     "firefox-dist": "npm run firefox-build -- -p",
     "firefox-watch": "npm run firefox-manifest && webpack --watch",
-    "firefox-pack": "npm run firefox-dist && mkdir -p out && zip --recurse-paths out/firefox-octolinker-$npm_package_version.zip dist/ --exclude dist/ \\* out/\\* node_modules/\\*",
+    "firefox-pack": "npm run firefox-dist && mkdir -p out && zip -rj out/firefox-octolinker-$npm_package_version.zip dist/",
     "firefox-open": "npm run firefox-build && web-ext run --source-dir dist",
-    "pack-repo": "mkdir -p out && zip --recurse-paths out/octolinker-repository-$npm_package_version.zip * --exclude dist/\\* out/\\* node_modules/\\*"
+    "pack-repo": "mkdir -p out && zip -r out/octolinker-repository-$npm_package_version.zip * --exclude dist/\\* out/\\* node_modules/\\*"
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
