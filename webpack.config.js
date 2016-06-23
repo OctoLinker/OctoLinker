@@ -13,7 +13,9 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       { from: 'assets' },
-    ]),
+    ], {
+      ignore: ['manifest.json'],
+    }),
   ],
   module: {
     loaders: [
