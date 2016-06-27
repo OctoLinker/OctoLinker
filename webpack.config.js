@@ -7,13 +7,15 @@ module.exports = {
   },
   devtool: 'source-map',
   output: {
-    path: 'chrome',
+    path: 'dist',
     filename: '[name].js',
   },
   plugins: [
     new CopyWebpackPlugin([
       { from: 'assets' },
-    ]),
+    ], {
+      ignore: ['manifest.json'],
+    }),
   ],
   module: {
     loaders: [
