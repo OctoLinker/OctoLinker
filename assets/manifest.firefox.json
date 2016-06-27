@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "gecko": {
+      "id": "octolinker@stefanbuck.com"
+    }
+  },
+  "permissions": [
+    "https://github.com/"
+  ]
+}

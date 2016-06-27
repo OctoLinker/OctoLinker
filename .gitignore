@@ -2,9 +2,4 @@ node_modules
 npm-debug.log
 
 dist/
-
-chrome/*
-!chrome/manifest.json
-
-firefox/*
-!firefox/manifest.json
+out/
