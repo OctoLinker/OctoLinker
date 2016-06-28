@@ -16,7 +16,7 @@ To build and run the extension follow these steps.
    * [Ruby]
    * [Composer]
    * [Bower]
-0. To build the extension once run `npm run build` or `npm run build:watch` during development.
+0. To build the extension once run `npm run chrome-build` or `npm run chrome-watch` during development.
 0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
 [Homebrew]: https://github.com/OctoLinker/browser-extension/commit/b6df755208eae0b98e55fdf533b647b5d7bd4f8e
