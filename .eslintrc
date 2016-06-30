@@ -11,5 +11,6 @@
   },
   "globals": {
     "fixture": true,
+    "chrome": true,
   }
 }
