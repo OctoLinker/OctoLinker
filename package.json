@@ -21,8 +21,7 @@
     "firefox-dist": "npm run firefox-build -- -p",
     "firefox-watch": "npm run firefox-manifest && webpack --watch",
     "firefox-pack": "npm run firefox-dist && mkdir -p out && zip -rj out/firefox-octolinker-$npm_package_version.zip dist/",
-    "firefox-open": "npm run firefox-build && web-ext run --source-dir dist",
-    "pack-repo": "mkdir -p out && zip -r out/octolinker-repository-$npm_package_version.zip * --exclude dist/\\* out/\\* node_modules/\\*"
+    "firefox-open": "npm run firefox-build && web-ext run --source-dir dist"
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
