@@ -4,7 +4,7 @@
 
 # What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/browser-extension.svg?branch=master)](https://travis-ci.org/OctoLinker/browser-extension)
 
-First of all, it's a browser extension. It's available on Chrome and Firefox. Once installed, it allows you to navigate through projects on GitHub.com efficiently.
+First of all, it's a browser extension. Once installed, it allows you to navigate through projects on GitHub.com efficiently.
 
 Most projects consist of many files and third party dependencies. Files are referencing other files and / or dependencies by language specific statements like `include` or `require`. Dependencies are most likely declared in a file called manifest e.g. `package.json` or `Gemfile`. The OctoLinker browser extensions makes these references clickable. No more copy and search.
 
@@ -12,7 +12,8 @@ Most projects consist of many files and third party dependencies. Files are refe
 
 # Install
 
-Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp) or [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/).
+Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octolinker/).
+
 
 # Want to contribute?
 
