@@ -60,7 +60,6 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.3.4",
     "npm-run-all": "^2.3.0",
-    "phantomjs": "^2.1.7",
     "sinon": "^2.0.0-pre",
     "web-ext": "^1.0.1",
     "webpack": "^1.13.1",
