@@ -19,9 +19,9 @@ describe('helper-replace-keywords', () => {
       dataAttributes += ` data-${key}="${value}"`;
     }
 
-    const start = `<span class="octo-linker-link"${dataAttributes}>`;
+    const start = `<a class="octo-linker-link"${dataAttributes}>`;
     const input = el.replace(/\$0/g, '');
-    const output = el.replace('$0', start).replace('$0', '</span>');
+    const output = el.replace('$0', start).replace('$0', '</a>');
 
     return {
       input,
