@@ -5,13 +5,17 @@ node_js:
   - 4
   - 6
 after_success:
-  - npm run chrome-pack
-  - npm run firefox-pack
+  - npm run package-all
 deploy:
-  provider: releases
-  api_key: "$GH_DEPLOY"
-  file_glob: true
-  file: "out/*.zip"
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: releases
+    api_key: "$GH_DEPLOY"
+    file_glob: true
+    file: "out/*.zip"
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: script
+    script: npm run release
+    on:
+      branch: master
+      tags: true
