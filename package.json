@@ -49,6 +49,7 @@
     "eslint-config-airbnb": "2.1.1",
     "json": "^9.0.4",
     "json-loader": "^0.5.4",
+    "karma": "^1.1.1",
     "karma-fixture": "^0.2.5",
     "karma-html2js-preprocessor": "^1.0.0",
     "karma-mocha": "^1.1.1",
