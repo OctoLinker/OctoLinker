@@ -116,6 +116,10 @@ const fixtures = {
       ['depends_on \'foo\'', ['\'foo\'']],
       'conflicts_with "foo"',
       ['conflicts_with \'foo\'', ['\'foo\'']],
+      'depends_on cask: "foo"',
+      ['depends_on cask: \'foo\'', ['\'foo\'']],
+      'conflicts_with cask: "foo"',
+      ['conflicts_with cask: \'foo\'', ['\'foo\'']],
     ],
     // These probably aren't actually invalid, but
     // https://github.com/Homebrew/homebrew-core/ has no occurences of multiple
