@@ -117,6 +117,15 @@ const fixtures = {
       'conflicts_with     "foo"',
     ],
   },
+  TYPESCRIPT_REFERENCE: {
+    valid: [
+      '/// <reference path="foo" />',
+      '///<reference path="foo" />',
+    ],
+    invalid: [
+      '// <reference path="foo" />',
+    ],
+  },
 };
 
 describe('helper-grammar-regex-collection', () => {
