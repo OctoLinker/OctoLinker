@@ -82,8 +82,16 @@ describe('helper-replace-keywords', () => {
 
   it('wraps a single string', () => {
     const regex = /(bar)/;
-    const { input } = createExpectation(`foo bar`);
-    const { output } = createExpectation(`foo <span>$0bar$0</span>`);
+    const { input } = createExpectation(`foo bar baz`);
+    const { output } = createExpectation(`foo <span>$0bar$0</span> baz`);
+
+    assert.equal(helper(input, regex).innerHTML, output);
+  });
+
+  it('wraps a multiple strings', () => {
+    const regex = /foo (bar)/;
+    const { input } = createExpectation(`foo bar baz`);
+    const { output } = createExpectation(`<span>foo $0bar$0</span> baz`);
 
     assert.equal(helper(input, regex).innerHTML, output);
   });
