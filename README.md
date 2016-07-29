@@ -27,6 +27,7 @@ If you encounter a problem using OctoLinker, or would like to request an enhance
 # Thanks
 
 - My girlfriend for being so patient with me!
+- [@josephfrazier_](https://twitter.com/josephfrazier_) for his awesome contributions to this project!
 - [art-noir.net](http://art-noir.net) for the awesome mascot and website!
 - [@kkamilio](https://twitter.com/kkamilio) and [@WolnyAdrian](https://twitter.com/WolnyAdrian) for teaching me how Ruby works!
 - [@TheeApeman](https://twitter.com/TheeApeman) for code review!
