@@ -1,6 +1,6 @@
 {
   "name": "OctoLinker",
-  "version": "4.1.1",
+  "version": "4.2.0",
   "manifest_version": 2,
   "author": "Stefan Buck",
   "description": "",
@@ -14,7 +14,9 @@
     }
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "background.js"
+    ]
   },
   "content_scripts": [
     {
@@ -22,14 +24,18 @@
         "https://github.com/*",
         "https://gist.github.com/*"
       ],
-      "js": ["app.js"],
-      "css": ["style.css"],
+      "js": [
+        "app.js"
+      ],
+      "css": [
+        "style.css"
+      ],
       "run_at": "document_idle",
       "all_frames": false
     }
   ],
   "permissions": [
-      "https://github.com/",
-      "https://githublinker.herokuapp.com/"
+    "https://github.com/",
+    "https://githublinker.herokuapp.com/"
   ]
 }
