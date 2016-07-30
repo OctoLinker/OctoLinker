@@ -11,6 +11,7 @@
     "pretest": "npm run lint",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --auto-watch",
+    "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
     "package-all": "npm-run-all chrome-pack firefox-pack && cp out/chrome-octolinker-$npm_package_version.zip out/opera-octolinker-$npm_package_version.zip",
     "release": "webstore upload --source out/chrome-octolinker-$npm_package_version.zip --auto-publish",
     "chrome-manifest": "mkdir -p dist && json -e 'delete this.applications; this.permissions.shift()' < assets/manifest.json > dist/manifest.json",
