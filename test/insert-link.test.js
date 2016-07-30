@@ -3,7 +3,9 @@ import $ from 'jquery';
 import insertLink from '../lib/insert-link.js';
 
 describe('helper-replace-keywords', () => {
-  function helper(html, options = { value: '$1' }, regex = /foo ("\w+")/, replaceIndex = '$1') {
+  const DEFAULT_REGEX = /foo ("\w+")/;
+
+  function helper(html, regex = DEFAULT_REGEX, options = {}, replaceIndex = '$1') {
     const el = document.createElement('div');
     el.innerHTML = html;
 
@@ -29,22 +31,69 @@ describe('helper-replace-keywords', () => {
     };
   }
 
-  function simpleAssert(el, dataAttr) {
-    const { input, output } = createExpectation(el, dataAttr);
+  function simpleAssert(el) {
+    const { input, output } = createExpectation(el);
 
     assert.equal(helper(input).innerHTML, output);
   }
 
   it('wraps the elements based on their char position which is specified in the kewords map', () => {
-    simpleAssert('foo <span><i>"</i>$0foo$0<i>"</i></span>', { value: 'foo' });
+    simpleAssert('foo <span><i>"</i>$0foo$0<i>"</i></span>');
   });
 
   it('wraps the parent element when keyword is divided', () => {
-    simpleAssert('foo $0<span><i>"</i><span>fo</span>o<i>"</i></span>$0', { value: 'foo' });
+    simpleAssert('foo $0<span><i>"</i><span>fo</span>o<i>"</i></span>$0');
   });
 
   it('wraps a neasted element', () => {
-    simpleAssert('foo <div><span><i>"</i>$0foo$0<i>"</i></span></div>', { value: 'foo' });
+    simpleAssert('foo <div><span><i>"</i>$0foo$0<i>"</i></span></div>');
+  });
+
+  it('wraps double quotes', () => {
+    const { input } = createExpectation('foo <span>"foo"</span>');
+    const { output } = createExpectation('foo <span><span>"$0foo$0"</span></span>');
+
+    assert.equal(helper(input).innerHTML, output);
+  });
+
+  it('wraps single quotes', () => {
+    const regex = /foo ('\w+')/;
+    const { input } = createExpectation(`foo <span>'foo'</span>`);
+    const { output } = createExpectation(`foo <span><span>'$0foo$0'</span></span>`);
+
+    assert.equal(helper(input, regex).innerHTML, output);
+  });
+
+  it('wraps mixed quotes', () => {
+    const regex = /foo ('\w+")/;
+    const { input } = createExpectation(`foo <span>'foo"</span>`);
+    const { output } = createExpectation(`foo <span><span>'$0foo$0"</span></span>`);
+
+    assert.equal(helper(input, regex).innerHTML, output);
+  });
+
+  it('wraps a single word', () => {
+    const regex = /foo (\w+)/;
+    const { input } = createExpectation(`foo <span>bar</span>`);
+    const { output } = createExpectation(`foo <span><span>$0bar$0</span></span>`);
+
+    assert.equal(helper(input, regex).innerHTML, output);
+  });
+
+  it('wraps a single string', () => {
+    const regex = /(bar)/;
+    const { input } = createExpectation(`foo bar baz`);
+    const { output } = createExpectation(`foo <span>$0bar$0</span> baz`);
+
+    assert.equal(helper(input, regex).innerHTML, output);
+  });
+
+  it('wraps a multiple strings', () => {
+    const regex = /foo (bar)/;
+    const { input } = createExpectation(`foo bar baz`);
+    const { output } = createExpectation(`<span>foo $0bar$0</span> baz`);
+
+    assert.equal(helper(input, regex).innerHTML, output);
   });
 
   it('wraps the element once', () => {
@@ -56,7 +105,7 @@ describe('helper-replace-keywords', () => {
     const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
     const options = { value: '$1', bar: 'baz' };
 
-    assert.deepEqual($('.octo-linker-link', helper(input, options)).data(), {
+    assert.deepEqual($('.octo-linker-link', helper(input, DEFAULT_REGEX, options)).data(), {
       value: 'foo',
       bar: 'baz',
     });
@@ -66,7 +115,7 @@ describe('helper-replace-keywords', () => {
     const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
     const options = { value: 'go/$1.txt' };
 
-    assert.deepEqual($('.octo-linker-link', helper(input, options)).data(), {
+    assert.deepEqual($('.octo-linker-link', helper(input, DEFAULT_REGEX, options)).data(), {
       value: 'go/foo.txt',
     });
   });
@@ -76,6 +125,6 @@ describe('helper-replace-keywords', () => {
     const { input, output } = createExpectation('foo <i>"</i>bar<i>"</i> <i>"</i>$0baz$0<i>"</i>', options);
     const regex = /foo ("\w+") ("\w+")/;
 
-    assert.equal(helper(input, options, regex, '$2').innerHTML, output.replace('$2', 'baz'));
+    assert.equal(helper(input, regex, options, '$2').innerHTML, output.replace('$2', 'baz'));
   });
 });

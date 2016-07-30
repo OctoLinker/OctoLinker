@@ -1,16 +1,8 @@
 import assert from 'assert';
-import {
-  IMPORT,
-  EXPORT,
-  REQUIRE,
-  REQUIRE_RESOLVE,
-  GEM,
-  HOMEBREW,
-} from './index.js';
+import * as REGEX from './index.js';
 
 const fixtures = {
   IMPORT: {
-    regex: IMPORT,
     valid: [
       'import foo from "foo"',
       'import _ from "foo"',
@@ -40,7 +32,6 @@ const fixtures = {
     ],
   },
   EXPORT: {
-    regex: EXPORT,
     valid: [
       'export * from "foo"',
       'export { foo, bar } from "foo"',
@@ -55,7 +46,6 @@ const fixtures = {
     ],
   },
   REQUIRE: {
-    regex: REQUIRE,
     valid: [
       'require("foo")',
       'var foo = require("foo")',
@@ -83,7 +73,6 @@ const fixtures = {
     ],
   },
   REQUIRE_RESOLVE: {
-    regex: REQUIRE_RESOLVE,
     valid: [
       'require.resolve "foo"',
       'require.resolve("foo")',
@@ -100,7 +89,6 @@ const fixtures = {
     ],
   },
   GEM: {
-    regex: GEM,
     valid: [
       'gem "foo"',
       ['gem \'foo\'', ['\'foo\'']],
@@ -110,7 +98,6 @@ const fixtures = {
     ],
   },
   HOMEBREW: {
-    regex: HOMEBREW,
     valid: [
       'depends_on "foo"',
       ['depends_on \'foo\'', ['\'foo\'']],
@@ -130,11 +117,21 @@ const fixtures = {
       'conflicts_with     "foo"',
     ],
   },
+  TYPESCRIPT_REFERENCE: {
+    valid: [
+      '/// <reference path="foo" />',
+      '///<reference path="foo" />',
+    ],
+    invalid: [
+      '// <reference path="foo" />',
+    ],
+  },
 };
 
 describe('helper-grammar-regex-collection', () => {
   Object.keys(fixtures).forEach((grammar) => {
-    const { regex, valid, invalid } = fixtures[grammar];
+    const { valid, invalid } = fixtures[grammar];
+    const regex = REGEX[grammar];
 
     beforeEach(() => {
       regex.lastIndex = 0;
