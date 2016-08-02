@@ -2,7 +2,7 @@ sudo: false
 language: node_js
 node_js:
   - 4
-  - 6
+  - 6 # if you change this, change `node: 6` in `deploy` below as well
 cache:
   directories:
     - node_modules
@@ -21,3 +21,4 @@ deploy:
     on:
       branch: master
       tags: true
+      node: 6
