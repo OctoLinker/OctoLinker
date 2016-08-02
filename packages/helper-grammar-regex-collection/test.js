@@ -126,6 +126,18 @@ const fixtures = {
       '// <reference path="foo" />',
     ],
   },
+  DOCKER_FROM: {
+    valid: [
+      ['FROM foo', ['foo']],
+      ['FROM foo:1.2.3', ['foo:1.2.3']],
+      ['FROM foo:1.2.3-alpha', ['foo:1.2.3-alpha']],
+      ['FROM foo/bar', ['foo/bar']],
+    ],
+    invalid: [
+      'FROMfoo',
+      // 'FROM\nfoo',
+    ],
+  },
 };
 
 describe('helper-grammar-regex-collection', () => {
