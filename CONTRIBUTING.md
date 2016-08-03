@@ -46,3 +46,13 @@ The outline above is an extremely simplified version. In real life you have to d
 - Make sure test-suite passes: `npm test`
 - Squash your commits
 - Write a convincing description of your PR and why we should land it
+
+## Release Checklist
+
+- Run [`npm version patch`](https://docs.npmjs.com/cli/version) to update the version number. Use `minor` or `major` instead of `patch` if needed (see [semver.org](http://semver.org/) for details).
+- Open a [pull request](https://github.com/OctoLinker/browser-extension/pulls) with the new version.
+- Once the pull request is merged in, tag the resulting commit as `vX.Y.Z` (where `X`, `Y`, `Z` are the major, minor, and patch versions).
+- Push the tag to GitHub. This will trigger Travis CI to create a new [GitHub Release](https://github.com/OctoLinker/browser-extension/releases) and submit the new Chrome extension to the Chrome Web Store. See [.travis.yml](https://github.com/OctoLinker/browser-extension/blob/master/.travis.yml) for details.
+- Submit `firefox-octolinker-X.Y.Z.zip` from the [GitHub Release](https://github.com/OctoLinker/browser-extension/releases) to [addons.mozilla.org](https://addons.mozilla.org/en-US/developers/addon/octolinker/versions#version-upload). Be sure to include the `Source code (zip)` file from the release as well.
+- Submit `opera-octolinker-X.Y.Z.zip` from the [GitHub Release](https://github.com/OctoLinker/browser-extension/releases) to [addons.opera.com](https://addons.opera.com/developer/package/226344/?tab=versions). Afterwards, go to the [Conversation tab](https://addons.opera.com/developer/package/226344/?tab=conversation), add a link to the `Source code (zip)` file and copy/paste the build instructions from previous releases.
+- Update release notes at https://github.com/OctoLinker/browser-extension/releases/tag/vX.Y.Z. You can find a list of changes since the previous release at https://github.com/OctoLinker/browser-extension/compare/vA.B.C...vX.Y.Z, where `A.B.C` is the previous version number.
