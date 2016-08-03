@@ -8,6 +8,8 @@ const GEM = /gem (['"][^'"\s]+['"])/g;
 // Ideally, we'd have a way of knowing which Homebrew tap is referred to, but
 // we could just use https://github.com/Homebrew/homebrew-core/
 const HOMEBREW = /(?:depends_on|conflicts_with)(?: cask:)? (['"][^'"\s]+['"])/g;
+const TYPESCRIPT_REFERENCE = /\/{3}\s?<reference path=(['"][^'"\s]+['"])/g;
+const DOCKER_FROM = /FROM\s([^\n]*)/g;
 
 export {
   REQUIRE,
@@ -16,4 +18,6 @@ export {
   EXPORT,
   GEM,
   HOMEBREW,
+  TYPESCRIPT_REFERENCE,
+  DOCKER_FROM,
 };
