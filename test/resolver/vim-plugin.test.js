@@ -11,7 +11,7 @@ describe('vim-plugin', () => {
 
   it('resolves ctrlp.vim to https://github.com/vim-scripts/ctrlp.vim', () => {
     assert.deepEqual(
-      vimPlugin({ shorthand: 'vim-scripts/ctrlp.vim' }),
+      vimPlugin({ shorthand: 'ctrlp.vim' }),
       ['https://github.com/vim-scripts/ctrlp.vim']
     );
   });
