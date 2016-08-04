@@ -7,20 +7,10 @@ describe('click-handler', () => {
   const sandbox = sinon.sandbox.create();
   const $link = $('<div class="octo-linker-link" data-resolver="foo" data-bar="baz"></div>');
   let resolvers;
-  let runtime;
+
+  sandbox.stub(window.chrome.runtime, 'sendMessage');
 
   beforeEach(() => {
-    runtime = {
-      sendMessage: sandbox.stub(),
-      onMessage: {
-        addListener: sandbox.stub(),
-      },
-    };
-
-    window.chrome = {
-      runtime,
-    };
-
     resolvers = {
       foo: sandbox.stub(),
       bar: sandbox.stub(),
@@ -71,27 +61,47 @@ describe('click-handler', () => {
       resolvers.foo.returns('https://github.com/foo');
       $link.click();
 
-      assert.equal(runtime.sendMessage.callCount, 1);
+      assert.equal(window.chrome.runtime.sendMessage.callCount, 1);
     });
 
-    it('passes an url string along the runtime message', () => {
-      resolvers.foo.returns('https://github.com/foo');
-      $link.click();
+    describe('when resolver returns a url', () => {
+      it('passes object along the runtime message', () => {
+        resolvers.foo.returns('https://github.com/foo');
+        $link.click();
 
-      assert.deepEqual(runtime.sendMessage.args[0][0].urls, ['https://github.com/foo']);
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+          { url: 'https://github.com/foo' },
+        ]);
+      });
     });
 
-    it('passes an array of urls along the runtime message', () => {
-      resolvers.foo.returns([
-        'https://github.com/foo',
-        'https://github.com/bar',
-      ]);
-      $link.click();
+    describe('when resolver returns an array of url', () => {
+      it('passes object along the runtime message', () => {
+        resolvers.foo.returns([
+          'https://github.com/foo',
+          'https://github.com/bar',
+        ]);
+        $link.click();
 
-      assert.deepEqual(runtime.sendMessage.args[0][0].urls, [
-        'https://github.com/foo',
-        'https://github.com/bar',
-      ]);
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+          { url: 'https://github.com/foo' },
+          { url: 'https://github.com/bar' },
+        ]);
+      });
+    });
+
+    describe('when resolver returns an url object', () => {
+      it('passes url object along the runtime message', () => {
+        resolvers.foo.returns({
+          method: 'GET',
+          url: 'https://github.com/foo',
+        });
+        $link.click();
+
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+          { method: 'GET', url: 'https://github.com/foo' },
+        ]);
+      });
     });
 
     describe('when url does not start with "https://github.com"', () => {
@@ -99,11 +109,8 @@ describe('click-handler', () => {
         resolvers.foo.returns(['https://hubhub.com/foo']);
         $link.click();
 
-        assert.deepEqual(runtime.sendMessage.args[0][0].urls, [
-          {
-            method: 'GET',
-            url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo',
-          },
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+          { method: 'GET', url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo' },
         ]);
       });
     });
@@ -116,12 +123,9 @@ describe('click-handler', () => {
         ]);
         $link.click();
 
-        assert.deepEqual(runtime.sendMessage.args[0][0].urls, [
-          {
-            method: 'GET',
-            url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo',
-          },
-          'https://github.com/bar',
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+          { method: 'GET', url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo' },
+          { url: 'https://github.com/bar' },
         ]);
       });
     });
