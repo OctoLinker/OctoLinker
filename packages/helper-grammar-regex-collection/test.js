@@ -62,6 +62,11 @@ const fixtures = {
       ['foo = require("./foo")bar = require("./bar")', ['"./foo"', '"./bar"']],
       ['const foo = require("./foo")bar = require("./bar")', ['"./foo"', '"./bar"']],
       'require "foo"',
+      // require.resolve
+      'require.resolve "foo"',
+      'require.resolve("foo")',
+      'var foo = require.resolve("foo")',
+      ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['"foo"', '"bar"']],
     ],
     invalid: [
       'require(foo)',
@@ -70,16 +75,7 @@ const fixtures = {
       'require (foo)',
       'require( "foo" )',
       'require("fo o")',
-    ],
-  },
-  REQUIRE_RESOLVE: {
-    valid: [
-      'require.resolve "foo"',
-      'require.resolve("foo")',
-      'var foo = require.resolve("foo")',
-      ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['"foo"', '"bar"']],
-    ],
-    invalid: [
+      // require.resolve
       'require.resolve(foo)',
       'require.resolve"foo"',
       'require.resolve ("foo")',
