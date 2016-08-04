@@ -6,6 +6,7 @@ const GEM = /gem (['"][^'"\s]+['"])/g;
 const HOMEBREW = /(?:depends_on|conflicts_with)(?: cask:| formula:)? (['"][^'"\s]+['"])/g;
 const TYPESCRIPT_REFERENCE = /\/{3}\s?<reference path=(['"][^'"\s]+['"])/g;
 const DOCKER_FROM = /FROM\s([^\n]*)/g;
+const VIM_PLUGIN = /(?:(?:(?:Neo)?Bundle(?:Lazy|Fetch)?)|Plug(?:in)?)\s(['"][^'"\s]+['"])/g;
 
 export {
   REQUIRE,
@@ -16,4 +17,5 @@ export {
   HOMEBREW,
   TYPESCRIPT_REFERENCE,
   DOCKER_FROM,
+  VIM_PLUGIN,
 };

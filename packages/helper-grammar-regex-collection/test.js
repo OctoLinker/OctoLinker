@@ -142,6 +142,17 @@ const fixtures = {
       // 'FROM\nfoo',
     ],
   },
+  VIM_PLUGIN: {
+    valid: [
+      ["Plugin 'VundleVim/Vundle.vim'", ["'VundleVim/Vundle.vim'"]],
+      ['Plugin "VundleVim/Vundle.vim"', ['"VundleVim/Vundle.vim"']],
+      ["Plugin 'ctrlp.vim'", ["'ctrlp.vim'"]],
+      ['Plugin "ctrlp.vim"', ['"ctrlp.vim"']],
+    ],
+    invalid: [
+      "Plugin'ctrlp.vim'",
+    ],
+  },
 };
 
 describe('helper-grammar-regex-collection', () => {
