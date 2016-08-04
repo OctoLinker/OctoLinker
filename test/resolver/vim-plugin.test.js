@@ -20,8 +20,7 @@ describe('vim-plugin', () => {
     assert.deepEqual(
       vimPlugin({ shorthand: 'git://git.wincent.com/command-t.git' }),
       [
-        'https://git.wincent.com/command-t.git',
-        'http://git.wincent.com/command-t.git',
+        'http://git.wincent.com/command-t',
       ]
     );
   });
