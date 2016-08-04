@@ -5,7 +5,7 @@ node_js:
 cache:
   directories:
     - node_modules
-after_success:
+before_deploy:
   - npm run package-all
 deploy:
   - provider: releases
