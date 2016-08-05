@@ -86,6 +86,7 @@ const fixtures = {
       'require.resolve (foo)',
       'require.resolve( "foo" )',
       'require.resolve("fo o")',
+      'requireDresolve("foo")',
     ],
   },
   GEM: {
