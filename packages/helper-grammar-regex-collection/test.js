@@ -86,6 +86,7 @@ const fixtures = {
       'require.resolve (foo)',
       'require.resolve( "foo" )',
       'require.resolve("fo o")',
+      'requireDresolve("foo")',
     ],
   },
   GEM: {
@@ -107,6 +108,10 @@ const fixtures = {
       ['depends_on cask: \'foo\'', ['\'foo\'']],
       'conflicts_with cask: "foo"',
       ['conflicts_with cask: \'foo\'', ['\'foo\'']],
+      'depends_on formula: "foo"',
+      ['depends_on formula: \'foo\'', ['\'foo\'']],
+      'conflicts_with formula: "foo"',
+      ['conflicts_with formula: \'foo\'', ['\'foo\'']],
     ],
     // These probably aren't actually invalid, but
     // https://github.com/Homebrew/homebrew-core/ has no occurences of multiple
@@ -136,6 +141,17 @@ const fixtures = {
     invalid: [
       'FROMfoo',
       // 'FROM\nfoo',
+    ],
+  },
+  VIM_PLUGIN: {
+    valid: [
+      ["Plugin 'VundleVim/Vundle.vim'", ["'VundleVim/Vundle.vim'"]],
+      ['Plugin "VundleVim/Vundle.vim"', ['"VundleVim/Vundle.vim"']],
+      ["Plugin 'ctrlp.vim'", ["'ctrlp.vim'"]],
+      ['Plugin "ctrlp.vim"', ['"ctrlp.vim"']],
+    ],
+    invalid: [
+      "Plugin'ctrlp.vim'",
     ],
   },
 };
