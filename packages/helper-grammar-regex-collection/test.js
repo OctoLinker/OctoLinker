@@ -150,6 +150,16 @@ const fixtures = {
       "Plugin'ctrlp.vim'",
     ],
   },
+  RUST_CRATE: {
+    valid: [
+      ['extern crate pcre;', ['pcre']],
+      ['extern crate std as ruststd;', ['std']],
+      ['use std::option::Option::{Some, None};', ['std']],
+    ],
+    invalid: [
+      "extern create 'pcre'",
+    ],
+  },
 };
 
 describe('helper-grammar-regex-collection', () => {
