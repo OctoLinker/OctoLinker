@@ -6,6 +6,7 @@ const HOMEBREW = /(?:depends_on|conflicts_with)(?: cask:| formula:)? (['"][^'"\s
 const TYPESCRIPT_REFERENCE = /\/{3}\s?<reference path=(['"][^'"\s]+['"])/g;
 const DOCKER_FROM = /FROM\s([^\n]*)/g;
 const VIM_PLUGIN = /(?:(?:(?:Neo)?Bundle(?:Lazy|Fetch)?)|Plug(?:in)?)\s(['"][^'"\s]+['"])/g;
+const RUST_CRATE = /(?:extern crate|use) ([^:; ]+)/g;
 
 export {
   REQUIRE,
@@ -16,4 +17,5 @@ export {
   TYPESCRIPT_REFERENCE,
   DOCKER_FROM,
   VIM_PLUGIN,
+  RUST_CRATE,
 };
