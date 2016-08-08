@@ -1,0 +1,42 @@
+import assert from 'assert';
+import pythonUniversal from '../../lib/resolver/python-universal.js';
+import liveResolverQuery from '../../lib/resolver/live-resolver-query.js';
+
+describe('python-universal', () => {
+  const path = '/octo/dog.py';
+
+  it('resolves local file', () => {
+    assert.deepEqual(
+      pythonUniversal({ path, target: '.foo' }),
+      'https://github.com/octo/foo.py'
+    );
+  });
+
+  it('resolves init file', () => {
+    assert.deepEqual(
+      pythonUniversal({ path, target: '.' }),
+      'https://github.com/octo/__init__.py'
+    );
+  });
+
+  it('resolves package', () => {
+    assert.deepEqual(
+      pythonUniversal({ path, target: 'foo' })[0],
+      liveResolverQuery({ type: 'pypi', target: 'foo' })
+    );
+  });
+
+  it('resolves scope package', () => {
+    assert.deepEqual(
+      pythonUniversal({ path, target: 'foo.bar' })[0],
+      liveResolverQuery({ type: 'pypi', target: 'foo' })
+    );
+  });
+
+  it('resolves buildin', () => {
+    assert.deepEqual(
+      pythonUniversal({ path, target: 'foo' })[1],
+      'https://docs.python.org/3/library/foo.html'
+    );
+  });
+});
