@@ -160,6 +160,22 @@ const fixtures = {
       "extern create 'pcre'",
     ],
   },
+  PYTHON_IMPORT: {
+    valid: [
+      ['import foo', ['foo']],
+      ['\nimport foo', ['foo']],
+      ['import fo_o', ['fo_o']],
+      ['import .foo', ['.foo']],
+      ['import foo as bar', ['foo']],
+      ['from foo import bar', ['foo']],
+      ['from foo import bar, baz', ['foo']],
+      ['from foo.bar import baz', ['foo.bar']],
+    ],
+    invalid: [
+      '\simport foo',
+      '\simport\nfoo',
+    ],
+  },
 };
 
 describe('helper-grammar-regex-collection', () => {
