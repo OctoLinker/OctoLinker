@@ -174,4 +174,20 @@ describe('blob-reader', () => {
       });
     });
   });
+
+  describe('gist', () => {
+    let result;
+
+    beforeEach(() => {
+      fixture.load('/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html');
+      const reader = new BlobReader();
+      reader.read().forEach((blob) => {
+        result = blob;
+      });
+    });
+
+    it('contains blob path', function () {
+      assert.equal(result.path, 'package.json');
+    });
+  });
 });
