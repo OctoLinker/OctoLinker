@@ -18,6 +18,11 @@ function getPath(el) {
     ret = $('.js-permalink-shortcut').attr('href');
   }
 
+  // When current page is a gist, get path from blob name
+  if (!ret) {
+    ret = $('.gist-blob-name', el.parentElement).text().trim();
+  }
+
   return ret;
 }
 
