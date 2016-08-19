@@ -12,8 +12,78 @@ Most projects consist of many files and third party dependencies. Files are refe
 
 # Install
 
+<a href="https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_128x128.png" width="48" /></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_128x128.png" width="48" /></a>
+<a href="https://addons.opera.com/en/extensions/details/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_128x128.png" width="48" /></a>
+
 Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octolinker/).
 
+# Features
+
+OctoLinker is the easiest and best way to navigate between files and projects on GitHub.com. Files containing the following keywords will now have links that redirect you either to the relative file or to the projects GitHub page. Depending on the value, it may redirect you to an external website like a manual page or another service.
+
+### bower.json (Bower)
+- `main`
+- `dependencies`
+- `devDependencies`
+- `resolutions`
+
+### composer.json (Composer)
+- `require `
+- `require-dev`
+- `conflict`
+- `replace`
+- `provide`
+- `suggest`
+
+### Dockerfile (Docker)
+
+- `FROM`
+
+### Homebrew
+- `depends_on`
+- `conflicts_with`
+- `depends_on cask`
+- `depends_on formula`
+
+### JavaScript / NodeJS
+- `require`
+- `import`
+- `export`
+
+### package.json (npm)
+- `main`
+- `bin`
+- `browser`
+- `dependencies`
+- `devDependencies`
+- `resolutions`
+- `peerDependencies`
+- `optionalDependencies`
+
+### Python
+- `import`
+- `from`
+
+### Ruby
+- `require`
+
+### Rubygems
+- `gem`
+
+### Rust
+- `extern crate`
+- `use`
+
+### TypeScript
+- `import`
+- `<reference path="" />`
+
+### Vim
+- `Bundle`
+- `NeoBundle`
+- `NeoBundleFetch`
+- `NeoBundleLazy`
 
 # Want to contribute?
 
