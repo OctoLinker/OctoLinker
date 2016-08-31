@@ -56,6 +56,25 @@ describe('click-handler', () => {
     });
   });
 
+  describe('on mouseup', () => {
+    it('does not call the corresponding resolver when mouseup was not tirggerd by a middle mouse click', () => {
+      $link.trigger($.Event('mouseup', { // eslint-disable-line new-cap
+        which: 1,
+      }));
+      assert.equal(resolvers.foo.callCount, 0);
+      assert.equal(resolvers.bar.callCount, 0);
+    });
+
+    it('calls the corresponding handler on middle mouse click', () => {
+      $link.trigger($.Event('mouseup', { // eslint-disable-line new-cap
+        which: 2,
+      }));
+
+      assert.equal(resolvers.foo.callCount, 1);
+      assert.equal(resolvers.bar.callCount, 0);
+    });
+  });
+
   describe('request', () => {
     it('sends a runtime message with urls to load', () => {
       resolvers.foo.returns('https://github.com/foo');
