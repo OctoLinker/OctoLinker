@@ -8,14 +8,14 @@ describe('python-universal', () => {
   it('resolves local file', () => {
     assert.deepEqual(
       pythonUniversal({ path, target: '.foo' }),
-      'https://github.com/octo/foo.py'
+      '{BASE_URL}/octo/foo.py'
     );
   });
 
   it('resolves init file', () => {
     assert.deepEqual(
       pythonUniversal({ path, target: '.' }),
-      'https://github.com/octo/__init__.py'
+      '{BASE_URL}/octo/__init__.py'
     );
   });
 
