@@ -5,6 +5,10 @@
   "author": "Stefan Buck",
   "description": "",
   "homepage_url": "http://octolinker.github.io/",
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
   "icons": {
     "128": "icon.png"
   },
@@ -21,8 +25,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://github.com/*",
-        "https://gist.github.com/*"
+        "https://*/*"
       ],
       "js": [
         "app.js"
@@ -35,8 +38,7 @@
     }
   ],
   "permissions": [
-    "https://github.com/",
-    "https://gist.github.com/",
-    "https://githublinker.herokuapp.com/"
+    "storage",
+    "*"
   ]
 }
