@@ -10,11 +10,4 @@ describe('relative-file', () => {
       '{BASE_URL}/octo/foo.txt'
     );
   });
-
-  it('adds the given base url', () => {
-    assert.deepEqual(
-      relativeFile({ path, target: '/foo.txt', baseUrl: 'https://hub.com' }),
-      'https://hub.com/octo/foo.txt'
-    );
-  });
 });
