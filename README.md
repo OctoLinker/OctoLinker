@@ -109,7 +109,7 @@ If you encounter a problem using OctoLinker, or would like to request an enhance
 
 [Become a backer](https://opencollective.com/octolinker#backer) and show your support to our open source project. Your donation will help us to cover project expenses and allow the maintainers to dedicate more time for maintenance and new features for everyone.
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W" target="_blank"><img src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W" target="_blank"><img src="https://cloud.githubusercontent.com/assets/1393946/18415802/59e9f2ba-77ff-11e6-942b-e076db4d865c.gif"></a>
 
 <a href="https://opencollective.com/octolinker/backer/0/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/0/avatar.svg"></a>
 <a href="https://opencollective.com/octolinker/backer/1/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/1/avatar.svg"></a>
