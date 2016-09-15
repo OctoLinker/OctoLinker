@@ -18,5 +18,5 @@ function restore_options() {
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
-document.getElementById('save').addEventListener('click',
+document.getElementById('color').addEventListener('blur',
     save_options);
