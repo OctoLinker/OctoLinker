@@ -25,22 +25,22 @@
   "content_scripts": [
     {
       "matches": [
-        "https://github.com/*",
         "https://gist.github.com/*"
       ],
       "js": [
-        "app.js"
-      ],
-      "css": [
-        "style.css"
+        "empty.js"
       ],
       "run_at": "document_idle",
       "all_frames": false
     }
   ],
+  "optional_permissions": [
+    "declarativeContent",
+    "http://*/*",
+    "https://*/*"
+  ],
   "permissions": [
-    "https://github.com/",
-    "https://gist.github.com/",
+    "https://gist.github.com/*",
     "https://githublinker.herokuapp.com/"
   ]
 }
