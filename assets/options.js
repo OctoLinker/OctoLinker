@@ -1,6 +1,8 @@
+const customDomainField = document.getElementById('customDomain');
+
 // Saves options to chrome.storage.local.
 function saveOptions() {
-  const customDomain = document.getElementById('customDomain').value;
+  const customDomain = customDomainField.value;
   chrome.storage.local.set({
     customDomain,
   }, function () {
@@ -14,9 +16,9 @@ function restoreOptions() {
   chrome.storage.local.get({
     customDomain: '',
   }, function (items) {
-    document.getElementById('customDomain').value = items.customDomain;
+    customDomainField.value = items.customDomain;
   });
 }
 document.addEventListener('DOMContentLoaded', restoreOptions);
-document.getElementById('customDomain').addEventListener('blur',
+customDomainField.addEventListener('blur',
     saveOptions);
