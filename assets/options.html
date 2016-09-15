@@ -4,6 +4,22 @@
   <title></title>
 </head>
 <body>
-  <iframe src="http://ghbtns.com/github-btn.html?user=octolinker&amp;repo=browser-extension&amp;type=watch&amp;count=true&amp;size=small" style="background-color: transparent; border: none; overflow:hidden" width="120" height="20"></iframe>
+  Favorite color:
+  <select id="color">
+   <option value="red">red</option>
+   <option value="green">green</option>
+   <option value="blue">blue</option>
+   <option value="yellow">yellow</option>
+  </select>
+
+  <label>
+    <input type="checkbox" id="like">
+    I like colors.
+  </label>
+
+  <div id="status"></div>
+  <button id="save">Save</button>
+
+  <script src="options.js"></script>
 </body>
 </html>
