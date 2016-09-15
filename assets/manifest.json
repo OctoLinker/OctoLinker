@@ -41,6 +41,7 @@
   "permissions": [
     "https://github.com/",
     "https://gist.github.com/",
-    "https://githublinker.herokuapp.com/"
+    "https://githublinker.herokuapp.com/",
+    "storage"
   ]
 }
