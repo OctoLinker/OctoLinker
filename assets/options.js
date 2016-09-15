@@ -2,7 +2,7 @@
 function saveOptions() {
   const customDomain = document.getElementById('customDomain').value;
   chrome.storage.local.set({
-    customDomain: customDomain,
+    customDomain,
   }, function() {
   });
 }
