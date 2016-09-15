@@ -3,7 +3,7 @@ function saveOptions() {
   const customDomain = document.getElementById('customDomain').value;
   chrome.storage.local.set({
     customDomain,
-  }, function() {
+  }, function () {
   });
 }
 
@@ -13,7 +13,7 @@ function restoreOptions() {
   // Use default value customDomain = ''
   chrome.storage.local.get({
     customDomain: '',
-  }, function(items) {
+  }, function (items) {
     document.getElementById('customDomain').value = items.customDomain;
   });
 }
