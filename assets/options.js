@@ -1,6 +1,6 @@
 // Saves options to chrome.storage.local.
 function saveOptions() {
-  var customDomain = document.getElementById('customDomain').value;
+  const customDomain = document.getElementById('customDomain').value;
   chrome.storage.local.set({
     customDomain: customDomain,
   }, function() {
