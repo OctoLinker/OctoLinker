@@ -1,6 +1,20 @@
 import assert from 'assert';
 import $ from 'jquery';
-import insertLink from '../lib/insert-link.js';
+import insertLink, { wrapsInnerString } from '../lib/insert-link.js';
+
+describe('wrapsInnerString', () => {
+  it('does not remove closing parentheses from commented out require() calls', () => {
+    const text = "require('faker')";
+    const matchValue = "'faker'";
+    const dataAttrObject = {
+      'resolver': 'javascriptUniversal',
+      'target': 'faker',
+      'path': '/xwartz/robot/blob/3ba4b2628c2252392af58fff0f7231705958ec8d/src/avatar.js',
+    };
+    const result = wrapsInnerString(text, matchValue, dataAttrObject);
+    assert.equal(result.textContent, text);
+  });
+});
 
 describe('helper-replace-keywords', () => {
   const DEFAULT_REGEX = /foo ("\w+")/;
