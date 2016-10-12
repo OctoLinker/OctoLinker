@@ -5,6 +5,9 @@ node_js:
 cache:
   directories:
     - node_modules
+# TODO unpin npm once this is fixed: https://github.com/npm/npm/issues/14042
+before_install:
+  - npm install -g npm@3.10.7
 before_deploy:
   - npm run package-all
 deploy:
