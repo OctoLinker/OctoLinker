@@ -1,0 +1,25 @@
+# Test against this version of Node.js
+environment:
+  nodejs_version: "6"
+
+# Install scripts. (runs after repo cloning)
+install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install --no-shrinkwrap --ignore-scripts
+
+# Post-install test scripts.
+test_script:
+  # Output useful info for debugging.
+  - node --version
+  - npm --version
+  # Make sure build works on Windows
+  # - npm run package-all
+  # run tests
+  # - npm test
+  - npm run chrome-build
+  - npm run firefox-build
+
+# Don't actually build.
+build: off
