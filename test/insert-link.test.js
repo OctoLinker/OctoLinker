@@ -131,11 +131,6 @@ describe('helper-replace-keywords', () => {
 
   it('does not remove closing parentheses from commented out require() calls', () => {
     const text = "// var faker = require('faker')";
-    const options = {
-      'resolver': 'javascriptUniversal',
-      'target': '$1',
-      'path': '/xwartz/robot/blob/3ba4b2628c2252392af58fff0f7231705958ec8d/src/avatar.js',
-    };
-    assert.equal(helper(text, REQUIRE, options).textContent, text);
+    assert.equal(helper(text, REQUIRE).textContent, text);
   });
 });
