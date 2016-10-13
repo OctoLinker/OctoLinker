@@ -7,6 +7,7 @@ install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
   - choco install phantomjs
+  - choco install zip
   # install modules
   - npm install --no-shrinkwrap --ignore-scripts
 
@@ -16,12 +17,10 @@ test_script:
   - node --version
   - npm --version
   # Make sure build works on Windows
-  # - npm run package-all
+  - npm run package-all
   # run tests
   - set PHANTOMJS_BIN=C:\ProgramData\chocolatey\bin\phantomjs.exe
   - npm test
-  - npm run chrome-build
-  - npm run firefox-build
 
 # Don't actually build.
 build: off
