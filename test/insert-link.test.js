@@ -1,6 +1,7 @@
 import assert from 'assert';
 import $ from 'jquery';
 import insertLink from '../lib/insert-link.js';
+import { REQUIRE } from '../packages/helper-grammar-regex-collection';
 
 describe('helper-replace-keywords', () => {
   const DEFAULT_REGEX = /foo ("\w+")/;
@@ -126,5 +127,10 @@ describe('helper-replace-keywords', () => {
     const regex = /foo ("\w+") ("\w+")/;
 
     assert.equal(helper(input, regex, options, '$2').innerHTML, output.replace('$2', 'baz'));
+  });
+
+  it('does not remove closing parentheses from commented out require() calls', () => {
+    const text = "// var faker = require('faker')";
+    assert.equal(helper(text, REQUIRE).textContent, text);
   });
 });
