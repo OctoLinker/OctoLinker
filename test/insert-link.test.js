@@ -38,7 +38,7 @@ describe('helper-replace-keywords', () => {
     assert.equal(helper(input).innerHTML, output);
   }
 
-  it('wraps the elements based on their char position which is specified in the kewords map', () => {
+  it('wraps the elements based on their char position which is specified in the keywords map', () => {
     simpleAssert('foo <span><i>"</i>$0foo$0<i>"</i></span>');
   });
 
@@ -46,7 +46,7 @@ describe('helper-replace-keywords', () => {
     simpleAssert('foo $0<span><i>"</i><span>fo</span>o<i>"</i></span>$0');
   });
 
-  it('wraps a neasted element', () => {
+  it('wraps a nested element', () => {
     simpleAssert('foo <div><span><i>"</i>$0foo$0<i>"</i></span></div>');
   });
 
@@ -89,7 +89,7 @@ describe('helper-replace-keywords', () => {
     assert.equal(helper(input, regex).innerHTML, output);
   });
 
-  it('wraps a multiple strings', () => {
+  it('wraps multiple strings', () => {
     const regex = /foo (bar)/;
     const { input } = createExpectation(`foo bar baz`);
     const { output } = createExpectation(`<span>foo $0bar$0</span> baz`);
