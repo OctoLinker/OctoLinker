@@ -2,6 +2,10 @@
 const webpackConfig = require('./webpack.config');
 webpackConfig.devtool = 'inline-source-map';
 
+if (process.env.APPVEYOR) {
+  require('phantomjs-prebuilt').path = '';
+}
+
 module.exports = function (config) {
   config.set({
     basePath: '',
