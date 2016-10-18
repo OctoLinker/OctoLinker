@@ -12,17 +12,19 @@ To build and run the extension follow these steps.
 0. Clone the repository.
 0. Run `npm install` to setup the project and install all required dependencies.
 0. Start hacking. If you're adding a plugin, you may be interested in seeing the commits that add these plugins:
-   * [Homebrew]
-   * [Ruby]
-   * [Composer]
-   * [Bower]
+   * [Docker]
+   * [vimrc]
+   * [Rust]
+   * [Python]
+   * [project.json]
 0. To build the extension once run `npm run chrome-build` or `npm run chrome-watch` during development.
 0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
-[Homebrew]: https://github.com/OctoLinker/browser-extension/commit/b6df755208eae0b98e55fdf533b647b5d7bd4f8e
-[Ruby]: https://github.com/OctoLinker/browser-extension/commit/d1bcd3101cc868064e4fa8808fb79ccaac9a2ade
-[Composer]: https://github.com/OctoLinker/browser-extension/commit/8f5f006888884c9352e06244596ae057fc529fe9
-[Bower]: https://github.com/OctoLinker/browser-extension/commit/2541a407c5916b7d99dc61375a56f94dfb5121f1
+[Docker]: https://github.com/OctoLinker/browser-extension/commit/33a2e60
+[vimrc]: https://github.com/OctoLinker/browser-extension/commit/7e21743
+[Rust]: https://github.com/OctoLinker/browser-extension/commit/51983b0
+[Python]: https://github.com/OctoLinker/browser-extension/commit/963cf15
+[project.json]: https://github.com/OctoLinker/browser-extension/commit/7c7293b
 
 ## Architecture Overview
 
