@@ -86,8 +86,9 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 - `NeoBundleFetch`
 - `NeoBundleLazy`
 
-### .NET Core projects
-- `project.json`
+### project.json (.NET Core)
+- `dependencies`
+- `tools`
 
 # Want to contribute?
 
