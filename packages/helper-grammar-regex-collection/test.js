@@ -51,22 +51,22 @@ const fixtures = {
       'var foo = require("foo")',
       'var $ = require("foo")',
       'var _ = require("foo")',
-      ['var foo = require("foo")var bar = require("bar")', ['"foo"', '"bar"']],
-      ['require("foo")require("bar");', ['"foo"', '"bar"']],
-      ['require("foo")require("bar");', ['"foo"', '"bar"']],
-      ['var foo = require("foo")require("bar");', ['"foo"', '"bar"']],
-      ['var foo = require("foo")require("bar")', ['"foo"', '"bar"']],
-      ['foo = require("foo")require("bar")', ['"foo"', '"bar"']],
-      ['foo = require("foo")bar = require("bar")', ['"foo"', '"bar"']],
-      ['foo = require("a-b")bar = require("c-d-e")', ['"a-b"', '"c-d-e"']],
-      ['foo = require("./foo")bar = require("./bar")', ['"./foo"', '"./bar"']],
-      ['const foo = require("./foo")bar = require("./bar")', ['"./foo"', '"./bar"']],
+      ['var foo = require("foo")var bar = require("bar")', ['foo', 'bar']],
+      ['require("foo")require("bar");', ['foo', 'bar']],
+      ['require("foo")require("bar");', ['foo', 'bar']],
+      ['var foo = require("foo")require("bar");', ['foo', 'bar']],
+      ['var foo = require("foo")require("bar")', ['foo', 'bar']],
+      ['foo = require("foo")require("bar")', ['foo', 'bar']],
+      ['foo = require("foo")bar = require("bar")', ['foo', 'bar']],
+      ['foo = require("a-b")bar = require("c-d-e")', ['a-b', 'c-d-e']],
+      ['foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
+      ['const foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
       'require "foo"',
       // require.resolve
       'require.resolve "foo"',
       'require.resolve("foo")',
       'var foo = require.resolve("foo")',
-      ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['"foo"', '"bar"']],
+      ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['foo', 'bar']],
     ],
     invalid: [
       'require(foo)',
@@ -88,7 +88,7 @@ const fixtures = {
   GEM: {
     valid: [
       'gem "foo"',
-      ['gem \'foo\'', ['\'foo\'']],
+      ['gem \'foo\'', ['foo']],
     ],
     invalid: [
       'gem     "foo"',
@@ -97,17 +97,17 @@ const fixtures = {
   HOMEBREW: {
     valid: [
       'depends_on "foo"',
-      ['depends_on \'foo\'', ['\'foo\'']],
+      ['depends_on \'foo\'', ['foo']],
       'conflicts_with "foo"',
-      ['conflicts_with \'foo\'', ['\'foo\'']],
+      ['conflicts_with \'foo\'', ['foo']],
       'depends_on cask: "foo"',
-      ['depends_on cask: \'foo\'', ['\'foo\'']],
+      ['depends_on cask: \'foo\'', ['foo']],
       'conflicts_with cask: "foo"',
-      ['conflicts_with cask: \'foo\'', ['\'foo\'']],
+      ['conflicts_with cask: \'foo\'', ['foo']],
       'depends_on formula: "foo"',
-      ['depends_on formula: \'foo\'', ['\'foo\'']],
+      ['depends_on formula: \'foo\'', ['foo']],
       'conflicts_with formula: "foo"',
-      ['conflicts_with formula: \'foo\'', ['\'foo\'']],
+      ['conflicts_with formula: \'foo\'', ['foo']],
     ],
     // These probably aren't actually invalid, but
     // https://github.com/Homebrew/homebrew-core/ has no occurences of multiple
@@ -141,10 +141,10 @@ const fixtures = {
   },
   VIM_PLUGIN: {
     valid: [
-      ["Plugin 'VundleVim/Vundle.vim'", ["'VundleVim/Vundle.vim'"]],
-      ['Plugin "VundleVim/Vundle.vim"', ['"VundleVim/Vundle.vim"']],
-      ["Plugin 'ctrlp.vim'", ["'ctrlp.vim'"]],
-      ['Plugin "ctrlp.vim"', ['"ctrlp.vim"']],
+      ["Plugin 'VundleVim/Vundle.vim'", ['VundleVim/Vundle.vim']],
+      ['Plugin "VundleVim/Vundle.vim"', ['VundleVim/Vundle.vim']],
+      ["Plugin 'ctrlp.vim'", ['ctrlp.vim']],
+      ['Plugin "ctrlp.vim"', ['ctrlp.vim']],
     ],
     invalid: [
       "Plugin'ctrlp.vim'",
@@ -191,7 +191,7 @@ describe('helper-grammar-regex-collection', () => {
       describe('valid', function () {
         valid.forEach((statement) => {
           const text = Array.isArray(statement) ? statement[0] : statement;
-          const expected = Array.isArray(statement) ? statement[1] : ['"foo"'];
+          const expected = Array.isArray(statement) ? statement[1] : ['foo'];
 
           it(text, () => {
             let match;
