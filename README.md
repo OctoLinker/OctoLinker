@@ -61,6 +61,7 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 - `resolutions`
 - `peerDependencies`
 - `optionalDependencies`
+- `types` and `typings`
 
 ### Python
 - `import`
