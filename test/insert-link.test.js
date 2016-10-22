@@ -4,7 +4,7 @@ import insertLink from '../lib/insert-link.js';
 import { REQUIRE } from '../packages/helper-grammar-regex-collection';
 
 describe('helper-replace-keywords', () => {
-  const DEFAULT_REGEX = /foo ("\w+")/;
+  const DEFAULT_REGEX = /foo "(\w+)"/;
 
   function helper(html, regex = DEFAULT_REGEX, options = {}, replaceIndex = '$1') {
     const el = document.createElement('div');
@@ -58,7 +58,7 @@ describe('helper-replace-keywords', () => {
   });
 
   it('wraps single quotes', () => {
-    const regex = /foo ('\w+')/;
+    const regex = /foo '(\w+)'/;
     const { input } = createExpectation(`foo <span>'foo'</span>`);
     const { output } = createExpectation(`foo <span><span>'$0foo$0'</span></span>`);
 
@@ -66,7 +66,7 @@ describe('helper-replace-keywords', () => {
   });
 
   it('wraps mixed quotes', () => {
-    const regex = /foo ('\w+")/;
+    const regex = /foo '(\w+)"/;
     const { input } = createExpectation(`foo <span>'foo"</span>`);
     const { output } = createExpectation(`foo <span><span>'$0foo$0"</span></span>`);
 
@@ -124,7 +124,7 @@ describe('helper-replace-keywords', () => {
   it('wraps the second regex match', () => {
     const options = { value: '$2', xx: 'yy' };
     const { input, output } = createExpectation('foo <i>"</i>bar<i>"</i> <i>"</i>$0baz$0<i>"</i>', options);
-    const regex = /foo ("\w+") ("\w+")/;
+    const regex = /foo "(\w+)" "(\w+)"/;
 
     assert.equal(helper(input, regex, options, '$2').innerHTML, output.replace('$2', 'baz'));
   });
