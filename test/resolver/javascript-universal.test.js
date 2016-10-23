@@ -20,4 +20,11 @@ describe('javascript-universal', () => {
       }
     );
   });
+
+  it("resolves 'module' to 'https://nodejs.org/api/modules.html'", () => {
+    assert.deepEqual(
+      javascriptUniversal({ target: 'module' }),
+      'https://nodejs.org/api/modules.html'
+    );
+  });
 });
