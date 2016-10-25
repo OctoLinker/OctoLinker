@@ -8,6 +8,16 @@ function getBlobWrapper() {
   return [].slice.call(document.getElementsByClassName('blob-wrapper'));
 }
 
+function mergeRepoAndFilePath(repoPath, filePath) {
+  const repoUrl = repoPath.trim().split('#')[0].replace(/pull\/[0-9]+\/files/, 'blob');
+
+  return `${repoUrl}/${filePath.trim()}`;
+}
+
+function isGist() {
+  return !!document.querySelector('#gist-pjax-container');
+}
+
 function getPath(el) {
   // When current page is a diff view get path from "View" button
   let ret = $('.file-actions a', el.parentElement).filter(function () {
@@ -19,11 +29,34 @@ function getPath(el) {
   }
 
   // When current page is a gist, get path from blob name
-  if (!ret) {
-    ret = $('.gist-blob-name', el.parentElement).text().trim();
+  if (!ret && isGist()) {
+    ret = $('.gist-blob-name', el.parentElement).text();
   }
 
-  return ret;
+  // when page has pull request comment(s)
+  const $fileHeader = $('.file-header', el.parentElement);
+  if (!ret && $fileHeader.length) {
+    let repoPath = '';
+    let filePath = '';
+
+    if ($('a.file-action', $fileHeader).length) {
+      // comment is outdated
+
+      filePath = $('.file-info', $fileHeader).text();
+      repoPath = $('a.file-action', $fileHeader).attr('href');
+    } else {
+      // comment is up-to-date
+
+      filePath = $('a', $fileHeader).text();
+      repoPath = $('a', $fileHeader).attr('href');
+    }
+
+    if (repoPath && filePath) {
+      ret = mergeRepoAndFilePath(repoPath, filePath);
+    }
+  }
+
+  return ret ? ret.trim() : undefined;
 }
 
 function getLineNumber(el) {

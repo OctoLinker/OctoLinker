@@ -17,8 +17,29 @@ describe('blob-reader', () => {
       });
     });
 
-    it('contains blob path', function () {
-      assert.equal(result.path, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
+    describe('contains blob path', () => {
+      it('contains blob path', function () {
+        assert.equal(result.path, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
+      });
+
+      it('when PR comment is up-to-date', () => {
+        fixture.load('/packages/blob-reader/fixtures/github.com/pull/comments.html');
+        const reader = new BlobReader();
+        reader.read().forEach((blob, index) => {
+          if (index !== 0) return;
+          assert.equal(blob.path, '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js');
+        });
+      });
+
+      it('when PR comment is outdated', () => {
+        fixture.load('/packages/blob-reader/fixtures/github.com/pull/comments.html');
+        const reader = new BlobReader();
+        reader.read().forEach((blob, index) => {
+          if (index !== 1) return;
+
+          assert.equal(blob.path, '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js');
+        });
+      });
     });
 
     it('contains blob root element', function () {
