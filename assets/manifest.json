@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "author": "Stefan Buck",
   "description": "",
-  "homepage_url": "http://octolinker.github.io/",
+  "homepage_url": "https://octolinker.github.io/",
   "icons": {
     "128": "icon.png"
   },
