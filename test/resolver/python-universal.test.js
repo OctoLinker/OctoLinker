@@ -21,21 +21,21 @@ describe('python-universal', () => {
 
   it('resolves package', () => {
     assert.deepEqual(
-      pythonUniversal({ path, target: 'foo' })[0],
+      pythonUniversal({ path, target: 'foo' })[1],
       liveResolverQuery({ type: 'pypi', target: 'foo' })
     );
   });
 
   it('resolves scope package', () => {
     assert.deepEqual(
-      pythonUniversal({ path, target: 'foo.bar' })[0],
+      pythonUniversal({ path, target: 'foo.bar' })[1],
       liveResolverQuery({ type: 'pypi', target: 'foo' })
     );
   });
 
   it('resolves buildin', () => {
     assert.deepEqual(
-      pythonUniversal({ path, target: 'foo' })[1],
+      pythonUniversal({ path, target: 'foo' })[0],
       'https://docs.python.org/3/library/foo.html'
     );
   });
