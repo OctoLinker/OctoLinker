@@ -11,7 +11,7 @@ describe('homebrew-file', () => {
       [
         '{BASE_URL}/Homebrew/homebrew-science/blob/1acf4f470fc8c87f6bcbf19b721ebcd09c7fb025/autoconf.rb',
         'https://github.com/Homebrew/homebrew-core/blob/master/Formula/autoconf.rb',
-      ]
+      ],
     );
   });
 });

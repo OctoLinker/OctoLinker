@@ -8,9 +8,7 @@ export default class BlobReader {
   }
 
   read() {
-    this._blobs = getBlobWrapper().map((el) => {
-      return new Blob(el);
-    });
+    this._blobs = getBlobWrapper().map(el => new Blob(el));
 
     return this;
   }

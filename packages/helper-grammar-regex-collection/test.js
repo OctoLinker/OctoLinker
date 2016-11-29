@@ -187,8 +187,8 @@ describe('helper-grammar-regex-collection', () => {
       regex.lastIndex = 0;
     });
 
-    describe(grammar, function () {
-      describe('valid', function () {
+    describe(grammar, () => {
+      describe('valid', () => {
         valid.forEach((statement) => {
           const text = Array.isArray(statement) ? statement[0] : statement;
           const expected = Array.isArray(statement) ? statement[1] : ['foo'];
@@ -206,7 +206,7 @@ describe('helper-grammar-regex-collection', () => {
         });
       });
 
-      describe('invalid', function () {
+      describe('invalid', () => {
         invalid.forEach((statement) => {
           it(statement, () => {
             assert.equal(regex.exec(statement), null);

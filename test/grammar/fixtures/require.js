@@ -44,6 +44,6 @@ const invalid = [
   'require (foo)',
   'require( "foo" )',
   'require("fo o")',
-].map((str) => [str]);
+].map(str => [str]);
 
 export default valid.concat(invalid);
