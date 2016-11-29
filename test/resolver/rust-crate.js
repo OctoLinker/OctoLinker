@@ -8,7 +8,7 @@ describe('rust-crate', () => {
       {
         url: 'https://githublinker.herokuapp.com/q/crates/hamcrest',
         method: 'GET',
-      }
+      },
     );
   });
 });

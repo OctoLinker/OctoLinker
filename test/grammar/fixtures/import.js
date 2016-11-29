@@ -33,6 +33,6 @@ const invalid = [
   'import foo',
   'import "fo o"',
   'import from "foo"',
-].map((str) => [str]);
+].map(str => [str]);
 
 export default valid.concat(invalid);

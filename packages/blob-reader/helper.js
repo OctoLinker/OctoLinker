@@ -121,7 +121,7 @@ function readLine(el) {
 }
 
 function readLines(el) {
-  return getBlobCodeInner(el).map(readLine).filter((line) => !!line);
+  return getBlobCodeInner(el).map(readLine).filter(line => !!line);
 }
 
 export {
