@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     app: './lib/app',
     background: './lib/background',
+    options: './lib/options',
   },
   devtool: 'source-map',
   output: {
