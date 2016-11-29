@@ -59,40 +59,40 @@ describe('helper-replace-keywords', () => {
 
   it('wraps single quotes', () => {
     const regex = /foo ('\w+')/;
-    const { input } = createExpectation(`foo <span>'foo'</span>`);
-    const { output } = createExpectation(`foo <span><span>'$0foo$0'</span></span>`);
+    const { input } = createExpectation('foo <span>\'foo\'</span>');
+    const { output } = createExpectation('foo <span><span>\'$0foo$0\'</span></span>');
 
     assert.equal(helper(input, regex).innerHTML, output);
   });
 
   it('wraps mixed quotes', () => {
     const regex = /foo ('\w+")/;
-    const { input } = createExpectation(`foo <span>'foo"</span>`);
-    const { output } = createExpectation(`foo <span><span>'$0foo$0"</span></span>`);
+    const { input } = createExpectation('foo <span>\'foo"</span>');
+    const { output } = createExpectation('foo <span><span>\'$0foo$0"</span></span>');
 
     assert.equal(helper(input, regex).innerHTML, output);
   });
 
   it('wraps a single word', () => {
     const regex = /foo (\w+)/;
-    const { input } = createExpectation(`foo <span>bar</span>`);
-    const { output } = createExpectation(`foo <span><span>$0bar$0</span></span>`);
+    const { input } = createExpectation('foo <span>bar</span>');
+    const { output } = createExpectation('foo <span><span>$0bar$0</span></span>');
 
     assert.equal(helper(input, regex).innerHTML, output);
   });
 
   it('wraps a single string', () => {
     const regex = /(bar)/;
-    const { input } = createExpectation(`foo bar baz`);
-    const { output } = createExpectation(`foo <span>$0bar$0</span> baz`);
+    const { input } = createExpectation('foo bar baz');
+    const { output } = createExpectation('foo <span>$0bar$0</span> baz');
 
     assert.equal(helper(input, regex).innerHTML, output);
   });
 
   it('wraps multiple strings', () => {
     const regex = /foo (bar)/;
-    const { input } = createExpectation(`foo bar baz`);
-    const { output } = createExpectation(`<span>foo $0bar$0</span> baz`);
+    const { input } = createExpectation('foo bar baz');
+    const { output } = createExpectation('<span>foo $0bar$0</span> baz');
 
     assert.equal(helper(input, regex).innerHTML, output);
   });
