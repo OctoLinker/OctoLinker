@@ -6,7 +6,7 @@ describe('javascript-universal', () => {
     const type = 'npm';
     assert.deepEqual(
       javascriptUniversal({ type, target: 'foo/bar.js' }),
-      javascriptUniversal({ type, target: 'foo' })
+      javascriptUniversal({ type, target: 'foo' }),
     );
   });
 
@@ -17,14 +17,14 @@ describe('javascript-universal', () => {
       {
         url: 'https://githublinker.herokuapp.com/q/npm/@angular/core',
         method: 'GET',
-      }
+      },
     );
   });
 
   it("resolves 'module' to 'https://nodejs.org/api/modules.html'", () => {
     assert.deepEqual(
       javascriptUniversal({ target: 'module' }),
-      'https://nodejs.org/api/modules.html'
+      'https://nodejs.org/api/modules.html',
     );
   });
 });

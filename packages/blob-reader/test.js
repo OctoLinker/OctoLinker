@@ -91,7 +91,7 @@ describe('blob-reader', () => {
     });
 
     it('does not contain any diff meta information', () => {
-      assert.equal(result.lines.filter((line) => line.additions || line.deletions).length, 0);
+      assert.equal(result.lines.filter(line => line.additions || line.deletions).length, 0);
     });
 
     it('1st line', () => {
