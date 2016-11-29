@@ -4,6 +4,7 @@ module.exports = {
   entry: {
     app: './lib/app',
     background: './lib/background',
+    options: './lib/options/page',
   },
   devtool: 'source-map',
   output: {
@@ -24,6 +25,7 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'babel',
         query: {
+          plugins: ['transform-object-rest-spread'],
           presets: ['es2015'],
         },
       },
