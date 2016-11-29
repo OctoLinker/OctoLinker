@@ -1,9 +1,10 @@
 
 const webpackConfig = require('./webpack.config');
+
 webpackConfig.devtool = 'inline-source-map';
 
 if (process.env.APPVEYOR) {
-  require('phantomjs-prebuilt').path = '';
+  require('phantomjs-prebuilt').path = ''; // eslint-disable-line
 }
 
 module.exports = function (config) {
