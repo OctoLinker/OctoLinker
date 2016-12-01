@@ -20,7 +20,7 @@ function isGist() {
 
 function getPath(el) {
   // When current page is a diff view get path from "View" button
-  let ret = $('.file-actions a', el.parentElement).filter(function () {
+  let ret = $('.file-actions a', el.parentElement.parentElement).filter(function () {
     return $(this).text() === 'View';
   }).attr('href');
 
