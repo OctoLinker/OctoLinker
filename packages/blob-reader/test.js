@@ -17,7 +17,7 @@ describe('blob-reader', () => {
 
     describe('contains blob path', () => {
       it('contains blob path', () => {
-        assert.equal(result.path, '/octo-linker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
+        assert.equal(result.path, '/OctoLinker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
       });
 
       it('when blob is a PR diff', () => {
