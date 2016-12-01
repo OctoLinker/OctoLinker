@@ -1,16 +1,31 @@
-.octo-linker-link {
+.octolinker-link {
   cursor: pointer;
 }
 
-.octo-linker-link:hover {
-  text-decoration: underline;
+.octolinker-link:hover {
+  text-decoration: underline !important;
 }
 
-body.octo-linker-debug .octo-linker-link {
+body.octolinker-debug .octolinker-link {
   background-color: rgba(255, 0, 255, 0.2);
   border: 1px solid rgb(255, 0, 255);
 }
 
-a.octo-linker-link {
+a.octolinker-link {
     color: inherit;
+}
+
+.octolinker-line-indicator:after {
+  content: "●";
+  position: absolute;
+  left: -4px;
+  top: -1px;
+  width: 3px;
+  transition:color .2s ease-out, color 450ms ease-in;
+  color: rgba(255, 0, 255, 0.2);
+}
+
+.octolinker-line-indicator:hover:after {
+    color: rgba(255, 0, 255, .8);
+    cursor: default;
 }
