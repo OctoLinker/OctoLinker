@@ -22,9 +22,9 @@ describe('helper-replace-keywords', () => {
       dataAttributes += ` data-${key}="${value}"`;
     }
 
-    const start = `<a class="octolinker-link"${dataAttributes}>`;
+    const start = `<a class="octolinker-link"${dataAttributes}><span>`;
     const input = el.replace(/\$0/g, '');
-    const output = el.replace('$0', start).replace('$0', '</a>');
+    const output = el.replace('$0', start).replace('$0', '</span></a>');
 
     return {
       input,
