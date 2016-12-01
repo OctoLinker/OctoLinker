@@ -22,9 +22,9 @@ describe('helper-replace-keywords', () => {
       dataAttributes += ` data-${key}="${value}"`;
     }
 
-    const start = `<a class="octo-linker-link"${dataAttributes}>`;
+    const start = `<a class="octolinker-link"${dataAttributes}><span>`;
     const input = el.replace(/\$0/g, '');
-    const output = el.replace('$0', start).replace('$0', '</a>');
+    const output = el.replace('$0', start).replace('$0', '</span></a>');
 
     return {
       input,
@@ -99,14 +99,14 @@ describe('helper-replace-keywords', () => {
 
   it('wraps the element once', () => {
     const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>', { value: 'foo' });
-    assert.equal($('.octo-linker-link', helper(helper(input).innerHTML)).length, 1);
+    assert.equal($('.octolinker-link', helper(helper(input).innerHTML)).length, 1);
   });
 
   it('adds the given data-* attributes', () => {
     const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
     const options = { value: '$1', bar: 'baz' };
 
-    assert.deepEqual($('.octo-linker-link', helper(input, DEFAULT_REGEX, options)).data(), {
+    assert.deepEqual($('.octolinker-link', helper(input, DEFAULT_REGEX, options)).data(), {
       value: 'foo',
       bar: 'baz',
     });
@@ -116,7 +116,7 @@ describe('helper-replace-keywords', () => {
     const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
     const options = { value: 'go/$1.txt' };
 
-    assert.deepEqual($('.octo-linker-link', helper(input, DEFAULT_REGEX, options)).data(), {
+    assert.deepEqual($('.octolinker-link', helper(input, DEFAULT_REGEX, options)).data(), {
       value: 'go/foo.txt',
     });
   });

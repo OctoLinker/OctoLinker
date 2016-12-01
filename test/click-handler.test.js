@@ -5,7 +5,7 @@ import clickHandler from '../lib/click-handler';
 
 describe('click-handler', () => {
   const sandbox = sinon.sandbox.create();
-  const $link = $('<div class="octo-linker-link" data-resolver="foo" data-bar="baz"></div>');
+  const $link = $('<div class="octolinker-link" data-resolver="foo" data-bar="baz"></div>');
   let resolvers;
 
   sandbox.stub(window.chrome.runtime, 'sendMessage');
