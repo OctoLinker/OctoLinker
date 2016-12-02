@@ -8,6 +8,8 @@ cache:
 # Use npm > 4 to fix https://github.com/npm/npm/issues/14042
 before_install:
   - npm install -g npm@latest
+before_script:
+  - ./packages/blob-reader/scripts/update-fixtures.sh
 before_deploy:
   - npm run package-all
 deploy:
