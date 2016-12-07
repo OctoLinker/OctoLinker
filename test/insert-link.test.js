@@ -3,7 +3,7 @@ import $ from 'jquery';
 import insertLink from '../lib/insert-link.js';
 import { REQUIRE } from '../packages/helper-grammar-regex-collection';
 
-describe('helper-replace-keywords', () => {
+describe('insert-link', () => {
   const DEFAULT_REGEX = /foo ("\w+")/;
 
   function helper(html, regex = DEFAULT_REGEX, options = {}, replaceIndex = '$1') {
@@ -118,6 +118,33 @@ describe('helper-replace-keywords', () => {
 
     assert.deepEqual($('.octolinker-link', helper(input, DEFAULT_REGEX, options)).data(), {
       value: 'go/foo.txt',
+    });
+  });
+
+  it('can handle if value is undefined', () => {
+    const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
+    const options = { value: undefined };
+
+    assert.deepEqual($('.octolinker-link', helper(input, DEFAULT_REGEX, options)).data(), {
+      value: 'undefined',
+    });
+  });
+
+  it('can handle if value is null', () => {
+    const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
+    const options = { value: null };
+
+    assert.deepEqual($('.octolinker-link', helper(input, DEFAULT_REGEX, options)).data(), {
+      value: null,
+    });
+  });
+
+  it('can handle if value is empty string', () => {
+    const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
+    const options = { value: '' };
+
+    assert.deepEqual($('.octolinker-link', helper(input, DEFAULT_REGEX, options)).data(), {
+      value: '',
     });
   });
 
