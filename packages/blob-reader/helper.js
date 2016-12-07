@@ -5,7 +5,13 @@ function getBlobCodeInner(el) {
 }
 
 function getBlobWrapper() {
-  return [].slice.call(document.getElementsByClassName('blob-wrapper'));
+  let ret = [].slice.call(document.getElementsByClassName('blob-wrapper'));
+
+  if (!ret.length) {
+    ret = [].slice.call(document.getElementsByClassName('highlight'));
+  }
+
+  return ret;
 }
 
 function mergeRepoAndFilePath(repoPath, filePath) {
@@ -121,6 +127,17 @@ function readLine(el) {
 }
 
 function readLines(el) {
+  if (el.classList.contains('highlight')) {
+    const issueCode = el.getElementsByTagName('pre');
+
+    if (issueCode.length) {
+      return issueCode[0].innerText.split(/\n/).map((line, index) => ({
+        value: line,
+        lineNumber: index + 1,
+      }));
+    }
+  }
+
   return getBlobCodeInner(el).map(readLine).filter(line => !!line);
 }
 
