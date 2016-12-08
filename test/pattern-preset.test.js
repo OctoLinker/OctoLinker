@@ -15,4 +15,15 @@ describe('pattern-preset', () => {
       ],
     });
   });
+
+  it('merges pattern for the given presets', () => {
+    assert.deepEqual(patternPresets('JavaScript', 'CoffeeScript'), {
+      pathSubstrings: ['.js', '.jsx', '.es6', '.coffee'],
+      githubClasses: [
+        'type-javascript',
+        'type-jsx',
+        'type-coffeescript',
+      ],
+    });
+  });
 });
