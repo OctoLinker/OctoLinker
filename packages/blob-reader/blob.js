@@ -2,14 +2,8 @@ import { getPath, readLines } from './helper';
 
 export default class Blob {
   constructor(el) {
-    const path = getPath(el);
-
-    if (!path) {
-      return;
-    }
-
     this.el = el;
-    this.path = path;
+    this.path = getPath(el);
     this.lines = readLines(el);
   }
 

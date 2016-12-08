@@ -210,4 +210,33 @@ describe('blob-reader', () => {
       assert.equal(result.path, 'package.json');
     });
   });
+
+  describe('issue', () => {
+    let result;
+
+    beforeEach(() => {
+      fixture.load('/packages/blob-reader/fixtures/github.com/issue/code.html');
+      const reader = new BlobReader();
+      result = reader.read()._blobs[0];
+    });
+
+    it('contains blob root element', () => {
+      assert(result.el !== undefined);
+    });
+
+    it('contains lines', () => {
+      assert(Array.isArray(result.lines));
+      assert.equal(result.lines.length, 1);
+      assert.deepEqual(result.lines, [
+        {
+          value: 'import os',
+          lineNumber: 1,
+        },
+      ]);
+    });
+
+    it('does not contain path', () => {
+      assert.equal(result.path, undefined);
+    });
+  });
 });

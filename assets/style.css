@@ -29,3 +29,12 @@ a.octolinker-link {
     color: rgba(255, 0, 255, .8);
     cursor: default;
 }
+
+/* Fix line indicator for issue code blocks */
+.highlight {
+  position: relative;;
+}
+
+.highlight .octolinker-line-indicator:after {
+  top: inherit;
+}
