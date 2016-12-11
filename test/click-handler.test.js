@@ -76,11 +76,11 @@ describe('click-handler', () => {
   });
 
   describe('request', () => {
-    it('sends a runtime message with urls to load', () => {
+    it('sends a runtime message from type fetch', () => {
       resolvers.foo.returns('{BASE_URL}/foo');
       $link.click();
 
-      assert.equal(window.chrome.runtime.sendMessage.callCount, 1);
+      assert.equal(window.chrome.runtime.sendMessage.args[1][0].type, 'fetch');
     });
 
     describe('when resolver returns a url', () => {
@@ -88,7 +88,7 @@ describe('click-handler', () => {
         resolvers.foo.returns('{BASE_URL}/foo');
         $link.click();
 
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
           { url: 'https://github.com/foo' },
         ]);
       });
@@ -102,7 +102,7 @@ describe('click-handler', () => {
         ]);
         $link.click();
 
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
           { url: 'https://github.com/foo' },
           { url: 'https://github.com/bar' },
         ]);
@@ -117,7 +117,7 @@ describe('click-handler', () => {
         });
         $link.click();
 
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
           { method: 'GET', url: 'https://github.com/foo' },
         ]);
       });
@@ -128,7 +128,7 @@ describe('click-handler', () => {
         resolvers.foo.returns(['https://hubhub.com/foo']);
         $link.click();
 
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
           { method: 'GET', url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo' },
         ]);
       });
@@ -142,10 +142,28 @@ describe('click-handler', () => {
         ]);
         $link.click();
 
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].urls, [
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
           { method: 'GET', url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo' },
           { url: 'https://github.com/bar' },
         ]);
+      });
+    });
+
+    it('sends a runtime message from type track', () => {
+      resolvers.foo.returns('{BASE_URL}/foo');
+      $link.click();
+
+      assert.equal(window.chrome.runtime.sendMessage.args[0][0].type, 'track');
+    });
+
+    it('tracks the resolver identity', () => {
+      resolvers.foo.returns('{BASE_URL}/foo');
+      $link.click();
+
+      assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].payload, {
+        category: 'resolver',
+        action: 'invoke',
+        label: 'foo',
       });
     });
   });
