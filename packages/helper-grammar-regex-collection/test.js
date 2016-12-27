@@ -174,6 +174,7 @@ const fixtures = {
     invalid: [
       '\simport foo',
       '\simport\nfoo',
+      '# from the',
     ],
   },
 };
