@@ -17,8 +17,12 @@ To build and run the extension follow these steps.
    * [Rust]
    * [Python]
    * [project.json]
-0. To build the extension once run `npm run chrome-build` or `npm run chrome-watch` during development.
-0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
+0. Build and load the extension:
+   * Chrome:
+     0. To build the extension once run `npm run chrome-build` or `npm run chrome-watch` during development.
+     0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
+   * Firefox:
+     0. `npm run firefox-open`
 
 [Docker]: https://github.com/OctoLinker/browser-extension/commit/33a2e60
 [vimrc]: https://github.com/OctoLinker/browser-extension/commit/7e21743
