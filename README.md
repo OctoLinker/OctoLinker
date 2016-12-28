@@ -13,9 +13,9 @@ Most projects consist of many files and third party dependencies. Files are refe
 
 # Install
 
-<a href="https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/chrome/chrome_128x128.png" width="48" /></a>
-<a href="https://addons.mozilla.org/en-US/firefox/addon/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/firefox/firefox_128x128.png" width="48" /></a>
-<a href="https://addons.opera.com/en/extensions/details/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/opera/opera_128x128.png" width="48" /></a>
+<a href="https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_128x128.png" width="48" /></a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" /></a>
+<a href="https://addons.opera.com/en/extensions/details/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_128x128.png" width="48" /></a>
 
 Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octolinker/).
 
