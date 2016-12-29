@@ -43,7 +43,7 @@
     "semver-regex": "1.0.0"
   },
   "devDependencies": {
-    "babel-core": "6.18.2",
+    "babel-core": "6.21.0",
     "babel-eslint": "7.1.1",
     "babel-loader": "6.2.10",
     "babel-plugin-transform-object-rest-spread": "6.19.0",
