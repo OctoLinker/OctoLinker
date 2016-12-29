@@ -54,6 +54,12 @@
           "resolved": "http://registry.npmjs.org/ajv/-/ajv-4.7.7.tgz",
           "dev": true
         },
+        "babel-polyfill": {
+          "version": "6.16.0",
+          "from": "babel-polyfill@6.16.0",
+          "resolved": "http://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.16.0.tgz",
+          "dev": true
+        },
         "bunyan": {
           "version": "1.8.1",
           "from": "bunyan@1.8.1",
@@ -589,9 +595,21 @@
       "dev": true
     },
     "babel-polyfill": {
-      "version": "6.16.0",
-      "from": "babel-polyfill@>=6.16.0 <7.0.0",
-      "resolved": "http://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.16.0.tgz"
+      "version": "6.20.0",
+      "from": "babel-polyfill@6.20.0",
+      "resolved": "https://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.20.0.tgz",
+      "dependencies": {
+        "babel-runtime": {
+          "version": "6.20.0",
+          "from": "babel-runtime@>=6.20.0 <7.0.0",
+          "resolved": "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.20.0.tgz"
+        },
+        "regenerator-runtime": {
+          "version": "0.10.1",
+          "from": "regenerator-runtime@>=0.10.0 <0.11.0",
+          "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.10.1.tgz"
+        }
+      }
     },
     "babel-preset-es2015": {
       "version": "6.18.0",
@@ -608,7 +626,8 @@
     "babel-runtime": {
       "version": "6.18.0",
       "from": "babel-runtime@>=6.9.1 <7.0.0",
-      "resolved": "http://registry.npmjs.org/babel-runtime/-/babel-runtime-6.18.0.tgz"
+      "resolved": "http://registry.npmjs.org/babel-runtime/-/babel-runtime-6.18.0.tgz",
+      "dev": true
     },
     "babel-template": {
       "version": "6.16.0",
@@ -4767,7 +4786,8 @@
     "regenerator-runtime": {
       "version": "0.9.6",
       "from": "regenerator-runtime@>=0.9.5 <0.10.0",
-      "resolved": "http://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.9.6.tgz"
+      "resolved": "http://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.9.6.tgz",
+      "dev": true
     },
     "regex-cache": {
       "version": "0.4.3",
@@ -5002,6 +5022,12 @@
       "resolved": "http://registry.npmjs.org/sign-addon/-/sign-addon-0.2.0.tgz",
       "dev": true,
       "dependencies": {
+        "babel-polyfill": {
+          "version": "6.16.0",
+          "from": "babel-polyfill@6.16.0",
+          "resolved": "http://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.16.0.tgz",
+          "dev": true
+        },
         "form-data": {
           "version": "2.0.0",
           "from": "form-data@>=2.0.0 <2.1.0",
@@ -5719,6 +5745,12 @@
       "resolved": "http://registry.npmjs.org/web-ext/-/web-ext-1.6.0.tgz",
       "dev": true,
       "dependencies": {
+        "babel-polyfill": {
+          "version": "6.16.0",
+          "from": "babel-polyfill@6.16.0",
+          "resolved": "http://registry.npmjs.org/babel-polyfill/-/babel-polyfill-6.16.0.tgz",
+          "dev": true
+        },
         "babel-runtime": {
           "version": "6.11.6",
           "from": "babel-runtime@6.11.6",
