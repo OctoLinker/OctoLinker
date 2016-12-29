@@ -629,10 +629,24 @@
       "dev": true
     },
     "babel-plugin-transform-object-rest-spread": {
-      "version": "6.19.0",
-      "from": "babel-plugin-transform-object-rest-spread@>=6.19.0 <7.0.0",
-      "resolved": "http://registry.npmjs.org/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.19.0.tgz",
-      "dev": true
+      "version": "6.20.2",
+      "from": "babel-plugin-transform-object-rest-spread@6.20.2",
+      "resolved": "https://registry.npmjs.org/babel-plugin-transform-object-rest-spread/-/babel-plugin-transform-object-rest-spread-6.20.2.tgz",
+      "dev": true,
+      "dependencies": {
+        "babel-runtime": {
+          "version": "6.20.0",
+          "from": "babel-runtime@>=6.20.0 <7.0.0",
+          "resolved": "https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.20.0.tgz",
+          "dev": true
+        },
+        "regenerator-runtime": {
+          "version": "0.10.1",
+          "from": "regenerator-runtime@>=0.10.0 <0.11.0",
+          "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.10.1.tgz",
+          "dev": true
+        }
+      }
     },
     "babel-plugin-transform-regenerator": {
       "version": "6.16.1",
