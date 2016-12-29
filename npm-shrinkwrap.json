@@ -415,9 +415,9 @@
       "dev": true
     },
     "babel-loader": {
-      "version": "6.2.8",
-      "from": "babel-loader@>=6.2.8 <7.0.0",
-      "resolved": "http://registry.npmjs.org/babel-loader/-/babel-loader-6.2.8.tgz",
+      "version": "6.2.10",
+      "from": "babel-loader@6.2.10",
+      "resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-6.2.10.tgz",
       "dev": true
     },
     "babel-messages": {
