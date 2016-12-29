@@ -4294,9 +4294,9 @@
       "dev": true
     },
     "npm-run-all": {
-      "version": "3.1.1",
-      "from": "npm-run-all@>=3.1.1 <4.0.0",
-      "resolved": "http://registry.npmjs.org/npm-run-all/-/npm-run-all-3.1.1.tgz",
+      "version": "3.1.2",
+      "from": "npm-run-all@3.1.2",
+      "resolved": "https://registry.npmjs.org/npm-run-all/-/npm-run-all-3.1.2.tgz",
       "dev": true
     },
     "nth-check": {
