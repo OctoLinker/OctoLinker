@@ -1731,9 +1731,9 @@
       "dev": true
     },
     "eslint": {
-      "version": "3.11.1",
-      "from": "eslint@>=3.11.1 <4.0.0",
-      "resolved": "http://registry.npmjs.org/eslint/-/eslint-3.11.1.tgz",
+      "version": "3.12.2",
+      "from": "eslint@3.12.2",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-3.12.2.tgz",
       "dev": true,
       "dependencies": {
         "glob": {
