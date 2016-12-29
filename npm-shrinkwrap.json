@@ -3727,9 +3727,9 @@
       "dev": true
     },
     "karma-webpack": {
-      "version": "1.8.0",
-      "from": "karma-webpack@>=1.7.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/karma-webpack/-/karma-webpack-1.8.0.tgz",
+      "version": "1.8.1",
+      "from": "karma-webpack@1.8.1",
+      "resolved": "https://registry.npmjs.org/karma-webpack/-/karma-webpack-1.8.1.tgz",
       "dev": true,
       "dependencies": {
         "async": {
@@ -5806,10 +5806,18 @@
       }
     },
     "webpack-dev-middleware": {
-      "version": "1.8.4",
+      "version": "1.9.0",
       "from": "webpack-dev-middleware@>=1.0.11 <2.0.0",
-      "resolved": "http://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-1.8.4.tgz",
-      "dev": true
+      "resolved": "https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-1.9.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "memory-fs": {
+          "version": "0.4.1",
+          "from": "memory-fs@>=0.4.1 <0.5.0",
+          "resolved": "https://registry.npmjs.org/memory-fs/-/memory-fs-0.4.1.tgz",
+          "dev": true
+        }
+      }
     },
     "when": {
       "version": "3.7.7",
