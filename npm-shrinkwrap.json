@@ -1763,9 +1763,9 @@
       }
     },
     "eslint-config-airbnb-base": {
-      "version": "10.0.1",
-      "from": "eslint-config-airbnb-base@10.0.1",
-      "resolved": "http://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-10.0.1.tgz",
+      "version": "11.0.0",
+      "from": "eslint-config-airbnb-base@11.0.0",
+      "resolved": "https://registry.npmjs.org/eslint-config-airbnb-base/-/eslint-config-airbnb-base-11.0.0.tgz",
       "dev": true
     },
     "eslint-import-resolver-node": {

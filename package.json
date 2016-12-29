@@ -51,7 +51,7 @@
     "chrome-webstore-upload-cli": "1.1.0",
     "copy-webpack-plugin": "4.0.1",
     "eslint": "3.12.2",
-    "eslint-config-airbnb-base": "10.0.1",
+    "eslint-config-airbnb-base": "11.0.0",
     "eslint-plugin-import": "2.2.0",
     "json": "9.0.4",
     "json-loader": "0.5.4",
