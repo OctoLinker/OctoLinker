@@ -71,5 +71,8 @@
     "web-ext": "^1.6.0",
     "webpack": "^1.13.3"
   },
+  "optionalDependencies": {
+    "fsevents": "*"
+  },
   "private": true
 }
