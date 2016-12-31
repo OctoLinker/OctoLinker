@@ -12,7 +12,7 @@ install:
   - choco install phantomjs
   - choco install zip
   # install modules
-  - npm install --no-shrinkwrap --ignore-scripts
+  - npm install
 
 # Post-install test scripts.
 test_script:
