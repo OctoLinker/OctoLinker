@@ -57,7 +57,7 @@ describe('click-handler', () => {
   });
 
   describe('on mouseup', () => {
-    it('does not call the corresponding resolver when mouseup was not tirggerd by a middle mouse click', () => {
+    it('does not call the corresponding resolver when mouseup was not triggered by a middle mouse click', () => {
       $link.trigger($.Event('mouseup', { // eslint-disable-line new-cap
         which: 1,
       }));
