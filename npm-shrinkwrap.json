@@ -1022,6 +1022,18 @@
         }
       }
     },
+    "chrome-launch": {
+      "version": "1.1.4",
+      "from": "chrome-launch@latest",
+      "resolved": "https://registry.npmjs.org/chrome-launch/-/chrome-launch-1.1.4.tgz",
+      "dev": true
+    },
+    "chrome-location": {
+      "version": "1.2.1",
+      "from": "chrome-location@>=1.2.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/chrome-location/-/chrome-location-1.2.1.tgz",
+      "dev": true
+    },
     "chrome-webstore-upload": {
       "version": "0.2.1",
       "from": "chrome-webstore-upload@>=0.2.0 <0.3.0",
@@ -2099,6 +2111,12 @@
       "version": "2.0.0",
       "from": "first-chunk-stream@2.0.0",
       "resolved": "https://registry.npmjs.org/first-chunk-stream/-/first-chunk-stream-2.0.0.tgz",
+      "dev": true
+    },
+    "first-match": {
+      "version": "0.0.1",
+      "from": "first-match@0.0.1",
+      "resolved": "https://registry.npmjs.org/first-match/-/first-match-0.0.1.tgz",
       "dev": true
     },
     "flat-cache": {
@@ -3724,6 +3742,12 @@
       "resolved": "http://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
       "dev": true
     },
+    "osenv": {
+      "version": "0.0.3",
+      "from": "osenv@0.0.3",
+      "resolved": "https://registry.npmjs.org/osenv/-/osenv-0.0.3.tgz",
+      "dev": true
+    },
     "pako": {
       "version": "1.0.3",
       "from": "pako@>=1.0.2 <1.1.0",
@@ -3985,6 +4009,12 @@
       "version": "0.0.4",
       "from": "querystringify@>=0.0.0 <0.1.0",
       "resolved": "http://registry.npmjs.org/querystringify/-/querystringify-0.0.4.tgz",
+      "dev": true
+    },
+    "quick-tmp": {
+      "version": "0.0.0",
+      "from": "quick-tmp@0.0.0",
+      "resolved": "https://registry.npmjs.org/quick-tmp/-/quick-tmp-0.0.0.tgz",
       "dev": true
     },
     "randomatic": {
@@ -4284,6 +4314,12 @@
       "version": "2.4.5",
       "from": "sha.js@2.4.5",
       "resolved": "https://registry.npmjs.org/sha.js/-/sha.js-2.4.5.tgz",
+      "dev": true
+    },
+    "shallow-copy": {
+      "version": "0.0.1",
+      "from": "shallow-copy@0.0.1",
+      "resolved": "https://registry.npmjs.org/shallow-copy/-/shallow-copy-0.0.1.tgz",
       "dev": true
     },
     "shell-quote": {
@@ -4957,6 +4993,12 @@
       "version": "2.1.9",
       "from": "useragent@>=2.1.9 <3.0.0",
       "resolved": "https://registry.npmjs.org/useragent/-/useragent-2.1.9.tgz",
+      "dev": true
+    },
+    "userhome": {
+      "version": "1.0.0",
+      "from": "userhome@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/userhome/-/userhome-1.0.0.tgz",
       "dev": true
     },
     "utf8": {
