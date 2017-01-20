@@ -83,10 +83,10 @@ Line objects are consist of the following fields:
 - `deletion`: `true` if the line was deleted
 
 
-#### blob.getText()
+#### blob.toString()
 
 Returns a raw representation of this blob.
 
-#### blob.getJSON()
+#### blob.toJSON()
 
 Returns a JSON object if blob is a valid JSON file, else `null`.
