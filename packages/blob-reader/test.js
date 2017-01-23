@@ -58,24 +58,24 @@ describe('blob-reader', () => {
       assert.equal(result.lines.length, 4);
     });
 
-    describe('getText', () => {
+    describe('toString', () => {
       it('returns a string representation of the blobs content', () => {
         result.lines = [
           { value: 'a' },
           { value: 'b' },
         ];
-        assert.equal(result.getText(), 'a\nb');
+        assert.equal(result.toString(), 'a\nb');
       });
     });
 
-    describe('getJSON', () => {
+    describe('toJSON', () => {
       it('returns a JSON representation of the blobs content', () => {
         result.lines = [
           { value: '{' },
           { value: '"foo": "bar"' },
           { value: '}' },
         ];
-        assert.deepEqual(result.getJSON(), {
+        assert.deepEqual(result.toJSON(), {
           foo: 'bar',
         });
       });
@@ -86,7 +86,7 @@ describe('blob-reader', () => {
           { value: 'invalid' },
           { value: '}' },
         ];
-        assert.deepEqual(result.getJSON(), {});
+        assert.deepEqual(result.toJSON(), {});
       });
     });
   });

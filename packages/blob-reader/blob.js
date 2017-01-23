@@ -7,13 +7,13 @@ export default class Blob {
     this.lines = readLines(el);
   }
 
-  getText() {
+  toString() {
     return this.lines.map(({ value }) => value).join('\n');
   }
 
-  getJSON() {
+  toJSON() {
     try {
-      return JSON.parse(this.getText());
+      return JSON.parse(this.toString());
     } catch (err) {
       return {};
     }
