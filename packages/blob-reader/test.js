@@ -58,7 +58,7 @@ describe('blob-reader', () => {
       assert.equal(result.lines.length, 4);
     });
 
-    describe('toString', () => {
+    describe('toString()', () => {
       it('returns a string representation of the blobs content', () => {
         result.lines = [
           { value: 'a' },
@@ -68,7 +68,7 @@ describe('blob-reader', () => {
       });
     });
 
-    describe('toJSON', () => {
+    describe('toJSON()', () => {
       it('returns a JSON representation of the blobs content', () => {
         result.lines = [
           { value: '{' },
