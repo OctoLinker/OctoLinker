@@ -10,6 +10,8 @@ before_install:
   - npm install -g npm@latest
 before_script:
   - ./packages/blob-reader/scripts/update-fixtures.sh
+script:
+  - travis_retry npm test
 before_deploy:
   - npm run package-all
 deploy:
