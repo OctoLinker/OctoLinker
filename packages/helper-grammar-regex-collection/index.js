@@ -1,3 +1,5 @@
+import go from './go.js';
+
 const REQUIRE = /require(?:\.resolve)?(?:\s|\()['"]([^'"\s]+)['"]\)?/g;
 const IMPORT = /import [\r\n\s\w{},*\$]*(?: from )?['"]([^'"\s]+)['"]/g;
 const EXPORT = /export [\r\n\s\w{},*\$]*(?: from )['"]([^'"\s]+)['"]/g;
@@ -20,4 +22,5 @@ export {
   VIM_PLUGIN,
   RUST_CRATE,
   PYTHON_IMPORT,
+  go,
 };
