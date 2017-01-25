@@ -25,7 +25,8 @@
     "firefox-dist": "npm run firefox-build -- -p",
     "firefox-watch": "npm run firefox-manifest && webpack --watch",
     "firefox-pack": "npm run firefox-dist && mkdirp out && zip -rj out/firefox-octolinker-$npm_package_version.zip dist/",
-    "firefox-open": "npm run firefox-build && web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
+    "firefox-open": "npm run firefox-build && npm run firefox-launch --",
+    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
   },
   "dependencies": {
     "JSONPath": "0.11.2",
