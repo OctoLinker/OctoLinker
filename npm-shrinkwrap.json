@@ -1847,6 +1847,11 @@
       "resolved": "https://registry.npmjs.org/chrome-location/-/chrome-location-1.2.1.tgz",
       "dev": true
     },
+    "chrome-promise": {
+      "version": "2.0.2",
+      "from": "https://registry.npmjs.org/chrome-promise/-/chrome-promise-2.0.2.tgz",
+      "resolved": "https://registry.npmjs.org/chrome-promise/-/chrome-promise-2.0.2.tgz"
+    },
     "chrome-webstore-upload": {
       "version": "0.2.1",
       "from": "chrome-webstore-upload@>=0.2.0 <0.3.0",

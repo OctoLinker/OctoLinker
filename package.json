@@ -31,6 +31,7 @@
     "JSONPath": "0.11.2",
     "babel-polyfill": "6.22.0",
     "builtins": "1.0.3",
+    "chrome-promise": "2.0.2",
     "escape-regex-string": "1.0.4",
     "findandreplacedomtext": "0.4.5",
     "github-injection": "0.3.0",
