@@ -179,6 +179,34 @@ const fixtures = {
   },
 };
 
+const goFixtures = {
+  valid: [
+    'import "foo"',
+    '\nimport "foo"',
+    ['import "fo_o"', ['fo_o']],
+    ['import "github.com/foo/bar"', ['github.com/foo/bar']],
+    'import (\n"foo"\n)',
+    'import (\n    "foo"\n)',
+    ['import (\n"github.com/foo/bar"\n)', ['github.com/foo/bar']],
+    ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
+    ['import (\n"github.com/foo"\n\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
+    ['import (\nbar "github.com/foo/bar"\n)', ['github.com/foo/bar']],
+  ],
+  invalid: [
+    '\simport foo',
+    '\simport\nfoo',
+  ],
+};
+
+function fixturesIterator(fixturesList, next) {
+  fixturesList.forEach((statement) => {
+    const text = Array.isArray(statement) ? statement[0] : statement;
+    const expected = Array.isArray(statement) ? statement[1] : ['foo'];
+
+    next(text, expected);
+  });
+}
+
 describe('helper-grammar-regex-collection', () => {
   Object.keys(fixtures).forEach((grammar) => {
     const { valid, invalid } = fixtures[grammar];
@@ -190,10 +218,7 @@ describe('helper-grammar-regex-collection', () => {
 
     describe(grammar, () => {
       describe('valid', () => {
-        valid.forEach((statement) => {
-          const text = Array.isArray(statement) ? statement[0] : statement;
-          const expected = Array.isArray(statement) ? statement[1] : ['foo'];
-
+        fixturesIterator(valid, (text, expected) => {
           it(text, () => {
             let match;
             let result = [];
@@ -208,9 +233,40 @@ describe('helper-grammar-regex-collection', () => {
       });
 
       describe('invalid', () => {
-        invalid.forEach((statement) => {
-          it(statement, () => {
-            assert.equal(regex.exec(statement), null);
+        fixturesIterator(invalid, (text) => {
+          it(text, () => {
+            assert.equal(regex.exec(text), null);
+          });
+        });
+      });
+    });
+  });
+
+  describe('go()', () => {
+    const { valid, invalid } = goFixtures;
+
+    describe('valid', () => {
+      fixturesIterator(valid, (text, expected) => {
+        it(text, () => {
+          let match;
+          let result = [];
+
+          REGEX.go(text).forEach((regex) => {
+            while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
+              result = result.concat(match.slice(1));
+            }
+          });
+
+          assert.deepEqual(result, expected);
+        });
+      });
+    });
+
+    describe('invalid', () => {
+      fixturesIterator(invalid, (text) => {
+        it(text, () => {
+          REGEX.go(text).forEach((regex) => {
+            assert.equal(regex.exec(text), null);
           });
         });
       });
