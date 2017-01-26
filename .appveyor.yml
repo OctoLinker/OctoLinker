@@ -9,8 +9,8 @@ cache:
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
-  - choco install phantomjs
-  - choco install zip
+  - appveyor-retry choco install phantomjs
+  - appveyor-retry choco install zip
   # install modules
   - npm install
 
@@ -23,7 +23,7 @@ test_script:
   - npm run package-all
   # run tests
   - set PHANTOMJS_BIN=C:\ProgramData\chocolatey\bin\phantomjs.exe
-  - npm test
+  - appveyor-retry call npm test
 
 # Don't actually build.
 build: off
