@@ -116,8 +116,7 @@ Show your support to our open source project. Your donation will help us to cove
 
 - [Buy OctoLinker stickers](https://www.stickermule.com/marketplace/16611-the-official-logo)
 - [Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W)
-- [Become a backer](https://opencollective.com/octolinker#backer) 
-- [Become a sponsor](https://opencollective.com/octolinker#sponsor)
+- [Become a backer or sponsor](https://opencollective.com/octolinker) 
 
 # Legal and License
 
