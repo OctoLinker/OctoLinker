@@ -110,78 +110,13 @@ If you encounter a problem using OctoLinker, or would like to request an enhance
 - Every early OctoLinker user, which contributed to OctoLinker by writing issues or PRs!
 - Everyone I forgot to mention here, but also influenced OctoLinker!
 
-##Backers
+##Support
 
-[Become a backer](https://opencollective.com/octolinker#backer) and show your support to our open source project. Your donation will help us to cover project expenses and allow the maintainers to dedicate more time for maintenance and new features for everyone.
+Show your support to our open source project. Your donation will help us to cover project expenses and allow the maintainers to dedicate more time for maintenance and new features for everyone.
 
-<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W" target="_blank"><img src="https://cloud.githubusercontent.com/assets/1393946/18415802/59e9f2ba-77ff-11e6-942b-e076db4d865c.gif"></a>
-
-<a href="https://opencollective.com/octolinker/backer/0/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/0/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/1/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/1/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/2/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/2/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/3/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/3/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/4/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/4/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/5/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/5/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/6/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/6/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/7/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/7/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/8/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/8/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/9/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/9/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/10/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/10/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/11/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/11/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/12/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/12/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/13/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/13/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/14/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/14/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/15/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/15/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/16/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/16/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/17/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/17/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/18/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/18/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/19/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/19/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/20/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/20/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/21/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/21/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/22/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/22/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/23/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/23/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/24/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/24/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/25/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/25/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/26/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/26/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/27/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/27/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/28/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/28/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/backer/29/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/29/avatar.svg"></a>
-
-
-##Sponsors
-
-[Become a sponsor](https://opencollective.com/octolinker#sponsor) and get your logo on our README on Github with a link to your site. 
-
-<a href="https://opencollective.com/octolinker/sponsor/0/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/0/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/1/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/1/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/2/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/2/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/3/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/3/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/4/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/4/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/5/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/5/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/6/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/6/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/7/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/7/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/8/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/8/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/9/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/9/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/10/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/10/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/11/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/11/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/12/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/12/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/13/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/13/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/14/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/14/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/15/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/15/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/16/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/16/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/17/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/17/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/18/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/18/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/19/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/19/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/20/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/20/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/21/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/21/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/22/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/22/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/23/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/23/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/24/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/24/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/25/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/25/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/26/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/26/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/27/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/27/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/28/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/28/avatar.svg"></a>
-<a href="https://opencollective.com/octolinker/sponsor/29/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/29/avatar.svg"></a>
+- [Buy OctoLinker stickers](https://www.stickermule.com/marketplace/16611-the-official-logo)
+- [Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W)
+- [Become a backer or sponsor](https://opencollective.com/octolinker) 
 
 # Legal and License
 
