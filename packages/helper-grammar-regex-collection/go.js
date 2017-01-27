@@ -16,6 +16,6 @@ function multiImportRegExpBuilder(input) {
 export default function (blobSource) {
   return [].concat(
     multiImportRegExpBuilder(blobSource),
-    /import\s['"]([^'"\s]+)['"]?/g,
+    /import\s(?:[_\.]\s|[\w]+\s)?['"]([^'"\s]+)['"]?/g,
   );
 }

@@ -182,10 +182,16 @@ const fixtures = {
 const goFixtures = {
   valid: [
     'import "foo"',
+    'import _ "foo"',
+    'import . "foo"',
+    'import bar "foo"',
     '\nimport "foo"',
     ['import "fo_o"', ['fo_o']],
     ['import "github.com/foo/bar"', ['github.com/foo/bar']],
     'import (\n"foo"\n)',
+    'import (\n_ "foo"\n)',
+    'import (\n. "foo"\n)',
+    'import (\nbar "foo"\n)',
     'import (\n    "foo"\n)',
     ['import (\n"github.com/foo/bar"\n)', ['github.com/foo/bar']],
     ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
