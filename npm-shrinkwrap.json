@@ -4434,8 +4434,9 @@
     },
     "node-uuid": {
       "version": "1.4.7",
-      "from": "node-uuid@1.4.7",
-      "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.7.tgz"
+      "from": "node-uuid@>=1.4.7 <1.5.0",
+      "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.7.tgz",
+      "dev": true
     },
     "normalize-package-data": {
       "version": "2.3.5",
@@ -5937,8 +5938,7 @@
     "uuid": {
       "version": "2.0.3",
       "from": "uuid@>=2.0.1 <3.0.0",
-      "resolved": "https://registry.npmjs.org/uuid/-/uuid-2.0.3.tgz",
-      "dev": true
+      "resolved": "https://registry.npmjs.org/uuid/-/uuid-2.0.3.tgz"
     },
     "validate-npm-package-license": {
       "version": "3.0.1",
