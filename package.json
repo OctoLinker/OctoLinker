@@ -6,7 +6,6 @@
   },
   "main": "lib/app.js",
   "scripts": {
-    "precommit": "npm run lint",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "karma start",
@@ -56,7 +55,6 @@
     "eslint": "3.14.0",
     "eslint-config-airbnb-base": "11.0.1",
     "eslint-plugin-import": "2.2.0",
-    "husky": "0.13.1",
     "json": "9.0.4",
     "json-loader": "0.5.4",
     "karma": "1.4.0",
