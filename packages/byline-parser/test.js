@@ -27,38 +27,33 @@ const expectedCorrupt = [
   ['val1'],
 ];
 
+const expectedAllValues = [
+  ['val0'],
+  ['val1'],
+  ['val2'],
+  ['val3'],
+  ['val4'],
+];
+
 const openingPattern = /^start$/;
 const closingPattern = /^end$/;
 const matchPattern = /(\w+)/;
 
 describe('byline-parser', () => {
   describe('setup', () => {
-    it('throws an error if openingPattern is not specified', () => {
-      assert.throws(() => {
-        bylineParser(fixture, {});
-      }, /openingPattern is not defined/);
-    });
-
     it('throws an error if openingPattern is not a RegExp', () => {
       assert.throws(() => {
         bylineParser(fixture, {
+          matchPattern,
           openingPattern: 'abc',
         });
       }, /openingPattern is not a RegExp/);
     });
 
-    it('throws an error if closingPattern is not specified', () => {
-      assert.throws(() => {
-        bylineParser(fixture, {
-          openingPattern,
-        });
-      }, /closingPattern is not defined/);
-    });
-
     it('throws an error if closingPattern is not a RegExp', () => {
       assert.throws(() => {
         bylineParser(fixture, {
-          openingPattern,
+          matchPattern,
           closingPattern: 'abc',
         });
       }, /closingPattern is not a RegExp/);
@@ -115,6 +110,12 @@ describe('byline-parser', () => {
       openingPattern,
       closingPattern,
       matchPattern,
+    }));
+  });
+
+  it('collects match values', () => {
+    assert.deepEqual(expectedAllValues, bylineParser(fixture, {
+      matchPattern: /(val[0-9])/,
     }));
   });
 });
