@@ -190,6 +190,10 @@ const goFixtures = {
     '\nimport "foo"',
     ['import "fo_o"', ['fo_o']],
     ['import "github.com/foo/bar"', ['github.com/foo/bar']],
+    ['import "bitbucket.org/foo/bar"', ['bitbucket.org/foo/bar']],
+    ['import "launchpad.net/foo/bar"', ['launchpad.net/foo/bar']],
+    ['import "hub.jazz.net/foo/bar"', ['hub.jazz.net/foo/bar']],
+    ['import "gopkg.in/foo/bar"', ['gopkg.in/foo/bar']],
     'import (\n"foo"\n)',
     'import (\n_ "foo"\n)',
     'import (\n. "foo"\n)',
@@ -197,6 +201,10 @@ const goFixtures = {
     'import (\n    "foo"\n)',
     ['import (\n"./foo"\n"./bar"\n)', ['./foo', './bar']],
     ['import (\n"github.com/foo/bar"\n)', ['github.com/foo/bar']],
+    ['import (\n"bitbucket.org/foo/bar"\n)', ['bitbucket.org/foo/bar']],
+    ['import (\n"launchpad.net/foo/bar"\n)', ['launchpad.net/foo/bar']],
+    ['import (\n"hub.jazz.net/foo/bar"\n)', ['hub.jazz.net/foo/bar']],
+    ['import (\n"gopkg.in/foo/bar"\n)', ['gopkg.in/foo/bar']],
     ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
     ['import (\n"github.com/foo"\n\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
     ['import (\nbar "github.com/foo/bar"\n)', ['github.com/foo/bar']],
@@ -204,6 +212,7 @@ const goFixtures = {
   invalid: [
     '\simport foo',
     '\simport\nfoo',
+    'import (\n"octo.com/foo/bar"\n)',
   ],
 };
 
