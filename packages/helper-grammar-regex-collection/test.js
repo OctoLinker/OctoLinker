@@ -212,6 +212,7 @@ const goFixtures = {
   invalid: [
     '\simport foo',
     '\simport\nfoo',
+    'import "octo.com/foo/bar"',
     'import (\n"octo.com/foo/bar"\n)',
   ],
 };
