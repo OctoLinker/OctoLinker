@@ -25,13 +25,29 @@ function multiImportRegExpBuilder(input) {
 
     const val = escapeRegexString(value);
     return new RegExp(`import\\s\\([^\)]+"(${val})"`, 'gm');
+  });
+}
+
+function singleImportRegExpBuilder(input) {
+  return bylineParser(input, {
+    matchPattern: /import\s(?:[_\.]\s|[\w]+\s)?['"]([^'"\s]+)['"]?/,
   })
-  .filter(item => !!item);
+  .map(([value]) => {
+    const domain = value.match(DOMAIN_REGEX);
+
+    if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
+      return;
+    }
+
+    const val = escapeRegexString(value);
+    return new RegExp(`import\\s(?:[_\\.]\\s|[\\w]+\\s)?['"](${val})['"]?`, 'gm');
+  });
 }
 
 export default function (blobSource) {
   return [].concat(
     multiImportRegExpBuilder(blobSource),
-    /import\s(?:[_\.]\s|[\w]+\s)?['"]([^'"\s]+)['"]?/g,
-  );
+    singleImportRegExpBuilder(blobSource),
+  )
+  .filter(item => !!item);
 }
