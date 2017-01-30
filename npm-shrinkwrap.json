@@ -3877,12 +3877,6 @@
       "resolved": "https://registry.npmjs.org/karma-phantomjs-launcher/-/karma-phantomjs-launcher-1.0.2.tgz",
       "dev": true
     },
-    "karma-phantomjs-shim": {
-      "version": "1.4.0",
-      "from": "karma-phantomjs-shim@>=1.1.2 <2.0.0",
-      "resolved": "https://registry.npmjs.org/karma-phantomjs-shim/-/karma-phantomjs-shim-1.4.0.tgz",
-      "dev": true
-    },
     "karma-sourcemap-loader": {
       "version": "0.3.7",
       "from": "karma-sourcemap-loader@>=0.3.7 <0.4.0",

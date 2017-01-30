@@ -10,7 +10,7 @@ if (process.env.APPVEYOR) {
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'fixture', 'phantomjs-shim'],
+    frameworks: ['mocha', 'fixture'],
     files: [
       'test/main-lib.js',
       'test/main-packages.js',
