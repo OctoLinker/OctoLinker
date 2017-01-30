@@ -34,8 +34,7 @@ export default function (blobSource, { openingPattern, closingPattern, matchPatt
         throw new Error('No capture group is defined');
       }
 
-      if (!noGroup) tmp.push(captureGroup.slice(1));
-      if (noGroup) results.push(captureGroup.slice(1));
+      (noGroup ? results : tmp).push(captureGroup.slice(1));
     }
   });
 
