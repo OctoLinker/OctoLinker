@@ -112,7 +112,7 @@ describe('insert-link', () => {
     });
   });
 
-  it('adds the given data-* attributes', () => {
+  it('replace placholder with capture group value', () => {
     const { input } = createExpectation('foo <span><i>"</i>$0foo$0<i>"</i></span>');
     const options = { value: 'go/$1.txt' };
 
