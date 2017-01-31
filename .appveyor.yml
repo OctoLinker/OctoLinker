@@ -12,6 +12,7 @@ install:
   - appveyor-retry choco install phantomjs
   - appveyor-retry choco install zip
   # install modules
+  - npm install -g npm@latest
   - npm install
 
 # Post-install test scripts.
