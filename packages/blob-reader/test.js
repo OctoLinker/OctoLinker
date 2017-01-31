@@ -27,13 +27,6 @@ describe('blob-reader', () => {
         assert.equal(reader.read()._blobs[0].path, '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js');
       });
 
-      it('when blob is a PR diff', () => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/pull/diff.html');
-        const reader = new BlobReader();
-
-        assert.equal(reader.read()._blobs[0].path, '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js');
-      });
-
       it('when PR comment is up-to-date', () => {
         fixture.load('/packages/blob-reader/fixtures/github.com/pull/comments.html');
         const reader = new BlobReader();

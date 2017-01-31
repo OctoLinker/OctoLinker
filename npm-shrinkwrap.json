@@ -2654,6 +2654,12 @@
       "resolved": "http://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.2.0.tgz",
       "dev": true
     },
+    "eslint-plugin-mocha": {
+      "version": "4.8.0",
+      "from": "eslint-plugin-mocha@4.8.0",
+      "resolved": "https://registry.npmjs.org/eslint-plugin-mocha/-/eslint-plugin-mocha-4.8.0.tgz",
+      "dev": true
+    },
     "espree": {
       "version": "3.3.2",
       "from": "espree@>=3.3.1 <4.0.0",
@@ -4433,7 +4439,7 @@
     },
     "node-uuid": {
       "version": "1.4.7",
-      "from": "node-uuid@>=1.4.7 <1.5.0",
+      "from": "node-uuid@1.4.7",
       "resolved": "https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.7.tgz",
       "dev": true
     },
@@ -4902,6 +4908,12 @@
       "version": "0.0.0",
       "from": "quick-tmp@0.0.0",
       "resolved": "https://registry.npmjs.org/quick-tmp/-/quick-tmp-0.0.0.tgz",
+      "dev": true
+    },
+    "ramda": {
+      "version": "0.22.1",
+      "from": "ramda@>=0.22.1 <0.23.0",
+      "resolved": "https://registry.npmjs.org/ramda/-/ramda-0.22.1.tgz",
       "dev": true
     },
     "randomatic": {
