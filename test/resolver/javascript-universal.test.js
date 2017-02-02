@@ -27,4 +27,42 @@ describe('javascript-universal', () => {
       'https://nodejs.org/api/modules.html',
     );
   });
+
+  it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {
+    assert.deepEqual(
+      javascriptUniversal({ target: './modules/es6.symbol' }),
+      [
+        '{BASE_URL}modules/es6.symbol.js',
+        '{BASE_URL}modules/es6.symbol/index.js',
+        '{BASE_URL}modules/es6.symbol.jsx',
+        '{BASE_URL}modules/es6.symbol/index.jsx',
+        '{BASE_URL}modules/es6.symbol.ts',
+        '{BASE_URL}modules/es6.symbol/index.ts',
+        '{BASE_URL}modules/es6.symbol.tsx',
+        '{BASE_URL}modules/es6.symbol/index.tsx',
+        '{BASE_URL}modules/es6.symbol.json',
+        '{BASE_URL}modules/es6.symbol/index.json',
+        '{BASE_URL}modules/es6.symbol',
+      ],
+    );
+  });
+
+  it("resolves './modules/es6.symbol.js' like './modules/es6.symbol'", () => {
+    assert.deepEqual(
+      javascriptUniversal({ target: './modules/es6.symbol.js' }),
+      [
+        '{BASE_URL}modules/es6.symbol.js',
+        '{BASE_URL}modules/es6.symbol/index.js',
+        '{BASE_URL}modules/es6.symbol.jsx',
+        '{BASE_URL}modules/es6.symbol/index.jsx',
+        '{BASE_URL}modules/es6.symbol.ts',
+        '{BASE_URL}modules/es6.symbol/index.ts',
+        '{BASE_URL}modules/es6.symbol.tsx',
+        '{BASE_URL}modules/es6.symbol/index.tsx',
+        '{BASE_URL}modules/es6.symbol.json',
+        '{BASE_URL}modules/es6.symbol/index.json',
+        '{BASE_URL}modules/es6.symbol',
+      ],
+    );
+  });
 });
