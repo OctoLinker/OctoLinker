@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "JSONPath": "0.11.2",
-    "babel-polyfill": "6.22.0",
     "builtins": "1.0.3",
     "chrome-promise": "2.0.2",
     "core-js": "2.4.1",
