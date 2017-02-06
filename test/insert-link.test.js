@@ -1,3 +1,4 @@
+import 'core-js/fn/object/entries';
 import assert from 'assert';
 import $ from 'jquery';
 import insertLink from '../lib/insert-link.js';

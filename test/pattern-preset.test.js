@@ -1,3 +1,4 @@
+import 'core-js/fn/object/entries';
 import assert from 'assert';
 import patternPresets, { presets } from '../lib/pattern-preset.js';
 
