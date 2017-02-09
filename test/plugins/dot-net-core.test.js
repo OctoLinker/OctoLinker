@@ -1,17 +1,17 @@
 import assert from 'assert';
-import nugetUrl from '../../lib/resolver/nuget-url.js';
+import dotNetCore from '../../lib/plugins/dot-net-core';
 
-describe('nuget-url', () => {
+describe('dotNetCore', () => {
   it('resolves Microsoft.NETCore.App to https://www.nuget.org/packages/Microsoft.NETCore.App', () => {
     assert.deepEqual(
-      nugetUrl({ target: 'Microsoft.NETCore.App' }),
+      dotNetCore.resolve({ target: 'Microsoft.NETCore.App' }),
       ['https://www.nuget.org/packages/Microsoft.NETCore.App'],
     );
   });
 
   it('resolves Microsoft.Extensions.Configuration.FileExtensions to https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions', () => {
     assert.deepEqual(
-      nugetUrl({ target: 'Microsoft.Extensions.Configuration.FileExtensions' }),
+      dotNetCore.resolve({ target: 'Microsoft.Extensions.Configuration.FileExtensions' }),
       ['https://www.nuget.org/packages/Microsoft.Extensions.Configuration.FileExtensions'],
     );
   });
