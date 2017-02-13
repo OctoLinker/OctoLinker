@@ -3,11 +3,12 @@ import go from './go.js';
 
 const subpatterns = {
   captureQuotedDep: /['"]([^'"\s]+)['"]/,
+  importMembers: /[\r\n\s\w{},*\$]*/,
 };
 
 const REQUIRE = XRegExp.build(`require(?:\\.resolve)?(?:\\s|\\()\\s*{{captureQuotedDep}}\\s*\\)?`, subpatterns, 'g');
-const IMPORT = XRegExp.build(`import [\\r\\n\\s\\w{},*\\$]*(?: from )?{{captureQuotedDep}}`, subpatterns, 'g');
-const EXPORT = XRegExp.build(`export [\\r\\n\\s\\w{},*\\$]*(?: from ){{captureQuotedDep}}`, subpatterns, 'g');
+const IMPORT = XRegExp.build(`import {{importMembers}}(?: from )?{{captureQuotedDep}}`, subpatterns, 'g');
+const EXPORT = XRegExp.build(`export {{importMembers}}(?: from ){{captureQuotedDep}}`, subpatterns, 'g');
 const GEM = XRegExp.build(`gem {{captureQuotedDep}}`, subpatterns, 'g');
 const HOMEBREW = XRegExp.build(`(?:depends_on|conflicts_with)(?: cask:| formula:)? {{captureQuotedDep}}`, subpatterns, 'g');
 const TYPESCRIPT_REFERENCE = XRegExp.build(`\\/{3}\\s?<reference path={{captureQuotedDep}}`, subpatterns, 'g');
