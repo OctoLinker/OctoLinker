@@ -1,6 +1,6 @@
 import go from './go.js';
 
-const REQUIRE = /require(?:\.resolve)?(?:\s|\()['"]([^'"\s]+)['"]\)?/g;
+const REQUIRE = /require(?:\.resolve)?(?:\s|\()\s*['"]([^'"\s]+)['"]\s*\)?/g;
 const IMPORT = /import [\r\n\s\w{},*\$]*(?: from )?['"]([^'"\s]+)['"]/g;
 const EXPORT = /export [\r\n\s\w{},*\$]*(?: from )['"]([^'"\s]+)['"]/g;
 const GEM = /gem ['"]([^'"\s]+)['"]/g;

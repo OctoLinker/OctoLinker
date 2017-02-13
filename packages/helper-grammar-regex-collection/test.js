@@ -48,6 +48,9 @@ const fixtures = {
   REQUIRE: {
     valid: [
       'require("foo")',
+      'require( "foo" )',
+      'require(  "foo"  )',
+      'require(\t"foo"\t)',
       'var foo = require("foo")',
       'var $ = require("foo")',
       'var _ = require("foo")',
@@ -65,6 +68,9 @@ const fixtures = {
       // require.resolve
       'require.resolve "foo"',
       'require.resolve("foo")',
+      'require.resolve( "foo" )',
+      'require.resolve(  "foo"  )',
+      'require.resolve(\t"foo"\t)',
       'var foo = require.resolve("foo")',
       ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['foo', 'bar']],
     ],
@@ -73,14 +79,12 @@ const fixtures = {
       'require"foo"',
       'require ("foo")',
       'require (foo)',
-      'require( "foo" )',
       'require("fo o")',
       // require.resolve
       'require.resolve(foo)',
       'require.resolve"foo"',
       'require.resolve ("foo")',
       'require.resolve (foo)',
-      'require.resolve( "foo" )',
       'require.resolve("fo o")',
       'requireDresolve("foo")',
     ],
