@@ -1,15 +1,16 @@
+import XRegExp from 'xregexp';
 import go from './go.js';
 
-const REQUIRE = /require(?:\.resolve)?(?:\s|\()\s*['"]([^'"\s]+)['"]\s*\)?/g;
-const IMPORT = /import [\r\n\s\w{},*\$]*(?: from )?['"]([^'"\s]+)['"]/g;
-const EXPORT = /export [\r\n\s\w{},*\$]*(?: from )['"]([^'"\s]+)['"]/g;
-const GEM = /gem ['"]([^'"\s]+)['"]/g;
-const HOMEBREW = /(?:depends_on|conflicts_with)(?: cask:| formula:)? ['"]([^'"\s]+)['"]/g;
-const TYPESCRIPT_REFERENCE = /\/{3}\s?<reference path=['"]([^'"\s]+)['"]/g;
-const DOCKER_FROM = /FROM\s([^\n]*)/g;
-const VIM_PLUGIN = /(?:(?:(?:Neo)?Bundle(?:Lazy|Fetch)?)|Plug(?:in)?)\s['"]([^'"\s]+)['"]/g;
-const RUST_CRATE = /(?:extern crate|use) ([^:; ]+)/g;
-const PYTHON_IMPORT = /^\s*(?:import|from)\s([^\s]*)/gm;
+const REQUIRE = XRegExp.build(`require(?:\\.resolve)?(?:\\s|\\()\\s*['"]([^'"\\s]+)['"]\\s*\\)?`, null, 'g');
+const IMPORT = XRegExp.build(`import [\\r\\n\\s\\w{},*\\$]*(?: from )?['"]([^'"\\s]+)['"]`, null, 'g');
+const EXPORT = XRegExp.build(`export [\\r\\n\\s\\w{},*\\$]*(?: from )['"]([^'"\\s]+)['"]`, null, 'g');
+const GEM = XRegExp.build(`gem ['"]([^'"\\s]+)['"]`, null, 'g');
+const HOMEBREW = XRegExp.build(`(?:depends_on|conflicts_with)(?: cask:| formula:)? ['"]([^'"\\s]+)['"]`, null, 'g');
+const TYPESCRIPT_REFERENCE = XRegExp.build(`\\/{3}\\s?<reference path=['"]([^'"\\s]+)['"]`, null, 'g');
+const DOCKER_FROM = XRegExp.build(`FROM\\s([^\\n]*)`, null, 'g');
+const VIM_PLUGIN = XRegExp.build(`(?:(?:(?:Neo)?Bundle(?:Lazy|Fetch)?)|Plug(?:in)?)\\s['"]([^'"\\s]+)['"]`, null, 'g');
+const RUST_CRATE = XRegExp.build(`(?:extern crate|use) ([^:; ]+)`, null, 'g');
+const PYTHON_IMPORT = XRegExp.build(`^\\s*(?:import|from)\\s([^\\s]*)`, null, 'gm');
 
 export {
   REQUIRE,
