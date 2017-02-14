@@ -13,7 +13,7 @@ import go from './go.js';
 const raw = String.raw;
 
 const subpatterns = {
-  captureQuotedDep: new XRegExp(raw`['"](?<dep>[^'"\s]+)['"]`), // eslint-disable-line quotes
+  captureQuotedDep: new XRegExp(raw`['"](?<$1>[^'"\s]+)['"]`), // eslint-disable-line quotes
   importMembers: /[\r\n\s\w{},*\$]*/,
 };
 
@@ -53,7 +53,7 @@ const TYPESCRIPT_REFERENCE = XRegExp.build(raw`(?nx)
   `, subpatterns, 'g');
 
 const DOCKER_FROM = XRegExp.build(raw`(?nx)
-  FROM \s (?<dep>[^\n]*)
+  FROM \s (?<$1>[^\n]*)
   `, subpatterns, 'g');
 
 const VIM_PLUGIN = XRegExp.build(raw`(?nx)
@@ -72,14 +72,14 @@ const VIM_PLUGIN = XRegExp.build(raw`(?nx)
 const RUST_CRATE = XRegExp.build(raw`(?nx)
   (extern \s crate | use)
   \s
-  (?<dep>[^:;\s]+)
+  (?<$1>[^:;\s]+)
   `, subpatterns, 'g');
 
 const PYTHON_IMPORT = XRegExp.build(raw`(?nx)
   ^\s*
   (import|from)
   \s
-  (?<dep>[^\s]*)
+  (?<$1>[^\s]*)
   `, subpatterns, 'gm');
 
 export {
