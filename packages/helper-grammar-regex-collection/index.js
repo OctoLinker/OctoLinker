@@ -8,41 +8,41 @@ const subpatterns = {
 
 const REQUIRE = XRegExp.build(`(?nx)
   require(\\.resolve)?
-  (\\s|\\()\\s*
+  ( \\s | \\( ) \\s*
   {{captureQuotedDep}}
-  \\s*\\)?
+  \\s* \\)?
   `, subpatterns, 'g');
 
 const IMPORT = XRegExp.build(`(?nx)
-  import\\s{{importMembers}}
-  (\\sfrom\\s)?
+  import \\s {{importMembers}}
+  ( \\s from \\s )?
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
 const EXPORT = XRegExp.build(`(?nx)
-  export\\s{{importMembers}}
-  (\\sfrom\\s)
+  export \\s {{importMembers}}
+  ( \\s from \\s )
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
 const GEM = XRegExp.build(`(?nx)
-  gem\\s{{captureQuotedDep}}
+  gem \\s {{captureQuotedDep}}
   `, subpatterns, 'g');
 
 const HOMEBREW = XRegExp.build(`(?nx)
   (depends_on|conflicts_with)
-  (\\scask:|\\sformula:)?
+  ( \\s cask: | \\s formula: )?
   \\s
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
 const TYPESCRIPT_REFERENCE = XRegExp.build(`(?nx)
-  \\/{3}\\s?
-  <reference\\spath={{captureQuotedDep}}
+  \\/{3} \\s?
+  <reference \\s path={{captureQuotedDep}}
   `, subpatterns, 'g');
 
 const DOCKER_FROM = XRegExp.build(`(?nx)
-  FROM\\s(?<dep>[^\\n]*)
+  FROM \\s (?<dep>[^\\n]*)
   `, subpatterns, 'g');
 
 const VIM_PLUGIN = XRegExp.build(`(?nx)
@@ -52,13 +52,14 @@ const VIM_PLUGIN = XRegExp.build(`(?nx)
       Bundle
       (Lazy|Fetch)?
     )
-    |Plug(in)?
-  )\\s
+    |
+    Plug(in)?
+  ) \\s
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
 const RUST_CRATE = XRegExp.build(`(?nx)
-  (extern\\scrate|use)
+  (extern \\s crate | use)
   \\s
   (?<dep>[^:;\\s]+)
   `, subpatterns, 'g');
