@@ -17,7 +17,7 @@ const subpatterns = {
   importMembers: /[\r\n\s\w{},*\$]*/,
 };
 
-const regex = pattern => XRegExp.build(`(?nx)${raw(pattern)}`, subpatterns, 'gm');
+const regex = pattern => XRegExp.build(`(?x)${raw(pattern)}`, subpatterns, 'ngm');
 
 const REQUIRE = regex`
   require(\.resolve)?
