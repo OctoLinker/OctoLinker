@@ -13,7 +13,7 @@ import go from './go.js';
 const raw = String.raw;
 
 const subpatterns = {
-  captureQuotedDep: new XRegExp(raw`['"](?<$1>[^'"\s]+)['"]`), // eslint-disable-line quotes
+  captureQuotedDep: new XRegExp(raw`['"](?<$1>[^'"\s]+)['"]`),
   importMembers: /[\r\n\s\w{},*\$]*/,
 };
 
