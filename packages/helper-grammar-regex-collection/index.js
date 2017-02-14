@@ -2,72 +2,72 @@ import XRegExp from 'xregexp';
 import go from './go.js';
 
 const subpatterns = {
-  captureQuotedDep: /['"]([^'"\s]+)['"]/,
+  captureQuotedDep: new XRegExp(`['"](?<dep>[^'"\\s]+)['"]`), // eslint-disable-line quotes
   importMembers: /[\r\n\s\w{},*\$]*/,
 };
 
-const REQUIRE = XRegExp.build(`(?x)
-  require(?:\\.resolve)?
-  (?:\\s|\\()\\s*
+const REQUIRE = XRegExp.build(`(?nx)
+  require(\\.resolve)?
+  (\\s|\\()\\s*
   {{captureQuotedDep}}
   \\s*\\)?
   `, subpatterns, 'g');
 
-const IMPORT = XRegExp.build(`(?x)
+const IMPORT = XRegExp.build(`(?nx)
   import\\s{{importMembers}}
-  (?:\\sfrom\\s)?
+  (\\sfrom\\s)?
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
-const EXPORT = XRegExp.build(`(?x)
+const EXPORT = XRegExp.build(`(?nx)
   export\\s{{importMembers}}
-  (?:\\sfrom\\s)
+  (\\sfrom\\s)
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
-const GEM = XRegExp.build(`(?x)
+const GEM = XRegExp.build(`(?nx)
   gem\\s{{captureQuotedDep}}
   `, subpatterns, 'g');
 
-const HOMEBREW = XRegExp.build(`(?x)
-  (?:depends_on|conflicts_with)
-  (?:\\scask:|\\sformula:)?
+const HOMEBREW = XRegExp.build(`(?nx)
+  (depends_on|conflicts_with)
+  (\\scask:|\\sformula:)?
   \\s
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
-const TYPESCRIPT_REFERENCE = XRegExp.build(`(?x)
+const TYPESCRIPT_REFERENCE = XRegExp.build(`(?nx)
   \\/{3}\\s?
   <reference\\spath={{captureQuotedDep}}
   `, subpatterns, 'g');
 
-const DOCKER_FROM = XRegExp.build(`(?x)
-  FROM\\s([^\\n]*)
+const DOCKER_FROM = XRegExp.build(`(?nx)
+  FROM\\s(?<dep>[^\\n]*)
   `, subpatterns, 'g');
 
-const VIM_PLUGIN = XRegExp.build(`(?x)
-  (?:
-    (?:
-      (?:Neo)?
+const VIM_PLUGIN = XRegExp.build(`(?nx)
+  (
+    (
+      (Neo)?
       Bundle
-      (?:Lazy|Fetch)?
+      (Lazy|Fetch)?
     )
-    |Plug(?:in)?
+    |Plug(in)?
   )\\s
   {{captureQuotedDep}}
   `, subpatterns, 'g');
 
-const RUST_CRATE = XRegExp.build(`(?x)
-  (?:extern\\scrate|use)
+const RUST_CRATE = XRegExp.build(`(?nx)
+  (extern\\scrate|use)
   \\s
-  ([^:;\\s]+)
+  (?<dep>[^:;\\s]+)
   `, subpatterns, 'g');
 
-const PYTHON_IMPORT = XRegExp.build(`(?x)
+const PYTHON_IMPORT = XRegExp.build(`(?nx)
   ^\\s*
-  (?:import|from)
+  (import|from)
   \\s
-  ([^\\s]*)
+  (?<dep>[^\\s]*)
   `, subpatterns, 'gm');
 
 export {
