@@ -1,6 +1,15 @@
 import XRegExp from 'xregexp';
 import go from './go.js';
 
+// The regular expressions in this file are built using XRegExp (http://xregexp.com/)
+//
+// Note that they are spread across multiple lines and that whitespace is irrelevant,
+// so spaces have to be matched with \\s.
+// http://xregexp.com/flags/#extended
+//
+// Also, groups are not captured by default, so only named groups work, like (?<name>pattern)
+// http://xregexp.com/flags/#explicitCapture
+
 const subpatterns = {
   captureQuotedDep: new XRegExp(`['"](?<dep>[^'"\\s]+)['"]`), // eslint-disable-line quotes
   importMembers: /[\r\n\s\w{},*\$]*/,
