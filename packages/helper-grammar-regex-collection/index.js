@@ -1,50 +1,49 @@
 import go from './go.js';
 import regexBuilder from './regexBuilder';
 
-const subpatterns = {};
-const regex = regexBuilder({ subpatterns });
+const regex = regexBuilder();
 
-subpatterns.captureQuotedWord = regex`
+const captureQuotedWord = regex`
   ['"]            # beginning quote
   (?<$1>[^'"\s]+) # capture the word inside the quotes
   ['"]            # end quote
 `;
 
-subpatterns.importMembers = regex`[\r\n\s\w{},*\$]*`;
-subpatterns.from = regex`\s from \s`;
+const importMembers = regex`[\r\n\s\w{},*\$]*`;
+const from = regex`\s from \s`;
 
 const REQUIRE = regex`
   require(\.resolve)?
   ( \s | \( ) \s*
-  {{captureQuotedWord}}
+  ${captureQuotedWord}
 `;
 
 const IMPORT = regex`
-  import \s {{importMembers}}
-  {{from}}?
-  {{captureQuotedWord}}
+  import \s ${importMembers}
+  ${from}?
+  ${captureQuotedWord}
 `;
 
 const EXPORT = regex`
-  export \s {{importMembers}}
-  {{from}}
-  {{captureQuotedWord}}
+  export \s ${importMembers}
+  ${from}
+  ${captureQuotedWord}
 `;
 
 const GEM = regex`
-  gem \s {{captureQuotedWord}}
+  gem \s ${captureQuotedWord}
 `;
 
 const HOMEBREW = regex`
   (depends_on|conflicts_with)
   ( \s cask: | \s formula: )?
   \s
-  {{captureQuotedWord}}
+  ${captureQuotedWord}
 `;
 
 const TYPESCRIPT_REFERENCE = regex`
   \/{3} \s?
-  <reference \s path={{captureQuotedWord}}
+  <reference \s path=${captureQuotedWord}
 `;
 
 const DOCKER_FROM = regex`
@@ -61,7 +60,7 @@ const VIM_PLUGIN = regex`
     |
     Plug(in)?
   ) \s
-  {{captureQuotedWord}}
+  ${captureQuotedWord}
 `;
 
 const RUST_CRATE = regex`
