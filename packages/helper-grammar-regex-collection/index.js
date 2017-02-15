@@ -31,7 +31,6 @@ const REQUIRE = regex`
   require(\.resolve)?
   ( \s | \( ) \s*
   {{captureQuotedWord}}
-  \s* \)?
 `;
 
 const IMPORT = regex`
