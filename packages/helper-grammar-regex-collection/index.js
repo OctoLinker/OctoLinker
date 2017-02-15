@@ -10,14 +10,12 @@ import go from './go.js';
 // Also, groups are not captured by default, so only named groups work, like (?<name>pattern)
 // http://xregexp.com/flags/#explicitCapture
 
-const raw = String.raw;
+const subpatterns = {};
 
-const subpatterns = {
-  captureQuotedDep: new XRegExp(raw`['"](?<$1>[^'"\s]+)['"]`),
-  importMembers: /[\r\n\s\w{},*\$]*/,
-};
+const regex = pattern => XRegExp.build(`(?x)${String.raw(pattern)}`, subpatterns, 'ngm');
 
-const regex = pattern => XRegExp.build(`(?x)${raw(pattern)}`, subpatterns, 'ngm');
+subpatterns.captureQuotedDep = regex`['"](?<$1>[^'"\s]+)['"]`;
+subpatterns.importMembers = regex`[\r\n\s\w{},*\$]*`;
 subpatterns.from = regex`( \s from \s )`;
 
 const REQUIRE = regex`
