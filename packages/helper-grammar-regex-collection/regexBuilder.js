@@ -1,3 +1,4 @@
+import zip from 'pop-zip/zip';
 import XRegExp from 'xregexp/src/xregexp';
 import build from 'xregexp/src/addons/build';
 
@@ -17,10 +18,8 @@ export default function (flags = 'xngm') {
 
     // make `substitutions` the same length as `literals`
     // so we can iterate over them together
-    substitutions.push('');
-    const buildPattern = literals.raw.reduce((result, literal, index) => {
-      const substitution = substitutions[index];
-
+    const pairs = zip(literals.raw, substitutions.concat(''));
+    const buildPattern = pairs.reduce((result, [literal, substitution], index) => {
       subpatterns[index] = substitution instanceof RegExp ? substitution :
         XRegExp.escape(substitution);
 
