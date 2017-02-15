@@ -18,6 +18,7 @@ const subpatterns = {
 };
 
 const regex = pattern => XRegExp.build(`(?x)${raw(pattern)}`, subpatterns, 'ngm');
+subpatterns.from = regex`( \s from \s )`;
 
 const REQUIRE = regex`
   require(\.resolve)?
@@ -28,13 +29,13 @@ const REQUIRE = regex`
 
 const IMPORT = regex`
   import \s {{importMembers}}
-  ( \s from \s )?
+  {{from}}?
   {{captureQuotedDep}}
 `;
 
 const EXPORT = regex`
   export \s {{importMembers}}
-  ( \s from \s )
+  {{from}}
   {{captureQuotedDep}}
 `;
 
