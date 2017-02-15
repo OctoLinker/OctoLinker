@@ -15,6 +15,8 @@ export default function (flags = 'xngm') {
   return (literals, ...substitutions) => {
     const subpatterns = {};
 
+    // make `substitutions` the same length as `literals`
+    // so we can iterate over them together
     substitutions.push('');
     const buildPattern = literals.raw.reduce((result, literal, index) => {
       const substitution = substitutions[index];
