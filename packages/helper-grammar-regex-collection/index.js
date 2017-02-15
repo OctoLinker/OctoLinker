@@ -18,7 +18,7 @@ const regex = (pattern) => {
   return XRegExp.build(buildPattern, subpatterns, flags);
 };
 
-subpatterns.captureQuotedDep = regex`
+subpatterns.captureQuotedWord = regex`
   ['"]            # beginning quote
   (?<$1>[^'"\s]+) # capture the word inside the quotes
   ['"]            # end quote
@@ -30,36 +30,36 @@ subpatterns.from = regex`\s from \s`;
 const REQUIRE = regex`
   require(\.resolve)?
   ( \s | \( ) \s*
-  {{captureQuotedDep}}
+  {{captureQuotedWord}}
   \s* \)?
 `;
 
 const IMPORT = regex`
   import \s {{importMembers}}
   {{from}}?
-  {{captureQuotedDep}}
+  {{captureQuotedWord}}
 `;
 
 const EXPORT = regex`
   export \s {{importMembers}}
   {{from}}
-  {{captureQuotedDep}}
+  {{captureQuotedWord}}
 `;
 
 const GEM = regex`
-  gem \s {{captureQuotedDep}}
+  gem \s {{captureQuotedWord}}
 `;
 
 const HOMEBREW = regex`
   (depends_on|conflicts_with)
   ( \s cask: | \s formula: )?
   \s
-  {{captureQuotedDep}}
+  {{captureQuotedWord}}
 `;
 
 const TYPESCRIPT_REFERENCE = regex`
   \/{3} \s?
-  <reference \s path={{captureQuotedDep}}
+  <reference \s path={{captureQuotedWord}}
 `;
 
 const DOCKER_FROM = regex`
@@ -76,7 +76,7 @@ const VIM_PLUGIN = regex`
     |
     Plug(in)?
   ) \s
-  {{captureQuotedDep}}
+  {{captureQuotedWord}}
 `;
 
 const RUST_CRATE = regex`
