@@ -25,7 +25,7 @@ subpatterns.captureQuotedDep = regex`
 `;
 
 subpatterns.importMembers = regex`[\r\n\s\w{},*\$]*`;
-subpatterns.from = regex`( \s from \s )`;
+subpatterns.from = regex`\s from \s`;
 
 const REQUIRE = regex`
   require(\.resolve)?
