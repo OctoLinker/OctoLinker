@@ -6,7 +6,7 @@
   },
   "main": "lib/app.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
     "pretest": "npm run lint",
     "test": "karma start",
     "test:watch": "karma start --no-single-run --auto-watch",
