@@ -1,17 +1,7 @@
 import go from './go.js';
 import regexBuilder from './regexBuilder';
 
-// The regular expressions in this file are built using XRegExp (http://xregexp.com/)
-//
-// Note that they are spread across multiple lines and that whitespace is irrelevant,
-// so spaces have to be matched with \s.
-// http://xregexp.com/flags/#extended
-//
-// Also, groups are not captured by default, so only named groups work, like (?<name>pattern)
-// http://xregexp.com/flags/#explicitCapture
-
 const subpatterns = {};
-
 const regex = regexBuilder(subpatterns);
 
 subpatterns.captureQuotedWord = regex`
