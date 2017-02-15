@@ -4,6 +4,12 @@ import build from 'xregexp/src/addons/build';
 
 build(XRegExp);
 
+function interpolate(substitution) {
+  return substitution instanceof RegExp
+    ? substitution
+    : XRegExp.escape(substitution);
+}
+
 // This function makes it easy to build regular expressions that look more like formal grammars.
 // See here for more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
@@ -19,11 +25,7 @@ export default function (flags = 'xngm') {
     // so we can iterate over them together
     const pairs = zip(literals.raw, substitutions.concat(''));
     pairs.forEach(([literal, substitution], index) => {
-      const interpolated = substitution instanceof RegExp
-        ? substitution
-        : XRegExp.escape(substitution);
-
-      subpatterns[index] = interpolated;
+      subpatterns[index] = interpolate(substitution);
       buildPattern += `${literal}{{${index}}}`;
     });
 
