@@ -1,5 +1,5 @@
-import XRegExp from 'xregexp';
 import go from './go.js';
+import regexBuilder from './regexBuilder';
 
 // The regular expressions in this file are built using XRegExp (http://xregexp.com/)
 //
@@ -12,11 +12,7 @@ import go from './go.js';
 
 const subpatterns = {};
 
-const regex = (pattern) => {
-  const buildPattern = `(?x)${String.raw(pattern)}`;
-  const flags = 'ngm';
-  return XRegExp.build(buildPattern, subpatterns, flags);
-};
+const regex = regexBuilder(subpatterns);
 
 subpatterns.captureQuotedWord = regex`
   ['"]            # beginning quote
