@@ -14,8 +14,9 @@ export default function (flags = 'xngm') {
   return (literals, ...substitutions) => {
     const subpatterns = {};
 
+    substitutions.push('');
     const buildPattern = literals.raw.reduce((result, literal, index) => {
-      const substitution = index in substitutions ? substitutions[index] : '';
+      const substitution = substitutions[index];
 
       subpatterns[index] = substitution instanceof RegExp ? substitution :
         XRegExp.escape(substitution);
