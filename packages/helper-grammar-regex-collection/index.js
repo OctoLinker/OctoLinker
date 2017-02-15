@@ -12,7 +12,11 @@ import go from './go.js';
 
 const subpatterns = {};
 
-const regex = pattern => XRegExp.build(`(?x)${String.raw(pattern)}`, subpatterns, 'ngm');
+const regex = (pattern) => {
+  const buildPattern = `(?x)${String.raw(pattern)}`;
+  const flags = 'ngm';
+  return XRegExp.build(buildPattern, subpatterns, flags);
+};
 
 subpatterns.captureQuotedDep = regex`['"](?<$1>[^'"\s]+)['"]`;
 subpatterns.importMembers = regex`[\r\n\s\w{},*\$]*`;
