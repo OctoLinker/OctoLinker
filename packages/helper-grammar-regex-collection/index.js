@@ -2,7 +2,7 @@ import go from './go.js';
 import regexBuilder from './regexBuilder';
 
 const subpatterns = {};
-const regex = regexBuilder(subpatterns);
+const regex = regexBuilder({ subpatterns });
 
 subpatterns.captureQuotedWord = regex`
   ['"]            # beginning quote

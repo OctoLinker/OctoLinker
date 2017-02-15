@@ -7,7 +7,7 @@ build(XRegExp);
 // See here for more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
 // http://xregexp.com/api/#build
-export default function (subpatterns, flags = 'ngm') {
+export default function ({ subpatterns, flags = 'ngm' }) {
   return (pattern) => {
     const buildPattern = `(?x)${String.raw(pattern)}`;
     return XRegExp.build(buildPattern, subpatterns, flags);
