@@ -18,7 +18,12 @@ const regex = (pattern) => {
   return XRegExp.build(buildPattern, subpatterns, flags);
 };
 
-subpatterns.captureQuotedDep = regex`['"](?<$1>[^'"\s]+)['"]`;
+subpatterns.captureQuotedDep = regex`
+  ['"]            # beginning quote
+  (?<$1>[^'"\s]+) # capture the word inside the quotes
+  ['"]            # end quote
+`;
+
 subpatterns.importMembers = regex`[\r\n\s\w{},*\$]*`;
 subpatterns.from = regex`( \s from \s )`;
 
