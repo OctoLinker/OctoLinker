@@ -8,8 +8,9 @@ build(XRegExp);
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
 // http://xregexp.com/api/#build
 export default function (flags = 'xngm') {
+  // the 'x' flag doesn't seem to work if we pass it outside the pattern
+  // so put it inside as well
   const modeModifiers = flags.includes('x') ? '(?x)' : '';
-  flags = Array.from(flags).filter(fl => fl !== 'x').join('');
 
   return (literals, ...substitutions) => {
     const subpatterns = {};
