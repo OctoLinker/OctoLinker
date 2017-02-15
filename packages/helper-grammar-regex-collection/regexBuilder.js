@@ -14,17 +14,20 @@ export default function (flags = 'xngm') {
   const modeModifiers = flags.includes('x') ? '(?x)' : '';
 
   return (literals, ...substitutions) => {
-    const subpatterns = {};
+    let buildPattern = modeModifiers;
+    const subpatterns = [];
 
     // make `substitutions` the same length as `literals`
     // so we can iterate over them together
     const pairs = zip(literals.raw, substitutions.concat(''));
-    const buildPattern = pairs.reduce((result, [literal, substitution], index) => {
-      subpatterns[index] = substitution instanceof RegExp ? substitution :
-        XRegExp.escape(substitution);
+    pairs.forEach(([literal, substitution], index) => {
+      const interpolated = substitution instanceof RegExp
+        ? substitution
+        : XRegExp.escape(substitution);
 
-      return `${result + literal}{{${index}}}`;
-    }, modeModifiers);
+      subpatterns[index] = interpolated;
+      buildPattern += `${literal}{{${index}}}`;
+    });
 
     return XRegExp.build(buildPattern, subpatterns, flags);
   };
