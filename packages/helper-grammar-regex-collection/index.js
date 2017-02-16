@@ -1,7 +1,5 @@
 import go from './go.js';
-import regexBuilder from './regexBuilder';
-
-const regex = regexBuilder();
+import regex from './regex';
 
 const captureQuotedWord = regex`
   ['"]            # beginning quote

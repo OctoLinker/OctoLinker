@@ -14,23 +14,22 @@ function interpolate(substitution) {
 // See here for more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
 // http://xregexp.com/api/#build
-export default function (flags = 'xngm') {
-  return (literals, ...substitutions) => {
-    // the 'x' flag doesn't seem to work if we pass it outside the pattern
-    // so put it inside as well
-    let buildPattern = flags.includes('x') ? '(?x)' : '';
-    const subpatterns = [];
+export default function (literals, ...substitutions) {
+  const flags = 'xngm';
+  // the 'x' flag doesn't seem to work if we pass it outside the pattern
+  // so put it inside as well
+  let buildPattern = flags.includes('x') ? '(?x)' : '';
+  const subpatterns = [];
 
-    // make `substitutions` the same length as `literals`
-    // so we can iterate over them together
-    const pairs = zip(literals.raw, substitutions.concat(''));
-    pairs.forEach(([literal, substitution], index) => {
-      subpatterns[index] = interpolate(substitution);
-      buildPattern += `${literal}{{${index}}}`;
-    });
+  // make `substitutions` the same length as `literals`
+  // so we can iterate over them together
+  const pairs = zip(literals.raw, substitutions.concat(''));
+  pairs.forEach(([literal, substitution], index) => {
+    subpatterns[index] = interpolate(substitution);
+    buildPattern += `${literal}{{${index}}}`;
+  });
 
-    return XRegExp.build(buildPattern, subpatterns, flags);
-  };
+  return XRegExp.build(buildPattern, subpatterns, flags);
 }
 /* Usage Example:
 
