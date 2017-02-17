@@ -33,10 +33,9 @@ export default function (literals, ...substitutions) {
 }
 /* Usage Example:
 
-    import regexBuilder from './regexBuilder';
+    import regex from './regex';
     const sub = /inner/;
-    const xregexp = regexBuilder();
-    const outer = xregexp`
+    const outer = regex`
       # comments start with #
       before
 
