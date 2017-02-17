@@ -3086,6 +3086,12 @@
       "resolved": "https://registry.npmjs.org/from/-/from-0.1.3.tgz",
       "dev": true
     },
+    "fs-access": {
+      "version": "1.0.1",
+      "from": "fs-access@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/fs-access/-/fs-access-1.0.1.tgz",
+      "dev": true
+    },
     "fs-extra": {
       "version": "0.26.7",
       "from": "fs-extra@>=0.26.4 <0.27.0",
@@ -3926,6 +3932,24 @@
         }
       }
     },
+    "karma-chrome-launcher": {
+      "version": "2.0.0",
+      "from": "karma-chrome-launcher@latest",
+      "resolved": "https://registry.npmjs.org/karma-chrome-launcher/-/karma-chrome-launcher-2.0.0.tgz",
+      "dev": true
+    },
+    "karma-detect-browsers": {
+      "version": "2.2.4",
+      "from": "karma-detect-browsers@latest",
+      "resolved": "https://registry.npmjs.org/karma-detect-browsers/-/karma-detect-browsers-2.2.4.tgz",
+      "dev": true
+    },
+    "karma-firefox-launcher": {
+      "version": "1.0.0",
+      "from": "karma-firefox-launcher@latest",
+      "resolved": "https://registry.npmjs.org/karma-firefox-launcher/-/karma-firefox-launcher-1.0.0.tgz",
+      "dev": true
+    },
     "karma-fixture": {
       "version": "0.2.6",
       "from": "karma-fixture@>=0.2.5 <0.3.0",
@@ -4590,6 +4614,12 @@
       "version": "1.0.1",
       "from": "nth-check@>=1.0.1 <1.1.0",
       "resolved": "https://registry.npmjs.org/nth-check/-/nth-check-1.0.1.tgz",
+      "dev": true
+    },
+    "null-check": {
+      "version": "1.0.0",
+      "from": "null-check@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/null-check/-/null-check-1.0.0.tgz",
       "dev": true
     },
     "number-is-nan": {

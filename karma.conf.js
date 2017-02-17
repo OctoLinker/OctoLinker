@@ -10,7 +10,25 @@ if (process.env.APPVEYOR) {
 module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'fixture'],
+    frameworks: ['detectBrowsers', 'mocha', 'fixture'],
+    detectBrowsers: {
+      postDetection(availableBrowsers) {
+        return availableBrowsers
+          .filter(browser => ['Chrome', 'Firefox'].includes(browser))
+          .map((browser) => {
+            if (browser === 'Chrome' && process.env.TRAVIS) {
+              return 'Chrome_travis_ci';
+            }
+            return browser;
+          });
+      },
+    },
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox'],
+      },
+    },
     files: [
       'test/main-lib.js',
       'test/main-packages.js',
