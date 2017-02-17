@@ -1,15 +1,78 @@
 import go from './go.js';
+import regex from './regex';
 
-const REQUIRE = /require(?:\.resolve)?(?:\s|\()\s*['"]([^'"\s]+)['"]\s*\)?/g;
-const IMPORT = /import [\r\n\s\w{},*\$]*(?: from )?['"]([^'"\s]+)['"]/g;
-const EXPORT = /export [\r\n\s\w{},*\$]*(?: from )['"]([^'"\s]+)['"]/g;
-const GEM = /gem ['"]([^'"\s]+)['"]/g;
-const HOMEBREW = /(?:depends_on|conflicts_with)(?: cask:| formula:)? ['"]([^'"\s]+)['"]/g;
-const TYPESCRIPT_REFERENCE = /\/{3}\s?<reference path=['"]([^'"\s]+)['"]/g;
-const DOCKER_FROM = /FROM\s([^\n]*)/g;
-const VIM_PLUGIN = /(?:(?:(?:Neo)?Bundle(?:Lazy|Fetch)?)|Plug(?:in)?)\s['"]([^'"\s]+)['"]/g;
-const RUST_CRATE = /(?:extern crate|use) ([^:; ]+)/g;
-const PYTHON_IMPORT = /^\s*(?:import|from)\s([^\s]*)/gm;
+const captureQuotedWord = regex`
+  ['"]            # beginning quote
+  (?<$1>[^'"\s]+) # capture the word inside the quotes
+  ['"]            # end quote
+`;
+
+const importMembers = regex`[\r\n\s\w{},*\$]*`;
+const from = regex`\s from \s`;
+
+const REQUIRE = regex`
+  require(\.resolve)?
+  ( \s | \( ) \s*
+  ${captureQuotedWord}
+`;
+
+const IMPORT = regex`
+  import \s ${importMembers}
+  ${from}?
+  ${captureQuotedWord}
+`;
+
+const EXPORT = regex`
+  export \s ${importMembers}
+  ${from}
+  ${captureQuotedWord}
+`;
+
+const GEM = regex`
+  gem \s ${captureQuotedWord}
+`;
+
+const HOMEBREW = regex`
+  (depends_on|conflicts_with)
+  ( \s cask: | \s formula: )?
+  \s
+  ${captureQuotedWord}
+`;
+
+const TYPESCRIPT_REFERENCE = regex`
+  \/{3} \s?
+  <reference \s path=${captureQuotedWord}
+`;
+
+const DOCKER_FROM = regex`
+  FROM \s (?<$1>[^\n]*)
+`;
+
+const VIM_PLUGIN = regex`
+  (
+    (
+      (Neo)?
+      Bundle
+      (Lazy|Fetch)?
+    )
+    |
+    Plug(in)?
+  ) \s
+  ${captureQuotedWord}
+`;
+
+const RUST_CRATE = regex`
+  (extern \s crate | use)
+  \s
+  (?<$1>[^:;\s]+)
+`;
+
+const PYTHON_IMPORT = regex`
+  ^\s*
+  (import|from)
+  \s
+  (?<$1>[^\s]*)
+`;
 
 export {
   REQUIRE,

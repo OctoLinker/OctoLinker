@@ -4900,6 +4900,11 @@
       "resolved": "https://registry.npmjs.org/pluralize/-/pluralize-1.2.1.tgz",
       "dev": true
     },
+    "pop-zip": {
+      "version": "1.0.0",
+      "from": "pop-zip@latest",
+      "resolved": "https://registry.npmjs.org/pop-zip/-/pop-zip-1.0.0.tgz"
+    },
     "postcss": {
       "version": "5.2.5",
       "from": "postcss@5.2.5",
@@ -6291,6 +6296,11 @@
       "from": "xmlhttprequest-ssl@1.5.3",
       "resolved": "https://registry.npmjs.org/xmlhttprequest-ssl/-/xmlhttprequest-ssl-1.5.3.tgz",
       "dev": true
+    },
+    "xregexp": {
+      "version": "3.1.1",
+      "from": "xregexp@latest",
+      "resolved": "https://registry.npmjs.org/xregexp/-/xregexp-3.1.1.tgz"
     },
     "xtend": {
       "version": "4.0.1",
