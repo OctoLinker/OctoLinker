@@ -134,7 +134,8 @@ describe('blob-reader', () => {
 
       it('1st line', () => {
         assert.equal(result.lines[0].lineNumber, 1);
-        assert.equal(result.lines[0].value, '// Most popular rabbit names');
+        // Use .trim() because Firefox puts a leading space, but Chrome doesn't.
+        assert.equal(result.lines[0].value.trim(), '// Most popular rabbit names');
       });
 
       it('additions', () => {
@@ -169,7 +170,8 @@ describe('blob-reader', () => {
 
       it('1st line', () => {
         assert.equal(result.lines[0].lineNumber, 1);
-        assert.equal(result.lines[0].value, '// Most popular rabbit names');
+        // Use .trim() because Firefox puts a leading space, but Chrome doesn't.
+        assert.equal(result.lines[0].value.trim(), '// Most popular rabbit names');
       });
 
       it('additions', () => {

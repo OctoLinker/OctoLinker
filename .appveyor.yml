@@ -9,6 +9,8 @@ cache:
 install:
   # Get the latest stable version of Node.js or io.js
   - ps: Install-Product node $env:nodejs_version
+  - appveyor-retry choco install firefox
+  - appveyor-retry choco install googlechrome
   - appveyor-retry choco install phantomjs
   - appveyor-retry choco install zip
   # install modules
