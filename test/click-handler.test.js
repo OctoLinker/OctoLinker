@@ -123,6 +123,17 @@ describe('click-handler', () => {
       });
     });
 
+    describe('when url start with "https://github.com"', () => {
+      it('does not call the ping route for github.com', () => {
+        resolvers.foo.returns(['https://github.com/foo']);
+        $link.click();
+
+        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
+          { url: 'https://github.com/foo' },
+        ]);
+      });
+    });
+
     describe('when url does not start with "https://github.com"', () => {
       it('calls the ping route with the given given url', () => {
         resolvers.foo.returns(['https://hubhub.com/foo']);
