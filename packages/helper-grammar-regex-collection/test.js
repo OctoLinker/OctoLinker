@@ -162,6 +162,7 @@ const fixtures = {
     ],
     invalid: [
       "extern create 'pcre'",
+      'because it',
     ],
   },
   PYTHON_IMPORT: {
