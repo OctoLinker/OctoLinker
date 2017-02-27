@@ -5,19 +5,20 @@ import clickHandler from '../lib/click-handler';
 
 describe('click-handler', () => {
   const sandbox = sinon.sandbox.create();
-  const $link = $('<div class="octolinker-link" data-resolver="foo" data-bar="baz"></div>');
-  let resolvers;
+  const $link = $('<div class="octolinker-link" data-plugin-name="foo" data-bar="baz"></div>');
+  let fakePluginManager;
+  let resolveFake;
 
   sandbox.stub(window.chrome.runtime, 'sendMessage');
 
   beforeEach(() => {
-    resolvers = {
-      foo: sandbox.stub(),
-      bar: sandbox.stub(),
+    resolveFake = sandbox.stub().returns('abc');
+    fakePluginManager = {
+      getResolver: sandbox.stub().returns(resolveFake),
     };
 
     $('body').append($link);
-    clickHandler(resolvers);
+    clickHandler(fakePluginManager);
   });
 
   afterEach(() => {
@@ -31,26 +32,26 @@ describe('click-handler', () => {
   });
 
   it('does not attach more than one global click handler', () => {
-    clickHandler(resolvers);
-    clickHandler(resolvers);
+    clickHandler(fakePluginManager);
+    clickHandler(fakePluginManager);
     $link.click();
 
-    assert.equal(resolvers.foo.callCount, 1);
+    assert.equal(fakePluginManager.getResolver.callCount, 1);
   });
 
   describe('on click', () => {
     it('calls the corresponding resolver', () => {
       $link.click();
 
-      assert.equal(resolvers.foo.callCount, 1);
-      assert.equal(resolvers.bar.callCount, 0);
+      assert.equal(fakePluginManager.getResolver.callCount, 1);
+      assert.equal(fakePluginManager.getResolver.args[0][0], 'foo');
     });
 
     it('calls the corresponding handler with data-attr of the target', () => {
       $link.click();
 
-      assert.deepEqual(resolvers.foo.args[0][0], {
-        resolver: 'foo',
+      assert.deepEqual(resolveFake.args[0][0], {
+        pluginName: 'foo',
         bar: 'baz',
       });
     });
@@ -61,8 +62,7 @@ describe('click-handler', () => {
       $link.trigger($.Event('mouseup', { // eslint-disable-line new-cap
         which: 1,
       }));
-      assert.equal(resolvers.foo.callCount, 0);
-      assert.equal(resolvers.bar.callCount, 0);
+      assert.equal(fakePluginManager.getResolver.callCount, 0);
     });
 
     it('calls the corresponding handler on middle mouse click', () => {
@@ -70,14 +70,13 @@ describe('click-handler', () => {
         which: 2,
       }));
 
-      assert.equal(resolvers.foo.callCount, 1);
-      assert.equal(resolvers.bar.callCount, 0);
+      assert.equal(fakePluginManager.getResolver.callCount, 1);
     });
   });
 
   describe('request', () => {
     it('sends a runtime message from type fetch', () => {
-      resolvers.foo.returns('{BASE_URL}/foo');
+      resolveFake.returns('{BASE_URL}/foo');
       $link.click();
 
       assert.equal(window.chrome.runtime.sendMessage.args[1][0].type, 'fetch');
@@ -85,7 +84,7 @@ describe('click-handler', () => {
 
     describe('when resolver returns a url', () => {
       it('passes object along the runtime message', () => {
-        resolvers.foo.returns('{BASE_URL}/foo');
+        resolveFake.returns('{BASE_URL}/foo');
         $link.click();
 
         assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
@@ -96,7 +95,7 @@ describe('click-handler', () => {
 
     describe('when resolver returns an array of url', () => {
       it('passes object along the runtime message', () => {
-        resolvers.foo.returns([
+        resolveFake.returns([
           '{BASE_URL}/foo',
           '{BASE_URL}/bar',
         ]);
@@ -111,7 +110,7 @@ describe('click-handler', () => {
 
     describe('when resolver returns an url object', () => {
       it('passes url object along the runtime message', () => {
-        resolvers.foo.returns({
+        resolveFake.returns({
           method: 'GET',
           url: '{BASE_URL}/foo',
         });
@@ -125,7 +124,7 @@ describe('click-handler', () => {
 
     describe('when url start with "https://github.com"', () => {
       it('does not call the ping route for github.com', () => {
-        resolvers.foo.returns(['https://github.com/foo']);
+        resolveFake.returns(['https://github.com/foo']);
         $link.click();
 
         assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
@@ -136,7 +135,7 @@ describe('click-handler', () => {
 
     describe('when url does not start with "https://github.com"', () => {
       it('calls the ping route with the given given url', () => {
-        resolvers.foo.returns(['https://hubhub.com/foo']);
+        resolveFake.returns(['https://hubhub.com/foo']);
         $link.click();
 
         assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
@@ -147,7 +146,7 @@ describe('click-handler', () => {
 
     describe('when urls contains external and github.com urls', () => {
       it('calls the ping route only for the external urls', () => {
-        resolvers.foo.returns([
+        resolveFake.returns([
           'https://hubhub.com/foo',
           '{BASE_URL}/bar',
         ]);
@@ -161,14 +160,14 @@ describe('click-handler', () => {
     });
 
     it('sends a runtime message from type track', () => {
-      resolvers.foo.returns('{BASE_URL}/foo');
+      resolveFake.returns('{BASE_URL}/foo');
       $link.click();
 
       assert.equal(window.chrome.runtime.sendMessage.args[0][0].type, 'track');
     });
 
     it('tracks the resolver identity', () => {
-      resolvers.foo.returns('{BASE_URL}/foo');
+      resolveFake.returns('{BASE_URL}/foo');
       $link.click();
 
       assert.deepEqual(window.chrome.runtime.sendMessage.args[0][0].payload, {
