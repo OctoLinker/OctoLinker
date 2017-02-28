@@ -2,8 +2,13 @@
 environment:
   nodejs_version: "6"
 
+<<<<<<< HEAD
 # cache:
 #   - node_modules
+=======
+cache:
+ - "%LOCALAPPDATA%\\Yarn"
+>>>>>>> Use yarn to install nodejs dependecies
 
 # Install scripts. (runs after repo cloning)
 install:
