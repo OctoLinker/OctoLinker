@@ -33,7 +33,18 @@
       "transform-object-rest-spread"
     ],
     "presets": [
-      "es2015"
+      [
+        "env",
+        {
+          "targets": {
+            "browsers": [
+              "last 3 Chrome versions",
+              "last 3 Firefox versions",
+              "last 3 Opera versions"
+            ]
+          }
+        }
+      ]
     ]
   },
   "dependencies": {
@@ -60,7 +71,7 @@
     "babel-eslint": "7.1.1",
     "babel-loader": "6.2.10",
     "babel-plugin-transform-object-rest-spread": "6.22.0",
-    "babel-preset-es2015": "6.22.0",
+    "babel-preset-env": "1.1.10",
     "chrome-launch": "1.1.4",
     "chrome-webstore-upload-cli": "1.1.1",
     "copy-webpack-plugin": "4.0.1",
