@@ -2,8 +2,8 @@
 environment:
   nodejs_version: "6"
 
-# cache:
-#   - node_modules
+cache:
+ - "%LOCALAPPDATA%\\Yarn"
 
 # Install scripts. (runs after repo cloning)
 install:
@@ -14,8 +14,7 @@ install:
   - appveyor-retry choco install phantomjs
   - appveyor-retry choco install zip
   # install modules
-  - npm install -g npm@latest
-  - npm install
+  - yarn install
 
 # Post-install test scripts.
 test_script:

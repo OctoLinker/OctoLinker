@@ -10,7 +10,7 @@ First off, thanks for taking the time to contribute! :tada: :+1:
 To build and run the extension follow these steps.
 
 0. Clone the repository.
-0. Run `npm install` to setup the project and install all required dependencies.
+0. Run `yarn install` to setup the project and install all required dependencies.
 0. Start hacking. If you're adding a plugin, you may be interested in seeing the commits that add these plugins:
    * [Docker]
    * [vimrc]
