@@ -19,11 +19,11 @@ To build and run the extension follow these steps.
    * [project.json]
 0. Build and load the extension:
    * Firefox (Quickstart):
-     0. `npm run firefox-open`
+     0. `yarn firefox-open`
    * Chrome (Quickstart):
-     0. `npm run chrome-open`
+     0. `yarn chrome-open`
    * Chrome (Long Version):
-     0. To build the extension once run `npm run chrome-build` or `npm run chrome-watch` during development.
+     0. To build the extension once run `yarn chrome-build` or `yarn chrome-watch` during development.
      0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
 [Docker]: https://github.com/OctoLinker/browser-extension/commit/33a2e60
@@ -49,9 +49,9 @@ The outline above is an extremely simplified version. In real life you have to d
 - Please check to make sure that there aren't existing pull requests attempting to address the issue mentioned. We also recommend checking for issues related to the issue on the tracker, as a team member may be working on the issue in a branch or fork.
 - Non-trivial changes should be discussed in an issue first
 - Develop in a topic branch, not master
-- Lint the code by `npm run lint`
+- Lint the code by `yarn lint`
 - Add relevant tests to cover the change
-- Make sure test-suite passes: `npm test`
+- Make sure test-suite passes: `yarn test`
 - Squash your commits
 - Write a convincing description of your PR and why we should land it
 
