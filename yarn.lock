@@ -1335,7 +1335,7 @@ compress-commons@^1.1.0:
     normalize-path "^2.0.0"
     readable-stream "^2.0.0"
 
-concat-map@0.0.1:
+concat-map@0.0.1, concat-map@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
@@ -4186,13 +4186,9 @@ qjobs@^1.1.4:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/qjobs/-/qjobs-1.1.5.tgz#659de9f2cf8dcc27a1481276f205377272382e73"
 
-qs@6.2.1:
+qs@6.2.1, qs@~6.2.0:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.1.tgz#ce03c5ff0935bc1d9d69a9f14cbd18e568d67625"
-
-qs@~6.2.0:
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.2.tgz#d506a5ad5b2cae1fd35c4f54ec182e267e3ef586"
 
 qs@~6.3.0:
   version "6.3.1"
