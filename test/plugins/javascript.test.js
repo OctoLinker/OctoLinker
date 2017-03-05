@@ -65,4 +65,78 @@ describe('javascript-universal', () => {
       ],
     );
   });
+
+  it("fallbacks './lib/foo.js' to './src/foo.js'", () => {
+    assert.deepEqual(
+      plugin.resolve({ target: './lib/foo.js' }),
+      [
+        '{BASE_URL}lib/foo.js',
+        '{BASE_URL}lib/foo/index.js',
+        '{BASE_URL}lib/foo.jsx',
+        '{BASE_URL}lib/foo/index.jsx',
+        '{BASE_URL}lib/foo.ts',
+        '{BASE_URL}lib/foo/index.ts',
+        '{BASE_URL}lib/foo.tsx',
+        '{BASE_URL}lib/foo/index.tsx',
+        '{BASE_URL}lib/foo.json',
+        '{BASE_URL}lib/foo/index.json',
+        '{BASE_URL}lib/foo',
+
+        '{BASE_URL}src/foo.js',
+        '{BASE_URL}src/foo/index.js',
+        '{BASE_URL}src/foo.jsx',
+        '{BASE_URL}src/foo/index.jsx',
+        '{BASE_URL}src/foo.ts',
+        '{BASE_URL}src/foo/index.ts',
+        '{BASE_URL}src/foo.tsx',
+        '{BASE_URL}src/foo/index.tsx',
+        '{BASE_URL}src/foo.json',
+        '{BASE_URL}src/foo/index.json',
+        '{BASE_URL}src/foo',
+      ],
+    );
+  });
+
+  it("fallbacks './dist/foo.js' to './lib/foo.js' and './src/foo.js'", () => {
+    assert.deepEqual(
+      plugin.resolve({ target: './dist/foo.js' }),
+      [
+        '{BASE_URL}dist/foo.js',
+        '{BASE_URL}dist/foo/index.js',
+        '{BASE_URL}dist/foo.jsx',
+        '{BASE_URL}dist/foo/index.jsx',
+        '{BASE_URL}dist/foo.ts',
+        '{BASE_URL}dist/foo/index.ts',
+        '{BASE_URL}dist/foo.tsx',
+        '{BASE_URL}dist/foo/index.tsx',
+        '{BASE_URL}dist/foo.json',
+        '{BASE_URL}dist/foo/index.json',
+        '{BASE_URL}dist/foo',
+
+        '{BASE_URL}lib/foo.js',
+        '{BASE_URL}lib/foo/index.js',
+        '{BASE_URL}lib/foo.jsx',
+        '{BASE_URL}lib/foo/index.jsx',
+        '{BASE_URL}lib/foo.ts',
+        '{BASE_URL}lib/foo/index.ts',
+        '{BASE_URL}lib/foo.tsx',
+        '{BASE_URL}lib/foo/index.tsx',
+        '{BASE_URL}lib/foo.json',
+        '{BASE_URL}lib/foo/index.json',
+        '{BASE_URL}lib/foo',
+
+        '{BASE_URL}src/foo.js',
+        '{BASE_URL}src/foo/index.js',
+        '{BASE_URL}src/foo.jsx',
+        '{BASE_URL}src/foo/index.jsx',
+        '{BASE_URL}src/foo.ts',
+        '{BASE_URL}src/foo/index.ts',
+        '{BASE_URL}src/foo.tsx',
+        '{BASE_URL}src/foo/index.tsx',
+        '{BASE_URL}src/foo.json',
+        '{BASE_URL}src/foo/index.json',
+        '{BASE_URL}src/foo',
+      ],
+    );
+  });
 });
