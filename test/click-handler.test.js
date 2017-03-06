@@ -10,6 +10,7 @@ describe('click-handler', () => {
   let resolveFake;
 
   sandbox.stub(window.chrome.runtime, 'sendMessage');
+  window.console.error = () => {}; // Suppress fake onClick errors
 
   beforeEach(() => {
     resolveFake = sandbox.stub().returns('abc');
