@@ -196,6 +196,14 @@ const fixtures = {
       '@import url(foo)',
     ],
   },
+  HTML_IMPORT: {
+    valid: [
+      '<link rel="import" href="foo">',
+    ],
+    invalid: [
+      '<link href="foo">',
+    ],
+  },
 };
 
 const goFixtures = {
