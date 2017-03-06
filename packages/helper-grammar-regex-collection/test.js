@@ -182,6 +182,20 @@ const fixtures = {
       '# from the',
     ],
   },
+  CSS_IMPORT: {
+    valid: [
+      '@import \'foo\'',
+      '@import "foo"',
+      '@import "foo" bar',
+      '@import URL("foo")',
+      '@import url("foo")',
+      '@import url("foo") bar',
+    ],
+    invalid: [
+      '@import foo',
+      '@import url(foo)',
+    ],
+  },
 };
 
 const goFixtures = {

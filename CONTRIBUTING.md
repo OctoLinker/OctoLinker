@@ -12,11 +12,7 @@ To build and run the extension follow these steps.
 0. Clone the repository.
 0. Run `yarn install` to setup the project and install all required dependencies.
 0. Start hacking. If you're adding a plugin, you may be interested in seeing the commits that add these plugins:
-   * [Docker]
-   * [vimrc]
-   * [Rust]
-   * [Python]
-   * [project.json]
+   * [CSS]
 0. Build and load the extension:
    * Firefox (Quickstart):
      0. `yarn firefox-open`
@@ -26,21 +22,13 @@ To build and run the extension follow these steps.
      0. To build the extension once run `yarn chrome-build` or `yarn chrome-watch` during development.
      0. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
-[Docker]: https://github.com/OctoLinker/browser-extension/commit/33a2e60
-[vimrc]: https://github.com/OctoLinker/browser-extension/commit/7e21743
-[Rust]: https://github.com/OctoLinker/browser-extension/commit/51983b0
-[Python]: https://github.com/OctoLinker/browser-extension/commit/963cf15
-[project.json]: https://github.com/OctoLinker/browser-extension/commit/7c7293b
+[CSS]: https://github.com/OctoLinker/browser-extension/commit/ccbefb7
 
 ## Architecture Overview
 
-Every single file on GitHub.com is represented by a blob. Whenever the extension detects a blob it will pass it to the associated plugin. Every [plugin](/lib/plugins) describes one feature.
+Every single file on GitHub.com is represented by a blob. A [blob](/packages/blob-reader) consists of many attributes. One of these attributes is a reference to the blobs DOM node. The plugin will tweak this DOM node and turn static strings into clickable links. How does this work? There is an npm module for that. It's called [findandreplacedomtext](https://github.com/padolsey/findAndReplaceDOMText/) and it searches for regular expression matches in a given DOM node and wraps each match with a link node.
 
-A [blob](/packages/blob-reader) consists of many attributes. One of these attributes is a reference to the blobs DOM node. The plugin will tweak this DOM node and turn static strings into clickable links. How does this work? There is an npm module for that. It's called [findandreplacedomtext](https://github.com/padolsey/findAndReplaceDOMText/) and it searches for regular expression matches in a given DOM node and wraps each match with a link node.
-
-By convention, this link must have at least the data attribute `data-resolver`. This attribute defines which resolver will be called when a user clicks a link. A [resolver](/lib/resolver) is basically just a function which returns an array of possible urls/locations for this resource. Depending on the defined resolver the link must have additional attributes. For example the `relative-file` resolver requires a `data-target` attribute which is the actual value for this link e.g. `./lib/core.js`.
-
-As mentioned, if a user clicks on a link, the associated resolver will be called and returns an array of urls. For every url a HTTP HEAD request is made (to determine if the resource is available or not) until one was successful. Finally, a redirect will be invoked. That’s it.
+If a user clicks on a link, the associated plugin will be called and returns an array of urls. For every url a HTTP HEAD request is made (to determine if the resource is available or not) until one was successful. Finally, a redirect will be invoked. That’s it.
 
 The outline above is an extremely simplified version. In real life you have to deal with a lot of edge cases. If you are interested in some of these edge cases check out the `npm-manifest` plugin and the `javascriptUniversal` resolver.
 
