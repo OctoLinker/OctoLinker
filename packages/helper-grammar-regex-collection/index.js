@@ -82,6 +82,15 @@ const CSS_IMPORT = regex`
   ${captureQuotedWord}
 `;
 
+const HTML_IMPORT = regex`
+  ^\s*
+  <link
+  \s
+  rel="import"
+  \s
+  href=${captureQuotedWord}>
+`;
+
 export {
   REQUIRE,
   IMPORT,
@@ -94,5 +103,6 @@ export {
   RUST_CRATE,
   PYTHON_IMPORT,
   CSS_IMPORT,
+  HTML_IMPORT,
   go,
 };
