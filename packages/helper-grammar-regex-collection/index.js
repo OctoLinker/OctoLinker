@@ -74,6 +74,14 @@ const PYTHON_IMPORT = regex`
   (?<$1>[^\s]*)
 `;
 
+const CSS_IMPORT = regex`
+  ^\s*
+  @import
+  \s
+  ((url|URL)\()?
+  ${captureQuotedWord}
+`;
+
 export {
   REQUIRE,
   IMPORT,
@@ -85,5 +93,6 @@ export {
   VIM_PLUGIN,
   RUST_CRATE,
   PYTHON_IMPORT,
+  CSS_IMPORT,
   go,
 };
