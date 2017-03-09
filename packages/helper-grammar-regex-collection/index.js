@@ -74,7 +74,6 @@ const PYTHON_IMPORT = regex`
   (?<$1>[^\s]*)
 `;
 
-<<<<<<< HEAD
 const HASKELL_IMPORT = regex`
   ((^|\s)import\s+(qualified\s)?)
   (?<$1> [\w.]+)
