@@ -74,9 +74,10 @@ const PYTHON_IMPORT = regex`
   (?<$1>[^\s]*)
 `;
 
-const HASKELL_IMPORT = new RegExp(
-  /(?:(?:^|\s)import\s+(?:qualified\s)?)([\w.]+)/g
-);
+const HASKELL_IMPORT = regex`
+  ((^|\s)import\s+(qualified\s)?)
+  (?<$1> [\w.]+)
+`;
 
 export {
   REQUIRE,
@@ -90,5 +91,5 @@ export {
   RUST_CRATE,
   PYTHON_IMPORT,
   go,
-  HASKELL_IMPORT
+  HASKELL_IMPORT,
 };
