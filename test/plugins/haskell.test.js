@@ -11,7 +11,7 @@ describe('haskell', () => {
         '{BASE_URL}/user/repo/blob/master/src/Foo/Bar.hs',
         '{BASE_URL}/user/repo/blob/master/lib/Foo/Bar.hs',
         '{BASE_URL}/user/repo/blob/master/Foo/Bar.hs',
-        'https://hackage.haskell.org/package/base-4.9.1.0/docs/Foo-Bar.html',
+        'https://hackage.haskell.org/package/base/docs/Foo-Bar.html',
       ],
     );
   });
