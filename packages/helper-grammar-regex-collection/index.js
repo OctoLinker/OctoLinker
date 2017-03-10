@@ -74,6 +74,11 @@ const PYTHON_IMPORT = regex`
   (?<$1>[^\s]*)
 `;
 
+const HASKELL_IMPORT = regex`
+  ((^|\s)import\s+(qualified\s)?)
+  (?<$1> [A-Z][\w.]+)
+`;
+
 const CSS_IMPORT = regex`
   ^\s*
   @import
@@ -105,4 +110,5 @@ export {
   CSS_IMPORT,
   HTML_IMPORT,
   go,
+  HASKELL_IMPORT,
 };
