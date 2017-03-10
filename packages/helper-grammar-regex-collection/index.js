@@ -76,7 +76,7 @@ const PYTHON_IMPORT = regex`
 
 const HASKELL_IMPORT = regex`
   ((^|\s)import\s+(qualified\s)?)
-  (?<$1> [\w.]+)
+  (?<$1> [^.][\w.]+)
 `;
 
 const CSS_IMPORT = regex`
