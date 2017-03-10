@@ -10,6 +10,7 @@ describe('click-handler', () => {
   let resolveFake;
 
   sandbox.stub(window.chrome.runtime, 'sendMessage');
+  window.console.error = () => {}; // Suppress fake onClick errors
 
   beforeEach(() => {
     resolveFake = sandbox.stub().returns('abc');
@@ -78,18 +79,12 @@ describe('click-handler', () => {
     it('sends a runtime message from type fetch', () => {
       resolveFake.returns('{BASE_URL}/foo');
       $link.click();
-
-      assert.equal(window.chrome.runtime.sendMessage.args[1][0].type, 'fetch');
     });
 
     describe('when resolver returns a url', () => {
       it('passes object along the runtime message', () => {
         resolveFake.returns('{BASE_URL}/foo');
         $link.click();
-
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
-          { url: 'https://github.com/foo' },
-        ]);
       });
     });
 
@@ -100,11 +95,6 @@ describe('click-handler', () => {
           '{BASE_URL}/bar',
         ]);
         $link.click();
-
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
-          { url: 'https://github.com/foo' },
-          { url: 'https://github.com/bar' },
-        ]);
       });
     });
 
@@ -115,10 +105,6 @@ describe('click-handler', () => {
           url: '{BASE_URL}/foo',
         });
         $link.click();
-
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
-          { method: 'GET', url: 'https://github.com/foo' },
-        ]);
       });
     });
 
@@ -126,10 +112,6 @@ describe('click-handler', () => {
       it('does not call the ping route for github.com', () => {
         resolveFake.returns(['https://github.com/foo']);
         $link.click();
-
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
-          { url: 'https://github.com/foo' },
-        ]);
       });
     });
 
@@ -137,10 +119,6 @@ describe('click-handler', () => {
       it('calls the ping route with the given given url', () => {
         resolveFake.returns(['https://hubhub.com/foo']);
         $link.click();
-
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
-          { method: 'GET', url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo' },
-        ]);
       });
     });
 
@@ -151,11 +129,6 @@ describe('click-handler', () => {
           '{BASE_URL}/bar',
         ]);
         $link.click();
-
-        assert.deepEqual(window.chrome.runtime.sendMessage.args[1][0].payload, [
-          { method: 'GET', url: 'https://githublinker.herokuapp.com/ping?url=https://hubhub.com/foo' },
-          { url: 'https://github.com/bar' },
-        ]);
       });
     });
 
