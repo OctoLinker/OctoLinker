@@ -74,12 +74,26 @@ const PYTHON_IMPORT = regex`
   (?<$1>[^\s]*)
 `;
 
+const HASKELL_IMPORT = regex`
+  ((^|\s)import\s+(qualified\s)?)
+  (?<$1> [A-Z][\w.]+)
+`;
+
 const CSS_IMPORT = regex`
   ^\s*
   @import
   \s
   ((url|URL)\()?
   ${captureQuotedWord}
+`;
+
+const HTML_IMPORT = regex`
+  ^\s*
+  <link
+  \s
+  rel="import"
+  \s
+  href=${captureQuotedWord}>
 `;
 
 export {
@@ -94,5 +108,7 @@ export {
   RUST_CRATE,
   PYTHON_IMPORT,
   CSS_IMPORT,
+  HTML_IMPORT,
   go,
+  HASKELL_IMPORT,
 };

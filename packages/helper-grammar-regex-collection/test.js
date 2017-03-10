@@ -98,6 +98,28 @@ const fixtures = {
       'gem     "foo"',
     ],
   },
+  HASKELL_IMPORT: {
+    valid: [
+      ['import Foo', ['Foo']],
+      ['import Foo.Bar', ['Foo.Bar']],
+      ['import qualified Foo', ['Foo']],
+      ['import qualified Foo.Bar', ['Foo.Bar']],
+      ['import Foo.Bar.Baz', ['Foo.Bar.Baz']],
+      ['import Foo Bar', ['Foo']],
+      ['import Foo', ['Foo']],
+      ['import Foo as Bar', ['Foo']],
+      ['import Foo ()', ['Foo']],
+      ['import Foo', ['Foo']],
+    ],
+    invalid: [
+      ['limport Foo'],
+      ['imports Foo'],
+      ['import "Foo"'],
+      ['import /Foo'],
+      ['import .foo'],
+      ['import foo'],
+    ],
+  },
   HOMEBREW: {
     valid: [
       'depends_on "foo"',
@@ -194,6 +216,14 @@ const fixtures = {
     invalid: [
       '@import foo',
       '@import url(foo)',
+    ],
+  },
+  HTML_IMPORT: {
+    valid: [
+      '<link rel="import" href="foo">',
+    ],
+    invalid: [
+      '<link href="foo">',
     ],
   },
 };
