@@ -71,27 +71,36 @@ describe('javascript-universal', () => {
       plugin.resolve({ path: '/user/repo/package.json', target: './lib/foo.js' }),
       [
         '{BASE_URL}/user/repo/lib/foo.js',
-        '{BASE_URL}/user/repo/lib/foo/index.js',
-        '{BASE_URL}/user/repo/lib/foo.jsx',
-        '{BASE_URL}/user/repo/lib/foo/index.jsx',
-        '{BASE_URL}/user/repo/lib/foo.ts',
-        '{BASE_URL}/user/repo/lib/foo/index.ts',
-        '{BASE_URL}/user/repo/lib/foo.tsx',
-        '{BASE_URL}/user/repo/lib/foo/index.tsx',
-        '{BASE_URL}/user/repo/lib/foo.json',
-        '{BASE_URL}/user/repo/lib/foo/index.json',
-        '{BASE_URL}/user/repo/lib/foo',
-
         '{BASE_URL}/user/repo/src/foo.js',
+
+        '{BASE_URL}/user/repo/lib/foo/index.js',
         '{BASE_URL}/user/repo/src/foo/index.js',
+
+        '{BASE_URL}/user/repo/lib/foo.jsx',
         '{BASE_URL}/user/repo/src/foo.jsx',
+
+        '{BASE_URL}/user/repo/lib/foo/index.jsx',
         '{BASE_URL}/user/repo/src/foo/index.jsx',
+
+        '{BASE_URL}/user/repo/lib/foo.ts',
         '{BASE_URL}/user/repo/src/foo.ts',
+
+        '{BASE_URL}/user/repo/lib/foo/index.ts',
         '{BASE_URL}/user/repo/src/foo/index.ts',
+
+        '{BASE_URL}/user/repo/lib/foo.tsx',
         '{BASE_URL}/user/repo/src/foo.tsx',
+
+        '{BASE_URL}/user/repo/lib/foo/index.tsx',
         '{BASE_URL}/user/repo/src/foo/index.tsx',
+
+        '{BASE_URL}/user/repo/lib/foo.json',
         '{BASE_URL}/user/repo/src/foo.json',
+
+        '{BASE_URL}/user/repo/lib/foo/index.json',
         '{BASE_URL}/user/repo/src/foo/index.json',
+
+        '{BASE_URL}/user/repo/lib/foo',
         '{BASE_URL}/user/repo/src/foo',
       ],
     );
@@ -102,39 +111,47 @@ describe('javascript-universal', () => {
       plugin.resolve({ path: '/user/repo/package.json', target: './dist/foo.js' }),
       [
         '{BASE_URL}/user/repo/dist/foo.js',
-        '{BASE_URL}/user/repo/dist/foo/index.js',
-        '{BASE_URL}/user/repo/dist/foo.jsx',
-        '{BASE_URL}/user/repo/dist/foo/index.jsx',
-        '{BASE_URL}/user/repo/dist/foo.ts',
-        '{BASE_URL}/user/repo/dist/foo/index.ts',
-        '{BASE_URL}/user/repo/dist/foo.tsx',
-        '{BASE_URL}/user/repo/dist/foo/index.tsx',
-        '{BASE_URL}/user/repo/dist/foo.json',
-        '{BASE_URL}/user/repo/dist/foo/index.json',
-        '{BASE_URL}/user/repo/dist/foo',
-
         '{BASE_URL}/user/repo/lib/foo.js',
-        '{BASE_URL}/user/repo/lib/foo/index.js',
-        '{BASE_URL}/user/repo/lib/foo.jsx',
-        '{BASE_URL}/user/repo/lib/foo/index.jsx',
-        '{BASE_URL}/user/repo/lib/foo.ts',
-        '{BASE_URL}/user/repo/lib/foo/index.ts',
-        '{BASE_URL}/user/repo/lib/foo.tsx',
-        '{BASE_URL}/user/repo/lib/foo/index.tsx',
-        '{BASE_URL}/user/repo/lib/foo.json',
-        '{BASE_URL}/user/repo/lib/foo/index.json',
-        '{BASE_URL}/user/repo/lib/foo',
-
         '{BASE_URL}/user/repo/src/foo.js',
+
+        '{BASE_URL}/user/repo/dist/foo/index.js',
+        '{BASE_URL}/user/repo/lib/foo/index.js',
         '{BASE_URL}/user/repo/src/foo/index.js',
+
+        '{BASE_URL}/user/repo/dist/foo.jsx',
+        '{BASE_URL}/user/repo/lib/foo.jsx',
         '{BASE_URL}/user/repo/src/foo.jsx',
+
+        '{BASE_URL}/user/repo/dist/foo/index.jsx',
+        '{BASE_URL}/user/repo/lib/foo/index.jsx',
         '{BASE_URL}/user/repo/src/foo/index.jsx',
+
+        '{BASE_URL}/user/repo/dist/foo.ts',
+        '{BASE_URL}/user/repo/lib/foo.ts',
         '{BASE_URL}/user/repo/src/foo.ts',
+
+        '{BASE_URL}/user/repo/dist/foo/index.ts',
+        '{BASE_URL}/user/repo/lib/foo/index.ts',
         '{BASE_URL}/user/repo/src/foo/index.ts',
+
+        '{BASE_URL}/user/repo/dist/foo.tsx',
+        '{BASE_URL}/user/repo/lib/foo.tsx',
         '{BASE_URL}/user/repo/src/foo.tsx',
+
+        '{BASE_URL}/user/repo/dist/foo/index.tsx',
+        '{BASE_URL}/user/repo/lib/foo/index.tsx',
         '{BASE_URL}/user/repo/src/foo/index.tsx',
+
+        '{BASE_URL}/user/repo/dist/foo.json',
+        '{BASE_URL}/user/repo/lib/foo.json',
         '{BASE_URL}/user/repo/src/foo.json',
+
+        '{BASE_URL}/user/repo/dist/foo/index.json',
+        '{BASE_URL}/user/repo/lib/foo/index.json',
         '{BASE_URL}/user/repo/src/foo/index.json',
+
+        '{BASE_URL}/user/repo/dist/foo',
+        '{BASE_URL}/user/repo/lib/foo',
         '{BASE_URL}/user/repo/src/foo',
       ],
     );
