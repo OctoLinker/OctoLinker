@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb-base",
+  "extends": ["airbnb-base", "plugin:import/errors"],
   "plugins": ["mocha"],
   "env": {
     "browser": true,
