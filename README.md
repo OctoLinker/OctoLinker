@@ -94,6 +94,12 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 ### Go
 - `import`
 
+### CSS
+- `@import`
+
+### HTML
+- `<link rel="import" href="...">`
+
 # Want to contribute?
 
 Anyone can help make this project better - check out the [Contributing](/CONTRIBUTING.md) guide!
