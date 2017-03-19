@@ -97,6 +97,9 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 ### CSS
 - `@import`
 
+### Sass
+- `@import`
+
 ### HTML
 - `<link rel="import" href="...">`
 
@@ -125,7 +128,7 @@ Show your support to our open source project. Your donation will help us to cove
 
 - [Buy OctoLinker stickers](https://www.stickermule.com/marketplace/16611-the-official-logo)
 - [Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W)
-- [Become a backer or sponsor](https://opencollective.com/octolinker) 
+- [Become a backer or sponsor](https://opencollective.com/octolinker)
 
 # Legal and License
 
