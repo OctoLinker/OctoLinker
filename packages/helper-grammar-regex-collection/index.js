@@ -11,7 +11,7 @@ const importMembers = regex`[\r\n\s\w{},*\$]*`;
 const from = regex`\s from \s`;
 
 const REQUIRE = regex`
-  require(\.resolve)?
+  ( require(\.resolve)? | import )
   ( \s | \( ) \s*
   ${captureQuotedWord}
 `;
