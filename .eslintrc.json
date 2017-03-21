@@ -32,6 +32,6 @@
   },
   "globals": {
     "fixture": true,
-    "chrome": true,
+    "chrome": true
   }
 }
