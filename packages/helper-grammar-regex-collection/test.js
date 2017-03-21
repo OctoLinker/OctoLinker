@@ -127,7 +127,7 @@ const fixtures = {
       'import.resolve"foo"',
       'import.resolve ("foo")',
       'import.resolve (foo)',
-      'import.resolve("fo o")'
+      'import.resolve("fo o")',
     ],
   },
   GEM: {
