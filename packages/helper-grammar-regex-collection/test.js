@@ -258,6 +258,26 @@ const fixtures = {
       '@import url(foo)',
     ],
   },
+  LESS_IMPORT: {
+    valid: [
+      '@import (less) "foo";',
+      '@import (optional, reference) "foo";',
+      // below copied from CSS_IMPORT
+      '@import \'foo\'',
+      '@import "foo"',
+      '@import "foo" bar',
+      '@import URL("foo")',
+      '@import url("foo")',
+      '@import url("foo") bar',
+      // above copied from CSS_IMPORT
+    ],
+    invalid: [
+      // below copied from CSS_IMPORT
+      '@import foo',
+      '@import url(foo)',
+      // above copied from CSS_IMPORT
+    ],
+  },
   HTML_IMPORT: {
     valid: [
       '<link rel="import" href="foo">',
