@@ -12,7 +12,7 @@ const from = regex`\s from \s`;
 
 const REQUIRE = regex`
   ( require(\.resolve)? | import )
-  ( \s | \( ) \s*
+  \s* ( \s | \( ) \s*
   ${captureQuotedWord}
 `;
 

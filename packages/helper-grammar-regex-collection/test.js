@@ -53,6 +53,7 @@ const fixtures = {
       'require( "foo" )',
       'require(  "foo"  )',
       'require(\t"foo"\t)',
+      'require ("foo")',
       'var foo = require("foo")',
       'var $ = require("foo")',
       'var _ = require("foo")',
@@ -73,6 +74,7 @@ const fixtures = {
       'require.resolve( "foo" )',
       'require.resolve(  "foo"  )',
       'require.resolve(\t"foo"\t)',
+      'require.resolve ("foo")',
       'var foo = require.resolve("foo")',
       ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['foo', 'bar']],
       // JavaScript Dynamic Imports import("./module")
@@ -80,6 +82,7 @@ const fixtures = {
       'import( "foo" )',
       'import(  "foo"  )',
       'import(\t"foo"\t)',
+      'import ("foo")',
       'var foo = import("foo")',
       'var $ = import("foo")',
       'var _ = import("foo")',
@@ -98,20 +101,17 @@ const fixtures = {
     invalid: [
       'require(foo)',
       'require"foo"',
-      'require ("foo")',
       'require (foo)',
       'require("fo o")',
       // require.resolve
       'require.resolve(foo)',
       'require.resolve"foo"',
-      'require.resolve ("foo")',
       'require.resolve (foo)',
       'require.resolve("fo o")',
       'requireDresolve("foo")',
       // JavaScript Dynamic Imports import("./module")
       'import(foo)',
       'import"foo"',
-      'import ("foo")',
       'import (foo)',
       'import("fo o")',
       // import.resolve
