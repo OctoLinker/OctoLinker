@@ -94,14 +94,6 @@ const fixtures = {
       ['foo = import("./foo")bar = import("./bar")', ['./foo', './bar']],
       ['const foo = import("./foo")bar = import("./bar")', ['./foo', './bar']],
       'import "foo"',
-      // require.resolve
-      'import.resolve "foo"',
-      'import.resolve("foo")',
-      'import.resolve( "foo" )',
-      'import.resolve(  "foo"  )',
-      'import.resolve(\t"foo"\t)',
-      'var foo = import.resolve("foo")',
-      ['var foo = import.resolve("foo")var bar = import.resolve("bar")', ['foo', 'bar']],
     ],
     invalid: [
       'require(foo)',
@@ -128,6 +120,13 @@ const fixtures = {
       'import.resolve ("foo")',
       'import.resolve (foo)',
       'import.resolve("fo o")',
+      'import.resolve "foo"',
+      'import.resolve("foo")',
+      'import.resolve( "foo" )',
+      'import.resolve(  "foo"  )',
+      'import.resolve(\t"foo"\t)',
+      'var foo = import.resolve("foo")',
+      'var foo = import.resolve("foo")var bar = import.resolve("bar")',
     ],
   },
   GEM: {
