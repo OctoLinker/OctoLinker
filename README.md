@@ -100,6 +100,9 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 ### Sass
 - `@import`
 
+### less
+- `@import`
+
 ### HTML
 - `<link rel="import" href="...">`
 
