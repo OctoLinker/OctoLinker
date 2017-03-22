@@ -88,6 +88,15 @@ export const CSS_IMPORT = regex`
   ${captureQuotedWord}
 `;
 
+export const LESS_IMPORT = regex`
+  ^\s*
+  @import
+  \s
+  ( \([a-z, ]+\) \s+ )? # http://lesscss.org/features/#import-options
+  ((url|URL)\()?
+  ${captureQuotedWord}
+`;
+
 export const HTML_IMPORT = regex`
   ^\s*
   <link
