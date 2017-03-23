@@ -68,6 +68,7 @@ const fixtures = {
       ['foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
       ['const foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
       'require "foo"',
+      'require_relative "foo"',
       // require.resolve
       'require.resolve "foo"',
       'require.resolve("foo")',
@@ -103,6 +104,10 @@ const fixtures = {
       'require"foo"',
       'require (foo)',
       'require("fo o")',
+      'require_relative(foo)',
+      'require_relative"foo"',
+      'require_relative (foo)',
+      'require_relative("fo o")',
       // require.resolve
       'require.resolve(foo)',
       'require.resolve"foo"',
