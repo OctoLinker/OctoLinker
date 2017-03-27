@@ -75,6 +75,12 @@ export const PYTHON_IMPORT = regex`
   (?<$1>[^\s]*)
 `;
 
+export const REQUIREMENTS_TXT = regex`
+  ^\s*
+  (?<$1>[\w-]+) # the package name
+  [=~!>< ] # the beginning of a version specifier: https://www.python.org/dev/peps/pep-0440/#version-specifiers
+`;
+
 export const HASKELL_IMPORT = regex`
   ((^|\s)import\s+(qualified\s)?)
   (?<$1> [A-Z][\w.]+)

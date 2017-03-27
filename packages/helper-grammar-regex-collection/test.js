@@ -249,6 +249,17 @@ const fixtures = {
       '# from the',
     ],
   },
+  REQUIREMENTS_TXT: {
+    valid: [
+      ['wheel==0.23.0', ['wheel']],
+      ['Yarg==0.1.9', ['Yarg']],
+      ['docopt==0.6.2', ['docopt']],
+      ['Flask-Cache==0.13.1', ['Flask-Cache']],
+    ],
+    invalid: [
+      '# doc-opt==0.6.2',
+    ],
+  },
   CSS_IMPORT: {
     valid: [
       '@import \'foo\'',
