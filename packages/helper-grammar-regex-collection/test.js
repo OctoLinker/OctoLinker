@@ -258,7 +258,7 @@ const fixtures = {
       ['flake8', ['flake8']],
     ],
     invalid: [
-      '# doc-opt==0.6.2',
+      '-r requirements.txt',
     ],
   },
   CSS_IMPORT: {
