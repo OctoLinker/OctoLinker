@@ -54,6 +54,7 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 
 ### package.json (npm)
 - `main`
+- `module` and `jsnext:main`
 - `bin`
 - `browser`
 - `dependencies`
