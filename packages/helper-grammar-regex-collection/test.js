@@ -53,6 +53,7 @@ const fixtures = {
       'require( "foo" )',
       'require(  "foo"  )',
       'require(\t"foo"\t)',
+      'require ("foo")',
       'var foo = require("foo")',
       'var $ = require("foo")',
       'var _ = require("foo")',
@@ -67,28 +68,70 @@ const fixtures = {
       ['foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
       ['const foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
       'require "foo"',
+      'require_relative "foo"',
       // require.resolve
       'require.resolve "foo"',
       'require.resolve("foo")',
       'require.resolve( "foo" )',
       'require.resolve(  "foo"  )',
       'require.resolve(\t"foo"\t)',
+      'require.resolve ("foo")',
       'var foo = require.resolve("foo")',
       ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['foo', 'bar']],
+      // JavaScript Dynamic Imports import("./module")
+      'import("foo")',
+      'import( "foo" )',
+      'import(  "foo"  )',
+      'import(\t"foo"\t)',
+      'import ("foo")',
+      'var foo = import("foo")',
+      'var $ = import("foo")',
+      'var _ = import("foo")',
+      ['var foo = import("foo")var bar = import("bar")', ['foo', 'bar']],
+      ['import("foo")import("bar");', ['foo', 'bar']],
+      ['import("foo")import("bar");', ['foo', 'bar']],
+      ['var foo = import("foo")import("bar");', ['foo', 'bar']],
+      ['var foo = import("foo")import("bar")', ['foo', 'bar']],
+      ['foo = import("foo")import("bar")', ['foo', 'bar']],
+      ['foo = import("foo")bar = import("bar")', ['foo', 'bar']],
+      ['foo = import("a-b")bar = import("c-d-e")', ['a-b', 'c-d-e']],
+      ['foo = import("./foo")bar = import("./bar")', ['./foo', './bar']],
+      ['const foo = import("./foo")bar = import("./bar")', ['./foo', './bar']],
+      'import "foo"',
     ],
     invalid: [
       'require(foo)',
       'require"foo"',
-      'require ("foo")',
       'require (foo)',
       'require("fo o")',
+      'require_relative(foo)',
+      'require_relative"foo"',
+      'require_relative (foo)',
+      'require_relative("fo o")',
       // require.resolve
       'require.resolve(foo)',
       'require.resolve"foo"',
-      'require.resolve ("foo")',
       'require.resolve (foo)',
       'require.resolve("fo o")',
       'requireDresolve("foo")',
+      // JavaScript Dynamic Imports import("./module")
+      'import(foo)',
+      'import"foo"',
+      'import (foo)',
+      'import("fo o")',
+      // import.resolve
+      'import.resolve(foo)',
+      'import.resolve"foo"',
+      'import.resolve ("foo")',
+      'import.resolve (foo)',
+      'import.resolve("fo o")',
+      'import.resolve "foo"',
+      'import.resolve("foo")',
+      'import.resolve( "foo" )',
+      'import.resolve(  "foo"  )',
+      'import.resolve(\t"foo"\t)',
+      'var foo = import.resolve("foo")',
+      'var foo = import.resolve("foo")var bar = import.resolve("bar")',
     ],
   },
   GEM: {
@@ -206,6 +249,18 @@ const fixtures = {
       '# from the',
     ],
   },
+  REQUIREMENTS_TXT: {
+    valid: [
+      ['wheel==0.23.0', ['wheel']],
+      ['Yarg==0.1.9', ['Yarg']],
+      ['docopt==0.6.2', ['docopt']],
+      ['Flask-Cache==0.13.1', ['Flask-Cache']],
+      ['flake8', ['flake8']],
+    ],
+    invalid: [
+      '-r requirements.txt',
+    ],
+  },
   CSS_IMPORT: {
     valid: [
       '@import \'foo\'',
@@ -218,6 +273,26 @@ const fixtures = {
     invalid: [
       '@import foo',
       '@import url(foo)',
+    ],
+  },
+  LESS_IMPORT: {
+    valid: [
+      '@import (less) "foo";',
+      '@import (optional, reference) "foo";',
+      // below copied from CSS_IMPORT
+      '@import \'foo\'',
+      '@import "foo"',
+      '@import "foo" bar',
+      '@import URL("foo")',
+      '@import url("foo")',
+      '@import url("foo") bar',
+      // above copied from CSS_IMPORT
+    ],
+    invalid: [
+      // below copied from CSS_IMPORT
+      '@import foo',
+      '@import url(foo)',
+      // above copied from CSS_IMPORT
     ],
   },
   HTML_IMPORT: {

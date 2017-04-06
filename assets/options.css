@@ -1,0 +1,12 @@
+body {
+  user-select: none;
+  padding: 0 15px;
+}
+
+label {
+  font-size: 12px;
+}
+
+.form-checkbox input[type=checkbox], .form-checkbox input[type=radio] {
+  margin-top: 2px;
+}

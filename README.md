@@ -54,6 +54,7 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 
 ### package.json (npm)
 - `main`
+- `module` and `jsnext:main`
 - `bin`
 - `browser`
 - `dependencies`
@@ -100,6 +101,9 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 ### Sass
 - `@import`
 
+### less
+- `@import`
+
 ### HTML
 - `<link rel="import" href="...">`
 
@@ -122,7 +126,7 @@ If you encounter a problem using OctoLinker, or would like to request an enhance
 - Every early OctoLinker user, which contributed to OctoLinker by writing issues or PRs!
 - Everyone I forgot to mention here, but also influenced OctoLinker!
 
-##Support
+## Support
 
 Show your support to our open source project. Your donation will help us to cover project expenses and allow the maintainers to dedicate more time for maintenance and new features for everyone.
 

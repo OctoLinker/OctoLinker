@@ -1,3 +1,4 @@
+const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
   },
   devtool: 'source-map',
   output: {
-    path: 'dist',
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
   plugins: [
@@ -17,6 +18,10 @@ module.exports = {
     ], {
       ignore: ['manifest.json'],
     }),
+    new CopyWebpackPlugin([
+      { from: 'node_modules/primer-core/build/', to: 'core.css' },
+      { from: 'node_modules/primer-forms/build/', to: 'form.css' },
+    ]),
   ],
   module: {
     loaders: [
