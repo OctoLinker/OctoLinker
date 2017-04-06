@@ -1,5 +1,5 @@
 import assert from 'assert';
-import patternPresets, { presets } from '../lib/pattern-preset.js';
+import loadPlugins from '../lib/load-plugins.js';
 
 describe('pattern-preset', () => {
   describe('githubClasses', () => {
@@ -12,6 +12,7 @@ describe('pattern-preset', () => {
         fixture.load('/packages/blob-reader/fixtures/github.com/issue/code.html');
       });
 
+      const presets = loadPlugins().map(plugin => plugin.getPattern());
       for (const [lang, value] of Object.entries(presets)) {
         value.githubClasses.forEach((className) => {
           if (!className.includes('highlight')) {
@@ -23,34 +24,6 @@ describe('pattern-preset', () => {
           });
         });
       }
-    });
-  });
-
-  it('returns patterns for the given preset', () => {
-    assert.deepEqual(patternPresets('JavaScript'), {
-      pathPatterns: [
-        '.js$',
-        '.jsx$',
-        '.es6$',
-      ],
-      githubClasses: [
-        'type-javascript',
-        'type-jsx',
-        'highlight-source-js',
-      ],
-    });
-  });
-
-  it('merges pattern for the given presets', () => {
-    assert.deepEqual(patternPresets('JavaScript', 'CoffeeScript'), {
-      pathPatterns: ['.js$', '.jsx$', '.es6$', '.coffee$'],
-      githubClasses: [
-        'type-javascript',
-        'type-jsx',
-        'highlight-source-js',
-        'type-coffeescript',
-        'highlight-source-coffee',
-      ],
     });
   });
 });
