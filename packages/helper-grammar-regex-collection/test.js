@@ -357,10 +357,6 @@ describe('helper-grammar-regex-collection', () => {
     const { valid, invalid } = fixtures[grammar];
     const regex = REGEX[grammar];
 
-    beforeEach(() => {
-      regex.lastIndex = 0;
-    });
-
     describe(grammar, () => {
       describe('valid', () => {
         fixturesIterator(valid, (text, expected) => {
