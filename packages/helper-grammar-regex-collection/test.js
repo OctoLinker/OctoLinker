@@ -178,7 +178,7 @@ const fixtures = {
       'depends_on formula: "foo"',
       ['depends_on formula: \'foo\'', ['foo']],
       'conflicts_with formula: "foo"',
-      ['conflicts_with formula: \'foo\'', ['foo']],
+      ['conflicts_with formula: \'foo\'', ['foo']]
     ],
     // These probably aren't actually invalid, but
     // https://github.com/Homebrew/homebrew-core/ has no occurences of multiple
