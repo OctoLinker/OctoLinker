@@ -303,44 +303,43 @@ const fixtures = {
       '<link href="foo">',
     ],
   },
-};
-
-const goFixtures = {
-  valid: [
-    'import "foo"',
-    'import _ "foo"',
-    'import . "foo"',
-    'import bar "foo"',
-    ['import "./foo"', ['./foo']],
-    ['import "./foo/bar"', ['./foo/bar']],
-    '\nimport "foo"',
-    ['import "fo_o"', ['fo_o']],
-    ['import "github.com/foo/bar"', ['github.com/foo/bar']],
-    ['import "bitbucket.org/foo/bar"', ['bitbucket.org/foo/bar']],
-    ['import "launchpad.net/foo/bar"', ['launchpad.net/foo/bar']],
-    ['import "hub.jazz.net/foo/bar"', ['hub.jazz.net/foo/bar']],
-    ['import "gopkg.in/foo/bar"', ['gopkg.in/foo/bar']],
-    'import (\n"foo"\n)',
-    'import (\n_ "foo"\n)',
-    'import (\n. "foo"\n)',
-    'import (\nbar "foo"\n)',
-    'import (\n    "foo"\n)',
-    ['import (\n"./foo"\n"./bar"\n)', ['./foo', './bar']],
-    ['import (\n"github.com/foo/bar"\n)', ['github.com/foo/bar']],
-    ['import (\n"bitbucket.org/foo/bar"\n)', ['bitbucket.org/foo/bar']],
-    ['import (\n"launchpad.net/foo/bar"\n)', ['launchpad.net/foo/bar']],
-    ['import (\n"hub.jazz.net/foo/bar"\n)', ['hub.jazz.net/foo/bar']],
-    ['import (\n"gopkg.in/foo/bar"\n)', ['gopkg.in/foo/bar']],
-    ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
-    ['import (\n"github.com/foo"\n\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
-    ['import (\nbar "github.com/foo/bar"\n)', ['github.com/foo/bar']],
-  ],
-  invalid: [
-    '\simport foo',
-    '\simport\nfoo',
-    'import "octo.com/foo/bar"',
-    'import (\n"octo.com/foo/bar"\n)',
-  ],
+  go: {
+    valid: [
+      'import "foo"',
+      'import _ "foo"',
+      'import . "foo"',
+      'import bar "foo"',
+      ['import "./foo"', ['./foo']],
+      ['import "./foo/bar"', ['./foo/bar']],
+      '\nimport "foo"',
+      ['import "fo_o"', ['fo_o']],
+      ['import "github.com/foo/bar"', ['github.com/foo/bar']],
+      ['import "bitbucket.org/foo/bar"', ['bitbucket.org/foo/bar']],
+      ['import "launchpad.net/foo/bar"', ['launchpad.net/foo/bar']],
+      ['import "hub.jazz.net/foo/bar"', ['hub.jazz.net/foo/bar']],
+      ['import "gopkg.in/foo/bar"', ['gopkg.in/foo/bar']],
+      'import (\n"foo"\n)',
+      'import (\n_ "foo"\n)',
+      'import (\n. "foo"\n)',
+      'import (\nbar "foo"\n)',
+      'import (\n    "foo"\n)',
+      ['import (\n"./foo"\n"./bar"\n)', ['./foo', './bar']],
+      ['import (\n"github.com/foo/bar"\n)', ['github.com/foo/bar']],
+      ['import (\n"bitbucket.org/foo/bar"\n)', ['bitbucket.org/foo/bar']],
+      ['import (\n"launchpad.net/foo/bar"\n)', ['launchpad.net/foo/bar']],
+      ['import (\n"hub.jazz.net/foo/bar"\n)', ['hub.jazz.net/foo/bar']],
+      ['import (\n"gopkg.in/foo/bar"\n)', ['gopkg.in/foo/bar']],
+      ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
+      ['import (\n"github.com/foo"\n\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
+      ['import (\nbar "github.com/foo/bar"\n)', ['github.com/foo/bar']],
+    ],
+    invalid: [
+      '\simport foo',
+      '\simport\nfoo',
+      'import "octo.com/foo/bar"',
+      'import (\n"octo.com/foo/bar"\n)',
+    ],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {
@@ -355,11 +354,16 @@ function fixturesIterator(fixturesList, next) {
 describe('helper-grammar-regex-collection', () => {
   Object.keys(fixtures).forEach((grammar) => {
     const { valid, invalid } = fixtures[grammar];
-    const regex = REGEX[grammar];
+    let regexes = REGEX[grammar];
 
-    beforeEach(() => {
-      regex.lastIndex = 0;
-    });
+    // Help ensure that `regexes` is a function that returns an array of RegExp
+    if (regexes instanceof RegExp) {
+      regexes = [regexes];
+    }
+    if (Array.isArray(regexes)) {
+      const oldRegexes = regexes;
+      regexes = () => oldRegexes;
+    }
 
     describe(grammar, () => {
       describe('valid', () => {
@@ -368,9 +372,11 @@ describe('helper-grammar-regex-collection', () => {
             let match;
             let result = [];
 
-            while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
-              result = result.concat(match.slice(1));
-            }
+            regexes(text).forEach((regex) => {
+              while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
+                result = result.concat(match.slice(1));
+              }
+            });
 
             assert.deepEqual(result, expected);
           });
@@ -380,38 +386,9 @@ describe('helper-grammar-regex-collection', () => {
       describe('invalid', () => {
         fixturesIterator(invalid, (text) => {
           it(text, () => {
-            assert.equal(regex.exec(text), null);
-          });
-        });
-      });
-    });
-  });
-
-  describe('go()', () => {
-    const { valid, invalid } = goFixtures;
-
-    describe('valid', () => {
-      fixturesIterator(valid, (text, expected) => {
-        it(text, () => {
-          let match;
-          let result = [];
-
-          REGEX.go(text).forEach((regex) => {
-            while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
-              result = result.concat(match.slice(1));
-            }
-          });
-
-          assert.deepEqual(result, expected);
-        });
-      });
-    });
-
-    describe('invalid', () => {
-      fixturesIterator(invalid, (text) => {
-        it(text, () => {
-          REGEX.go(text).forEach((regex) => {
-            assert.equal(regex.exec(text), null);
+            regexes(text).forEach((regex) => {
+              assert.equal(regex.exec(text), null);
+            });
           });
         });
       });
