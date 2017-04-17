@@ -16,9 +16,7 @@ function interpolate(substitution) {
 // http://xregexp.com/api/#build
 export default function (literals, ...substitutions) {
   const flags = 'xngm';
-  // the 'x' flag doesn't seem to work if we pass it outside the pattern
-  // so put it inside as well
-  let buildPattern = flags.includes('x') ? '(?x)' : '';
+  let buildPattern = '';
   const subpatterns = [];
 
   // make `substitutions` the same length as `literals`
