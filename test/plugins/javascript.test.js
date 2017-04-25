@@ -40,6 +40,8 @@ describe('javascript-universal', () => {
         '{BASE_URL}modules/es6.symbol/index.ts',
         '{BASE_URL}modules/es6.symbol.tsx',
         '{BASE_URL}modules/es6.symbol/index.tsx',
+        '{BASE_URL}modules/es6.symbol.ls',
+        '{BASE_URL}modules/es6.symbol/index.ls',
         '{BASE_URL}modules/es6.symbol.json',
         '{BASE_URL}modules/es6.symbol/index.json',
         '{BASE_URL}modules/es6.symbol',
@@ -59,6 +61,8 @@ describe('javascript-universal', () => {
         '{BASE_URL}modules/es6.symbol/index.ts',
         '{BASE_URL}modules/es6.symbol.tsx',
         '{BASE_URL}modules/es6.symbol/index.tsx',
+        '{BASE_URL}modules/es6.symbol.ls',
+        '{BASE_URL}modules/es6.symbol/index.ls',
         '{BASE_URL}modules/es6.symbol.json',
         '{BASE_URL}modules/es6.symbol/index.json',
         '{BASE_URL}modules/es6.symbol',
@@ -93,6 +97,12 @@ describe('javascript-universal', () => {
 
         '{BASE_URL}/user/repo/lib/foo/index.tsx',
         '{BASE_URL}/user/repo/src/foo/index.tsx',
+
+        '{BASE_URL}/user/repo/lib/foo.ls',
+        '{BASE_URL}/user/repo/src/foo.ls',
+
+        '{BASE_URL}/user/repo/lib/foo/index.ls',
+        '{BASE_URL}/user/repo/src/foo/index.ls',
 
         '{BASE_URL}/user/repo/lib/foo.json',
         '{BASE_URL}/user/repo/src/foo.json',
@@ -141,6 +151,14 @@ describe('javascript-universal', () => {
         '{BASE_URL}/user/repo/dist/foo/index.tsx',
         '{BASE_URL}/user/repo/lib/foo/index.tsx',
         '{BASE_URL}/user/repo/src/foo/index.tsx',
+
+        '{BASE_URL}/user/repo/dist/foo.ls',
+        '{BASE_URL}/user/repo/lib/foo.ls',
+        '{BASE_URL}/user/repo/src/foo.ls',
+
+        '{BASE_URL}/user/repo/dist/foo/index.ls',
+        '{BASE_URL}/user/repo/lib/foo/index.ls',
+        '{BASE_URL}/user/repo/src/foo/index.ls',
 
         '{BASE_URL}/user/repo/dist/foo.json',
         '{BASE_URL}/user/repo/lib/foo.json',
