@@ -46,6 +46,8 @@ The outline above is an extremely simplified version. In real life you have to d
 ## Release Checklist
 
 - Run [`npm version patch`](https://docs.npmjs.com/cli/version) to update the version number. Use `minor` or `major` instead of `patch` if needed (see [semver.org](http://semver.org/) for details).
+  Consider that non-`patch` releases will cause users to receive update notifications, so lean towards a `patch` release for platform-specific stuff.
+  See [lib/notification.js](https://github.com/OctoLinker/browser-extension/blob/030859292f7ea4e8a3852a876707c22a6fe74d9a/lib/notification.js#L4).
 - Open a [pull request](https://github.com/OctoLinker/browser-extension/pulls) with the new version.
 - Once the pull request is merged in, tag the resulting commit as `vX.Y.Z` (where `X`, `Y`, `Z` are the major, minor, and patch versions).
 - Push the tag to GitHub. This will trigger Travis CI to create a new [GitHub Release](https://github.com/OctoLinker/browser-extension/releases) and submit the new Chrome extension to the Chrome Web Store. See [.travis.yml](https://github.com/OctoLinker/browser-extension/blob/master/.travis.yml) for details.
