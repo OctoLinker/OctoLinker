@@ -10,6 +10,7 @@ First off, thanks for taking the time to contribute! :tada: :+1:
 To build and run the extension follow these steps.
 
 1. Clone the repository.
+1. Make sure [Yarn](https://yarnpkg.com/docs/install) is installed.
 1. Run `yarn install` to setup the project and install all required dependencies.
 1. Start hacking. If you're adding a plugin, you may be interested in seeing the commits that add these plugins:
    * [CSS]
