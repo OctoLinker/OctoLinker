@@ -78,6 +78,15 @@ const fixtures = {
       'require.resolve ("foo")',
       'var foo = require.resolve("foo")',
       ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['foo', 'bar']],
+      // proxyquire
+      'proxyquire "foo"',
+      'proxyquire("foo")',
+      'proxyquire( "foo" )',
+      'proxyquire(  "foo"  )',
+      'proxyquire(\t"foo"\t)',
+      'proxyquire ("foo")',
+      'var foo = proxyquire("foo")',
+      ['var foo = proxyquire("foo")var bar = proxyquire("bar")', ['foo', 'bar']],
       // JavaScript Dynamic Imports import("./module")
       'import("foo")',
       'import( "foo" )',
@@ -114,6 +123,11 @@ const fixtures = {
       'require.resolve (foo)',
       'require.resolve("fo o")',
       'requireDresolve("foo")',
+      // proxyquire
+      'proxyquire(foo)',
+      'proxyquire"foo"',
+      'proxyquire (foo)',
+      'proxyquire("fo o")',
       // JavaScript Dynamic Imports import("./module")
       'import(foo)',
       'import"foo"',
