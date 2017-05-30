@@ -41,6 +41,7 @@ The outline above is an extremely simplified version. In real life you have to d
 - Lint the code by `yarn lint`
 - Add relevant tests to cover the change
 - Make sure test-suite passes: `yarn test`
+- Document any new features in [README.md](./README.md#features)
 - Squash your commits
 - Write a convincing description of your PR and why we should land it
 
