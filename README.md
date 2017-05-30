@@ -70,6 +70,7 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 
 ### Ruby
 - `require`
+- `require_relative`
 
 ### Rubygems
 - `gem`
