@@ -11,6 +11,20 @@ const captureQuotedWord = regex`
 const importMembers = regex`[\r\n\s\w{},*\$]*`;
 const from = regex`\s from \s`;
 
+export const NODEJS_RELATIVE_PATH = regex`
+  __dirname
+  \s* \+ \s*
+  ${captureQuotedWord}
+`;
+
+export const NODEJS_RELATIVE_PATH_JOIN = regex`
+  path\.join \s*
+  \( \s*
+  __dirname \s*
+  , \s*
+  ${captureQuotedWord}
+`;
+
 export const REQUIRE = regex`
   ( require(\.resolve)? | proxyquire | import | require_relative )
   \s* ( \s | \( ) \s*

@@ -4,6 +4,22 @@ import assert from 'assert';
 import * as REGEX from './index.js';
 
 const fixtures = {
+  NODEJS_RELATIVE_PATH_JOIN: {
+    valid: [
+      ['app.set("views", path.join(__dirname, "/views");', ['/views']],
+    ],
+    invalid: [
+      'app.set("views", pathDjoin(__dirname, "/views");',
+    ],
+  },
+  NODEJS_RELATIVE_PATH: {
+    valid: [
+      ['app.set("views", __dirname + "/views");', ['/views']],
+    ],
+    invalid: [
+      'app.set("views", path.join(__dirname, "/views");',
+    ],
+  },
   IMPORT: {
     valid: [
       'import foo from "foo"',

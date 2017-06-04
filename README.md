@@ -51,6 +51,8 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 - `require`
 - `import`
 - `export`
+- `__dirname + '/some/relative/path'`
+- `path.join(__dirname, '/some/relative/path')`
 
 ### package.json (npm)
 - `main`
