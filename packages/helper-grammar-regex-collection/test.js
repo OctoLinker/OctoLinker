@@ -9,7 +9,7 @@ const fixtures = {
       ['app.set("views", path.join(__dirname, "/views");', ['/views']],
     ],
     invalid: [
-      'app.set("views", __dirname + "/views");',
+      'app.set("views", pathDjoin(__dirname, "/views");',
     ],
   },
   NODEJS_RELATIVE_PATH: {

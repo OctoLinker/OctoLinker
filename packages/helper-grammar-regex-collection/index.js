@@ -18,7 +18,7 @@ export const NODEJS_RELATIVE_PATH = regex`
 `;
 
 export const NODEJS_RELATIVE_PATH_JOIN = regex`
-  path.join \s*
+  path\.join \s*
   \( \s*
   __dirname \s*
   , \s*
