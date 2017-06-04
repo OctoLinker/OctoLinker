@@ -6,6 +6,10 @@ import * as REGEX from './index.js';
 const fixtures = {
   IMPORT: {
     valid: [
+      // See https://github.com/OctoLinker/browser-extension/issues/338#issuecomment-306065970
+      ["* import {Component, NgZone} from '\\@angular/core';", ['\\@angular/core']],
+      ["* import {NgIf} from '\\@angular/common';", ['\\@angular/common']],
+
       'import foo from "foo"',
       'import _ from "foo"',
       'import $ from "foo"',
