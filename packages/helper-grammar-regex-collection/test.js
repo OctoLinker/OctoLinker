@@ -370,6 +370,16 @@ const fixtures = {
       'import (\n"octo.com/foo/bar"\n)',
     ],
   },
+  NET_PACKAGE: {
+    valid: [
+      '<package id="foo" version="2.7.7.02" targetFramework="net45" />',
+      '< package id="foo" version="2.7.7.02" targetFramework="net45" />',
+    ],
+    invalid: [
+      '<packages id="Antlr2.Runtime" version="2.7.7.02" targetFramework="net45" />',
+      '<package version="2.7.7.02" targetFramework="net45" />',
+    ],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {
