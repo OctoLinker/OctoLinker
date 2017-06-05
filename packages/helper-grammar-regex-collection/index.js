@@ -130,3 +130,11 @@ export const HTML_IMPORT = regex`
   \s
   href=${captureQuotedWord}>
 `;
+
+export const NET_PACKAGE = regex`
+  <\s*
+  package
+  \s*
+  id=${captureQuotedWord}
+  .*/>
+`;
