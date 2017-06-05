@@ -95,6 +95,9 @@ OctoLinker is the easiest and best way to navigate between files and projects on
 - `dependencies`
 - `tools`
 
+### .NET Framework
+- `packages.config`
+
 ### Go
 - `import`
 
