@@ -56,3 +56,6 @@ The outline above is an extremely simplified version. In real life you have to d
 - Submit `firefox-octolinker-X.Y.Z.zip` from the [GitHub Release](https://github.com/OctoLinker/browser-extension/releases) to [addons.mozilla.org](https://addons.mozilla.org/en-US/developers/addon/octolinker/versions#version-upload). Be sure to include the `Source code (zip)` file from the release as well.
 - Submit `opera-octolinker-X.Y.Z.zip` from the [GitHub Release](https://github.com/OctoLinker/browser-extension/releases) to [addons.opera.com](https://addons.opera.com/developer/package/226344/?tab=versions). Afterwards, go to the [Conversation tab](https://addons.opera.com/developer/package/226344/?tab=conversation), add a link to the `Source code (zip)` file and copy/paste the build instructions from previous releases.
 - Update release notes at https://github.com/OctoLinker/browser-extension/releases/tag/vX.Y.Z. You can find a list of changes since the previous release at https://github.com/OctoLinker/browser-extension/compare/vA.B.C...vX.Y.Z, where `A.B.C` is the previous version number.
+  Consider that non-`patch` releases will cause users to receive update notifications showing the first line of the release notes.
+  See [lib/notification.js](https://github.com/OctoLinker/browser-extension/blob/030859292f7ea4e8a3852a876707c22a6fe74d9a/lib/notification.js#L4).
+
