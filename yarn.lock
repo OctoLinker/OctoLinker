@@ -2516,9 +2516,9 @@ git-rev-sync@1.8.0:
     graceful-fs "4.1.6"
     shelljs "0.7.4"
 
-github-injection@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/github-injection/-/github-injection-0.3.0.tgz#04382fb4b820f0e38effb6644b47461693504a9f"
+github-injection@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/github-injection/-/github-injection-1.0.1.tgz#fad4bee67b988993c527556101a87138245ed0dc"
 
 github-url-from-git@^1.5.0:
   version "1.5.0"
