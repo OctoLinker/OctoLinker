@@ -264,6 +264,7 @@ const fixtures = {
     invalid: [
       "extern create 'pcre'",
       'because it',
+      'everything is currently by shared reference, the easiest thing is to use a `RefCell`',
     ],
   },
   PYTHON_IMPORT: {

@@ -77,7 +77,7 @@ export const VIM_PLUGIN = regex`
 `;
 
 export const RUST_CRATE = regex`
-  \b (extern \s crate | use)
+  ^ (extern \s crate | use)
   \s
   (?<$1>[^:;\s]+)
 `;
