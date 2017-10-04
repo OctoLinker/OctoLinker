@@ -12,7 +12,7 @@ describe('blob-reader', () => {
     beforeEach(() => {
       fixture.load('/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
       const reader = new BlobReader();
-      result = reader.read()._blobs[0];
+      [result] = reader.read()._blobs;
     });
 
     describe('contains blob path', () => {
@@ -90,7 +90,7 @@ describe('blob-reader', () => {
     beforeEach(() => {
       fixture.load('/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
       const reader = new BlobReader();
-      result = reader.read()._blobs[0];
+      [result] = reader.read()._blobs;
     });
 
     it('contains four lines', () => {
@@ -129,7 +129,7 @@ describe('blob-reader', () => {
       beforeEach(() => {
         fixture.load('/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html');
         const reader = new BlobReader();
-        result = reader.read()._blobs[0];
+        [result] = reader.read()._blobs;
       });
 
       it('1st line', () => {
@@ -161,7 +161,7 @@ describe('blob-reader', () => {
       beforeEach(() => {
         fixture.load('/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html');
         const reader = new BlobReader();
-        result = reader.read()._blobs[0];
+        [result] = reader.read()._blobs;
       });
 
       it('contains four lines', () => {
@@ -198,7 +198,7 @@ describe('blob-reader', () => {
     beforeEach(() => {
       fixture.load('/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html');
       const reader = new BlobReader();
-      result = reader.read()._blobs[0];
+      [result] = reader.read()._blobs;
     });
 
     it('contains blob path', () => {
@@ -212,7 +212,7 @@ describe('blob-reader', () => {
     beforeEach(() => {
       fixture.load('/packages/blob-reader/fixtures/github.com/issue/code.html');
       const reader = new BlobReader();
-      result = reader.read()._blobs[0];
+      [result] = reader.read()._blobs;
     });
 
     it('contains blob root element', () => {

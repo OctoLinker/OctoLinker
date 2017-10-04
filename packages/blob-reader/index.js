@@ -2,7 +2,6 @@ import Blob from './blob';
 import { getBlobWrapper } from './helper';
 
 export default class BlobReader {
-
   hasBlobs() {
     return !!getBlobWrapper().length;
   }

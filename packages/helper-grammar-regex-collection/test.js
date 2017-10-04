@@ -1,4 +1,4 @@
-/* eslint import/namespace: [2, { allowComputed: true }]*/
+/* eslint import/namespace: [2, { allowComputed: true }] */
 
 import assert from 'assert';
 import * as REGEX from './index.js';
