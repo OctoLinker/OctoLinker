@@ -18,17 +18,17 @@ module.exports = {
     ], {
       ignore: ['manifest.json'],
     }),
-    new CopyWebpackPlugin([
-      { from: 'node_modules/primer-core/build/', to: 'core.css' },
-      { from: 'node_modules/primer-forms/build/', to: 'form.css' },
-    ]),
   ],
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
       },
     ],
   },
