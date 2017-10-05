@@ -9,12 +9,14 @@ describe('pattern-preset', () => {
       });
 
       beforeEach(() => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/issue/code.html');
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/issue/code.html',
+        );
       });
 
       const presets = loadPlugins().map(plugin => plugin.getPattern());
       for (const [lang, value] of Object.entries(presets)) {
-        value.githubClasses.forEach((className) => {
+        value.githubClasses.forEach(className => {
           if (!className.includes('highlight')) {
             return;
           }

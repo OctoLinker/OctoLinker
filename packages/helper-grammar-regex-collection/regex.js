@@ -14,7 +14,7 @@ function interpolate(substitution) {
 // See here for more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
 // http://xregexp.com/api/#build
-export default function (literals, ...substitutions) {
+export default function(literals, ...substitutions) {
   const flags = 'xngm';
   let buildPattern = '';
   const subpatterns = [];

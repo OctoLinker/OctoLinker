@@ -10,35 +10,55 @@ describe('blob-reader', () => {
     let result;
 
     beforeEach(() => {
-      fixture.load('/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
+      fixture.load(
+        '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
+      );
       const reader = new BlobReader();
       [result] = reader.read()._blobs;
     });
 
     describe('contains blob path', () => {
       it('contains blob path', () => {
-        assert.equal(result.path, '/OctoLinker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js');
+        assert.equal(
+          result.path,
+          '/OctoLinker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js',
+        );
       });
 
       it('when blob is a PR diff', () => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/pull/diff.html');
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/pull/diff.html',
+        );
         const reader = new BlobReader();
 
-        assert.equal(reader.read()._blobs[0].path, '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js');
+        assert.equal(
+          reader.read()._blobs[0].path,
+          '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js',
+        );
       });
 
       it('when PR comment is up-to-date', () => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/pull/comments.html');
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/pull/comments.html',
+        );
         const reader = new BlobReader();
 
-        assert.equal(reader.read()._blobs[0].path, '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js');
+        assert.equal(
+          reader.read()._blobs[0].path,
+          '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js',
+        );
       });
 
       it('when PR comment is outdated', () => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/pull/comments.html');
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/pull/comments.html',
+        );
         const reader = new BlobReader();
 
-        assert.equal(reader.read()._blobs[1].path, '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js');
+        assert.equal(
+          reader.read()._blobs[1].path,
+          '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js',
+        );
       });
     });
 
@@ -53,10 +73,7 @@ describe('blob-reader', () => {
 
     describe('toString()', () => {
       it('returns a string representation of the blobs content', () => {
-        result.lines = [
-          { value: 'a' },
-          { value: 'b' },
-        ];
+        result.lines = [{ value: 'a' }, { value: 'b' }];
         assert.equal(result.toString(), 'a\nb');
       });
     });
@@ -74,11 +91,7 @@ describe('blob-reader', () => {
       });
 
       it('returns an empty object if JSON.parse fails', () => {
-        result.lines = [
-          { value: '{' },
-          { value: 'invalid' },
-          { value: '}' },
-        ];
+        result.lines = [{ value: '{' }, { value: 'invalid' }, { value: '}' }];
         assert.deepEqual(result.toJSON(), {});
       });
     });
@@ -88,7 +101,9 @@ describe('blob-reader', () => {
     let result;
 
     beforeEach(() => {
-      fixture.load('/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html');
+      fixture.load(
+        '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
+      );
       const reader = new BlobReader();
       [result] = reader.read()._blobs;
     });
@@ -98,7 +113,10 @@ describe('blob-reader', () => {
     });
 
     it('does not contain any diff meta information', () => {
-      assert.equal(result.lines.filter(line => line.additions || line.deletions).length, 0);
+      assert.equal(
+        result.lines.filter(line => line.additions || line.deletions).length,
+        0,
+      );
     });
 
     it('1st line', () => {
@@ -127,7 +145,9 @@ describe('blob-reader', () => {
       let result;
 
       beforeEach(() => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html');
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html',
+        );
         const reader = new BlobReader();
         [result] = reader.read()._blobs;
       });
@@ -135,7 +155,10 @@ describe('blob-reader', () => {
       it('1st line', () => {
         assert.equal(result.lines[0].lineNumber, 1);
         // Use .trim() because Firefox puts a leading space, but Chrome doesn't.
-        assert.equal(result.lines[0].value.trim(), '// Most popular rabbit names');
+        assert.equal(
+          result.lines[0].value.trim(),
+          '// Most popular rabbit names',
+        );
       });
 
       it('additions', () => {
@@ -159,7 +182,9 @@ describe('blob-reader', () => {
       let result;
 
       beforeEach(() => {
-        fixture.load('/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html');
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
+        );
         const reader = new BlobReader();
         [result] = reader.read()._blobs;
       });
@@ -171,7 +196,10 @@ describe('blob-reader', () => {
       it('1st line', () => {
         assert.equal(result.lines[0].lineNumber, 1);
         // Use .trim() because Firefox puts a leading space, but Chrome doesn't.
-        assert.equal(result.lines[0].value.trim(), '// Most popular rabbit names');
+        assert.equal(
+          result.lines[0].value.trim(),
+          '// Most popular rabbit names',
+        );
       });
 
       it('additions', () => {
@@ -196,7 +224,9 @@ describe('blob-reader', () => {
     let result;
 
     beforeEach(() => {
-      fixture.load('/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html');
+      fixture.load(
+        '/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html',
+      );
       const reader = new BlobReader();
       [result] = reader.read()._blobs;
     });

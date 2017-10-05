@@ -13,9 +13,7 @@ module.exports = {
     filename: '[name].js',
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: 'assets' },
-    ], {
+    new CopyWebpackPlugin([{ from: 'assets' }], {
       ignore: ['manifest.json'],
     }),
   ],

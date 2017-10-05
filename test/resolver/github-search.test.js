@@ -19,10 +19,7 @@ describe('github-search', () => {
   });
 
   it('returns a function', () => {
-    assert.deepEqual(
-      typeof githubSearch({ path, target }),
-      'function',
-    );
+    assert.deepEqual(typeof githubSearch({ path, target }), 'function');
   });
 
   it('calls the github search api', () => {

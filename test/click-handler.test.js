@@ -5,7 +5,9 @@ import clickHandler from '../lib/click-handler';
 
 describe('click-handler', () => {
   const sandbox = sinon.sandbox.create();
-  const $link = $('<div class="octolinker-link" data-plugin-name="foo" data-bar="baz"></div>');
+  const $link = $(
+    '<div class="octolinker-link" data-plugin-name="foo" data-bar="baz"></div>',
+  );
   let fakePluginManager;
   let resolveFake;
 
@@ -62,16 +64,18 @@ describe('click-handler', () => {
     it('does not call the corresponding resolver when mouseup was not triggered by a middle mouse click', () => {
       // eslint-disable-next-line
       $link.trigger($.Event('mouseup', {
-        which: 1,
-      }));
+          which: 1,
+        }),
+      );
       assert.equal(fakePluginManager.getResolver.callCount, 0);
     });
 
     it('calls the corresponding handler on middle mouse click', () => {
       // eslint-disable-next-line
       $link.trigger($.Event('mouseup', {
-        which: 2,
-      }));
+          which: 2,
+        }),
+      );
 
       assert.equal(fakePluginManager.getResolver.callCount, 1);
     });
@@ -92,10 +96,7 @@ describe('click-handler', () => {
 
     describe('when resolver returns an array of url', () => {
       it('passes object along the runtime message', () => {
-        resolveFake.returns([
-          '{BASE_URL}/foo',
-          '{BASE_URL}/bar',
-        ]);
+        resolveFake.returns(['{BASE_URL}/foo', '{BASE_URL}/bar']);
         $link.click();
       });
     });
@@ -126,10 +127,7 @@ describe('click-handler', () => {
 
     describe('when urls contains external and github.com urls', () => {
       it('calls the ping route only for the external urls', () => {
-        resolveFake.returns([
-          'https://hubhub.com/foo',
-          '{BASE_URL}/bar',
-        ]);
+        resolveFake.returns(['https://hubhub.com/foo', '{BASE_URL}/bar']);
         $link.click();
       });
     });

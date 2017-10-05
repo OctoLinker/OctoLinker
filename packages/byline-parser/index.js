@@ -1,10 +1,21 @@
 import assert from 'assert';
 
-export default function (blobSource, { openingPattern, closingPattern, matchPattern }) {
+export default function(
+  blobSource,
+  { openingPattern, closingPattern, matchPattern },
+) {
   assert.ok(matchPattern, 'matchPattern is not defined');
   assert.ok(matchPattern instanceof RegExp, 'matchPattern is not a RegExp');
-  if (openingPattern) assert.ok(openingPattern instanceof RegExp, 'openingPattern is not a RegExp');
-  if (closingPattern) assert.ok(closingPattern instanceof RegExp, 'closingPattern is not a RegExp');
+  if (openingPattern)
+    assert.ok(
+      openingPattern instanceof RegExp,
+      'openingPattern is not a RegExp',
+    );
+  if (closingPattern)
+    assert.ok(
+      closingPattern instanceof RegExp,
+      'closingPattern is not a RegExp',
+    );
 
   const noGroup = !(openingPattern && closingPattern);
 
@@ -14,7 +25,7 @@ export default function (blobSource, { openingPattern, closingPattern, matchPatt
 
   const NO_CAPTURE_GROUP = 1;
 
-  blobSource.split('\n').forEach((line) => {
+  blobSource.split('\n').forEach(line => {
     if (!noGroup && !reading) {
       reading = !!line.match(openingPattern);
       return;

@@ -1,4 +1,3 @@
-
 const webpackConfig = require('./webpack.config');
 
 webpackConfig.devtool = 'inline-source-map';
@@ -7,7 +6,7 @@ if (process.env.APPVEYOR) {
   require('phantomjs-prebuilt').path = ''; // eslint-disable-line
 }
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     basePath: '',
     frameworks: ['detectBrowsers', 'mocha', 'fixture'],
@@ -15,7 +14,7 @@ module.exports = function (config) {
       postDetection(availableBrowsers) {
         return availableBrowsers
           .filter(browser => ['Chrome', 'Firefox'].includes(browser))
-          .map((browser) => {
+          .map(browser => {
             if (browser === 'Chrome' && process.env.TRAVIS) {
               return 'Chrome_travis_ci';
             }
