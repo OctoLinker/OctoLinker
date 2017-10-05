@@ -60,14 +60,16 @@ describe('click-handler', () => {
 
   describe('on mouseup', () => {
     it('does not call the corresponding resolver when mouseup was not triggered by a middle mouse click', () => {
-      $link.trigger($.Event('mouseup', { // eslint-disable-line new-cap
+      // eslint-disable-next-line
+      $link.trigger($.Event('mouseup', {
         which: 1,
       }));
       assert.equal(fakePluginManager.getResolver.callCount, 0);
     });
 
     it('calls the corresponding handler on middle mouse click', () => {
-      $link.trigger($.Event('mouseup', { // eslint-disable-line new-cap
+      // eslint-disable-next-line
+      $link.trigger($.Event('mouseup', {
         which: 2,
       }));
 

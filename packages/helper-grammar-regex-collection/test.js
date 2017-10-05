@@ -418,7 +418,8 @@ describe('helper-grammar-regex-collection', () => {
             let result = [];
 
             regexes(text).forEach((regex) => {
-              while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
+              // eslint-disable-next-line
+              while (match = regex.exec(text)) {
                 result = result.concat(match.slice(1));
               }
             });
