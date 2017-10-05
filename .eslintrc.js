@@ -1,4 +1,4 @@
-{
+module.exports = {
   "extends": ["airbnb-base", "plugin:import/errors"],
   "plugins": ["mocha"],
   "env": {
