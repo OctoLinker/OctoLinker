@@ -26,32 +26,6 @@
     "firefox-open": "npm run firefox-build && npm run firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
   },
-  "babel": {
-    "plugins": [
-      [
-        "transform-runtime",
-        {
-          "helpers": false,
-          "polyfill": false
-        }
-      ],
-      "transform-object-rest-spread"
-    ],
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "browsers": [
-              "last 3 Chrome versions",
-              "last 3 Firefox versions",
-              "last 3 Opera versions"
-            ]
-          }
-        }
-      ]
-    ]
-  },
   "dependencies": {
     "JSONPath": "^0.11.2",
     "babel-runtime": "^6.26.0",
