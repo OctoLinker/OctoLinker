@@ -15,7 +15,10 @@ function getBlobWrapper() {
 }
 
 function mergeRepoAndFilePath(repoPath, filePath) {
-  const repoUrl = repoPath.trim().split('#')[0].replace(/pull\/[0-9]+\/files/, 'blob');
+  const repoUrl = repoPath
+    .trim()
+    .split('#')[0]
+    .replace(/pull\/[0-9]+\/files/, 'blob');
 
   return `${repoUrl}/${filePath.trim()}`;
 }
@@ -26,9 +29,11 @@ function isGist() {
 
 function getPath(el) {
   // When current page is a diff view get path from "View" button
-  let ret = $('.file-actions a', el.parentElement.parentElement).filter(function () {
-    return $(this).text() === 'View';
-  }).attr('href');
+  let ret = $('.file-actions a', el.parentElement.parentElement)
+    .filter(function() {
+      return $(this).text() === 'View';
+    })
+    .attr('href');
 
   if (!ret) {
     ret = $('.js-permalink-shortcut').attr('href');
@@ -75,11 +80,17 @@ function getLineNumber(el) {
   }
 
   // split diff view
-  let lineNumber = $(el).closest('td').prev().data('line-number');
+  let lineNumber = $(el)
+    .closest('td')
+    .prev()
+    .data('line-number');
 
   // unified diff view
   if (!lineNumber) {
-    lineNumber = $(el).closest('tr').find('td').data('line-number');
+    lineNumber = $(el)
+      .closest('tr')
+      .find('td')
+      .data('line-number');
   }
 
   if (lineNumber) {
@@ -138,11 +149,9 @@ function readLines(el) {
     }
   }
 
-  return getBlobCodeInner(el).map(readLine).filter(line => !!line);
+  return getBlobCodeInner(el)
+    .map(readLine)
+    .filter(line => !!line);
 }
 
-export {
-  getPath,
-  getBlobWrapper,
-  readLines,
-};
+export { getPath, getBlobWrapper, readLines };

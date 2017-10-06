@@ -15,39 +15,41 @@ function multiImportRegExpBuilder(input) {
     openingPattern: /^import\s\($/,
     closingPattern: /^\)$/,
     matchPattern: /"([^"]+)"/,
-  })
-    .map(([value]) => {
-      const domain = value.match(DOMAIN_REGEX);
+  }).map(([value]) => {
+    const domain = value.match(DOMAIN_REGEX);
 
-      if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
-        return;
-      }
+    if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
+      return;
+    }
 
-      const val = escapeRegexString(value);
-      return new RegExp(`import\\s\\([^\)]+"(${val})"`, 'gm');
-    });
+    const val = escapeRegexString(value);
+    return new RegExp(`import\\s\\([^\)]+"(${val})"`, 'gm');
+  });
 }
 
 function singleImportRegExpBuilder(input) {
   return bylineParser(input, {
     matchPattern: /import\s(?:[_\.]\s|[\w]+\s)?['"]([^'"\s]+)['"]?/,
-  })
-    .map(([value]) => {
-      const domain = value.match(DOMAIN_REGEX);
+  }).map(([value]) => {
+    const domain = value.match(DOMAIN_REGEX);
 
-      if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
-        return;
-      }
+    if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
+      return;
+    }
 
-      const val = escapeRegexString(value);
-      return new RegExp(`import\\s(?:[_\\.]\\s|[\\w]+\\s)?['"](${val})['"]?`, 'gm');
-    });
+    const val = escapeRegexString(value);
+    return new RegExp(
+      `import\\s(?:[_\\.]\\s|[\\w]+\\s)?['"](${val})['"]?`,
+      'gm',
+    );
+  });
 }
 
-export default function (blobSource) {
-  return [].concat(
-    multiImportRegExpBuilder(blobSource),
-    singleImportRegExpBuilder(blobSource),
-  )
+export default function(blobSource) {
+  return []
+    .concat(
+      multiImportRegExpBuilder(blobSource),
+      singleImportRegExpBuilder(blobSource),
+    )
     .filter(item => !!item);
 }

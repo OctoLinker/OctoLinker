@@ -7,15 +7,12 @@ describe('haskell', () => {
   const target = 'Foo.Bar';
 
   it('resolves links', () => {
-    assert.deepEqual(
-      Haskell.resolve({ path, target }),
-      [
-        '{BASE_URL}/user/repo/blob/master/src/Foo/Bar.hs',
-        '{BASE_URL}/user/repo/blob/master/lib/Foo/Bar.hs',
-        '{BASE_URL}/user/repo/blob/master/Foo/Bar.hs',
-        githubSearch({ path, target }).toString(),
-        'https://hackage.haskell.org/package/base/docs/Foo-Bar.html',
-      ],
-    );
+    assert.deepEqual(Haskell.resolve({ path, target }), [
+      '{BASE_URL}/user/repo/blob/master/src/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/master/lib/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/master/Foo/Bar.hs',
+      githubSearch({ path, target }).toString(),
+      'https://hackage.haskell.org/package/base/docs/Foo-Bar.html',
+    ]);
   });
 });

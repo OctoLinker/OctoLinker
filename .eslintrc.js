@@ -1,11 +1,15 @@
 module.exports = {
-  extends: ['airbnb-base', 'plugin:import/errors'],
-  plugins: ['mocha'],
+  extends: ['airbnb-base', 'plugin:import/errors', 'prettier'],
+  plugins: ['prettier', 'mocha'],
   env: {
     browser: true,
     mocha: true
   },
   rules: {
+    'prettier/prettier': ['error', {
+      singleQuote: true,
+      trailingComma: 'all',
+    }],
     'func-names': 0,
     'id-length': [1, {'exceptions': ['$']}],
     'new-cap': [2, {'capIsNewExceptions': ['Deferred']}],

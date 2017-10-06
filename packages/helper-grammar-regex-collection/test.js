@@ -5,25 +5,20 @@ import * as REGEX from './index.js';
 
 const fixtures = {
   NODEJS_RELATIVE_PATH_JOIN: {
-    valid: [
-      ['app.set("views", path.join(__dirname, "/views");', ['/views']],
-    ],
-    invalid: [
-      'app.set("views", pathDjoin(__dirname, "/views");',
-    ],
+    valid: [['app.set("views", path.join(__dirname, "/views");', ['/views']]],
+    invalid: ['app.set("views", pathDjoin(__dirname, "/views");'],
   },
   NODEJS_RELATIVE_PATH: {
-    valid: [
-      ['app.set("views", __dirname + "/views");', ['/views']],
-    ],
-    invalid: [
-      'app.set("views", path.join(__dirname, "/views");',
-    ],
+    valid: [['app.set("views", __dirname + "/views");', ['/views']]],
+    invalid: ['app.set("views", path.join(__dirname, "/views");'],
   },
   IMPORT: {
     valid: [
       // See https://github.com/OctoLinker/browser-extension/issues/338#issuecomment-306065970
-      ["* import {Component, NgZone} from '\\@angular/core';", ['\\@angular/core']],
+      [
+        "* import {Component, NgZone} from '\\@angular/core';",
+        ['\\@angular/core'],
+      ],
       ["* import {NgIf} from '\\@angular/common';", ['\\@angular/common']],
 
       'import foo from "foo"',
@@ -63,9 +58,7 @@ const fixtures = {
       'export { bar\n } from "foo"',
       'export { \nbar\n } from "foo"',
     ],
-    invalid: [
-      'export * from "fo o"',
-    ],
+    invalid: ['export * from "fo o"'],
   },
   REQUIRE: {
     valid: [
@@ -86,7 +79,10 @@ const fixtures = {
       ['foo = require("foo")bar = require("bar")', ['foo', 'bar']],
       ['foo = require("a-b")bar = require("c-d-e")', ['a-b', 'c-d-e']],
       ['foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
-      ['const foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
+      [
+        'const foo = require("./foo")bar = require("./bar")',
+        ['./foo', './bar'],
+      ],
       'require "foo"',
       'require_relative "foo"',
       // require.resolve
@@ -97,7 +93,10 @@ const fixtures = {
       'require.resolve(\t"foo"\t)',
       'require.resolve ("foo")',
       'var foo = require.resolve("foo")',
-      ['var foo = require.resolve("foo")var bar = require.resolve("bar")', ['foo', 'bar']],
+      [
+        'var foo = require.resolve("foo")var bar = require.resolve("bar")',
+        ['foo', 'bar'],
+      ],
       // proxyquire
       'proxyquire "foo"',
       'proxyquire("foo")',
@@ -106,7 +105,10 @@ const fixtures = {
       'proxyquire(\t"foo"\t)',
       'proxyquire ("foo")',
       'var foo = proxyquire("foo")',
-      ['var foo = proxyquire("foo")var bar = proxyquire("bar")', ['foo', 'bar']],
+      [
+        'var foo = proxyquire("foo")var bar = proxyquire("bar")',
+        ['foo', 'bar'],
+      ],
       // JavaScript Dynamic Imports import("./module")
       'import("foo")',
       'import( "foo" )',
@@ -169,13 +171,8 @@ const fixtures = {
     ],
   },
   GEM: {
-    valid: [
-      'gem "foo"',
-      ['gem \'foo\'', ['foo']],
-    ],
-    invalid: [
-      'gem     "foo"',
-    ],
+    valid: ['gem "foo"', ["gem 'foo'", ['foo']]],
+    invalid: ['gem     "foo"'],
   },
   HASKELL_IMPORT: {
     valid: [
@@ -202,35 +199,27 @@ const fixtures = {
   HOMEBREW: {
     valid: [
       'depends_on "foo"',
-      ['depends_on \'foo\'', ['foo']],
+      ["depends_on 'foo'", ['foo']],
       'conflicts_with "foo"',
-      ['conflicts_with \'foo\'', ['foo']],
+      ["conflicts_with 'foo'", ['foo']],
       'depends_on cask: "foo"',
-      ['depends_on cask: \'foo\'', ['foo']],
+      ["depends_on cask: 'foo'", ['foo']],
       'conflicts_with cask: "foo"',
-      ['conflicts_with cask: \'foo\'', ['foo']],
+      ["conflicts_with cask: 'foo'", ['foo']],
       'depends_on formula: "foo"',
-      ['depends_on formula: \'foo\'', ['foo']],
+      ["depends_on formula: 'foo'", ['foo']],
       'conflicts_with formula: "foo"',
-      ['conflicts_with formula: \'foo\'', ['foo']],
+      ["conflicts_with formula: 'foo'", ['foo']],
     ],
     // These probably aren't actually invalid, but
     // https://github.com/Homebrew/homebrew-core/ has no occurences of multiple
     // spaces after depends_on/conflicts_with, and I'm guessing their lint
     // prohibits them anyway.
-    invalid: [
-      'depends_on     "foo"',
-      'conflicts_with     "foo"',
-    ],
+    invalid: ['depends_on     "foo"', 'conflicts_with     "foo"'],
   },
   TYPESCRIPT_REFERENCE: {
-    valid: [
-      '/// <reference path="foo" />',
-      '///<reference path="foo" />',
-    ],
-    invalid: [
-      '// <reference path="foo" />',
-    ],
+    valid: ['/// <reference path="foo" />', '///<reference path="foo" />'],
+    invalid: ['// <reference path="foo" />'],
   },
   DOCKER_FROM: {
     valid: [
@@ -251,9 +240,7 @@ const fixtures = {
       ["Plugin 'ctrlp.vim'", ['ctrlp.vim']],
       ['Plugin "ctrlp.vim"', ['ctrlp.vim']],
     ],
-    invalid: [
-      "Plugin'ctrlp.vim'",
-    ],
+    invalid: ["Plugin'ctrlp.vim'"],
   },
   RUST_CRATE: {
     valid: [
@@ -278,11 +265,7 @@ const fixtures = {
       ['from foo import bar, baz', ['foo']],
       ['from foo.bar import baz', ['foo.bar']],
     ],
-    invalid: [
-      '\simport foo',
-      '\simport\nfoo',
-      '# from the',
-    ],
+    invalid: ['simport foo', 'simport\nfoo', '# from the'],
   },
   REQUIREMENTS_TXT: {
     valid: [
@@ -292,30 +275,25 @@ const fixtures = {
       ['Flask-Cache==0.13.1', ['Flask-Cache']],
       ['flake8', ['flake8']],
     ],
-    invalid: [
-      '-r requirements.txt',
-    ],
+    invalid: ['-r requirements.txt'],
   },
   CSS_IMPORT: {
     valid: [
-      '@import \'foo\'',
+      "@import 'foo'",
       '@import "foo"',
       '@import "foo" bar',
       '@import URL("foo")',
       '@import url("foo")',
       '@import url("foo") bar',
     ],
-    invalid: [
-      '@import foo',
-      '@import url(foo)',
-    ],
+    invalid: ['@import foo', '@import url(foo)'],
   },
   LESS_IMPORT: {
     valid: [
       '@import (less) "foo";',
       '@import (optional, reference) "foo";',
       // below copied from CSS_IMPORT
-      '@import \'foo\'',
+      "@import 'foo'",
       '@import "foo"',
       '@import "foo" bar',
       '@import URL("foo")',
@@ -331,12 +309,8 @@ const fixtures = {
     ],
   },
   HTML_IMPORT: {
-    valid: [
-      '<link rel="import" href="foo">',
-    ],
-    invalid: [
-      '<link href="foo">',
-    ],
+    valid: ['<link rel="import" href="foo">'],
+    invalid: ['<link href="foo">'],
   },
   go: {
     valid: [
@@ -364,13 +338,19 @@ const fixtures = {
       ['import (\n"launchpad.net/foo/bar"\n)', ['launchpad.net/foo/bar']],
       ['import (\n"hub.jazz.net/foo/bar"\n)', ['hub.jazz.net/foo/bar']],
       ['import (\n"gopkg.in/foo/bar"\n)', ['gopkg.in/foo/bar']],
-      ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
-      ['import (\n"github.com/foo"\n\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
+      [
+        'import (\n"github.com/foo"\n"github.com/bar"\n)',
+        ['github.com/foo', 'github.com/bar'],
+      ],
+      [
+        'import (\n"github.com/foo"\n\n"github.com/bar"\n)',
+        ['github.com/foo', 'github.com/bar'],
+      ],
       ['import (\nbar "github.com/foo/bar"\n)', ['github.com/foo/bar']],
     ],
     invalid: [
-      '\simport foo',
-      '\simport\nfoo',
+      'simport foo',
+      'simport\nfoo',
       'import "octo.com/foo/bar"',
       'import (\n"octo.com/foo/bar"\n)',
     ],
@@ -388,7 +368,7 @@ const fixtures = {
 };
 
 function fixturesIterator(fixturesList, next) {
-  fixturesList.forEach((statement) => {
+  fixturesList.forEach(statement => {
     const text = Array.isArray(statement) ? statement[0] : statement;
     const expected = Array.isArray(statement) ? statement[1] : ['foo'];
 
@@ -397,7 +377,7 @@ function fixturesIterator(fixturesList, next) {
 }
 
 describe('helper-grammar-regex-collection', () => {
-  Object.keys(fixtures).forEach((grammar) => {
+  Object.keys(fixtures).forEach(grammar => {
     const { valid, invalid } = fixtures[grammar];
     let regexes = REGEX[grammar];
 
@@ -417,8 +397,9 @@ describe('helper-grammar-regex-collection', () => {
             let match;
             let result = [];
 
-            regexes(text).forEach((regex) => {
-              while (match = regex.exec(text)) { // eslint-disable-line no-cond-assign
+            regexes(text).forEach(regex => {
+              // eslint-disable-next-line
+              while (match = regex.exec(text)) {
                 result = result.concat(match.slice(1));
               }
             });
@@ -429,9 +410,9 @@ describe('helper-grammar-regex-collection', () => {
       });
 
       describe('invalid', () => {
-        fixturesIterator(invalid, (text) => {
+        fixturesIterator(invalid, text => {
           it(text, () => {
-            regexes(text).forEach((regex) => {
+            regexes(text).forEach(regex => {
               assert.equal(regex.exec(text), null);
             });
           });

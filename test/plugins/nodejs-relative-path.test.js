@@ -6,7 +6,8 @@ describe('nodejs-relative-path', () => {
     assert.deepEqual(
       plugin.resolve({
         target: '/views',
-        path: '/pegjs/website/blob/5924ede36795192b77f2cb9bfe25a56e8e8b6f90/app.js#L12',
+        path:
+          '/pegjs/website/blob/5924ede36795192b77f2cb9bfe25a56e8e8b6f90/app.js#L12',
       }),
       '{BASE_URL}/pegjs/website/blob/5924ede36795192b77f2cb9bfe25a56e8e8b6f90/views',
     );
