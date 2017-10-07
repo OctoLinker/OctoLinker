@@ -8,6 +8,7 @@ const ALLOWED_DOMAINS = [
   'launchpad.net',
   'hub.jazz.net',
   'gopkg.in',
+  'golang.org',
 ];
 
 function multiImportRegExpBuilder(input) {
