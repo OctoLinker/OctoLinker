@@ -367,6 +367,7 @@ const fixtures = {
       ['import (\n"github.com/foo"\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
       ['import (\n"github.com/foo"\n\n"github.com/bar"\n)', ['github.com/foo', 'github.com/bar']],
       ['import (\nbar "github.com/foo/bar"\n)', ['github.com/foo/bar']],
+      ['import (\n"golang.org/x/net/context"\n"golang.org/pkg/net"\n)', ['golang.org/x/net/context', 'golang.org/pkg/net']],
     ],
     invalid: [
       '\simport foo',
