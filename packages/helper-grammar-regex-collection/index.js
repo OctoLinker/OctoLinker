@@ -131,18 +131,12 @@ export const HTML_IMPORT = regex`
   href=${captureQuotedWord}>
 `;
 
-// handles the case the HTML script tag has a type with it
-const typeRegex = regex`
-  (\stype=['"][^'"\s]+['"])?
-`;
-
 export const HTML_SCRIPT_IMPORT = regex`
-  ^\s*
   <script
-  ${typeRegex}
+  [^>]"
   \s
   src=${captureQuotedWord}
-  ${typeRegex}
+  [^>]"
   \s*>
 `;
 
