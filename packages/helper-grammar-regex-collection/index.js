@@ -133,10 +133,10 @@ export const HTML_IMPORT = regex`
 
 export const HTML_SCRIPT_IMPORT = regex`
   <script
-  [^>]"
+  [^>]*
   \s
   src=${captureQuotedWord}
-  [^>]"
+  [^>]*
   \s*>
 `;
 
