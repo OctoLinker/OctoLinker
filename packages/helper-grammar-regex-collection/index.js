@@ -131,6 +131,15 @@ export const HTML_IMPORT = regex`
   href=${captureQuotedWord}>
 `;
 
+export const HTML_SCRIPT_IMPORT = regex`
+  <script
+  [^>]*
+  \s
+  src=${captureQuotedWord}
+  [^>]*
+  \s*>
+`;
+
 export const NET_PACKAGE = regex`
   <\s*
   package

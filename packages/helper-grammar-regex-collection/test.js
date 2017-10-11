@@ -312,6 +312,22 @@ const fixtures = {
     valid: ['<link rel="import" href="foo">'],
     invalid: ['<link href="foo">'],
   },
+  HTML_SCRIPT_IMPORT: {
+    valid: [
+      '<script src="foo"></script>',
+      `<script src="foo">
+        function bar() {}
+      </script>`,
+      '<script type="application/javascript" src="foo"></script>',
+      '<script src="foo" type="application/javascript"></script>',
+    ],
+    invalid: [
+      '<script></script>',
+      `<script>
+        function bar() {}
+      </script>`,
+    ],
+  },
   go: {
     valid: [
       'import "foo"',
