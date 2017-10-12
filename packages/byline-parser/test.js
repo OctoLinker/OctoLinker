@@ -11,11 +11,7 @@ val3
 end
 val4`;
 
-const expected = [
-  ['val1'],
-  ['val2'],
-  ['val3'],
-];
+const expected = [['val1'], ['val2'], ['val3']];
 
 const fixtureCorrupt = `start
 val1
@@ -23,17 +19,9 @@ end
 start
 val2`;
 
-const expectedCorrupt = [
-  ['val1'],
-];
+const expectedCorrupt = [['val1']];
 
-const expectedAllValues = [
-  ['val0'],
-  ['val1'],
-  ['val2'],
-  ['val3'],
-  ['val4'],
-];
+const expectedAllValues = [['val0'], ['val1'], ['val2'], ['val3'], ['val4']];
 
 const openingPattern = /^start$/;
 const closingPattern = /^end$/;
@@ -90,32 +78,44 @@ describe('byline-parser', () => {
   });
 
   it('does not collect values if closing pattern is missing', () => {
-    assert.deepEqual([], bylineParser(fixture, {
-      openingPattern,
-      closingPattern: /^notdefined$/,
-      matchPattern,
-    }));
+    assert.deepEqual(
+      [],
+      bylineParser(fixture, {
+        openingPattern,
+        closingPattern: /^notdefined$/,
+        matchPattern,
+      }),
+    );
   });
 
   it('does not collect values if closing line is missing', () => {
-    assert.deepEqual(expectedCorrupt, bylineParser(fixtureCorrupt, {
-      openingPattern,
-      closingPattern,
-      matchPattern,
-    }));
+    assert.deepEqual(
+      expectedCorrupt,
+      bylineParser(fixtureCorrupt, {
+        openingPattern,
+        closingPattern,
+        matchPattern,
+      }),
+    );
   });
 
   it('collects values between opening and close pattern', () => {
-    assert.deepEqual(expected, bylineParser(fixture, {
-      openingPattern,
-      closingPattern,
-      matchPattern,
-    }));
+    assert.deepEqual(
+      expected,
+      bylineParser(fixture, {
+        openingPattern,
+        closingPattern,
+        matchPattern,
+      }),
+    );
   });
 
   it('collects match values', () => {
-    assert.deepEqual(expectedAllValues, bylineParser(fixture, {
-      matchPattern: /(val[0-9])/,
-    }));
+    assert.deepEqual(
+      expectedAllValues,
+      bylineParser(fixture, {
+        matchPattern: /(val[0-9])/,
+      }),
+    );
   });
 });

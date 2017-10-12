@@ -16,8 +16,7 @@ function multiImportRegExpBuilder(input) {
     openingPattern: /^import\s\($/,
     closingPattern: /^\)$/,
     matchPattern: /"([^"]+)"/,
-  })
-  .map(([value]) => {
+  }).map(([value]) => {
     const domain = value.match(DOMAIN_REGEX);
 
     if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
@@ -32,8 +31,7 @@ function multiImportRegExpBuilder(input) {
 function singleImportRegExpBuilder(input) {
   return bylineParser(input, {
     matchPattern: /import\s(?:[_\.]\s|[\w]+\s)?['"]([^'"\s]+)['"]?/,
-  })
-  .map(([value]) => {
+  }).map(([value]) => {
     const domain = value.match(DOMAIN_REGEX);
 
     if (domain && !ALLOWED_DOMAINS.includes(domain[0])) {
@@ -41,14 +39,18 @@ function singleImportRegExpBuilder(input) {
     }
 
     const val = escapeRegexString(value);
-    return new RegExp(`import\\s(?:[_\\.]\\s|[\\w]+\\s)?['"](${val})['"]?`, 'gm');
+    return new RegExp(
+      `import\\s(?:[_\\.]\\s|[\\w]+\\s)?['"](${val})['"]?`,
+      'gm',
+    );
   });
 }
 
-export default function (blobSource) {
-  return [].concat(
-    multiImportRegExpBuilder(blobSource),
-    singleImportRegExpBuilder(blobSource),
-  )
-  .filter(item => !!item);
+export default function(blobSource) {
+  return []
+    .concat(
+      multiImportRegExpBuilder(blobSource),
+      singleImportRegExpBuilder(blobSource),
+    )
+    .filter(item => !!item);
 }

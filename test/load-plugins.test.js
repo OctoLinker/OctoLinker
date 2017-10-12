@@ -7,7 +7,7 @@ describe('load-plugins', () => {
 
     assert(Array.isArray(plugins));
 
-    plugins.forEach((plugin) => {
+    plugins.forEach(plugin => {
       assert.equal(typeof plugin, 'object');
       assert(plugin.name);
       assert(plugin.resolve);
