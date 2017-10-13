@@ -7,6 +7,7 @@
         "polyfill": false
       }
     ],
+    ["transform-react-jsx", { "pragma": "h" }],
     "transform-object-rest-spread"
   ],
   "presets": [
