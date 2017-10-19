@@ -1,15 +1,29 @@
 module.exports = {
-  extends: ['airbnb-base', 'plugin:import/errors', 'prettier'],
-  plugins: ['prettier', 'mocha'],
+  parser: 'babel-eslint',
+  extends: ['airbnb', 'prettier'],
+  plugins: ['prettier', 'react', 'mocha'],
   env: {
     browser: true,
     mocha: true
+  },
+  settings: {
+    react: {
+      pragma: 'h'
+    }
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      modules: true,
+      jsx: true
+    }
   },
   rules: {
     'prettier/prettier': ['error', {
       singleQuote: true,
       trailingComma: 'all',
     }],
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+    'react/prop-types': 0,
     'func-names': 0,
     'id-length': [1, {'exceptions': ['$']}],
     'new-cap': [2, {'capIsNewExceptions': ['Deferred']}],
