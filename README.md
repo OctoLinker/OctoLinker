@@ -21,97 +21,13 @@ Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/de
 
 # Features
 
-OctoLinker is the easiest and best way to navigate between files and projects on GitHub.com. Files containing the following keywords will now have links that redirect you either to the relative file or to the projects GitHub page. Depending on the value, it may redirect you to an external website like a manual page or another service.
+OctoLinker is the easiest and best way to navigate between files and projects on GitHub.com. Files containing the following keywords will now have links that redirect you either to the relative file or to the projects GitHub page. Depending on the value, it may redirect you to an external website like a manual page or another service. 
 
-### bower.json (Bower)
-- `main`
-- `dependencies`
-- `devDependencies`
-- `resolutions`
+![](https://user-images.githubusercontent.com/1393946/32074441-b6231aba-ba99-11e7-880d-631fdb961db5.png)
 
-### composer.json (Composer)
-- `require `
-- `require-dev`
-- `conflict`
-- `replace`
-- `provide`
-- `suggest`
-
-### Dockerfile (Docker)
-
-- `FROM`
-
-### Homebrew
-- `depends_on`
-- `conflicts_with`
-- `depends_on cask`
-- `depends_on formula`
-
-### JavaScript / NodeJS
-- `require`
-- `import`
-- `export`
-- `__dirname + '/some/relative/path'`
-- `path.join(__dirname, '/some/relative/path')`
-
-### package.json (npm)
-- `main`
-- `module` and `jsnext:main`
-- `bin`
-- `browser`
-- `dependencies`
-- `devDependencies`
-- `resolutions`
-- `peerDependencies`
-- `optionalDependencies`
-- `types` and `typings`
-
-### Python
-- `import`
-- `from`
-
-### Ruby
-- `require`
-- `require_relative`
-
-### Rubygems
-- `gem`
-
-### Rust
-- `extern crate`
-- `use`
-
-### TypeScript
-- `import`
-- `<reference path="" />`
-
-### Vim
-- `Bundle`
-- `NeoBundle`
-- `NeoBundleFetch`
-- `NeoBundleLazy`
-
-### project.json (.NET Core)
-- `dependencies`
-- `tools`
-
-### packages.config (.NET Framework)
-- `<package id="..." />`
-
-### Go
-- `import`
-
-### CSS
-- `@import`
-
-### Sass
-- `@import`
-
-### less
-- `@import`
-
-### HTML
-- `<link rel="import" href="...">`
+<p align="center">
+<img src="http://octolinker.github.io/img/npm.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/javascript.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/composer.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/bower.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/python.png" width="200" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/docker.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/ruby.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/node.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/vim.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/rubygems.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/css.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/rust.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/go.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/typescript.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/html.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/sass.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/haskel.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/less.png" width="100" hspace="20" vspace="20"/><img src="http://octolinker.github.io/img/homebrew.png" width="100" hspace="20" vspace="20"/>
+</p>
 
 # Want to contribute?
 
@@ -124,7 +40,7 @@ If you encounter a problem using OctoLinker, or would like to request an enhance
 
 # Thanks
 
-- My girlfriend for being so patient with me!
+- My wife for being so patient with me!
 - [@josephfrazier_](https://twitter.com/josephfrazier_) for his awesome contributions to this project!
 - [art-noir.net](http://art-noir.net) for the awesome mascot and website!
 - [@kkamilio](https://twitter.com/kkamilio) and [@WolnyAdrian](https://twitter.com/WolnyAdrian) for teaching me how Ruby works!
