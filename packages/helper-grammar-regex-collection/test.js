@@ -385,6 +385,21 @@ const fixtures = {
       '<package version="2.7.7.02" targetFramework="net45" />',
     ],
   },
+  JAVA_IMPORT: {
+    valid: [
+      ['import java.util.Foo', ['java.util.Foo']],
+      ['import javax.util.Foo', ['javax.util.Foo']],
+    ],
+    invalid: [
+      'import com.company.app', // For now, we support java core packages only
+      'import 1com.company.myapp',
+      'import m.company.region.myapp',
+      'import c0m.company.region.myapp',
+      'import com.-company.myapp',
+      'import com.company.1',
+      'import com.company..myapp',
+    ],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {

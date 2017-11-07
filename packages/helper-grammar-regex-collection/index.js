@@ -147,3 +147,13 @@ export const NET_PACKAGE = regex`
   id=${captureQuotedWord}
   .*/>
 `;
+
+export const JAVA_IMPORT = regex`
+  ^\s*
+  import
+  \s
+  (?<$1>
+    javax? # For now, we support java core packages only
+    ((\.[a-zA-Z0-9_]+)+[a-zA-Z0-9_])*
+  )
+`;
