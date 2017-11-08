@@ -1,5 +1,3 @@
-import 'core-js';
-
 window.chrome = {
   runtime: {
     sendMessage: () => {},

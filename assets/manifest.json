@@ -8,9 +8,11 @@
   "icons": {
     "128": "icon.png"
   },
+  "minimum_chrome_version": "54",
   "applications": {
     "gecko": {
-      "id": "octolinker@stefanbuck.com"
+      "id": "octolinker@stefanbuck.com",
+      "strict_min_version": "47.0"
     }
   },
   "background": {
