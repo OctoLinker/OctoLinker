@@ -31,8 +31,8 @@ a.octolinker-link {
 }
 
 /* Fix line indicator for issue code blocks */
-.highlight {
-  position: relative;;
+div.highlight {
+  position: relative;
 }
 
 .highlight .octolinker-line-indicator:after {
