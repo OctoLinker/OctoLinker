@@ -20,7 +20,7 @@ To build and run the extension follow these steps.
    * Chrome (Quickstart):
      1. `yarn chrome-open`
    * Chrome (Long Version):
-     1. To build the extension once run `yarn chrome-build` or `yarn chrome-watch` during development.
+     1. To build the extension once run `yarn build` or `yarn watch` during development.
      1. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
 [CSS]: https://github.com/OctoLinker/browser-extension/commit/ccbefb7
