@@ -1,27 +1,6 @@
 {
   "plugins": [
-    [
-      "transform-runtime",
-      {
-        "helpers": false,
-        "polyfill": false
-      }
-    ],
-    ["transform-react-jsx", { "pragma": "h" }],
-    "transform-object-rest-spread"
-  ],
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": [
-            "last 3 Chrome versions",
-            "last 3 Firefox versions",
-            "last 3 Opera versions"
-          ]
-        }
-      }
-    ]
+    "transform-object-rest-spread",
+    ["transform-react-jsx", { "pragma": "h" }]
   ]
 }
