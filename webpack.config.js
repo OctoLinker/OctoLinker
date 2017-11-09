@@ -12,11 +12,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
-  plugins: [
-    new CopyWebpackPlugin([{ from: 'assets' }], {
-      ignore: ['manifest.json'],
-    }),
-  ],
+  plugins: [new CopyWebpackPlugin([{ from: 'assets' }])],
   module: {
     rules: [
       {

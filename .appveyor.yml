@@ -22,7 +22,7 @@ test_script:
   - node --version
   - npm --version
   # Make sure build works on Windows
-  - npm run package-all
+  - npm run package
   # run tests
   - set PHANTOMJS_BIN=C:\ProgramData\chocolatey\bin\phantomjs.exe
   - appveyor-retry call npm test

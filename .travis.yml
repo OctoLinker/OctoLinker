@@ -19,7 +19,7 @@ before_install:
   - export PATH=$HOME/.yarn/bin:$PATH
 before_script:
   - ./packages/blob-reader/scripts/update-fixtures.sh
-  - npm run package-all
+  - npm run package
 script:
   - travis_retry npm test
 deploy:
