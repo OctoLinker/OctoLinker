@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
-    "babel-runtime": "^6.26.0",
     "builtins": "^1.0.3",
     "chrome-promise": "^2.1.1",
     "concat-map": "^0.0.1",
@@ -51,12 +50,9 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
-    "babel-eslint": "^8.0.1",
     "babel-loader": "^7.1.2",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.6.0",
     "chrome-launch": "^1.1.4",
     "chrome-webstore-upload-cli": "^1.1.1",
     "copy-webpack-plugin": "^4.1.0",
