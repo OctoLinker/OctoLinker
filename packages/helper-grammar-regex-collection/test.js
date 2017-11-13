@@ -402,14 +402,15 @@ const fixtures = {
   },
   NET_PROJ_PACKAGE: {
     valid: [
-      '<PackageReference Include="EntityFramework" Version="6.2.0" />',
-      '< PackageReference Include="EntityFramework" Version="6.2.0" />',
-      '<PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="$(MicrosoftExtensionsCachingMemoryPackageVersion)" />',
-      '<PackageReference Include="Microsoft.AspNetCore.Cors">\n<Version>2.0.0</Version>\n</PackageReference>',
+      '<PackageReference Include="foo" Version="6.2.0" />',
+      '<PackageReference Include="foo" Version="$(MicrosoftExtensionsCachingMemoryPackageVersion)" />',
+      '<PackageReference Version="6.2.0" Include="foo" />',
+      '<PackageReference Include="foo">\n<Version>2.0.0</Version>\n</PackageReference>',
     ],
     invalid: [
       '<PackageReferences Include="EntityFramework" Version="6.2.0" />',
       '<PackageReference Includes="EntityFramework" Version="6.2.0" />',
+      '< PackageReference Include="EntityFramework" Version="6.2.0" />',
     ],
   },
 };
