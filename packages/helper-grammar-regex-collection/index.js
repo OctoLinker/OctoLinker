@@ -159,9 +159,9 @@ export const JAVA_IMPORT = regex`
 `;
 
 export const NET_PROJ_PACKAGE = regex`
-  <\s*
-  PackageReference
-  \s*
+  <PackageReference
+  \s+
+  .*
   Include=${captureQuotedWord}
-  .*/>
+  .*/?>
 `;
