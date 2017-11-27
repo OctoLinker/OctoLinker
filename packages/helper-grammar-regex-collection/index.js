@@ -2,10 +2,20 @@ import regex from './regex';
 
 export { default as go } from './go.js';
 
+const captureWordInsideQuotes = regex`
+  (?<$1>[^'"\s]+) # capture the word inside the quotes
+`;
+
 const captureQuotedWord = regex`
   ['"]            # beginning quote
-  (?<$1>[^'"\s]+) # capture the word inside the quotes
+  ${captureWordInsideQuotes}
   ['"]            # end quote
+`;
+
+const captureJsQuotedWord = regex`
+  ['"\`]          # beginning quote
+  ${captureWordInsideQuotes}
+  ['"\`]          # end quote
 `;
 
 const importMembers = regex`[\r\n\s\w{},*\$]*`;
@@ -14,7 +24,7 @@ const from = regex`\s from \s`;
 export const NODEJS_RELATIVE_PATH = regex`
   __dirname
   \s* \+ \s*
-  ${captureQuotedWord}
+  ${captureJsQuotedWord}
 `;
 
 export const NODEJS_RELATIVE_PATH_JOIN = regex`
@@ -22,13 +32,13 @@ export const NODEJS_RELATIVE_PATH_JOIN = regex`
   \( \s*
   __dirname \s*
   , \s*
-  ${captureQuotedWord}
+  ${captureJsQuotedWord}
 `;
 
 export const REQUIRE = regex`
   ( require(\.resolve)? | proxyquire | import | require_relative )
   \s* ( \s | \( ) \s*
-  ${captureQuotedWord}
+  ${captureJsQuotedWord}
 `;
 
 export const IMPORT = regex`
