@@ -2,20 +2,16 @@ import regex from './regex';
 
 export { default as go } from './go.js';
 
-const captureWordInsideQuotes = regex`
-  (?<$1>[^'"\s]+) # capture the word inside the quotes
-`;
-
 const captureQuotedWord = regex`
-  ['"]            # beginning quote
-  ${captureWordInsideQuotes}
-  ['"]            # end quote
+  ['"]              # beginning quote
+  (?<$1>[^'"\s]+)   # capture the word inside the quotes
+  ['"]              # end quote
 `;
 
 const captureJsQuotedWord = regex`
-  ['"\`]          # beginning quote
-  ${captureWordInsideQuotes}
-  ['"\`]          # end quote
+  ['"\`]            # beginning quote
+  (?<$1>[^'"\`\s]+) # capture the word inside the quotes
+  ['"\`]            # end quote
 `;
 
 const importMembers = regex`[\r\n\s\w{},*\$]*`;
