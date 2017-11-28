@@ -43,6 +43,7 @@ const fixtures = {
     ],
     invalid: [
       'import "fo o"',
+      'import foo from `foo`',
       // TODO tweak IMPORT regexp so that invalid statements are not matched
       // 'import foo "foo"',
       // 'import from "foo"',
@@ -58,7 +59,7 @@ const fixtures = {
       ['export { bar\n } from "foo"', ['foo']],
       ['export { \nbar\n } from "foo"', ['foo']],
     ],
-    invalid: ['export * from "fo o"'],
+    invalid: ['export * from "fo o"', 'export * from `foo`'],
   },
   REQUIRE: {
     valid: [
@@ -79,6 +80,7 @@ const fixtures = {
       ['foo = require("foo")bar = require("bar")', ['foo', 'bar']],
       ['foo = require("a-b")bar = require("c-d-e")', ['a-b', 'c-d-e']],
       ['foo = require("./foo")bar = require("./bar")', ['./foo', './bar']],
+      ['foo = require(`./foo`)bar = require(`./bar`)', ['./foo', './bar']],
       [
         'const foo = require("./foo")bar = require("./bar")',
         ['./foo', './bar'],
@@ -93,6 +95,7 @@ const fixtures = {
       ['require.resolve(\t"foo"\t)', ['foo']],
       ['require.resolve ("foo")', ['foo']],
       ['var foo = require.resolve("foo")', ['foo']],
+      ['var foo = require.resolve(`foo`)', ['foo']],
       [
         'var foo = require.resolve("foo")var bar = require.resolve("bar")',
         ['foo', 'bar'],
@@ -120,7 +123,8 @@ const fixtures = {
       ['var _ = import("foo")', ['foo']],
       ['var foo = import("foo")var bar = import("bar")', ['foo', 'bar']],
       ['import("foo")import("bar");', ['foo', 'bar']],
-      ['import("foo")import("bar");', ['foo', 'bar']],
+      ['import("foo")import("bar")', ['foo', 'bar']],
+      ['import(`foo`)import(`bar`)', ['foo', 'bar']],
       ['var foo = import("foo")import("bar");', ['foo', 'bar']],
       ['var foo = import("foo")import("bar")', ['foo', 'bar']],
       ['foo = import("foo")import("bar")', ['foo', 'bar']],
