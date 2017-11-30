@@ -405,6 +405,19 @@ const fixtures = {
     valid: [
       ['import java.util.Foo', ['java.util.Foo']],
       ['import javax.util.Foo', ['javax.util.Foo']],
+      ['import org.springframework.Foo', ['org.springframework.Foo']],
+      ['import io.spring.Foo', ['io.spring.Foo']],
+      ['import sparklr.common.Foo', ['sparklr.common.Foo']],
+      ['import org.hamcrest.Foo', ['org.hamcrest.Foo']],
+      ['import com.fasterxml.Foo', ['com.fasterxml.Foo']],
+      ['import org.junit.Foo', ['org.junit.Foo']],
+      ['import org.mockito.Foo', ['org.mockito.Foo']],
+      ['import org.apache.log4j.Foo', ['org.apache.log4j.Foo']],
+      ['import org.slf4j.Foo', ['org.slf4j.Foo']],
+      [
+        'import org.apache.commons.logging.Foo',
+        ['org.apache.commons.logging.Foo'],
+      ],
     ],
     invalid: [
       'import com.company.app', // For now, we support java core packages only

@@ -12,4 +12,11 @@ describe('Java', () => {
       `https://docs.oracle.com/javaee/7/api/java/util/Foo.html`,
     ]);
   });
+
+  it('resolves community packages', () => {
+    assert.deepEqual(Java.resolve({ target: 'com.company.app' }), {
+      url: 'https://githublinker.herokuapp.com/q/java/com.company.app',
+      method: 'GET',
+    });
+  });
 });
