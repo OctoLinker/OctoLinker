@@ -45,7 +45,7 @@ describe('blob-reader', () => {
 
         assert.equal(
           reader.read()._blobs[0].path,
-          '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js',
+          '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js',
         );
       });
 
@@ -57,7 +57,7 @@ describe('blob-reader', () => {
 
         assert.equal(
           reader.read()._blobs[1].path,
-          '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-rabbit-names.js',
+          '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js',
         );
       });
     });
