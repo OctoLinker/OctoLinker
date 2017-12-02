@@ -159,7 +159,29 @@ export const JAVA_IMPORT = regex`
   import
   \s
   (?<$1>
-    javax? # For now, we support java core packages only
+    (
+      javax?
+      |
+      org\.springframework
+      |
+      io\.spring
+      |
+      sparklr\.common
+      |
+      org\.hamcrest
+      |
+      com\.fasterxml
+      |
+      org\.junit
+      |
+      org\.mockito
+      |
+      org\.apache\.log4j
+      |
+      org\.slf4j
+      |
+      org\.apache\.commons\.logging
+    )
     ((\.[a-zA-Z0-9_]+)+[a-zA-Z0-9_])*
   )
 `;
