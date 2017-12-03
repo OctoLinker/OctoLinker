@@ -5,9 +5,9 @@
 # What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/browser-extension.svg?branch=master)](https://travis-ci.org/OctoLinker/browser-extension) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/octolinker/browser-extension?svg=true&branch=master)](https://ci.appveyor.com/project/stefanbuck/browser-extension)
 
 
-OctoLinker is a browser extension for Chrome, Firefox and Opera which allows you to navigate trough code on GitHub more efficient.
+OctoLinker is a browser extension for Chrome, Firefox and Opera which allows you to navigate through code on GitHub more efficiently.
 
-It turns language specific module loading statements like `include`, `require` or `import` into links. Depending on the language it will either redirect you to the referenced file or to an external website like a manual page or another service.
+It turns language-specific module-loading statements like `include`, `require` or `import` into links. Depending on the language it will either redirect you to the referenced file or to an external website like a manual page or another service.
 
 <img src="https://cloud.githubusercontent.com/assets/1393946/17873217/77fa7404-68c4-11e6-94d7-1a3e4cebec58.png" width="780" />
 
