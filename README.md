@@ -5,9 +5,9 @@
 # What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/browser-extension.svg?branch=master)](https://travis-ci.org/OctoLinker/browser-extension) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/octolinker/browser-extension?svg=true&branch=master)](https://ci.appveyor.com/project/stefanbuck/browser-extension)
 
 
-First of all, it's a browser extension. Once installed, it allows you to navigate through projects on GitHub.com efficiently.
+OctoLinker is a browser extension for Chrome, Firefox and Opera which allows you to navigate through code on GitHub more efficiently.
 
-Most projects consist of many files and third party dependencies. Files are referencing other files and / or dependencies by language specific statements like `include` or `require`. Dependencies are most likely declared in a file called manifest e.g. `package.json` or `Gemfile`. The OctoLinker browser extensions makes these references clickable. No more copy and search.
+It turns language-specific module-loading statements like `include`, `require` or `import` into links. Depending on the language it will either redirect you to the referenced file or to an external website like a manual page or another service.
 
 <img src="https://cloud.githubusercontent.com/assets/1393946/17873217/77fa7404-68c4-11e6-94d7-1a3e4cebec58.png" width="780" />
 
@@ -21,7 +21,7 @@ Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/de
 
 # Features
 
-OctoLinker is the easiest and best way to navigate between files and projects on GitHub.com. Files containing the following keywords will now have links that redirect you either to the relative file or to the projects GitHub page. Depending on the value, it may redirect you to an external website like a manual page or another service.
+OctoLinker supports quite a few languages already. The supported features vary from language to language. A pink dot next to the line number indicates an OctoLinker action.
 
 ![](https://user-images.githubusercontent.com/1393946/32074441-b6231aba-ba99-11e7-880d-631fdb961db5.png)
 
@@ -124,6 +124,6 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 
 # Legal and License
 
-The OctoLinker project is not affiliated with, sponsored by, or endorsed by github, inc.
+OctoLinker is not affiliated with, sponsored by, or endorsed by GitHub Inc.
 
 Copyright (c) 2014–present [Stefan Buck](https://github.com/stefanbuck) Licensed under the MIT license.
