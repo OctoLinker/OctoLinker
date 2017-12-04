@@ -14,6 +14,10 @@ const captureJsQuotedWord = regex`
   ['"\`]            # end quote
 `;
 
+const diffSigns = regex`
+  ^[\+\-]?
+`;
+
 const importMembers = regex`[\r\n\s\w{},*\$]*`;
 const from = regex`\s from \s`;
 
@@ -70,6 +74,7 @@ export const DOCKER_FROM = regex`
 `;
 
 export const VIM_PLUGIN = regex`
+  ${diffSigns}
   (
     (
       (Neo)?
@@ -83,20 +88,21 @@ export const VIM_PLUGIN = regex`
 `;
 
 export const RUST_CRATE = regex`
-  ^ (extern \s crate | use)
+  ${diffSigns}
+  (extern \s crate | use)
   \s
   (?<$1>[^:;\s]+)
 `;
 
 export const PYTHON_IMPORT = regex`
-  ^\s*
+  ${diffSigns}
   (import|from)
   \s
   (?<$1>[^\s]*)
 `;
 
 export const REQUIREMENTS_TXT = regex`
-  ^\s*
+  ${diffSigns}
   (?<$1>[\w-]+) # the package name
   (
     \s*
@@ -107,12 +113,13 @@ export const REQUIREMENTS_TXT = regex`
 `;
 
 export const HASKELL_IMPORT = regex`
-  ((^|\s)import\s+(qualified\s)?)
+  ${diffSigns}
+  (import\s+(qualified\s)?)
   (?<$1> [A-Z][\w.]+)
 `;
 
 export const CSS_IMPORT = regex`
-  ^\s*
+  ${diffSigns}
   @import
   \s
   ((url|URL)\()?
@@ -120,7 +127,7 @@ export const CSS_IMPORT = regex`
 `;
 
 export const LESS_IMPORT = regex`
-  ^\s*
+  ${diffSigns}
   @import
   \s
   ( \([a-z, ]+\) \s+ )? # http://lesscss.org/features/#import-options
@@ -129,7 +136,7 @@ export const LESS_IMPORT = regex`
 `;
 
 export const HTML_IMPORT = regex`
-  ^\s*
+  ${diffSigns}
   <link
   \s
   rel="import"
@@ -155,7 +162,7 @@ export const NET_PACKAGE = regex`
 `;
 
 export const JAVA_IMPORT = regex`
-  ^\s*
+  ${diffSigns}
   import
   \s
   (?<$1>
