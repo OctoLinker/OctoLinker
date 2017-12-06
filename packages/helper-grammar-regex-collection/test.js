@@ -461,7 +461,7 @@ function fixturesIterator(fixturesList, next) {
 
 function addModifiedLines(valid) {
   const [text, expected] = valid[0];
-  const diffLines = [[`-${text}`, expected], [`+${text}`, expected]];
+  const diffLines = [[` -${text}`, expected], [` +${text}`, expected]];
 
   return [].concat([], diffLines, valid);
 }
