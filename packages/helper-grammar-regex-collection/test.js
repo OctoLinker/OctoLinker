@@ -459,9 +459,20 @@ function fixturesIterator(fixturesList, next) {
   });
 }
 
+function addModifiedLines(valid) {
+  const [text, expected] = valid[0];
+  const diffLines = [[`-${text}`, expected], [`+${text}`, expected]];
+
+  return [].concat([], diffLines, valid);
+}
+
 describe('helper-grammar-regex-collection', () => {
   Object.keys(fixtures).forEach(grammar => {
-    const { valid, invalid } = fixtures[grammar];
+    const spec = fixtures[grammar];
+
+    const { invalid } = spec;
+    const valid = addModifiedLines(spec.valid);
+
     let regexes = REGEX[grammar];
 
     // Help ensure that `regexes` is a function that returns an array of RegExp
