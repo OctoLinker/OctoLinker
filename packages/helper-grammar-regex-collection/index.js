@@ -15,7 +15,7 @@ const captureJsQuotedWord = regex`
 `;
 
 const diffSigns = regex`
-  ^[\+\-]?
+  ^[ \t]*[+-]?
 `;
 
 const importMembers = regex`[\r\n\s\w{},*\$]*`;
