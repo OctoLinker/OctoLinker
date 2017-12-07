@@ -33,6 +33,7 @@ deploy:
       tags: true
   - provider: script
     script: npm run release
+    skip_cleanup: true
     on:
       branch: master
       tags: true
