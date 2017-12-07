@@ -21,18 +21,6 @@ before_script:
   - git diff --exit-code # make sure that yarn.lock didn't change
   - ./packages/blob-reader/scripts/update-fixtures.sh
   - npm run package
+  - npm run release
 script:
   - travis_retry npm test
-deploy:
-  - provider: releases
-    api_key: "$GH_DEPLOY"
-    file_glob: true
-    file: "out/*.zip"
-    skip_cleanup: true
-    on:
-      tags: true
-  - provider: script
-    script: npm run release
-    on:
-      branch: master
-      tags: true
