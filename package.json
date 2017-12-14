@@ -2,7 +2,7 @@
   "name": "OctoLinker",
   "version": "4.15.1",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "main": "lib/app.js",
   "scripts": {
