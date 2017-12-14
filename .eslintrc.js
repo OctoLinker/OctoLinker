@@ -2,6 +2,7 @@ module.exports = {
   extends: ['airbnb', 'prettier'],
   plugins: ['prettier', 'react'],
   env: {
+    jest: true,
     browser: true
   },
   settings: {

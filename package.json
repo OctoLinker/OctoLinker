@@ -8,8 +8,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "",
-    "test:watch": "",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
     "package": "npm run build && web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
     "release": "webstore upload --source dist --auto-publish",
@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "JSONPath": "^0.11.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-jest": "^21.2.0",
     "builtins": "^1.0.3",
     "chrome-promise": "^2.1.1",
     "concat-map": "^0.0.1",
@@ -34,6 +36,7 @@
     "github-url-from-git": "^1.5.0",
     "github-url-from-username-repo": "^1.0.2",
     "giturl": "^1.0.0",
+    "jest": "^21.3.0-beta.14",
     "jquery": "^3.2.1",
     "linkstate": "^1.1.0",
     "path-parse": "^1.0.5",
