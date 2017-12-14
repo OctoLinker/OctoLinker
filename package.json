@@ -20,6 +20,11 @@
     "firefox-open": "npm run build && npm run firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
   },
+  "jest": {
+    "setupFiles": [
+      "./test/_setup.js"
+    ]
+  },
   "dependencies": {
     "JSONPath": "^0.11.2",
     "babel-preset-env": "^1.6.1",
