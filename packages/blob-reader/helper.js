@@ -122,7 +122,7 @@ function readLine(el) {
   // Each array element represents a single line.
   // Therefore we can get ride of the newline here.
   const ret = {
-    value: el.innerText.replace(/\n/, ''),
+    value: el.textContent.replace(/\n/, ''),
     lineNumber,
   };
 
@@ -140,9 +140,8 @@ function readLine(el) {
 function readLines(el) {
   if (el.classList.contains('highlight')) {
     const issueCode = el.getElementsByTagName('pre');
-
     if (issueCode.length) {
-      return issueCode[0].innerText.split(/\n/).map((line, index) => ({
+      return issueCode[0].textContent.split(/\n/).map((line, index) => ({
         value: line,
         lineNumber: index + 1,
       }));

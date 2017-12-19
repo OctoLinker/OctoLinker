@@ -1,5 +1,5 @@
 import assert from 'assert';
-import loadPlugins from '../lib/load-plugins.js';
+import * as loadPlugins from '../lib/load-plugins.js';
 
 describe('pattern-preset', () => {
   describe('githubClasses', () => {
@@ -14,7 +14,9 @@ describe('pattern-preset', () => {
         );
       });
 
-      const presets = loadPlugins().map(plugin => plugin.getPattern());
+      const presets = Object.values(loadPlugins).map(plugin =>
+        plugin.getPattern(),
+      );
       for (const [lang, value] of Object.entries(presets)) {
         value.githubClasses.forEach(className => {
           if (!className.includes('highlight')) {

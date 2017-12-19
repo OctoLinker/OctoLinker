@@ -30,7 +30,7 @@ describe('click-handler', () => {
     $link.remove();
   });
 
-  after(() => {
+  afterAll(() => {
     sandbox.restore();
   });
 

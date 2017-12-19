@@ -1,21 +1,12 @@
 import assert from 'assert';
-import sinon from 'sinon';
 import githubSearch from '../../lib/resolver/github-search.js';
 
 describe('github-search', () => {
-  const sandbox = sinon.sandbox.create();
-  const fetchStub = sinon.stub(window, 'fetch');
-
   const path = '/octo/foo.txt';
   const target = 'bar.txt';
 
-  afterEach(() => {
-    fetchStub.reset();
-    sandbox.reset();
-  });
-
-  after(() => {
-    sandbox.restore();
+  beforeAll(() => {
+    global.fetch = jest.fn();
   });
 
   it('returns a function', () => {
@@ -25,8 +16,7 @@ describe('github-search', () => {
   it('calls the github search api', () => {
     githubSearch({ path, target })();
 
-    assert.deepEqual(
-      fetchStub.args[0][0],
+    expect(global.fetch).toBeCalledWith(
       'https://api.github.com/search/code?q=bar.txt+in:path+filename:bar.txt+repo:octo/foo.txt+extension:.txt',
     );
   });
@@ -34,8 +24,7 @@ describe('github-search', () => {
   it('does not append query param "extension" when target does not have a file extension', () => {
     githubSearch({ path, target: 'bar' })();
 
-    assert.deepEqual(
-      fetchStub.args[0][0],
+    expect(global.fetch).toBeCalledWith(
       'https://api.github.com/search/code?q=bar+in:path+filename:bar+repo:octo/foo.txt',
     );
   });

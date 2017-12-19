@@ -1,9 +1,9 @@
 module.exports = {
   extends: ['airbnb', 'prettier'],
-  plugins: ['prettier', 'react', 'mocha'],
+  plugins: ['prettier', 'react'],
   env: {
-    browser: true,
-    mocha: true
+    jest: true,
+    browser: true
   },
   settings: {
     react: {
@@ -37,15 +37,6 @@ module.exports = {
     'no-restricted-syntax': 0,
     'consistent-return': 0,
     'array-callback-return': 0,
-    'mocha/no-exclusive-tests': 2,
-    'mocha/no-skipped-tests': 2,
-    'mocha/no-pending-tests': 2,
-    'mocha/handle-done-callback': 2,
-    'mocha/no-global-tests': 2,
-    'mocha/no-return-and-callback': 2,
-    'mocha/no-sibling-hooks': 2,
-    'mocha/no-identical-title': 2,
-    'mocha/no-top-level-hooks': 2
   },
   globals: {
     fixture: true,

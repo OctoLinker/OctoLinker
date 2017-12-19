@@ -1,9 +1,9 @@
 import assert from 'assert';
-import loadPlugins from '../lib/load-plugins.js';
+import * as loadPlugins from '../lib/load-plugins.js';
 
 describe('load-plugins', () => {
   it('returns an array of objects', () => {
-    const plugins = loadPlugins();
+    const plugins = Object.values(loadPlugins);
 
     assert(Array.isArray(plugins));
 

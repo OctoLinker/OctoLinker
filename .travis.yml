@@ -7,7 +7,7 @@ addons:
       - google-chrome-stable
 language: node_js
 node_js:
-  - 6
+  - 8
 cache:
   yarn: true
 # Use npm > 4 to fix https://github.com/npm/npm/issues/14042
