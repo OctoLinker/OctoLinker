@@ -26,7 +26,26 @@ OctoLinker supports quite a few languages already. The supported features vary f
 ![](https://user-images.githubusercontent.com/1393946/32074441-b6231aba-ba99-11e7-880d-631fdb961db5.png)
 
 <p align="center">
-<img src="https://octolinker.github.io/img/npm.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/javascript.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/java.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/composer.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/bower.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/python.png" width="200" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/docker.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/ruby.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/nodejs.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/vim.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/rubygems.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/css.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/rust.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/go.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/typescript.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/html.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/sass.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/haskell.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/less.png" width="100" hspace="20" vspace="20"/><img src="https://octolinker.github.io/img/homebrew.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/npm.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/javascript.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/java.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/composer.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/bower.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/python.png" width="200" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/docker.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/ruby.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/nodejs.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/vim.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/rubygems.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/css.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/rust.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/go.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/typescript.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/html.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/sass.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/haskell.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/less.png" width="100" hspace="20" vspace="20"/>
+<img src="https://octolinker.github.io/img/homebrew.png" width="100" hspace="20" vspace="20"/>
 </p>
 
 # Want to contribute?
