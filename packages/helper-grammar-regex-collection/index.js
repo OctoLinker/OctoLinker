@@ -194,7 +194,7 @@ export const JAVA_IMPORT = regex`
 `;
 
 export const NET_PROJ_PACKAGE = regex`
-  <PackageReference
+  <(PackageReference|DotNetCliToolReference)
   \s+
   .*
   Include=${captureQuotedWord}
