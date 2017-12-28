@@ -441,11 +441,24 @@ const fixtures = {
         '<PackageReference Include="foo">\n<Version>2.0.0</Version>\n</PackageReference>',
         ['foo'],
       ],
+      ['<DotNetCliToolReference Include="foo" Version="6.2.0" />', ['foo']],
+      [
+        '<DotNetCliToolReference Include="foo" Version="$(MicrosoftExtensionsCachingMemoryPackageVersion)" />',
+        ['foo'],
+      ],
+      ['<DotNetCliToolReference Version="6.2.0" Include="foo" />', ['foo']],
+      [
+        '<DotNetCliToolReference Include="foo">\n<Version>2.0.0</Version>\n</DotNetCliToolReference>',
+        ['foo'],
+      ],
     ],
     invalid: [
       '<PackageReferences Include="EntityFramework" Version="6.2.0" />',
       '<PackageReference Includes="EntityFramework" Version="6.2.0" />',
       '< PackageReference Include="EntityFramework" Version="6.2.0" />',
+      '<DotNetCliToolReferences Include="Microsoft.DotNet.Xdt.Tools" Version="2.0.0" />',
+      '<DotNetCliToolReference Includes="Microsoft.DotNet.Xdt.Tools" Version="2.0.0" />',
+      '< DotNetCliToolReference  Include="Microsoft.DotNet.Xdt.Tools" Version="2.0.0" />',
     ],
   },
 };
