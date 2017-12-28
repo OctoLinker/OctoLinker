@@ -16,7 +16,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "chrome-open": "npm run build && npm run chrome-launch --",
-    "chrome-launch": "./scripts/chrome-launch.js",
+    "chrome-launch": "scripts/chrome-launch.js",
     "firefox-open": "npm run build && npm run firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
   },
