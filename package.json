@@ -7,17 +7,17 @@
   "main": "lib/app.js",
   "scripts": {
     "lint": "eslint .",
-    "pretest": "npm run lint",
+    "pretest": "yarn lint",
     "test": "jest",
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
-    "package": "npm run build && web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
+    "package": "yarn build && web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
     "release": "webstore upload --source dist --auto-publish",
     "build": "webpack",
     "watch": "webpack --watch",
-    "chrome-open": "npm run build && npm run chrome-launch --",
-    "chrome-launch": "scripts/chrome-launch.js",
-    "firefox-open": "npm run build && npm run firefox-launch --",
+    "chrome-open": "yarn build && yarn chrome-launch --",
+    "chrome-launch": "node scripts/chrome-launch.js",
+    "firefox-open": "yarn build && yarn firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
   },
   "jest": {
