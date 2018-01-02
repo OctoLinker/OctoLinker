@@ -1,34 +1,13 @@
-import zip from 'pop-zip/zip';
-import XRegExp from 'xregexp/src/xregexp';
-import build from 'xregexp/src/addons/build';
+import XRegExp from 'xregexp/lib/xregexp';
+import build from 'xregexp/lib/addons/build';
 
 build(XRegExp);
-
-function interpolate(substitution) {
-  return substitution instanceof RegExp
-    ? substitution
-    : XRegExp.escape(substitution);
-}
 
 // This function makes it easy to build regular expressions that look more like formal grammars.
 // See here for more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
 // http://xregexp.com/api/#build
-export default function(literals, ...substitutions) {
-  const flags = 'xngm';
-  let buildPattern = '';
-  const subpatterns = [];
-
-  // make `substitutions` the same length as `literals`
-  // so we can iterate over them together
-  const pairs = zip(literals.raw, substitutions.concat(''));
-  pairs.forEach(([literal, substitution], index) => {
-    subpatterns[index] = interpolate(substitution);
-    buildPattern += `${literal}{{${index}}}`;
-  });
-
-  return XRegExp.build(buildPattern, subpatterns, flags);
-}
+export default XRegExp.tag('xngm');
 /* Usage Example:
 
     import regex from './regex';
