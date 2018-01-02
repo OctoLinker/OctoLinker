@@ -1,6 +1,6 @@
 import zip from 'pop-zip/zip';
-import XRegExp from 'xregexp/src/xregexp';
-import build from 'xregexp/src/addons/build';
+import XRegExp from 'xregexp/lib/xregexp';
+import build from 'xregexp/lib/addons/build';
 
 build(XRegExp);
 
