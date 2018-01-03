@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 
+jest.mock('path');
+
 global.chrome = {};
 global.chrome.runtime = {
   sendMessage: jest.fn(),
