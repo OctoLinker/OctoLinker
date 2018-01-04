@@ -22,7 +22,7 @@
   },
   "jest": {
     "setupFiles": [
-      "./test/_setup.js"
+      "./_jestsetup.js"
     ]
   },
   "dependencies": {
