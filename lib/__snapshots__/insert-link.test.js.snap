@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`insert-link adds the given data-* attributes 1`] = `
+Object {
+  "bar": "baz",
+  "value": "foo",
+}
+`;
+
+exports[`insert-link can handle if value is empty string 1`] = `
+Object {
+  "value": "",
+}
+`;
+
+exports[`insert-link can handle if value is null 1`] = `
+Object {
+  "value": "null",
+}
+`;
+
+exports[`insert-link can handle if value is undefined 1`] = `
+Object {
+  "value": "undefined",
+}
+`;
+
+exports[`insert-link does not remove closing parentheses from commented out require() calls 1`] = `
+<div>
+  // var faker = 
+  <span>
+    require('
+    <a
+      class="octolinker-link"
+    >
+      <span>
+        faker
+      </span>
+    </a>
+    '
+  </span>
+  )
+</div>
+`;
+
+exports[`insert-link replace placeholder with capture group value 1`] = `
+Object {
+  "value": "go/foo.txt",
+}
+`;
+
+exports[`insert-link wraps a nested element 1`] = `
+<div>
+  
+  foo 
+  <div>
+    <span>
+      <i>
+        "
+      </i>
+      <a
+        class="octolinker-link"
+      >
+        <span>
+          foo
+        </span>
+      </a>
+      <i>
+        "
+        
+      </i>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`insert-link wraps a single string 1`] = `
+<div>
+  foo 
+  <span>
+    <a
+      class="octolinker-link"
+    >
+      <span>
+        bar
+      </span>
+    </a>
+  </span>
+   baz
+</div>
+`;
+
+exports[`insert-link wraps a single word 1`] = `
+<div>
+  
+  foo 
+  <span>
+    <span>
+      <a
+        class="octolinker-link"
+      >
+        <span>
+          bar
+        </span>
+      </a>
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps double quotes 1`] = `
+<div>
+  
+  foo 
+  <span>
+    <span>
+      "
+      <a
+        class="octolinker-link"
+      >
+        <span>
+          foo
+        </span>
+      </a>
+      "
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps mixed quotes 1`] = `
+<div>
+  
+  foo 
+  <span>
+    <span>
+      '
+      <a
+        class="octolinker-link"
+      >
+        <span>
+          foo
+        </span>
+      </a>
+      "
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps multiple strings 1`] = `
+<div>
+  <span>
+    foo 
+    <a
+      class="octolinker-link"
+    >
+      <span>
+        bar
+      </span>
+    </a>
+  </span>
+   baz
+</div>
+`;
+
+exports[`insert-link wraps single quotes 1`] = `
+<div>
+  
+  foo 
+  <span>
+    <span>
+      '
+      <a
+        class="octolinker-link"
+      >
+        <span>
+          foo
+        </span>
+      </a>
+      '
+    </span>
+    
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps the element once 1`] = `
+<div>
+  
+  foo 
+  <span>
+    <i>
+      "
+    </i>
+    <a
+      class="octolinker-link"
+    >
+      <span>
+        foo
+      </span>
+    </a>
+    <i>
+      "
+      
+    </i>
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps the elements based on their char position which is specified in the keywords map 1`] = `
+<div>
+  
+  foo 
+  <span>
+    <i>
+      "
+    </i>
+    <a
+      class="octolinker-link"
+    >
+      <span>
+        foo
+      </span>
+    </a>
+    <i>
+      "
+      
+    </i>
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps the parent element when keyword is divided 1`] = `
+<div>
+  
+  foo 
+  <a
+    class="octolinker-link"
+  >
+    <span>
+      <span>
+        <i>
+          "
+        </i>
+        <span>
+          fo
+        </span>
+        o
+        <i>
+          "
+          
+        </i>
+      </span>
+    </span>
+  </a>
+</div>
+`;
+
+exports[`insert-link wraps the second regex match 1`] = `
+<div>
+  
+  foo 
+  <i>
+    "
+  </i>
+  bar
+  <i>
+    "
+  </i>
+   
+  <i>
+    "
+  </i>
+  <a
+    class="octolinker-link"
+    data-value="baz"
+    data-xx="yy"
+  >
+    <span>
+      baz
+    </span>
+  </a>
+  <i>
+    "
+    
+  </i>
+</div>
+`;
