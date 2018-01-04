@@ -28,7 +28,7 @@
   "dependencies": {
     "JSONPath": "^0.11.2",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-jest": "^21.2.0",
+    "babel-preset-jest": "^22.0.3",
     "builtins": "^1.0.3",
     "chrome-promise": "^2.1.1",
     "concat-map": "^0.0.1",
@@ -41,7 +41,7 @@
     "github-url-from-git": "^1.5.0",
     "github-url-from-username-repo": "^1.0.2",
     "giturl": "^1.0.0",
-    "jest": "^21.3.0-beta.14",
+    "jest": "^22.0.4",
     "jquery": "^3.2.1",
     "linkstate": "^1.1.0",
     "path-parse": "^1.0.5",
