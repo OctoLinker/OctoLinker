@@ -27,7 +27,7 @@ const openingPattern = /^start$/;
 const closingPattern = /^end$/;
 const matchPattern = /(\w+)/;
 
-describe('byline-parser', () => {
+describe('byline', () => {
   describe('setup', () => {
     it('throws an error if openingPattern is not a RegExp', () => {
       assert.throws(() => {
