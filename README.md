@@ -2,7 +2,7 @@
 <a href="https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://cloud.githubusercontent.com/assets/1393946/15162649/647ca490-1704-11e6-8ed8-ef0674e40fc3.png" width="375"/></a
 </p>
 
-# What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/browser-extension.svg?branch=master)](https://travis-ci.org/OctoLinker/browser-extension) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/octolinker/browser-extension?svg=true&branch=master)](https://ci.appveyor.com/project/stefanbuck/browser-extension)
+# What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/OctoLinker.svg?branch=master)](https://travis-ci.org/OctoLinker/OctoLinker) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/octolinker/OctoLinker?svg=true&branch=master)](https://ci.appveyor.com/project/stefanbuck/OctoLinker)
 
 
 OctoLinker is a browser extension for Chrome, Firefox and Opera which allows you to navigate through code on GitHub more efficiently.
@@ -54,7 +54,7 @@ Anyone can help make this project better - check out the [Contributing](/CONTRIB
 
 # Feedback please
 
-If you encounter a problem using OctoLinker, or would like to request an enhancement, feel free to create an [issue](https://github.com/OctoLinker/browser-extension/issues) or say hello [@OctoLinker](https://twitter.com/OctoLinker) on twitter.
+If you encounter a problem using OctoLinker, or would like to request an enhancement, feel free to create an [issue](https://github.com/OctoLinker/OctoLinker/issues) or say hello [@OctoLinker](https://twitter.com/OctoLinker) on twitter.
 
 
 # Thanks

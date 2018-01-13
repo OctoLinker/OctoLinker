@@ -18,7 +18,7 @@
     "chrome-open": "yarn build && yarn chrome-launch --",
     "chrome-launch": "node scripts/chrome-launch.js",
     "firefox-open": "yarn build && yarn firefox-launch --",
-    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/browser-extension/blob/master/package.json"
+    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/master/package.json"
   },
   "jest": {
     "setupFiles": [
