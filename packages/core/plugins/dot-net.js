@@ -1,8 +1,8 @@
-import nugetResolver from '../resolver/nuget';
 import {
   NET_PACKAGE,
   NET_PROJ_PACKAGE,
-} from '../../packages/helper-grammar-regex-collection/index.js';
+} from '@octolinker/helper-grammar-regex-collection';
+import nugetResolver from '../resolver/nuget';
 
 export default {
   name: 'DotNet',

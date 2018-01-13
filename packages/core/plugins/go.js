@@ -1,5 +1,5 @@
 import { join, dirname } from 'path';
-import { go } from '../../packages/helper-grammar-regex-collection/index.js';
+import { go } from '@octolinker/helper-grammar-regex-collection';
 
 function goFile({ path, target }) {
   const list = [];

@@ -4,7 +4,7 @@ import {
   REQUIRE,
   IMPORT,
   EXPORT,
-} from '../../packages/helper-grammar-regex-collection/index.js';
+} from '@octolinker/helper-grammar-regex-collection';
 import builtinsDocs from '../utils/builtins-docs.js';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 

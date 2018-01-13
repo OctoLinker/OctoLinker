@@ -2,7 +2,7 @@ import { join, dirname } from 'path';
 import {
   NODEJS_RELATIVE_PATH,
   NODEJS_RELATIVE_PATH_JOIN,
-} from '../../packages/helper-grammar-regex-collection/index.js';
+} from '@octolinker/helper-grammar-regex-collection';
 import JavaScript from './javascript';
 import TypeScript from './typescript';
 

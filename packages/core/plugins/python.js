@@ -1,4 +1,4 @@
-import { PYTHON_IMPORT } from '../../packages/helper-grammar-regex-collection/index.js';
+import { PYTHON_IMPORT } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 import relativeFile from '../resolver/relative-file.js';
 

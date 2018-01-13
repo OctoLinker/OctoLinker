@@ -1,7 +1,7 @@
 import { showNotification } from './gh-interface';
 import * as storage from './options/storage.js';
 
-const pkgVersion = require('../package.json')
+const pkgVersion = require('./package.json')
   .version.split('.')
   .slice(0, -1)
   .join('.');

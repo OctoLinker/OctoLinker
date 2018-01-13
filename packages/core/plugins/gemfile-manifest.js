@@ -1,4 +1,4 @@
-import { GEM } from '../../packages/helper-grammar-regex-collection/index.js';
+import { GEM } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 
 export default {

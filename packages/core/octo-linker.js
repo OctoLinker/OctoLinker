@@ -1,6 +1,6 @@
 import injection from 'github-injection';
+import BlobReader from '@octolinker/blob-reader';
 import notification from './notification';
-import BlobReader from '../packages/blob-reader';
 import clickHandler from './click-handler';
 import Plugins from './plugin-manager.js';
 import insertLink from './insert-link';

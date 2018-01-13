@@ -1,6 +1,6 @@
 import ghShorthand from 'github-url-from-username-repo';
 import giturl from 'giturl';
-import { VIM_PLUGIN } from '../../packages/helper-grammar-regex-collection/index.js';
+import { VIM_PLUGIN } from '@octolinker/helper-grammar-regex-collection';
 
 export default {
   name: 'Vim',

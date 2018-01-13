@@ -1,4 +1,4 @@
-import { HOMEBREW } from '../../packages/helper-grammar-regex-collection/index.js';
+import { HOMEBREW } from '@octolinker/helper-grammar-regex-collection';
 import Ruby from './ruby';
 import relativeFile from '../resolver/relative-file.js';
 
