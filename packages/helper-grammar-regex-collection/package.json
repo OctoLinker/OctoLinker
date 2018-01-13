@@ -1,0 +1,13 @@
+{
+  "name": "@octolinker/helper-grammar-regex-collection",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-grammar-regex-collection",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "escape-regex-string": "^1.0.4",
+    "@octolinker/helper-parser-byline": "^1.0.0",
+    "xregexp": "^4.0.0"
+  }
+}
