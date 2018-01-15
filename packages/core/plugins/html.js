@@ -1,7 +1,7 @@
 import {
   HTML_IMPORT,
   HTML_SCRIPT_IMPORT,
-} from '../../packages/helper-grammar-regex-collection/index.js';
+} from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '../resolver/relative-file.js';
 
 export default {

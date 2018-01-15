@@ -1,4 +1,4 @@
-import { REQUIREMENTS_TXT } from '../../packages/helper-grammar-regex-collection/index.js';
+import { REQUIREMENTS_TXT } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 
 export default {

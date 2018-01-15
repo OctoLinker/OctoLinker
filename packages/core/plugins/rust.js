@@ -1,4 +1,4 @@
-import { RUST_CRATE } from '../../packages/helper-grammar-regex-collection/index.js';
+import { RUST_CRATE } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 
 export default {

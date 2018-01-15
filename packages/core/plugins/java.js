@@ -1,4 +1,4 @@
-import { JAVA_IMPORT } from '../../packages/helper-grammar-regex-collection/index.js';
+import { JAVA_IMPORT } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 
 const SUPPORTED_JAVA_VERSIONS = [9, 8, 7];

@@ -1,0 +1,32 @@
+{
+  "name": "@octolinker/core",
+  "version": "4.15.1",
+  "description": "OctoLinker browser extension core",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/core",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "JSONPath": "^0.11.2",
+    "builtins": "^1.0.3",
+    "chrome-promise": "^2.1.1",
+    "concat-map": "^0.0.1",
+    "escape-regex-string": "^1.0.4",
+    "findandreplacedomtext": "^0.4.5",
+    "github-injection": "^1.0.1",
+    "github-url-from-git": "^1.5.0",
+    "github-url-from-username-repo": "^1.0.2",
+    "giturl": "^1.0.0",
+    "jquery": "^3.2.1",
+    "linkstate": "^1.1.0",
+    "@octolinker/blob-reader": "1.0.0",
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "path-parse": "^1.0.5",
+    "preact": "^8.2.5",
+    "primer-core": "^6.4.0",
+    "primer-forms": "^1.4.0",
+    "querystring": "^0.2.0",
+    "semver": "^5.4.1",
+    "semver-regex": "^1.0.0",
+    "uuid": "^3.1.0"
+  }
+}

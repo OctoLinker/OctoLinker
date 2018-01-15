@@ -1,4 +1,4 @@
-import { DOCKER_FROM } from '../../packages/helper-grammar-regex-collection/index.js';
+import { DOCKER_FROM } from '@octolinker/helper-grammar-regex-collection';
 
 export default {
   name: 'Docker',

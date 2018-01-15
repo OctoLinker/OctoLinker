@@ -1,6 +1,6 @@
 import { join } from 'path';
 import pathParse from 'path-parse';
-import { CSS_IMPORT } from '../../packages/helper-grammar-regex-collection/index.js';
+import { CSS_IMPORT } from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '../resolver/relative-file.js';
 import githubSearch from '../resolver/github-search.js';
 

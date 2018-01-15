@@ -1,7 +1,7 @@
 /* eslint-disable id-length */
 
 import querystring from 'querystring';
-import pkg from '../../package.json';
+import pkg from '../package.json';
 
 let instance;
 const baseUrl = 'https://ssl.google-analytics.com/collect';

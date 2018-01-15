@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/helper-parser-byline",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-parser-byline",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "escape-regex-string": "^1.0.4",
+    "xregexp": "^4.0.0"
+  }
+}
