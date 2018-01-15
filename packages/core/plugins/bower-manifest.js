@@ -1,8 +1,8 @@
+import insertLink from '@octolinker/helper-insert-link';
 import processJSON from './helper/process-json';
 import { isSemver } from './helper/version';
 import { javascriptFile } from './javascript';
 import { jsonRegExKeyValue, jsonRegExValue } from './helper/regex-builder';
-import insertLink from '../insert-link';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 import gitUrl from '../resolver/git-url.js';
 import githubShorthand from '../resolver/github-shorthand.js';

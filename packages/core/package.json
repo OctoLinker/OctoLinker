@@ -19,6 +19,7 @@
     "linkstate": "^1.1.0",
     "@octolinker/blob-reader": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "@octolinker/helper-insert-link": "1.0.0",
     "path-parse": "^1.0.5",
     "preact": "^8.2.5",
     "primer-core": "^6.4.0",
