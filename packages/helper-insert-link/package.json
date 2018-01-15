@@ -8,5 +8,8 @@
   "dependencies": {
     "findandreplacedomtext": "^0.4.5",
     "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
   }
 }

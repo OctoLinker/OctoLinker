@@ -1,5 +1,5 @@
 import { REQUIRE } from '@octolinker/helper-grammar-regex-collection';
-import insertLink from '../insert-link.js';
+import insertLink from '../index.js';
 
 describe('insert-link', () => {
   const DEFAULT_REGEX = /foo ("\w+")/;
