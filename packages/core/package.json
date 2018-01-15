@@ -11,7 +11,6 @@
     "chrome-promise": "^2.1.1",
     "concat-map": "^0.0.1",
     "escape-regex-string": "^1.0.4",
-    "findandreplacedomtext": "^0.4.5",
     "github-injection": "^1.0.1",
     "github-url-from-git": "^1.5.0",
     "github-url-from-username-repo": "^1.0.2",
