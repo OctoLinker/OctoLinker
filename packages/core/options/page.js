@@ -52,13 +52,6 @@ class App extends Component {
           onClick={linkState(this, 'newWindowActive')}
         />
         <Checkbox
-          name="showLinkIndicator"
-          label="Line indicator"
-          description="Show an indicator if line contains OctoLinker links."
-          checked={state.showLinkIndicator}
-          onClick={linkState(this, 'showLinkIndicator')}
-        />
-        <Checkbox
           name="showUpdateNotification"
           label="Update notification"
           description="Show a notification if a new version is available."

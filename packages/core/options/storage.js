@@ -7,7 +7,6 @@ const store = {};
 const defaults = {
   newWindow: false,
   newWindowActive: true,
-  showLinkIndicator: true,
   showUpdateNotification: true,
   doTrack: true,
 };
