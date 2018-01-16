@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import findAndReplaceDOMText from 'findandreplacedomtext';
+import './style.css';
 
 const CLASS_NAME = 'octolinker-link';
-const CLASS_INDICATOR = 'octolinker-line-indicator';
 const QUOTE_SIGNS = '"\'';
 
 function createLinkElement(text, dataAttr = {}) {
@@ -16,7 +16,6 @@ function createLinkElement(text, dataAttr = {}) {
 
   // Add css classes
   linkEl.classList.add(CLASS_NAME);
-  linkEl.classList.add(CLASS_INDICATOR);
 
   // Add data-* attributes
   for (const key in dataAttr) {

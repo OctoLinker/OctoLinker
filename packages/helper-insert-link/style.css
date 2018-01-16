@@ -1,21 +1,13 @@
 .octolinker-link {
   cursor: pointer;
+  color: inherit;
 }
 
 .octolinker-link:hover {
   text-decoration: underline !important;
 }
 
-body.octolinker-debug .octolinker-link {
-  background-color: rgba(255, 0, 255, 0.2);
-  border: 1px solid rgb(255, 0, 255);
-}
-
-a.octolinker-link {
-    color: inherit;
-}
-
-.octolinker-line-indicator:after {
+.octolinker-link:after {
   content: "●";
   position: absolute;
   left: -4px;
@@ -25,9 +17,9 @@ a.octolinker-link {
   color: rgba(255, 0, 255, 0.2);
 }
 
-.octolinker-line-indicator:hover:after {
-    color: rgba(255, 0, 255, .8);
-    cursor: default;
+.octolinker-link:hover:after {
+  color: rgba(255, 0, 255, .8);
+  cursor: default;
 }
 
 /* Fix line indicator for issue code blocks */
@@ -35,6 +27,6 @@ div.highlight {
   position: relative;
 }
 
-.highlight .octolinker-line-indicator:after {
+.highlight .octolinker-link:after {
   top: inherit;
 }

@@ -31,7 +31,7 @@ exports[`insert-link does not remove closing parentheses from commented out requ
   <span>
     require('
     <a
-      class="octolinker-link octolinker-line-indicator"
+      class="octolinker-link"
     >
       <span>
         faker
@@ -59,7 +59,7 @@ exports[`insert-link wraps a nested element 1`] = `
         "
       </i>
       <a
-        class="octolinker-link octolinker-line-indicator"
+        class="octolinker-link"
       >
         <span>
           foo
@@ -79,7 +79,7 @@ exports[`insert-link wraps a single string 1`] = `
   foo 
   <span>
     <a
-      class="octolinker-link octolinker-line-indicator"
+      class="octolinker-link"
     >
       <span>
         bar
@@ -97,7 +97,7 @@ exports[`insert-link wraps a single word 1`] = `
   <span>
     <span>
       <a
-        class="octolinker-link octolinker-line-indicator"
+        class="octolinker-link"
       >
         <span>
           bar
@@ -117,7 +117,7 @@ exports[`insert-link wraps double quotes 1`] = `
     <span>
       "
       <a
-        class="octolinker-link octolinker-line-indicator"
+        class="octolinker-link"
       >
         <span>
           foo
@@ -138,7 +138,7 @@ exports[`insert-link wraps mixed quotes 1`] = `
     <span>
       '
       <a
-        class="octolinker-link octolinker-line-indicator"
+        class="octolinker-link"
       >
         <span>
           foo
@@ -156,7 +156,7 @@ exports[`insert-link wraps multiple strings 1`] = `
   <span>
     foo 
     <a
-      class="octolinker-link octolinker-line-indicator"
+      class="octolinker-link"
     >
       <span>
         bar
@@ -175,7 +175,7 @@ exports[`insert-link wraps single quotes 1`] = `
     <span>
       '
       <a
-        class="octolinker-link octolinker-line-indicator"
+        class="octolinker-link"
       >
         <span>
           foo
@@ -197,7 +197,7 @@ exports[`insert-link wraps the element once 1`] = `
       "
     </i>
     <a
-      class="octolinker-link octolinker-line-indicator"
+      class="octolinker-link"
     >
       <span>
         foo
@@ -220,7 +220,7 @@ exports[`insert-link wraps the elements based on their char position which is sp
       "
     </i>
     <a
-      class="octolinker-link octolinker-line-indicator"
+      class="octolinker-link"
     >
       <span>
         foo
@@ -239,7 +239,7 @@ exports[`insert-link wraps the parent element when keyword is divided 1`] = `
   
   foo 
   <a
-    class="octolinker-link octolinker-line-indicator"
+    class="octolinker-link"
   >
     <span>
       <span>
@@ -276,7 +276,7 @@ exports[`insert-link wraps the second regex match 1`] = `
     "
   </i>
   <a
-    class="octolinker-link octolinker-line-indicator"
+    class="octolinker-link"
     data-value="baz"
     data-xx="yy"
   >
