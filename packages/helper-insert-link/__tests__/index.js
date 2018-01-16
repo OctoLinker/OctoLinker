@@ -83,51 +83,6 @@ describe('insert-link', () => {
     expect(el).toMatchSnapshot();
   });
 
-  it('adds the given data-* attributes', () => {
-    const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const options = { value: '$1', bar: 'baz' };
-
-    expect({
-      ...helper(input, DEFAULT_REGEX, options).querySelector('a').dataset,
-    }).toMatchSnapshot();
-  });
-
-  it('replace placeholder with capture group value', () => {
-    const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const options = { value: 'go/$1.txt' };
-
-    expect({
-      ...helper(input, DEFAULT_REGEX, options).querySelector('a').dataset,
-    }).toMatchSnapshot();
-  });
-
-  it('can handle if value is undefined', () => {
-    const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const options = { value: undefined };
-
-    expect({
-      ...helper(input, DEFAULT_REGEX, options).querySelector('a').dataset,
-    }).toMatchSnapshot();
-  });
-
-  it('can handle if value is null', () => {
-    const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const options = { value: null };
-
-    expect({
-      ...helper(input, DEFAULT_REGEX, options).querySelector('a').dataset,
-    }).toMatchSnapshot();
-  });
-
-  it('can handle if value is empty string', () => {
-    const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const options = { value: '' };
-
-    expect({
-      ...helper(input, DEFAULT_REGEX, options).querySelector('a').dataset,
-    }).toMatchSnapshot();
-  });
-
   it('wraps the second regex match', () => {
     const options = { value: '$2', xx: 'yy' };
     const input = 'foo <i>"</i>bar<i>"</i> <i>"</i>baz<i>"</i>';
