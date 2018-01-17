@@ -5,7 +5,7 @@ module.exports = {
   entry: {
     app: './packages/core/app',
     background: './packages/core/background/index',
-    options: './packages/core/options/page',
+    options: './packages/helper-settings/page',
   },
   devtool: 'source-map',
   output: {

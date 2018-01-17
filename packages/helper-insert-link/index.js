@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import findAndReplaceDOMText from 'findandreplacedomtext';
+import * as storage from '@octolinker/helper-settings';
 import './style.css';
-import * as storage from './options/storage.js';
 
 const CLASS_NAME = 'octolinker-link';
 const CLASS_INDICATOR = 'octolinker-line-indicator';

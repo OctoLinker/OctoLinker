@@ -18,6 +18,7 @@
     "@octolinker/blob-reader": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
     "@octolinker/helper-insert-link": "1.0.0",
+    "@octolinker/helper-settings": "1.0.0",
     "path-parse": "^1.0.5",
     "querystring": "^0.2.0",
     "semver": "^5.4.1",

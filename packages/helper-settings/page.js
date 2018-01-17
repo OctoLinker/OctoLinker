@@ -3,7 +3,7 @@ import linkState from 'linkstate';
 
 import './style.css';
 import { Input, Checkbox } from './components';
-import * as storage from './storage';
+import * as storage from './index';
 
 const githubTokenDescription = () => (
   <span>

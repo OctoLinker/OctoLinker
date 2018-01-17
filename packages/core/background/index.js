@@ -1,4 +1,4 @@
-import * as storage from '../options/storage.js';
+import * as storage from '@octolinker/helper-settings';
 import newTab from './newTab';
 import insight from './insight';
 
