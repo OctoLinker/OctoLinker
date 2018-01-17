@@ -1,0 +1,8 @@
+{
+  "name": "@octolinker/helper-settings",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-settings",
+  "license": "MIT",
+  "main": "./index.js"
+}
