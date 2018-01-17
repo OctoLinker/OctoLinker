@@ -4,6 +4,7 @@ import './style.css';
 import * as storage from './options/storage.js';
 
 const CLASS_NAME = 'octolinker-link';
+const CLASS_INDICATOR = 'octolinker-line-indicator';
 const QUOTE_SIGNS = '"\'';
 
 function createLinkElement(text, dataAttr = {}) {
