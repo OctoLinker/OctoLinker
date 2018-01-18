@@ -191,6 +191,7 @@ exports[`insert-link wraps single quotes 1`] = `
 exports[`insert-link wraps the element once 1`] = `
 <div>
   
+  
   foo 
   <span>
     <i>
@@ -205,6 +206,7 @@ exports[`insert-link wraps the element once 1`] = `
     </a>
     <i>
       "
+      
       
     </i>
   </span>

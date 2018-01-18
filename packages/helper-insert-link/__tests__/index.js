@@ -77,8 +77,10 @@ describe('insert-link', () => {
 
   it('wraps the element once', () => {
     const input = 'foo <span><i>"</i>foo<i>"</i></span>';
+    const el = helper(input);
+    insertLink(el, DEFAULT_REGEX, {}, '$1');
 
-    expect(helper(input)).toMatchSnapshot();
+    expect(el).toMatchSnapshot();
   });
 
   it('adds the given data-* attributes', () => {
