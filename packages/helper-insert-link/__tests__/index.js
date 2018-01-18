@@ -15,69 +15,71 @@ describe('insert-link', () => {
 
     insertLink(el, regex, options, replaceIndex);
 
-    return el;
+    return {
+      el,
+    };
   }
 
   it('wraps the elements based on their char position which is specified in the keywords map', () => {
-    expect(helper('foo <span><i>"</i>foo<i>"</i></span>')).toMatchSnapshot();
+    expect(helper('foo <span><i>"</i>foo<i>"</i></span>').el).toMatchSnapshot();
   });
 
   it('wraps the parent element when keyword is divided', () => {
     expect(
-      helper('foo <span><i>"</i><span>fo</span>o<i>"</i></span>'),
+      helper('foo <span><i>"</i><span>fo</span>o<i>"</i></span>').el,
     ).toMatchSnapshot();
   });
 
   it('wraps a nested element', () => {
     expect(
-      helper('foo <div><span><i>"</i>foo<i>"</i></span></div>'),
+      helper('foo <div><span><i>"</i>foo<i>"</i></span></div>').el,
     ).toMatchSnapshot();
   });
 
   it('wraps double quotes', () => {
     const input = 'foo <span>"foo"</span>';
 
-    expect(helper(input)).toMatchSnapshot();
+    expect(helper(input).el).toMatchSnapshot();
   });
 
   it('wraps single quotes', () => {
     const regex = /foo ('\w+')/;
     const input = "foo <span>'foo'</span>";
 
-    expect(helper(input, regex)).toMatchSnapshot();
+    expect(helper(input, regex).el).toMatchSnapshot();
   });
 
   it('wraps mixed quotes', () => {
     const regex = /foo ('\w+")/;
     const input = 'foo <span>\'foo"</span>';
 
-    expect(helper(input, regex)).toMatchSnapshot();
+    expect(helper(input, regex).el).toMatchSnapshot();
   });
 
   it('wraps a single word', () => {
     const regex = /foo (\w+)/;
     const input = 'foo <span>bar</span>';
 
-    expect(helper(input, regex)).toMatchSnapshot();
+    expect(helper(input, regex).el).toMatchSnapshot();
   });
 
   it('wraps a single string', () => {
     const regex = /(bar)/;
     const input = 'foo bar baz';
 
-    expect(helper(input, regex)).toMatchSnapshot();
+    expect(helper(input, regex).el).toMatchSnapshot();
   });
 
   it('wraps multiple strings', () => {
     const regex = /foo (bar)/;
     const input = 'foo bar baz';
 
-    expect(helper(input, regex)).toMatchSnapshot();
+    expect(helper(input, regex).el).toMatchSnapshot();
   });
 
   it('wraps the element once', () => {
     const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const el = helper(input);
+    const { el } = helper(input);
     insertLink(el, DEFAULT_REGEX, {}, '$1');
 
     expect(el).toMatchSnapshot();
@@ -88,11 +90,11 @@ describe('insert-link', () => {
     const input = 'foo <i>"</i>bar<i>"</i> <i>"</i>baz<i>"</i>';
     const regex = /foo ("\w+") ("\w+")/;
 
-    expect(helper(input, regex, options, '$2')).toMatchSnapshot();
+    expect(helper(input, regex, options, '$2').el).toMatchSnapshot();
   });
 
   it('does not remove closing parentheses from commented out require() calls', () => {
     const input = "// var faker = require('faker')";
-    expect(helper(input, REQUIRE)).toMatchSnapshot();
+    expect(helper(input, REQUIRE).el).toMatchSnapshot();
   });
 });
