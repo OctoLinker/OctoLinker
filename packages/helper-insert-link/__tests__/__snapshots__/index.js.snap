@@ -18,6 +18,41 @@ exports[`insert-link does not remove closing parentheses from commented out requ
 </div>
 `;
 
+exports[`insert-link returns adds the given data-* attributes 1`] = `
+Object {
+  "bar": "baz",
+  "value": "foo",
+}
+`;
+
+exports[`insert-link returns replace placeholder with capture group value 1`] = `
+Object {
+  "value": "go/foo.txt",
+}
+`;
+
+exports[`insert-link returns returns an array 1`] = `
+Array [
+  Object {
+    "data": Object {},
+    "link": <a
+      class="octolinker-link"
+    >
+      <span>
+        bar
+      </span>
+    </a>,
+  },
+]
+`;
+
+exports[`insert-link returns wraps the second regex match 1`] = `
+Object {
+  "value": "baz",
+  "xx": "yy",
+}
+`;
+
 exports[`insert-link wraps a nested element 1`] = `
 <div>
   

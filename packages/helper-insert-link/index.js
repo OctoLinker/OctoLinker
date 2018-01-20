@@ -104,7 +104,7 @@ function wrapClosestElement(node, matchValue) {
   }
 
   if (currentNode) {
-    $(currentNode).wrap(createLinkElement(''));
+    return $(currentNode).wrap(createLinkElement(''));
   }
 }
 
@@ -126,22 +126,28 @@ function wrapsInnerString(text, matchValue) {
   return parent;
 }
 
-function replace(portion, match, dataAttr, captureGroup) {
+function replace(portion, match, captureGroup) {
   const { text, node, indexInMatch } = portion;
   const isAlreadyWrapped = (node.parentNode.parentNode || node.parentNode
   ).classList.contains(CLASS_NAME);
   if (isAlreadyWrapped) {
-    return text;
+    return {
+      isMatch: false,
+      node: text,
+      link: null,
+    };
   }
 
   const matchValue = getCaptureGroupValue(match, captureGroup);
 
-  // I know this call is usless, but I don't want to remove the function
-  // at this point. I have to refactor this in another commit anyway.
-  buildDataAttr(dataAttr, match);
-
   if (node.textContent.includes(matchValue)) {
-    return wrapsInnerString(text, matchValue);
+    const el = wrapsInnerString(text, matchValue);
+
+    return {
+      isMatch: true,
+      node: el,
+      link: el.querySelector('a'),
+    };
   }
 
   const { valueStartPos, valueEndPos, portionEndPos } = getIndexes(
@@ -149,16 +155,31 @@ function replace(portion, match, dataAttr, captureGroup) {
     match[0],
     matchValue,
   );
+
   if (valueStartPos === indexInMatch) {
     if (portionEndPos === valueEndPos) {
-      return createLinkElement(text);
+      const el = createLinkElement(text);
+      return {
+        isMatch: true,
+        node: el,
+        link: el,
+      };
     }
 
-    wrapClosestElement(node, matchValue);
-    return text;
+    return {
+      isMatch: true,
+      node: text,
+      link: wrapClosestElement(node, matchValue)
+        .closest(`a.${CLASS_NAME}`)
+        .get(0),
+    };
   }
 
-  return text;
+  return {
+    isMatch: false,
+    node: text,
+    link: null,
+  };
 }
 
 export default function(el, regex, mapping, captureGroup = '$1') {
@@ -174,8 +195,25 @@ export default function(el, regex, mapping, captureGroup = '$1') {
     throw new Error('must be called with a mapping object');
   }
 
+  const matches = [];
+
   findAndReplaceDOMText(el, {
     find: regex,
-    replace: (portion, match) => replace(portion, match, mapping, captureGroup),
+    replace: (portion, match) => {
+      const { isMatch, node, link } = replace(portion, match, captureGroup);
+
+      if (!isMatch) {
+        return node;
+      }
+
+      matches.push({
+        link,
+        data: buildDataAttr(mapping, match),
+      });
+
+      return node;
+    },
   });
+
+  return matches;
 }
