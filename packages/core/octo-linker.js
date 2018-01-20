@@ -17,6 +17,16 @@ function initialize(self) {
   clickHandler(self._pluginManager);
 }
 
+function insertDataAttr(matches) {
+  matches.forEach(({ data, link }) => {
+    for (const key in data) {
+      if (data.hasOwnProperty(key)) {
+        link.dataset[key] = data[key];
+      }
+    }
+  });
+}
+
 function run(self) {
   if (!self._blobReader.hasBlobs()) {
     return false;
@@ -34,7 +44,7 @@ function run(self) {
 
     plugins.forEach(plugin => {
       if (plugin.parseBlob) {
-        plugin.parseBlob(blob);
+        matches = matches.concat(plugin.parseBlob(blob));
       } else if (plugin.getLinkRegexes) {
         [].concat(plugin.getLinkRegexes(blob)).forEach(regex => {
           matches = matches.concat(
@@ -48,13 +58,7 @@ function run(self) {
       }
     });
 
-    matches.forEach(({ data, link }) => {
-      for (const key in data) {
-        if (data.hasOwnProperty(key)) {
-          link.dataset[key] = data[key];
-        }
-      }
-    });
+    insertDataAttr(matches);
   });
 }
 
