@@ -24,6 +24,7 @@ function run(self) {
 
   self._blobReader.read();
 
+  let matches = [];
   self._blobReader.forEach(blob => {
     const plugins = self._pluginManager.get(blob.path, blob.el.classList);
 
@@ -36,12 +37,22 @@ function run(self) {
         plugin.parseBlob(blob);
       } else if (plugin.getLinkRegexes) {
         [].concat(plugin.getLinkRegexes(blob)).forEach(regex => {
-          insertLink(blob.el, regex, {
-            pluginName: plugin.name,
-            target: '$1',
-            path: blob.path,
-          });
+          matches = matches.concat(
+            insertLink(blob.el, regex, {
+              pluginName: plugin.name,
+              target: '$1',
+              path: blob.path,
+            }),
+          );
         });
+      }
+    });
+
+    matches.forEach(({ data, link }) => {
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          link.dataset[key] = data[key];
+        }
       }
     });
   });
