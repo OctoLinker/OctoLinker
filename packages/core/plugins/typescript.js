@@ -8,7 +8,7 @@ export default {
 
   getPattern() {
     return {
-      pathRegexes: [/\.ts$/],
+      pathRegexes: [/\.tsx?$/],
       githubClasses: ['type-typescript', 'highlight-source-ts'],
     };
   },
