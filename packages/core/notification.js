@@ -1,5 +1,5 @@
+import * as storage from '@octolinker/helper-settings';
 import { showNotification } from './gh-interface';
-import * as storage from './options/storage.js';
 
 const pkgVersion = require('./package.json')
   .version.split('.')

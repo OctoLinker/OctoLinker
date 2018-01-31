@@ -21,6 +21,9 @@
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/master/package.json"
   },
   "jest": {
+    "moduleNameMapper": {
+      "\\.css$": "<rootDir>/__mocks__/styleMock.js"
+    },
     "setupFiles": [
       "./_jestsetup.js"
     ]

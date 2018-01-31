@@ -1,9 +1,9 @@
 import { h, render, Component } from 'preact';
 import linkState from 'linkstate';
 
-import './options.css';
+import './style.css';
 import { Input, Checkbox } from './components';
-import * as storage from './storage';
+import * as storage from './index';
 
 const githubTokenDescription = () => (
   <span>

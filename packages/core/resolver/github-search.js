@@ -1,5 +1,5 @@
 import { extname } from 'path';
-import * as storage from '../options/storage.js';
+import * as storage from '@octolinker/helper-settings';
 
 export default function({ path, target }) {
   const [, user, repo] = path.split('/');

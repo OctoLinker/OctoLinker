@@ -1,12 +1,12 @@
 import injection from 'github-injection';
 import BlobReader from '@octolinker/blob-reader';
+import insertLink from '@octolinker/helper-insert-link';
+import * as storage from '@octolinker/helper-settings';
 import notification from './notification';
 import clickHandler from './click-handler';
 import Plugins from './plugin-manager.js';
-import insertLink from './insert-link';
 import debugMode from './debug-mode.js';
 import * as loadPlugins from './load-plugins';
-import * as storage from './options/storage.js';
 
 function initialize(self) {
   debugMode(storage.get('debugMode'));

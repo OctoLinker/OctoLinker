@@ -1,6 +1,6 @@
+import insertLink from '@octolinker/helper-insert-link';
 import processJSON from './helper/process-json';
 import { jsonRegExKeyValue } from './helper/regex-builder';
-import insertLink from '../insert-link';
 import liveResolverQuery from '../resolver/live-resolver-query.js';
 
 function linkDependency(blob, key, value) {
