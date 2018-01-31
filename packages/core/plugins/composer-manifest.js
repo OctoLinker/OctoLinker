@@ -10,7 +10,7 @@ function linkDependency(blob, key, value) {
 
   const regex = jsonRegExKeyValue(key, value);
 
-  insertLink(blob.el, regex, {
+  return insertLink(blob.el, regex, {
     pluginName: 'Composer',
     target: '$1',
   });
@@ -31,7 +31,7 @@ export default {
   },
 
   parseBlob(blob) {
-    processJSON(blob, {
+    return processJSON(blob, {
       '$.require': linkDependency,
       '$.require-dev': linkDependency,
       '$.conflict': linkDependency,

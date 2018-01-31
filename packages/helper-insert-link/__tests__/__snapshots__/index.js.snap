@@ -1,30 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`insert-link adds the given data-* attributes 1`] = `
-Object {
-  "bar": "baz",
-  "value": "foo",
-}
-`;
-
-exports[`insert-link can handle if value is empty string 1`] = `
-Object {
-  "value": "",
-}
-`;
-
-exports[`insert-link can handle if value is null 1`] = `
-Object {
-  "value": "null",
-}
-`;
-
-exports[`insert-link can handle if value is undefined 1`] = `
-Object {
-  "value": "undefined",
-}
-`;
-
 exports[`insert-link does not remove closing parentheses from commented out require() calls 1`] = `
 <div>
   // var faker = 
@@ -43,9 +18,38 @@ exports[`insert-link does not remove closing parentheses from commented out requ
 </div>
 `;
 
-exports[`insert-link replace placeholder with capture group value 1`] = `
+exports[`insert-link returns adds the given data-* attributes 1`] = `
+Object {
+  "bar": "baz",
+  "value": "foo",
+}
+`;
+
+exports[`insert-link returns replace placeholder with capture group value 1`] = `
 Object {
   "value": "go/foo.txt",
+}
+`;
+
+exports[`insert-link returns returns an array 1`] = `
+Array [
+  Object {
+    "data": Object {},
+    "link": <a
+      class="octolinker-link"
+    >
+      <span>
+        bar
+      </span>
+    </a>,
+  },
+]
+`;
+
+exports[`insert-link returns wraps the second regex match 1`] = `
+Object {
+  "value": "baz",
+  "xx": "yy",
 }
 `;
 
@@ -279,8 +283,6 @@ exports[`insert-link wraps the second regex match 1`] = `
   </i>
   <a
     class="octolinker-link"
-    data-value="baz"
-    data-xx="yy"
   >
     <span>
       baz

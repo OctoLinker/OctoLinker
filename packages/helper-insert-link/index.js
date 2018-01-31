@@ -7,7 +7,7 @@ const CLASS_NAME = 'octolinker-link';
 const CLASS_INDICATOR = 'octolinker-line-indicator';
 const QUOTE_SIGNS = '"\'';
 
-function createLinkElement(text, dataAttr = {}) {
+function createLinkElement(text) {
   const linkEl = document.createElement('a');
   const spanEl = document.createElement('span');
 
@@ -21,13 +21,6 @@ function createLinkElement(text, dataAttr = {}) {
 
   if (storage.get('showLinkIndicator')) {
     linkEl.classList.add(CLASS_INDICATOR);
-  }
-
-  // Add data-* attributes
-  for (const key in dataAttr) {
-    if (dataAttr.hasOwnProperty(key)) {
-      linkEl.dataset[key] = dataAttr[key];
-    }
   }
 
   return linkEl;
@@ -103,7 +96,7 @@ function getQuoteAtPos(str, pos) {
   return '';
 }
 
-function wrapClosestElement(node, dataAttrObject, matchValue) {
+function wrapClosestElement(node, matchValue) {
   let currentNode = node;
 
   while (!currentNode.textContent.includes(matchValue)) {
@@ -111,11 +104,11 @@ function wrapClosestElement(node, dataAttrObject, matchValue) {
   }
 
   if (currentNode) {
-    $(currentNode).wrap(createLinkElement('', dataAttrObject));
+    return $(currentNode).wrap(createLinkElement(''));
   }
 }
 
-function wrapsInnerString(text, matchValue, dataAttrObject) {
+function wrapsInnerString(text, matchValue) {
   const parent = document.createElement('span');
   const [leftSide, rightSide] = text.split(matchValue);
   const openingQuote = getQuoteAtPos(matchValue, 0);
@@ -127,25 +120,34 @@ function wrapsInnerString(text, matchValue, dataAttrObject) {
 
   if (leftSide) parent.appendChild(document.createTextNode(leftSide));
   if (openingQuote) parent.appendChild(document.createTextNode(openingQuote));
-  parent.appendChild(createLinkElement(linkText, dataAttrObject));
+  parent.appendChild(createLinkElement(linkText));
   if (closingQuote) parent.appendChild(document.createTextNode(closingQuote));
   if (rightSide) parent.appendChild(document.createTextNode(rightSide));
   return parent;
 }
 
-function replace(portion, match, dataAttr, captureGroup) {
+function replace(portion, match, captureGroup) {
   const { text, node, indexInMatch } = portion;
   const isAlreadyWrapped = (node.parentNode.parentNode || node.parentNode
   ).classList.contains(CLASS_NAME);
   if (isAlreadyWrapped) {
-    return text;
+    return {
+      isMatch: false,
+      node: text,
+      link: null,
+    };
   }
 
   const matchValue = getCaptureGroupValue(match, captureGroup);
-  const dataAttrObject = buildDataAttr(dataAttr, match);
 
   if (node.textContent.includes(matchValue)) {
-    return wrapsInnerString(text, matchValue, dataAttrObject);
+    const el = wrapsInnerString(text, matchValue);
+
+    return {
+      isMatch: true,
+      node: el,
+      link: el.querySelector('a'),
+    };
   }
 
   const { valueStartPos, valueEndPos, portionEndPos } = getIndexes(
@@ -153,16 +155,31 @@ function replace(portion, match, dataAttr, captureGroup) {
     match[0],
     matchValue,
   );
+
   if (valueStartPos === indexInMatch) {
     if (portionEndPos === valueEndPos) {
-      return createLinkElement(text, dataAttrObject);
+      const el = createLinkElement(text);
+      return {
+        isMatch: true,
+        node: el,
+        link: el,
+      };
     }
 
-    wrapClosestElement(node, dataAttrObject, matchValue);
-    return text;
+    return {
+      isMatch: true,
+      node: text,
+      link: wrapClosestElement(node, matchValue)
+        .closest(`a.${CLASS_NAME}`)
+        .get(0),
+    };
   }
 
-  return text;
+  return {
+    isMatch: false,
+    node: text,
+    link: null,
+  };
 }
 
 export default function(el, regex, mapping, captureGroup = '$1') {
@@ -178,8 +195,25 @@ export default function(el, regex, mapping, captureGroup = '$1') {
     throw new Error('must be called with a mapping object');
   }
 
+  const matches = [];
+
   findAndReplaceDOMText(el, {
     find: regex,
-    replace: (portion, match) => replace(portion, match, mapping, captureGroup),
+    replace: (portion, match) => {
+      const { isMatch, node, link } = replace(portion, match, captureGroup);
+
+      if (!isMatch) {
+        return node;
+      }
+
+      matches.push({
+        link,
+        data: buildDataAttr(mapping, match),
+      });
+
+      return node;
+    },
   });
+
+  return matches;
 }
