@@ -8,6 +8,7 @@
   "dependencies": {
     "@octolinker/resolver-live-resolver-query": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "builtins": "^1.0.3",
     "concat-map": "^0.0.1"
   }
 }
