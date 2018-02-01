@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
+    "@octolinker/plugin-ruby": "1.0.0",
     "@octolinker/resolver-relative-file": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0"
   }

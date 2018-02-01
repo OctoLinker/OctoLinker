@@ -8,6 +8,7 @@
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
     "@octolinker/helper-settings": "1.0.0",
+    "@octolinker/helper-insert-link": "1.0.0",
     "github-injection": "^1.0.1",
     "jquery": "^3.2.1",
     "querystring": "^0.2.0"

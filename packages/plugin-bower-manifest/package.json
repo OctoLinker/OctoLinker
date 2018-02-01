@@ -8,6 +8,7 @@
   "dependencies": {
     "@octolinker/helper-process-json": "1.0.0",
     "@octolinker/helper-version": "1.0.0",
+    "@octolinker/plugin-javascript": "1.0.0",
     "@octolinker/helper-regex-builder": "1.0.0",
     "@octolinker/resolver-live-resolver-query": "1.0.0",
     "@octolinker/resolver-git-url": "1.0.0",

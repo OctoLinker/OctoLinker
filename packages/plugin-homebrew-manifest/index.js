@@ -1,6 +1,6 @@
 import { HOMEBREW } from '@octolinker/helper-grammar-regex-collection';
-import Ruby from './ruby';
 import relativeFile from '@octolinker/resolver-relative-file';
+import Ruby from '@octolinker/plugin-ruby';
 
 export default {
   name: 'Homebrew',

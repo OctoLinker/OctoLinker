@@ -3,8 +3,8 @@ import {
   NODEJS_RELATIVE_PATH,
   NODEJS_RELATIVE_PATH_JOIN,
 } from '@octolinker/helper-grammar-regex-collection';
-import JavaScript from './javascript';
-import TypeScript from './typescript';
+import JavaScript from '@octolinker/plugin-javascript';
+import TypeScript from '@octolinker/plugin-typescript';
 
 export default {
   name: 'NodejsRelativePath',

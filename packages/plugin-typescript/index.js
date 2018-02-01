@@ -1,5 +1,5 @@
 import { TYPESCRIPT_REFERENCE } from '@octolinker/helper-grammar-regex-collection';
-import JavaScript from './javascript';
+import JavaScript from '@octolinker/plugin-javascript';
 
 export default {
   name: 'TypeScript',

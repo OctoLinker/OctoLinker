@@ -1,8 +1,11 @@
 import insertLink from '@octolinker/helper-insert-link';
 import processJSON from '@octolinker/helper-process-json';
 import { isSemver } from '@octolinker/helper-version';
-import { javascriptFile } from './javascript';
-import { jsonRegExKeyValue, jsonRegExValue } from '@octolinker/helper-regex-builder';
+import { javascriptFile } from '@octolinker/plugin-javascript';
+import {
+  jsonRegExKeyValue,
+  jsonRegExValue,
+} from '@octolinker/helper-regex-builder';
 import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
 import gitUrl from '@octolinker/resolver-git-url';
 import githubShorthand from '@octolinker/resolver-github-shorthand';
