@@ -10,7 +10,6 @@
     "@octolinker/helper-settings": "1.0.0",
     "github-injection": "^1.0.1",
     "jquery": "^3.2.1",
-    "querystring": "^0.2.0",
-    "semver-regex": "^1.0.0"
+    "querystring": "^0.2.0"
   }
 }
