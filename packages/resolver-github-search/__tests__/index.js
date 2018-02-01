@@ -1,5 +1,5 @@
 import assert from 'assert';
-import githubSearch from '../github-search.js';
+import githubSearch from '../index.js';
 
 describe('github-search', () => {
   const path = '/octo/foo.txt';
