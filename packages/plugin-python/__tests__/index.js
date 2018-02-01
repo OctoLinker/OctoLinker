@@ -1,5 +1,5 @@
 import assert from 'assert';
-import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 import python from '../index';
 
 describe('python', () => {

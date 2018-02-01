@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { REQUIRE } from '@octolinker/helper-grammar-regex-collection';
-import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 
 export default {
   name: 'Ruby',

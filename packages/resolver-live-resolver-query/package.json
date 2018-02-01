@@ -1,8 +1,0 @@
-{
-  "name": "@octolinker/resolver-live-resolver-query",
-  "version": "1.0.0",
-  "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-live-resolver-query",
-  "license": "MIT",
-  "main": "./index.js"
-}

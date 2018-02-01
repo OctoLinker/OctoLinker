@@ -1,5 +1,5 @@
 import { PYTHON_IMPORT } from '@octolinker/helper-grammar-regex-collection';
-import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 import relativeFile from '@octolinker/resolver-relative-file';
 
 export default {

@@ -1,5 +1,5 @@
 import { JAVA_IMPORT } from '@octolinker/helper-grammar-regex-collection';
-import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 
 const SUPPORTED_JAVA_VERSIONS = [9, 8, 7];
 

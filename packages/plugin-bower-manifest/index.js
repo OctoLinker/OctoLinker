@@ -6,7 +6,7 @@ import {
   jsonRegExKeyValue,
   jsonRegExValue,
 } from '@octolinker/helper-regex-builder';
-import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 import gitUrl from '@octolinker/resolver-git-url';
 import githubShorthand from '@octolinker/resolver-github-shorthand';
 

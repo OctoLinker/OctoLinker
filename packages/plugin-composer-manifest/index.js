@@ -1,7 +1,7 @@
 import insertLink from '@octolinker/helper-insert-link';
 import processJSON from '@octolinker/helper-process-json';
 import { jsonRegExKeyValue } from '@octolinker/helper-regex-builder';
-import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 
 function linkDependency(blob, key, value) {
   if (key === 'php') {
