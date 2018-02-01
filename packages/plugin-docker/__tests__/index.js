@@ -1,5 +1,5 @@
 import assert from 'assert';
-import dockerImage from '../docker';
+import dockerImage from '../index';
 
 describe('docker-image', () => {
   it('resolves foo to https://hub.docker.com/_/foo', () => {

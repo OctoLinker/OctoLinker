@@ -1,6 +1,6 @@
 import assert from 'assert';
-import Haskell from '../haskell';
-import githubSearch from '../../resolver/github-search.js';
+import githubSearch from '@octolinker/resolver-github-search';
+import Haskell from '../index';
 
 describe('haskell', () => {
   const path = '/user/repo/blob/d6/lib/plugins/javascript.js';

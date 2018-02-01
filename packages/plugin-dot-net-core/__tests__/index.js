@@ -1,5 +1,5 @@
 import assert from 'assert';
-import dotNetCore from '../dot-net-core';
+import dotNetCore from '../index';
 
 describe('dotNetCore', () => {
   it('resolves Microsoft.NETCore.App to https://www.nuget.org/packages/Microsoft.NETCore.App', () => {

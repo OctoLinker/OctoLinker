@@ -1,5 +1,5 @@
 import assert from 'assert';
-import rustCrate from '../rust';
+import rustCrate from '../index';
 
 describe('rust-crate', () => {
   it('resolves hamcrest using the live-resolver', () => {

@@ -1,5 +1,5 @@
 import assert from 'assert';
-import goUniversal from '../go';
+import goUniversal from '../index';
 
 describe('go-universal', () => {
   const path = 'octo/dog.go';

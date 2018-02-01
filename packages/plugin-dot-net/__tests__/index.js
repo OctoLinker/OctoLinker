@@ -1,5 +1,5 @@
 import assert from 'assert';
-import dotNet from '../dot-net';
+import dotNet from '../index';
 
 describe('dotNet', () => {
   it('resolves EntityFramework to https://www.nuget.org/packages/EntityFramework', () => {

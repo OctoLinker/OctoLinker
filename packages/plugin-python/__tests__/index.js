@@ -1,6 +1,6 @@
 import assert from 'assert';
-import python from '../python';
-import liveResolverQuery from '../../resolver/live-resolver-query.js';
+import liveResolverQuery from '@octolinker/resolver-live-resolver-query';
+import python from '../index';
 
 describe('python', () => {
   const path = '/octo/dog.py';

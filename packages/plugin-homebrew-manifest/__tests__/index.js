@@ -1,5 +1,5 @@
 import assert from 'assert';
-import homebrew from '../homebrew-manifest';
+import homebrew from '../index';
 
 describe('homebrew-file', () => {
   it('resolves a dependency of a homebrew-science formula to both homebrew-science and homebrew-core', () => {

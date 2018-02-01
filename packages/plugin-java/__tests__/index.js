@@ -1,5 +1,5 @@
 import assert from 'assert';
-import Java from '../java';
+import Java from '../index';
 
 describe('Java', () => {
   it('resolves java core links', () => {

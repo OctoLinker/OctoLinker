@@ -1,6 +1,6 @@
 import assert from 'assert';
-import Sass from '../sass';
-import githubSearch from '../../resolver/github-search.js';
+import githubSearch from '@octolinker/resolver-github-search';
+import Sass from '../index';
 
 describe('Sass', () => {
   const path = '/octo/dog.scss';

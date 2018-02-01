@@ -1,5 +1,5 @@
 import assert from 'assert';
-import plugin from '../javascript.js';
+import plugin from '../index';
 
 describe('javascript-universal', () => {
   it("resolves 'foo/bar.js' like 'foo'", () => {

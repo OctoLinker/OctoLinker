@@ -1,5 +1,5 @@
 import assert from 'assert';
-import vimPlugin from '../vim';
+import vimPlugin from '../index';
 
 describe('vim-plugin', () => {
   it('resolves VundleVim/Vundle.vim to https://github.com/VundleVim/Vundle.vim', () => {

@@ -1,6 +1,6 @@
 import assert from 'assert';
-import Less from '../less';
-import githubSearch from '../../resolver/github-search.js';
+import githubSearch from '@octolinker/resolver-github-search';
+import Less from '../index';
 
 describe('Less', () => {
   const path = '/octo/dog.less';

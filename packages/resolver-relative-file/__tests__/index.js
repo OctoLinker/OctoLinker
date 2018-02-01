@@ -1,5 +1,5 @@
 import assert from 'assert';
-import relativeFile from '../index.js';
+import relativeFile from '../index';
 
 describe('relative-file', () => {
   const path = '/octo/file.txt';
