@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/helper-process-json",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-process-json",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "JSONPath": "^0.11.2"
+  }
+}

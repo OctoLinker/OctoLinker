@@ -7,21 +7,11 @@
   "main": "./index.js",
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
-    "@octolinker/helper-grammar-regex-collection": "1.0.0",
-    "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/helper-settings": "1.0.0",
-    "JSONPath": "^0.11.2",
     "builtins": "^1.0.3",
-    "concat-map": "^0.0.1",
-    "escape-regex-string": "^1.0.4",
     "github-injection": "^1.0.1",
-    "github-url-from-git": "^1.5.0",
-    "github-url-from-username-repo": "^1.0.2",
-    "giturl": "^1.0.0",
     "jquery": "^3.2.1",
-    "path-parse": "^1.0.5",
     "querystring": "^0.2.0",
-    "semver": "^5.4.1",
     "semver-regex": "^1.0.0"
   }
 }

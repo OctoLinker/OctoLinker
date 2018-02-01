@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/plugin-haskell",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-haskell",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/resolver-github-search": "1.0.0",
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}

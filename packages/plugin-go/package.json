@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/plugin-go",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-go",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}

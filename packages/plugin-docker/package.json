@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/plugin-docker",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-docker",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}

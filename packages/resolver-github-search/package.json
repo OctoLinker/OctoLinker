@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/resolver-github-search",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-github-search",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-settings": "1.0.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/plugin-css",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-css",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/resolver-relative-file": "1.0.0",
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}
