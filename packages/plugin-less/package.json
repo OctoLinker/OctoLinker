@@ -1,0 +1,13 @@
+{
+  "name": "@octolinker/plugin-less",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-less",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/resolver-relative-file": "1.0.0",
+    "@octolinker/resolver-github-search": "1.0.0",
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}

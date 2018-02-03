@@ -1,0 +1,13 @@
+{
+  "name": "@octolinker/plugin-nodejs-relative-path",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-nodejs-relative-path",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/plugin-javascript": "1.0.0",
+    "@octolinker/plugin-typescript": "1.0.0",
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}

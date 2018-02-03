@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/plugin-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-typescript",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "@octolinker/plugin-javascript": "1.0.0"
+  }
+}

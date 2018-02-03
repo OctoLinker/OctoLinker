@@ -1,0 +1,13 @@
+{
+  "name": "@octolinker/plugin-vim",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-vim",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "github-url-from-username-repo": "^1.0.2",
+    "giturl": "^1.0.0"
+  }
+}

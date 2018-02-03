@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/resolver-git-url",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-git-url",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "github-url-from-git": "^1.5.0"
+  }
+}
