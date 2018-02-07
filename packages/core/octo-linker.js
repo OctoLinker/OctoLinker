@@ -18,7 +18,12 @@ function initialize(self) {
 }
 
 function insertDataAttr(matches) {
-  matches.forEach(({ data, link }) => {
+  matches.forEach(item => {
+    if (!item) {
+      return;
+    }
+
+    const { data, link } = item;
     for (const key in data) {
       if (data.hasOwnProperty(key)) {
         link.dataset[key] = data[key];
