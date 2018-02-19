@@ -7,7 +7,7 @@ import nugetResolver from '@octolinker/resolver-nuget';
 export default {
   name: 'DotNet',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     return nugetResolver({ target });
   },
 

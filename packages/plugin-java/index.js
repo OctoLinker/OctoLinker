@@ -6,7 +6,7 @@ const SUPPORTED_JAVA_VERSIONS = [9, 8, 7];
 export default {
   name: 'Java',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     const targetAsPath = target.replace(/\./g, '/');
     const isBuildIn = !!target.match(/^javax?/);
 

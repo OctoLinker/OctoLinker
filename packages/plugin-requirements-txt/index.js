@@ -4,7 +4,7 @@ import liveResolverQuery from '@octolinker/resolver-live-query';
 export default {
   name: 'RequirementsTxt',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     return [
       liveResolverQuery({
         target,

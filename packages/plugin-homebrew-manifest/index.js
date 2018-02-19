@@ -5,7 +5,7 @@ import Ruby from '@octolinker/plugin-ruby';
 export default {
   name: 'Homebrew',
 
-  resolve({ path, target }) {
+  resolve(path, [target]) {
     target += '.rb';
     return [
       relativeFile({ path, target }),

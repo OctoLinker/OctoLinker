@@ -15,7 +15,7 @@ function linkDependency(blob, key, value) {
 export default {
   name: 'DotNetCore',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     return nugetResolver({ target });
   },
 

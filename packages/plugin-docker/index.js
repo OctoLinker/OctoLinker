@@ -3,7 +3,7 @@ import { DOCKER_FROM } from '@octolinker/helper-grammar-regex-collection';
 export default {
   name: 'Docker',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     let isOffical = true;
     const imageName = target.split(':')[0];
 

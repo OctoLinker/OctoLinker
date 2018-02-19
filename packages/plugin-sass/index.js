@@ -7,7 +7,7 @@ import githubSearch from '@octolinker/resolver-github-search';
 export default {
   name: 'Sass',
 
-  resolve({ path, target }) {
+  resolve(path, [target]) {
     const { dir, name } = pathParse(target);
     const prefixedTarget = join(dir, `_${name}`);
 

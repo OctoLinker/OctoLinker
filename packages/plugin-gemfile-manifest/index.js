@@ -4,7 +4,7 @@ import liveResolverQuery from '@octolinker/resolver-live-query';
 export default {
   name: 'Rubygems',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     return liveResolverQuery({
       target: target.split('.')[0],
       type: 'rubygems',

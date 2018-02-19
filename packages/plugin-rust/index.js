@@ -4,7 +4,7 @@ import liveResolverQuery from '@octolinker/resolver-live-query';
 export default {
   name: 'Rust',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     return liveResolverQuery({ type: 'crates', target });
   },
 

@@ -5,7 +5,7 @@ import relativeFile from '@octolinker/resolver-relative-file';
 export default {
   name: 'Python',
 
-  resolve({ path, target }) {
+  resolve(path, [target]) {
     const isLocalFile = target.startsWith('.') && target.length > 1;
     const isInit = target === '.';
     const apiDoc = `https://docs.python.org/3/library/${target}.html`;
