@@ -25,43 +25,6 @@ function createLinkElement(text) {
 
   return linkEl;
 }
-
-function getCaptureGroupIndex(captureGroup) {
-  if (!captureGroup) {
-    return undefined;
-  }
-
-  const match = captureGroup.match(/\$([0-9]+)/);
-  if (!match || !match[1]) {
-    return undefined;
-  }
-
-  return parseInt(match[1], 10);
-}
-
-function getCaptureGroupValue(match, captureGroup) {
-  const index = getCaptureGroupIndex(captureGroup);
-  if (index === undefined) {
-    return undefined;
-  }
-
-  return captureGroup.replace(new RegExp(`\\$${index}`, 'g'), match[index]);
-}
-
-function buildDataAttr(data, match) {
-  const dataAttr = {};
-  for (const [key, value] of Object.entries(data)) {
-    const index = getCaptureGroupValue(match, value);
-    if (index) {
-      dataAttr[key] = index.replace(/['|"]/g, '');
-    } else {
-      dataAttr[key] = value;
-    }
-  }
-
-  return dataAttr;
-}
-
 function getIndexes(portion, entireMatch, matchValue) {
   let matchValueStriped = matchValue;
 
@@ -126,7 +89,7 @@ function wrapsInnerString(text, matchValue) {
   return parent;
 }
 
-function replace(portion, match, captureGroup) {
+function replace(portion, match) {
   const { text, node, indexInMatch } = portion;
   const isAlreadyWrapped = (node.parentNode.parentNode || node.parentNode
   ).classList.contains(CLASS_NAME);
@@ -138,7 +101,7 @@ function replace(portion, match, captureGroup) {
     };
   }
 
-  const matchValue = getCaptureGroupValue(match, captureGroup);
+  const matchValue = match[1];
 
   if (node.textContent.includes(matchValue)) {
     const el = wrapsInnerString(text, matchValue);
@@ -182,33 +145,35 @@ function replace(portion, match, captureGroup) {
   };
 }
 
-export default function(el, regex, mapping, captureGroup = '$1') {
-  if (!(el instanceof HTMLElement)) {
-    throw new Error('must be called with a DOM element');
+export default function(blob, regex, plugin, meta = {}) {
+  if (!blob) {
+    throw new Error('must be called with a blob');
+  }
+
+  if (!plugin) {
+    throw new Error('must be called with a plugin');
   }
 
   if (!(regex instanceof RegExp)) {
     throw new Error('must be called with a RegExp');
   }
 
-  if (!mapping) {
-    throw new Error('must be called with a mapping object');
-  }
-
   const matches = [];
 
-  findAndReplaceDOMText(el, {
+  findAndReplaceDOMText(blob.el, {
     find: regex,
     replace: (portion, match) => {
-      const { isMatch, node, link } = replace(portion, match, captureGroup);
+      const { isMatch, node, link } = replace(portion, match);
 
       if (!isMatch) {
         return node;
       }
 
+      const values = match.slice(1).map(item => item.replace(/['|"]/g, ''));
+
       matches.push({
         link,
-        data: buildDataAttr(mapping, match),
+        urls: plugin.resolve(blob.path, values, meta),
       });
 
       return node;

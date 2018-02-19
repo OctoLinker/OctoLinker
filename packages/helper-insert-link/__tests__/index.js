@@ -3,19 +3,19 @@ import insertLink from '../index';
 
 describe('insert-link', () => {
   const DEFAULT_REGEX = /foo ("\w+")/;
+  const fakePlugin = {
+    resolve: jest.fn().mockReturnValue('urlsToResolve'),
+  };
 
-  function helper(
-    html,
-    regex = DEFAULT_REGEX,
-    options = {},
-    replaceIndex = '$1',
-  ) {
+  function helper(html, regex = DEFAULT_REGEX, plugin = fakePlugin, meta = {}) {
     const el = document.createElement('div');
+    const blob = { el };
     el.innerHTML = html;
 
-    const matches = insertLink(el, regex, options, replaceIndex);
+    const matches = insertLink(blob, regex, plugin, meta);
 
     return {
+      blob,
       el,
       matches,
     };
@@ -80,22 +80,13 @@ describe('insert-link', () => {
 
   it('wraps the element once', () => {
     const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-    const { el, matches: match1 } = helper(input);
-    const match2 = insertLink(el, DEFAULT_REGEX, {}, '$1');
+    const { blob, el, matches: match1 } = helper(input);
+    const match2 = insertLink(blob, DEFAULT_REGEX, fakePlugin);
 
     expect(match1.length).toBe(1);
     expect(match2.length).toBe(0);
 
     expect(el).toMatchSnapshot();
-  });
-
-  it('wraps the second regex match', () => {
-    const options = { value: '$2', xx: 'yy' };
-    const input = 'foo <i>"</i>bar<i>"</i> <i>"</i>baz<i>"</i>';
-    const regex = /foo ("\w+") ("\w+")/;
-
-    expect(helper(input, regex, options, '$2').matches.length).toBe(1);
-    expect(helper(input, regex, options, '$2').el).toMatchSnapshot();
   });
 
   it('does not remove closing parentheses from commented out require() calls', () => {
@@ -109,34 +100,6 @@ describe('insert-link', () => {
 
       expect(helper(input).matches.length).toBe(1);
       expect(helper(input).matches).toMatchSnapshot();
-    });
-
-    it('adds the given data-* attributes', () => {
-      const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-      const options = { value: '$1', bar: 'baz' };
-
-      expect(
-        helper(input, DEFAULT_REGEX, options).matches[0].data,
-      ).toMatchSnapshot();
-    });
-
-    it('replace placeholder with capture group value', () => {
-      const input = 'foo <span><i>"</i>foo<i>"</i></span>';
-      const options = { value: 'go/$1.txt' };
-
-      expect(
-        helper(input, DEFAULT_REGEX, options).matches[0].data,
-      ).toMatchSnapshot();
-    });
-
-    it('wraps the second regex match', () => {
-      const options = { value: '$2', xx: 'yy' };
-      const input = 'foo <i>"</i>bar<i>"</i> <i>"</i>baz<i>"</i>';
-      const regex = /foo ("\w+") ("\w+")/;
-
-      expect(
-        helper(input, regex, options, '$2').matches[0].data,
-      ).toMatchSnapshot();
     });
   });
 });

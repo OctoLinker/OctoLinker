@@ -14,22 +14,6 @@ function initialize(self) {
 
   self._blobReader = new BlobReader();
   self._pluginManager = new Plugins(loadPlugins);
-  clickHandler(self._pluginManager);
-}
-
-function insertDataAttr(matches) {
-  matches.forEach(item => {
-    if (!item) {
-      return;
-    }
-
-    const { data, link } = item;
-    for (const key in data) {
-      if (data.hasOwnProperty(key)) {
-        link.dataset[key] = data[key];
-      }
-    }
-  });
 }
 
 function run(self) {
@@ -52,19 +36,13 @@ function run(self) {
         matches = matches.concat(plugin.parseBlob(blob));
       } else if (plugin.getLinkRegexes) {
         [].concat(plugin.getLinkRegexes(blob)).forEach(regex => {
-          matches = matches.concat(
-            insertLink(blob.el, regex, {
-              pluginName: plugin.name,
-              target: '$1',
-              path: blob.path,
-            }),
-          );
+          matches = matches.concat(insertLink(blob, regex, plugin));
         });
       }
     });
-
-    insertDataAttr(matches);
   });
+
+  clickHandler(matches);
 }
 
 export default class OctoLinkerCore {
