@@ -2,6 +2,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
 
 module.exports = {
+  mode: 'development',
   entry: {
     app: './packages/core/app',
     background: './packages/core/background/index',
