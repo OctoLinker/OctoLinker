@@ -5,7 +5,7 @@ import githubSearch from '@octolinker/resolver-github-search';
 export default {
   name: 'Less',
 
-  resolve({ path, target }) {
+  resolve(path, [target]) {
     return [relativeFile({ path, target }), githubSearch({ path, target })];
   },
 

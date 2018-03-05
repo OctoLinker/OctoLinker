@@ -7,7 +7,7 @@ describe('Sass', () => {
   const target = 'foo';
 
   it('resolves link when target does not have a file extension', () => {
-    assert.deepEqual(Sass.resolve({ path, target }), [
+    assert.deepEqual(Sass.resolve(path, [target]), [
       '{BASE_URL}/octo/_foo.scss',
       '{BASE_URL}/octo/_foo.sass',
       githubSearch({ path, target }).toString(),
@@ -16,7 +16,7 @@ describe('Sass', () => {
   });
 
   it('resolves link when target has a file extension', () => {
-    assert.deepEqual(Sass.resolve({ path, target: 'foo.scss' }), [
+    assert.deepEqual(Sass.resolve(path, ['foo.scss']), [
       '{BASE_URL}/octo/_foo.scss',
       '{BASE_URL}/octo/_foo.sass',
       githubSearch({ path, target }).toString(),

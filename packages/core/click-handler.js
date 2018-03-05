@@ -9,7 +9,7 @@ const RESOLVED = 'Redirecting  🚀';
 
 const LINK_SELECTOR = '.octolinker-link';
 const $body = $('body');
-let pluginManager;
+let matches;
 
 function openUrl(url, newWindow = false, newWindowActive = true) {
   if (!url) {
@@ -29,25 +29,10 @@ function openUrl(url, newWindow = false, newWindowActive = true) {
   }
 }
 
-function getResolverUrls(dataAttr) {
+function getResolverUrls(urls) {
   const BASE_URL = 'https://github.com';
-  const { pluginName } = dataAttr;
-  const resolver = pluginManager.getResolver(pluginName);
 
-  if (!resolver) {
-    return [];
-  }
-
-  chrome.runtime.sendMessage({
-    type: 'track',
-    payload: {
-      category: 'resolver',
-      action: 'invoke',
-      label: pluginName,
-    },
-  });
-
-  return [].concat(resolver(dataAttr)).map(url => {
+  return [].concat(urls).map(url => {
     if (!url) {
       return null;
     }
@@ -85,12 +70,16 @@ async function onClick(event) {
     return;
   }
 
-  const dataAttr = event.currentTarget.dataset;
+  const found = matches.find(item => item.link === event.currentTarget);
+  if (!found) {
+    return;
+  }
+
   const $tooltipTarget = $('span', event.currentTarget);
 
   showTooltip($tooltipTarget, PROCESS);
 
-  const urls = getResolverUrls(dataAttr);
+  const urls = getResolverUrls(found.urls);
 
   if (!urls.length) {
     return;
@@ -127,12 +116,12 @@ async function onClick(event) {
   }
 }
 
-export default function(_pluginManager) {
+export default function(_matches) {
   $body.undelegate(LINK_SELECTOR, 'click', onClick);
   $body.undelegate(LINK_SELECTOR, 'mouseup', onClick);
 
   $body.delegate(LINK_SELECTOR, 'click', onClick);
   $body.delegate(LINK_SELECTOR, 'mouseup', onClick);
 
-  pluginManager = _pluginManager;
+  matches = _matches;
 }

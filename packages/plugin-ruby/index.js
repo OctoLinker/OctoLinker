@@ -5,7 +5,7 @@ import liveResolverQuery from '@octolinker/resolver-live-query';
 export default {
   name: 'Ruby',
 
-  resolve({ target, path }) {
+  resolve(path, [target]) {
     const isPath = !!target.match(/\//);
 
     // https://github.com/github/pages-gem/blob/master/lib/github-pages/dependencies.rb

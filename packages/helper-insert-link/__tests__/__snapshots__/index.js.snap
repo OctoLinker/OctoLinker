@@ -18,23 +18,9 @@ exports[`insert-link does not remove closing parentheses from commented out requ
 </div>
 `;
 
-exports[`insert-link returns adds the given data-* attributes 1`] = `
-Object {
-  "bar": "baz",
-  "value": "foo",
-}
-`;
-
-exports[`insert-link returns replace placeholder with capture group value 1`] = `
-Object {
-  "value": "go/foo.txt",
-}
-`;
-
 exports[`insert-link returns returns an array 1`] = `
 Array [
   Object {
-    "data": Object {},
     "link": <a
       class="octolinker-link"
     >
@@ -42,15 +28,9 @@ Array [
         bar
       </span>
     </a>,
+    "urls": "urlsToResolve",
   },
 ]
-`;
-
-exports[`insert-link returns wraps the second regex match 1`] = `
-Object {
-  "value": "baz",
-  "xx": "yy",
-}
 `;
 
 exports[`insert-link wraps a nested element 1`] = `
@@ -263,34 +243,5 @@ exports[`insert-link wraps the parent element when keyword is divided 1`] = `
       </span>
     </span>
   </a>
-</div>
-`;
-
-exports[`insert-link wraps the second regex match 1`] = `
-<div>
-  
-  foo 
-  <i>
-    "
-  </i>
-  bar
-  <i>
-    "
-  </i>
-   
-  <i>
-    "
-  </i>
-  <a
-    class="octolinker-link"
-  >
-    <span>
-      baz
-    </span>
-  </a>
-  <i>
-    "
-    
-  </i>
 </div>
 `;

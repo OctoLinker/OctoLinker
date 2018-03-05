@@ -5,7 +5,7 @@ import { VIM_PLUGIN } from '@octolinker/helper-grammar-regex-collection';
 export default {
   name: 'Vim',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     // Logic adapted from https://github.com/VundleVim/Vundle.vim/blob/11fdc428fe741f4f6974624ad76ab7c2b503b73e/doc/vundle.txt#L196
     const components = target.split('/');
 

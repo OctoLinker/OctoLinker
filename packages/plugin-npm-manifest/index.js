@@ -14,37 +14,32 @@ function linkDependency(blob, key, value) {
   const isValidSemver = isSemver(value);
   const regex = jsonRegExKeyValue(key, value);
 
-  return insertLink(blob.el, regex, {
-    pluginName: 'NpmManifest',
-    target: isValidSemver ? '$1' : '$2',
+  return insertLink(blob, regex, this, {
     type: isValidSemver ? 'liveResolverQuery' : 'git',
   });
 }
 
 function linkFile(blob, key, value) {
   const regex = jsonRegExValue(key, value);
-
-  return insertLink(blob.el, regex, {
-    pluginName: 'NpmManifest',
-    type: 'file',
-    path: blob.path,
-    target: '$1',
-  });
+  return insertLink(blob, regex, this, { type: 'file' });
 }
 
 export default {
   name: 'NpmManifest',
 
-  resolve({ target, path, type }) {
+  resolve(path, values, { type }) {
     if (type === 'file') {
-      return javascriptFile({ target, path });
+      return javascriptFile({ target: values[0], path });
     }
 
     if (type === 'liveResolverQuery') {
-      return liveResolverQuery({ type: 'npm', target });
+      return liveResolverQuery({ type: 'npm', target: values[0] });
     }
 
-    return [githubShorthand({ target }), gitUrl({ target })];
+    return [
+      githubShorthand({ target: values[1] }),
+      gitUrl({ target: values[1] }),
+    ];
   },
 
   getPattern() {
@@ -55,7 +50,7 @@ export default {
   },
 
   parseBlob(blob) {
-    return processJSON(blob, {
+    return processJSON(blob, this, {
       '$.dependencies': linkDependency,
       '$.devDependencies': linkDependency,
       '$.peerDependencies': linkDependency,

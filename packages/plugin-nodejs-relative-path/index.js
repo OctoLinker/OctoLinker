@@ -9,7 +9,7 @@ import TypeScript from '@octolinker/plugin-typescript';
 export default {
   name: 'NodejsRelativePath',
 
-  resolve({ target, path }) {
+  resolve(path, [target]) {
     return `{BASE_URL}${join(dirname(path), target)}`;
   },
 

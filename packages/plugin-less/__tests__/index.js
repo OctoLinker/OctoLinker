@@ -7,7 +7,7 @@ describe('Less', () => {
   const target = 'foo.less';
 
   it('resolves links', () => {
-    assert.deepEqual(Less.resolve({ path, target }), [
+    assert.deepEqual(Less.resolve(path, [target]), [
       '{BASE_URL}/octo/foo.less',
       githubSearch({ path, target }).toString(),
     ]);

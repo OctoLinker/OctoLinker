@@ -36,7 +36,7 @@ function githubUrls(url) {
 export default {
   name: 'Go',
 
-  resolve({ target, path }) {
+  resolve(path, [target]) {
     const isPath = !!target.match(/^\.\.?[\\|\/]?/);
 
     if (isPath) {

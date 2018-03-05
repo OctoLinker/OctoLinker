@@ -61,7 +61,7 @@ export function javascriptFile({ path, target }) {
 export default {
   name: 'JavaScript',
 
-  resolve({ target, path }) {
+  resolve(path, [target]) {
     const isPath = !!target.match(/^\.\.?[\\|\/]?/);
     const isBuildIn = target in builtinsDocs;
 

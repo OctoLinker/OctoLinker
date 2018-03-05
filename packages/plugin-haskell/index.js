@@ -4,7 +4,7 @@ import githubSearch from '@octolinker/resolver-github-search';
 export default {
   name: 'Haskell',
 
-  resolve({ path, target }) {
+  resolve(path, [target]) {
     const [, user, repo] = path.split('/');
     const filePath = target.replace(/\./g, '/');
     return [

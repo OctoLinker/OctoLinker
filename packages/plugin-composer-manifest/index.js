@@ -19,7 +19,7 @@ function linkDependency(blob, key, value) {
 export default {
   name: 'Composer',
 
-  resolve({ target }) {
+  resolve(path, [target]) {
     return liveResolverQuery({ type: 'composer', target });
   },
 

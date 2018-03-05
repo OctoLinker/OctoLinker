@@ -2,18 +2,20 @@ import assert from 'assert';
 import plugin from '../index';
 
 describe('javascript-universal', () => {
+  const path = '/blob/path/dummy';
+
   it("resolves 'foo/bar.js' like 'foo'", () => {
     const type = 'npm';
     assert.deepEqual(
-      plugin.resolve({ type, target: 'foo/bar.js' }),
-      plugin.resolve({ type, target: 'foo' }),
+      plugin.resolve(path, ['foo/bar.js'], { type }),
+      plugin.resolve(path, ['foo'], { type }),
     );
   });
 
   it("resolves '@angular/core/bar.js' to '@angular/core'", () => {
     const type = 'npm';
     assert.deepEqual(
-      plugin.resolve({ type, target: '@angular/core/bar.js' })[0],
+      plugin.resolve(path, ['@angular/core/bar.js'], { type })[0],
       {
         url: 'https://githublinker.herokuapp.com/q/npm/@angular/core',
         method: 'GET',
@@ -23,65 +25,50 @@ describe('javascript-universal', () => {
 
   it("resolves 'module' to 'https://nodejs.org/api/modules.html'", () => {
     assert.deepEqual(
-      plugin.resolve({ target: 'module' }),
+      plugin.resolve(path, ['module']),
       'https://nodejs.org/api/modules.html',
     );
   });
 
   it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {
-    assert.deepEqual(
-      plugin.resolve({
-        target: './modules/es6.symbol',
-        path: '',
-      }),
-      [
-        '{BASE_URL}modules/es6.symbol.js',
-        '{BASE_URL}modules/es6.symbol/index.js',
-        '{BASE_URL}modules/es6.symbol.jsx',
-        '{BASE_URL}modules/es6.symbol/index.jsx',
-        '{BASE_URL}modules/es6.symbol.ts',
-        '{BASE_URL}modules/es6.symbol/index.ts',
-        '{BASE_URL}modules/es6.symbol.tsx',
-        '{BASE_URL}modules/es6.symbol/index.tsx',
-        '{BASE_URL}modules/es6.symbol.ls',
-        '{BASE_URL}modules/es6.symbol/index.ls',
-        '{BASE_URL}modules/es6.symbol.json',
-        '{BASE_URL}modules/es6.symbol/index.json',
-        '{BASE_URL}modules/es6.symbol',
-      ],
-    );
+    assert.deepEqual(plugin.resolve('', ['./modules/es6.symbol']), [
+      '{BASE_URL}modules/es6.symbol.js',
+      '{BASE_URL}modules/es6.symbol/index.js',
+      '{BASE_URL}modules/es6.symbol.jsx',
+      '{BASE_URL}modules/es6.symbol/index.jsx',
+      '{BASE_URL}modules/es6.symbol.ts',
+      '{BASE_URL}modules/es6.symbol/index.ts',
+      '{BASE_URL}modules/es6.symbol.tsx',
+      '{BASE_URL}modules/es6.symbol/index.tsx',
+      '{BASE_URL}modules/es6.symbol.ls',
+      '{BASE_URL}modules/es6.symbol/index.ls',
+      '{BASE_URL}modules/es6.symbol.json',
+      '{BASE_URL}modules/es6.symbol/index.json',
+      '{BASE_URL}modules/es6.symbol',
+    ]);
   });
 
   it("resolves './modules/es6.symbol.js' like './modules/es6.symbol'", () => {
-    assert.deepEqual(
-      plugin.resolve({
-        target: './modules/es6.symbol.js',
-        path: '',
-      }),
-      [
-        '{BASE_URL}modules/es6.symbol.js',
-        '{BASE_URL}modules/es6.symbol/index.js',
-        '{BASE_URL}modules/es6.symbol.jsx',
-        '{BASE_URL}modules/es6.symbol/index.jsx',
-        '{BASE_URL}modules/es6.symbol.ts',
-        '{BASE_URL}modules/es6.symbol/index.ts',
-        '{BASE_URL}modules/es6.symbol.tsx',
-        '{BASE_URL}modules/es6.symbol/index.tsx',
-        '{BASE_URL}modules/es6.symbol.ls',
-        '{BASE_URL}modules/es6.symbol/index.ls',
-        '{BASE_URL}modules/es6.symbol.json',
-        '{BASE_URL}modules/es6.symbol/index.json',
-        '{BASE_URL}modules/es6.symbol',
-      ],
-    );
+    assert.deepEqual(plugin.resolve('', ['./modules/es6.symbol.js']), [
+      '{BASE_URL}modules/es6.symbol.js',
+      '{BASE_URL}modules/es6.symbol/index.js',
+      '{BASE_URL}modules/es6.symbol.jsx',
+      '{BASE_URL}modules/es6.symbol/index.jsx',
+      '{BASE_URL}modules/es6.symbol.ts',
+      '{BASE_URL}modules/es6.symbol/index.ts',
+      '{BASE_URL}modules/es6.symbol.tsx',
+      '{BASE_URL}modules/es6.symbol/index.tsx',
+      '{BASE_URL}modules/es6.symbol.ls',
+      '{BASE_URL}modules/es6.symbol/index.ls',
+      '{BASE_URL}modules/es6.symbol.json',
+      '{BASE_URL}modules/es6.symbol/index.json',
+      '{BASE_URL}modules/es6.symbol',
+    ]);
   });
 
   it("fallbacks './lib/foo.js' to './src/foo.js'", () => {
     assert.deepEqual(
-      plugin.resolve({
-        path: '/user/repo/package.json',
-        target: './lib/foo.js',
-      }),
+      plugin.resolve('/user/repo/package.json', ['./lib/foo.js']),
       [
         '{BASE_URL}/user/repo/lib/foo.js',
         '{BASE_URL}/user/repo/src/foo.js',
@@ -127,10 +114,7 @@ describe('javascript-universal', () => {
 
   it("fallbacks './dist/foo.js' to './lib/foo.js' and './src/foo.js'", () => {
     assert.deepEqual(
-      plugin.resolve({
-        path: '/user/repo/package.json',
-        target: './dist/foo.js',
-      }),
+      plugin.resolve('/user/repo/package.json', ['./dist/foo.js']),
       [
         '{BASE_URL}/user/repo/dist/foo.js',
         '{BASE_URL}/user/repo/lib/foo.js',

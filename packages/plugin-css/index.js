@@ -4,7 +4,7 @@ import relativeFile from '@octolinker/resolver-relative-file';
 export default {
   name: 'CSS',
 
-  resolve({ target, path }) {
+  resolve(path, [target]) {
     return [relativeFile({ path, target })];
   },
 
