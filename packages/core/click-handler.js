@@ -75,6 +75,8 @@ async function onClick(event) {
     return;
   }
 
+  event.preventDefault();
+
   const $tooltipTarget = $('span', event.currentTarget);
 
   showTooltip($tooltipTarget, PROCESS);
