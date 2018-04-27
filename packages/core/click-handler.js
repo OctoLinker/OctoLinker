@@ -95,7 +95,7 @@ async function onClick(event) {
     });
 
   try {
-    const { url, res } = await fetch(urls);
+    const { url, res } = await fetch(urls, storage.get('doTrack'));
 
     track('success');
     showTooltip($tooltipTarget, RESOLVED);
