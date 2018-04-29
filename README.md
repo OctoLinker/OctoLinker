@@ -141,6 +141,10 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/octolinker/sponsor/28/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/28/avatar.svg"></a>
 <a href="https://opencollective.com/octolinker/sponsor/29/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/29/avatar.svg"></a>
 
+# Privacy Policy
+
+Our [Privacy Policy](privacy-policy.md) describes our practices related to the use, storage and disclosure of information we collect when you're using our service.
+
 # Legal and License
 
 OctoLinker is not affiliated with, sponsored by, or endorsed by GitHub Inc.
