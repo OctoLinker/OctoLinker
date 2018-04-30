@@ -10,7 +10,9 @@ export default async (urls, doTrack) => {
         };
       }
 
-      const doNotTrack = window.navigator.doNotTrack || !doTrack;
+      const headers = {
+        'Do-Not-Track': !doTrack ? '1' : undefined,
+      };
 
       // Normally, you wouldn't use `await` inside of a loop.
       // However, we explicity want to do this sequentially.
@@ -19,9 +21,7 @@ export default async (urls, doTrack) => {
       const res = await $.ajax({
         method,
         url,
-        headers: {
-          DNT: doNotTrack ? '1' : '0',
-        },
+        headers,
       });
 
       return { url, res };
