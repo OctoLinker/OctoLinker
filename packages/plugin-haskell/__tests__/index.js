@@ -1,18 +1,34 @@
 import assert from 'assert';
-import githubSearch from '@octolinker/resolver-github-search';
+import { hoogleSearch } from '@octolinker/resolver-hoogle-search';
 import Haskell from '../index';
 
 describe('haskell', () => {
-  const path = '/user/repo/blob/d6/lib/plugins/javascript.js';
-  const target = 'Foo.Bar';
+  it('resolves links - top level project', () => {
+    const path = '/user/repo/blob/v0.1/src/Main.hs';
+    const target = 'Foo.Bar';
 
-  it('resolves links', () => {
     assert.deepEqual(Haskell.resolve(path, [target]), [
-      '{BASE_URL}/user/repo/blob/master/src/Foo/Bar.hs',
-      '{BASE_URL}/user/repo/blob/master/lib/Foo/Bar.hs',
-      '{BASE_URL}/user/repo/blob/master/Foo/Bar.hs',
-      githubSearch({ path, target }).toString(),
-      'https://hackage.haskell.org/package/base/docs/Foo-Bar.html',
+      '{BASE_URL}/user/repo/blob/v0.1/src/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/lib/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/app/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/test/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/Foo/Bar.hs',
+      hoogleSearch({ target }).toString(),
+    ]);
+  });
+
+  it('resolves links - monorepo project', () => {
+    const path =
+      '/user/repo/blob/v0.1/projects/project-in-monorepo/src/Main.hs';
+    const target = 'Foo.Bar';
+
+    assert.deepEqual(Haskell.resolve(path, [target]), [
+      '{BASE_URL}/user/repo/blob/v0.1/projects/project-in-monorepo/src/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/projects/project-in-monorepo/lib/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/projects/project-in-monorepo/app/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/projects/project-in-monorepo/test/Foo/Bar.hs',
+      '{BASE_URL}/user/repo/blob/v0.1/projects/project-in-monorepo/Foo/Bar.hs',
+      hoogleSearch({ target }).toString(),
     ]);
   });
 });
