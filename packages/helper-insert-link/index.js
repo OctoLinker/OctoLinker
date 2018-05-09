@@ -91,7 +91,8 @@ function wrapsInnerString(text, matchValue) {
 
 function replace(portion, match) {
   const { text, node, indexInMatch } = portion;
-  const isAlreadyWrapped = (node.parentNode.parentNode || node.parentNode
+  const isAlreadyWrapped = (
+    node.parentNode.parentNode || node.parentNode
   ).classList.contains(CLASS_NAME);
   if (isAlreadyWrapped) {
     return {
