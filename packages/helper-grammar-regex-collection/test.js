@@ -508,7 +508,7 @@ describe('helper-grammar-regex-collection', () => {
             regexes(text).forEach(regex => {
               // eslint-disable-next-line
               while (match = regex.exec(text)) {
-                result = result.concat(match.slice(1));
+                result = result.concat(match.filter(item => !!item).slice(1));
               }
             });
 
