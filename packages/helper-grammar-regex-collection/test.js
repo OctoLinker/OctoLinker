@@ -270,7 +270,7 @@ const fixtures = {
       ['import foo as bar', ['foo']],
       ['from .foo import bar', ['.foo', 'bar']],
       ['from foo import bar', ['foo', 'bar']],
-      ['from foo import bar, baz', ['foo', 'bar', 'baz']],
+      ['from foo import bar, baz', ['foo', 'bar']],
       ['from foo.bar import baz', ['foo.bar', 'baz']],
     ],
     invalid: ['simport foo', 'simport\nfoo', '# from the'],
