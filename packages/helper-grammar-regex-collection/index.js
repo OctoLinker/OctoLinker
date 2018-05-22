@@ -99,6 +99,7 @@ export const PYTHON_IMPORT = regex`
   (import|from)
   \s
   (?<$1>[^\s]*)
+  (\s import \s (?<$2>[^\s,]*))?
 `;
 
 export const REQUIREMENTS_TXT = regex`

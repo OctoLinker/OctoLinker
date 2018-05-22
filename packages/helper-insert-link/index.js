@@ -170,7 +170,10 @@ export default function(blob, regex, plugin, meta = {}) {
         return node;
       }
 
-      const values = match.slice(1).map(item => item.replace(/['|"]/g, ''));
+      const values = match
+        .filter(item => !!item)
+        .slice(1)
+        .map(item => item.replace(/['|"]/g, ''));
 
       matches.push({
         link,

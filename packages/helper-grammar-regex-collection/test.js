@@ -268,9 +268,10 @@ const fixtures = {
       ['import fo_o', ['fo_o']],
       ['import .foo', ['.foo']],
       ['import foo as bar', ['foo']],
-      ['from foo import bar', ['foo']],
-      ['from foo import bar, baz', ['foo']],
-      ['from foo.bar import baz', ['foo.bar']],
+      ['from .foo import bar', ['.foo', 'bar']],
+      ['from foo import bar', ['foo', 'bar']],
+      ['from foo import bar, baz', ['foo', 'bar']],
+      ['from foo.bar import baz', ['foo.bar', 'baz']],
     ],
     invalid: ['simport foo', 'simport\nfoo', '# from the'],
   },
@@ -507,7 +508,7 @@ describe('helper-grammar-regex-collection', () => {
             regexes(text).forEach(regex => {
               // eslint-disable-next-line
               while (match = regex.exec(text)) {
-                result = result.concat(match.slice(1));
+                result = result.concat(match.filter(item => !!item).slice(1));
               }
             });
 
