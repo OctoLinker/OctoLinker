@@ -1,4 +1,4 @@
-/* global browser */
+import browser from 'webextension-polyfill';
 import uuid from 'uuid';
 
 const store = {};
