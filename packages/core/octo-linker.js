@@ -42,6 +42,8 @@ function run(self) {
     });
   });
 
+  matches = matches.filter(result => result !== undefined);
+
   clickHandler(matches);
 }
 
