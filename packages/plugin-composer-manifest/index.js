@@ -4,23 +4,20 @@ import { jsonRegExKeyValue } from '@octolinker/helper-regex-builder';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 
 function linkDependency(blob, key, value) {
-  if (key === 'php') {
+  if (key === 'php' || key.startsWith('ext-')) {
     return;
   }
 
   const regex = jsonRegExKeyValue(key, value);
 
-  return insertLink(blob.el, regex, {
-    pluginName: 'Composer',
-    target: '$1',
-  });
+  return insertLink(blob, regex, this);
 }
 
 export default {
   name: 'Composer',
 
-  resolve(path, [target]) {
-    return liveResolverQuery({ type: 'composer', target });
+  resolve(path, values) {
+    return liveResolverQuery({ type: 'composer', target: values[0] });
   },
 
   getPattern() {
@@ -31,7 +28,7 @@ export default {
   },
 
   parseBlob(blob) {
-    return processJSON(blob, {
+    return processJSON(blob, this, {
       '$.require': linkDependency,
       '$.require-dev': linkDependency,
       '$.conflict': linkDependency,

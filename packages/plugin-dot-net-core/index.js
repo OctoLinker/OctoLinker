@@ -6,10 +6,7 @@ import nugetResolver from '@octolinker/resolver-nuget';
 function linkDependency(blob, key, value) {
   const regex = jsonRegExKeyValue(key, value);
 
-  return insertLink(blob.el, regex, {
-    pluginName: 'DotNetCore',
-    target: '$1',
-  });
+  return insertLink(blob, regex, this);
 }
 
 export default {
@@ -27,7 +24,7 @@ export default {
   },
 
   parseBlob(blob) {
-    return processJSON(blob, {
+    return processJSON(blob, this, {
       '$.dependencies': linkDependency,
       '$.tools': linkDependency,
       '$.frameworks.*.dependencies': linkDependency,
