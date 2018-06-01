@@ -1,21 +1,20 @@
 import { HASKELL_IMPORT } from '@octolinker/helper-grammar-regex-collection';
-import githubSearch from '@octolinker/resolver-github-search';
+import { hoogleSearch } from '@octolinker/resolver-hoogle-search';
 
 export default {
   name: 'Haskell',
 
   resolve(path, [target]) {
-    const [, user, repo] = path.split('/');
     const filePath = target.replace(/\./g, '/');
+    const basePath = path.split(/\/(src|lib|app|test)\//)[0];
+
     return [
-      `{BASE_URL}/${user}/${repo}/blob/master/src/${filePath}.hs`,
-      `{BASE_URL}/${user}/${repo}/blob/master/lib/${filePath}.hs`,
-      `{BASE_URL}/${user}/${repo}/blob/master/${filePath}.hs`,
-      githubSearch({ path, target: `${filePath}.hs` }),
-      `https://hackage.haskell.org/package/base/docs/${target.replace(
-        /\./g,
-        '-',
-      )}.html`,
+      `{BASE_URL}${basePath}/src/${filePath}.hs`,
+      `{BASE_URL}${basePath}/lib/${filePath}.hs`,
+      `{BASE_URL}${basePath}/app/${filePath}.hs`,
+      `{BASE_URL}${basePath}/test/${filePath}.hs`,
+      `{BASE_URL}${basePath}/${filePath}.hs`,
+      hoogleSearch({ target }),
     ];
   },
 
