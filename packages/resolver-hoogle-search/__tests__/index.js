@@ -1,11 +1,17 @@
 import assert from 'assert';
-import { hoogleSearch, handleResponse } from '../index';
+import { hoogleSearch } from '../index';
 
 describe('hoogle-search', () => {
   const target = 'Data.Typeable';
-
+  let response;
   beforeAll(() => {
-    global.fetch = jest.fn();
+    global.fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        json() {
+          return response;
+        },
+      }),
+    );
   });
 
   it('returns a function', () => {
@@ -20,7 +26,22 @@ describe('hoogle-search', () => {
     );
   });
 
-  it('returns null when no results', () => {
-    assert.equal(handleResponse('url', 'target', []), null);
+  it('returns url', async () => {
+    response = [
+      {
+        url:
+          'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
+      },
+    ];
+
+    expect(await hoogleSearch({ target })()).toBe(
+      'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
+    );
+  });
+
+  it('returns null when no results', async () => {
+    response = [];
+
+    expect(await hoogleSearch({ target })()).toBe(null);
   });
 });

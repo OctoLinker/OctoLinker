@@ -1,4 +1,4 @@
-export function handleResponse(hoogleSearchUrl, target, response) {
+function handleResponse(hoogleSearchUrl, target, response) {
   const checkExact = function(item) {
     return item.url.includes(`docs/${target.replace(/\./g, '-')}.html`);
   };
