@@ -18,11 +18,10 @@ export function handleResponse(hoogleSearchUrl, target, response) {
 
 export function hoogleSearch({ target }) {
   const query = `${encodeURIComponent(target)}%20is:module%20is:exact`;
-  const hoogleSearchUrl = `https://hoogle.haskell.org/?hoogle=${query}`;
-  const apiUrl = `${hoogleSearchUrl}&mode=json`;
+  const hoogleSearchUrl = `https://hoogle.haskell.org/?hoogle=${query}&mode=json`;
 
   return async function doHoogleSearch() {
-    const response = await fetch(apiUrl);
+    const response = await fetch(hoogleSearchUrl);
     const json = await response.json();
 
     return handleResponse(hoogleSearchUrl, target, json);
