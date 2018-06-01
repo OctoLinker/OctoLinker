@@ -1,7 +1,6 @@
+import browser from 'webextension-polyfill';
 import uuid from 'uuid';
-import ChromePromise from 'chrome-promise';
 
-const chromep = new ChromePromise();
 const store = {};
 
 const defaults = {
@@ -20,17 +19,17 @@ export const set = async (key, value) => {
   };
 
   try {
-    return await chromep.storage.sync.set(data);
+    return await browser.storage.sync.set(data);
   } catch (err) {
-    return chromep.storage.local.set(data);
+    return browser.storage.local.set(data);
   }
 };
 
 export const save = async data => {
   try {
-    return await chromep.storage.sync.set(data);
+    return await browser.storage.sync.set(data);
   } catch (err) {
-    return chromep.storage.local.set(data);
+    return browser.storage.local.set(data);
   }
 };
 
@@ -38,9 +37,9 @@ export const load = async () => {
   let data;
 
   try {
-    data = await chromep.storage.sync.get(null);
+    data = await browser.storage.sync.get(null);
   } catch (err) {
-    data = await chromep.storage.local.get(null);
+    data = await browser.storage.local.get(null);
   }
 
   Object.assign(store, defaults, data);
