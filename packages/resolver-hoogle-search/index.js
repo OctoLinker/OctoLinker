@@ -1,6 +1,6 @@
 export function handleResponse(hoogleSearchUrl, target, response) {
   const checkExact = function(item) {
-    return item.url.indexOf(`docs/${target.replace(/\./g, '-')}.html`) !== -1;
+    return item.url.includes(`docs/${target.replace(/\./g, '-')}.html`);
   };
 
   if (response.length > 0) {
