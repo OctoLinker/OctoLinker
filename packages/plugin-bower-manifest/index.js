@@ -48,7 +48,7 @@ export default {
   },
 
   parseBlob(blob) {
-    return processJSON(blob, {
+    return processJSON(blob, this, {
       '$.dependencies': linkDependency,
       '$.devDependencies': linkDependency,
       '$.resolutions': linkDependency,
