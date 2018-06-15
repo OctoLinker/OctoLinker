@@ -1,4 +1,3 @@
-import assert from 'assert';
 import plugin from '../index';
 
 describe('javascript-universal', () => {
@@ -6,16 +5,14 @@ describe('javascript-universal', () => {
 
   it("resolves 'foo/bar.js' like 'foo'", () => {
     const type = 'npm';
-    assert.deepEqual(
-      plugin.resolve(path, ['foo/bar.js'], { type }),
+    expect(plugin.resolve(path, ['foo/bar.js'], { type })).toEqual(
       plugin.resolve(path, ['foo'], { type }),
     );
   });
 
   it("resolves '@angular/core/bar.js' to '@angular/core'", () => {
     const type = 'npm';
-    assert.deepEqual(
-      plugin.resolve(path, ['@angular/core/bar.js'], { type })[0],
+    expect(plugin.resolve(path, ['@angular/core/bar.js'], { type })[0]).toEqual(
       {
         url: 'https://githublinker.herokuapp.com/q/npm/@angular/core',
         method: 'GET',
@@ -24,150 +21,28 @@ describe('javascript-universal', () => {
   });
 
   it("resolves 'module' to 'https://nodejs.org/api/modules.html'", () => {
-    assert.deepEqual(
-      plugin.resolve(path, ['module']),
+    expect(plugin.resolve(path, ['module'])).toBe(
       'https://nodejs.org/api/modules.html',
     );
   });
 
   it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {
-    assert.deepEqual(plugin.resolve('', ['./modules/es6.symbol']), [
-      '{BASE_URL}modules/es6.symbol.js',
-      '{BASE_URL}modules/es6.symbol/index.js',
-      '{BASE_URL}modules/es6.symbol.jsx',
-      '{BASE_URL}modules/es6.symbol/index.jsx',
-      '{BASE_URL}modules/es6.symbol.ts',
-      '{BASE_URL}modules/es6.symbol/index.ts',
-      '{BASE_URL}modules/es6.symbol.tsx',
-      '{BASE_URL}modules/es6.symbol/index.tsx',
-      '{BASE_URL}modules/es6.symbol.ls',
-      '{BASE_URL}modules/es6.symbol/index.ls',
-      '{BASE_URL}modules/es6.symbol.json',
-      '{BASE_URL}modules/es6.symbol/index.json',
-      '{BASE_URL}modules/es6.symbol',
-    ]);
+    expect(plugin.resolve('', ['./modules/es6.symbol'])).toMatchSnapshot();
   });
 
   it("resolves './modules/es6.symbol.js' like './modules/es6.symbol'", () => {
-    assert.deepEqual(plugin.resolve('', ['./modules/es6.symbol.js']), [
-      '{BASE_URL}modules/es6.symbol.js',
-      '{BASE_URL}modules/es6.symbol/index.js',
-      '{BASE_URL}modules/es6.symbol.jsx',
-      '{BASE_URL}modules/es6.symbol/index.jsx',
-      '{BASE_URL}modules/es6.symbol.ts',
-      '{BASE_URL}modules/es6.symbol/index.ts',
-      '{BASE_URL}modules/es6.symbol.tsx',
-      '{BASE_URL}modules/es6.symbol/index.tsx',
-      '{BASE_URL}modules/es6.symbol.ls',
-      '{BASE_URL}modules/es6.symbol/index.ls',
-      '{BASE_URL}modules/es6.symbol.json',
-      '{BASE_URL}modules/es6.symbol/index.json',
-      '{BASE_URL}modules/es6.symbol',
-    ]);
+    expect(plugin.resolve('', ['./modules/es6.symbol.js'])).toMatchSnapshot();
   });
 
   it("fallbacks './lib/foo.js' to './src/foo.js'", () => {
-    assert.deepEqual(
+    expect(
       plugin.resolve('/user/repo/package.json', ['./lib/foo.js']),
-      [
-        '{BASE_URL}/user/repo/lib/foo.js',
-        '{BASE_URL}/user/repo/src/foo.js',
-
-        '{BASE_URL}/user/repo/lib/foo/index.js',
-        '{BASE_URL}/user/repo/src/foo/index.js',
-
-        '{BASE_URL}/user/repo/lib/foo.jsx',
-        '{BASE_URL}/user/repo/src/foo.jsx',
-
-        '{BASE_URL}/user/repo/lib/foo/index.jsx',
-        '{BASE_URL}/user/repo/src/foo/index.jsx',
-
-        '{BASE_URL}/user/repo/lib/foo.ts',
-        '{BASE_URL}/user/repo/src/foo.ts',
-
-        '{BASE_URL}/user/repo/lib/foo/index.ts',
-        '{BASE_URL}/user/repo/src/foo/index.ts',
-
-        '{BASE_URL}/user/repo/lib/foo.tsx',
-        '{BASE_URL}/user/repo/src/foo.tsx',
-
-        '{BASE_URL}/user/repo/lib/foo/index.tsx',
-        '{BASE_URL}/user/repo/src/foo/index.tsx',
-
-        '{BASE_URL}/user/repo/lib/foo.ls',
-        '{BASE_URL}/user/repo/src/foo.ls',
-
-        '{BASE_URL}/user/repo/lib/foo/index.ls',
-        '{BASE_URL}/user/repo/src/foo/index.ls',
-
-        '{BASE_URL}/user/repo/lib/foo.json',
-        '{BASE_URL}/user/repo/src/foo.json',
-
-        '{BASE_URL}/user/repo/lib/foo/index.json',
-        '{BASE_URL}/user/repo/src/foo/index.json',
-
-        '{BASE_URL}/user/repo/lib/foo',
-        '{BASE_URL}/user/repo/src/foo',
-      ],
-    );
+    ).toMatchSnapshot();
   });
 
   it("fallbacks './dist/foo.js' to './lib/foo.js' and './src/foo.js'", () => {
-    assert.deepEqual(
+    expect(
       plugin.resolve('/user/repo/package.json', ['./dist/foo.js']),
-      [
-        '{BASE_URL}/user/repo/dist/foo.js',
-        '{BASE_URL}/user/repo/lib/foo.js',
-        '{BASE_URL}/user/repo/src/foo.js',
-
-        '{BASE_URL}/user/repo/dist/foo/index.js',
-        '{BASE_URL}/user/repo/lib/foo/index.js',
-        '{BASE_URL}/user/repo/src/foo/index.js',
-
-        '{BASE_URL}/user/repo/dist/foo.jsx',
-        '{BASE_URL}/user/repo/lib/foo.jsx',
-        '{BASE_URL}/user/repo/src/foo.jsx',
-
-        '{BASE_URL}/user/repo/dist/foo/index.jsx',
-        '{BASE_URL}/user/repo/lib/foo/index.jsx',
-        '{BASE_URL}/user/repo/src/foo/index.jsx',
-
-        '{BASE_URL}/user/repo/dist/foo.ts',
-        '{BASE_URL}/user/repo/lib/foo.ts',
-        '{BASE_URL}/user/repo/src/foo.ts',
-
-        '{BASE_URL}/user/repo/dist/foo/index.ts',
-        '{BASE_URL}/user/repo/lib/foo/index.ts',
-        '{BASE_URL}/user/repo/src/foo/index.ts',
-
-        '{BASE_URL}/user/repo/dist/foo.tsx',
-        '{BASE_URL}/user/repo/lib/foo.tsx',
-        '{BASE_URL}/user/repo/src/foo.tsx',
-
-        '{BASE_URL}/user/repo/dist/foo/index.tsx',
-        '{BASE_URL}/user/repo/lib/foo/index.tsx',
-        '{BASE_URL}/user/repo/src/foo/index.tsx',
-
-        '{BASE_URL}/user/repo/dist/foo.ls',
-        '{BASE_URL}/user/repo/lib/foo.ls',
-        '{BASE_URL}/user/repo/src/foo.ls',
-
-        '{BASE_URL}/user/repo/dist/foo/index.ls',
-        '{BASE_URL}/user/repo/lib/foo/index.ls',
-        '{BASE_URL}/user/repo/src/foo/index.ls',
-
-        '{BASE_URL}/user/repo/dist/foo.json',
-        '{BASE_URL}/user/repo/lib/foo.json',
-        '{BASE_URL}/user/repo/src/foo.json',
-
-        '{BASE_URL}/user/repo/dist/foo/index.json',
-        '{BASE_URL}/user/repo/lib/foo/index.json',
-        '{BASE_URL}/user/repo/src/foo/index.json',
-
-        '{BASE_URL}/user/repo/dist/foo',
-        '{BASE_URL}/user/repo/lib/foo',
-        '{BASE_URL}/user/repo/src/foo',
-      ],
-    );
+    ).toMatchSnapshot();
   });
 });
