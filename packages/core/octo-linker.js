@@ -2,6 +2,7 @@ import injection from 'github-injection';
 import BlobReader from '@octolinker/blob-reader';
 import insertLink from '@octolinker/helper-insert-link';
 import * as storage from '@octolinker/helper-settings';
+import helperSortUrls from '@octolinker/helper-sort-urls';
 import notification from './notification';
 import clickHandler from './click-handler';
 import Plugins from './plugin-manager.js';
@@ -42,7 +43,21 @@ function run(self) {
     });
   });
 
-  matches = matches.filter(result => result !== undefined);
+  matches = matches
+    .filter(result => result !== undefined)
+    .map(({ link, urls }) => {
+      let finalUrls = urls;
+
+      // Some urls are single object e.g. live-resolver-query results
+      if (Array.isArray(urls)) {
+        finalUrls = helperSortUrls(urls, link.innerText);
+      }
+
+      return {
+        link,
+        urls: finalUrls,
+      };
+    });
 
   clickHandler(matches);
 }
