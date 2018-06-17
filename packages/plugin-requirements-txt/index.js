@@ -5,12 +5,10 @@ export default {
   name: 'RequirementsTxt',
 
   resolve(path, [target]) {
-    return [
-      liveResolverQuery({
-        target,
-        type: 'pypi',
-      }),
-    ];
+    return liveResolverQuery({
+      target,
+      type: 'pypi',
+    });
   },
 
   getPattern() {

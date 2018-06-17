@@ -12,11 +12,8 @@ describe('javascript-universal', () => {
 
   it("resolves '@angular/core/bar.js' to '@angular/core'", () => {
     const type = 'npm';
-    expect(plugin.resolve(path, ['@angular/core/bar.js'], { type })[0]).toEqual(
-      {
-        url: 'https://githublinker.herokuapp.com/q/npm/@angular/core',
-        method: 'GET',
-      },
+    expect(plugin.resolve(path, ['@angular/core/bar.js'], { type })[0]).toBe(
+      'https://githublinker.herokuapp.com/q/npm/@angular/core',
     );
   });
 
