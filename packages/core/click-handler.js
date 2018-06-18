@@ -59,7 +59,7 @@ function getResolverUrls(urls) {
       };
     }
 
-    // Extneral urls
+    // External urls
     return {
       url: `https://githublinker.herokuapp.com/ping?url=${url}`,
       method: 'GET',
