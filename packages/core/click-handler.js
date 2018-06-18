@@ -37,25 +37,29 @@ function getResolverUrls(urls) {
       return null;
     }
 
+    // github-search resolver returns a function
     if (typeof url === 'function') {
       return {
         func: url,
       };
     }
 
-    if (typeof url === 'object') {
+    // Live-query resolver results
+    if (url.startsWith('https://githublinker.herokuapp.com')) {
       return {
-        url: url.url.replace('{BASE_URL}', BASE_URL),
-        method: url.method,
+        url,
+        method: 'GET',
       };
     }
 
+    // Relative file
     if (url.startsWith('{BASE_URL}') || url.startsWith(BASE_URL)) {
       return {
         url: url.replace('{BASE_URL}', BASE_URL),
       };
     }
 
+    // External urls
     return {
       url: `https://githublinker.herokuapp.com/ping?url=${url}`,
       method: 'GET',

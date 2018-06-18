@@ -11,7 +11,7 @@ export default {
       isOffical = false;
     }
 
-    return [`https://hub.docker.com/${isOffical ? '_' : 'r'}/${imageName}`];
+    return `https://hub.docker.com/${isOffical ? '_' : 'r'}/${imageName}`;
   },
 
   getPattern() {

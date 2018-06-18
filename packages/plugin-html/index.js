@@ -8,7 +8,7 @@ export default {
   name: 'HTML',
 
   resolve(path, [target]) {
-    return [relativeFile({ path, target })];
+    return relativeFile({ path, target });
   },
 
   getPattern() {

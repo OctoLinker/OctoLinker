@@ -16,9 +16,8 @@ describe('Java', () => {
   });
 
   it('resolves community packages', () => {
-    assert.deepEqual(Java.resolve(path, ['com.company.app']), {
-      url: 'https://githublinker.herokuapp.com/q/java/com.company.app',
-      method: 'GET',
-    });
+    expect(Java.resolve(path, ['com.company.app'])).toBe(
+      'https://githublinker.herokuapp.com/q/java/com.company.app',
+    );
   });
 });

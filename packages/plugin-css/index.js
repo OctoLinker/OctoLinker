@@ -5,7 +5,7 @@ export default {
   name: 'CSS',
 
   resolve(path, [target]) {
-    return [relativeFile({ path, target })];
+    return relativeFile({ path, target });
   },
 
   getPattern() {

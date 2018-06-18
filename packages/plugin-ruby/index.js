@@ -16,7 +16,7 @@ export default {
       return `{BASE_URL}${join(basePath, `${target}.rb`)}`;
     }
 
-    return [liveResolverQuery({ type: 'rubygems', target })];
+    return liveResolverQuery({ type: 'rubygems', target });
   },
 
   getPattern() {
