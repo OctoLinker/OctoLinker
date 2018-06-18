@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "pretest": "yarn lint",
     "test": "jest",
+    "e2e": "jest --config=e2e/jest-e2e.config.js",
     "postinstall": "yarn lerna bootstrap",
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
@@ -19,14 +20,6 @@
     "chrome-launch": "node scripts/chrome-launch.js",
     "firefox-open": "yarn build && yarn firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/master/package.json"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.css$": "<rootDir>/__mocks__/styleMock.js"
-    },
-    "setupFiles": [
-      "./_jestsetup.js"
-    ]
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -47,12 +40,14 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "jest": "^22.0.6",
+    "jest-puppeteer": "^3.2.1",
     "json": "^9.0.4",
     "json-loader": "^0.5.7",
     "lerna": "^2.7.0",
     "mkdirp": "^0.5.1",
     "npm-run-all": "^4.1.1",
     "prettier": "^1.7.4",
+    "puppeteer": "^1.5.0",
     "sinon": "^4.0.1",
     "style-loader": "^0.19.0",
     "web-ext": "^2.0.0",
