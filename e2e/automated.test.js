@@ -1,27 +1,38 @@
-const baseUrl = 'https://github.com/OctoLinker/e2e';
+const urls = require('./urls.json'); // eslint-disable-line import/no-unresolved
+
+async function insertResolveUrlsIntoDom() {
+  return page.evaluate(() => {
+    document.querySelectorAll('.octolinker-link').forEach(node => {
+      const resolveto = node
+        .closest('tr')
+        .previousElementSibling.textContent.trim()
+        .replace('// Should resolve to: ', '');
+      node.dataset.e2eResult = resolveto;
+    });
+  });
+}
 
 async function goto(url) {
   await page.goto(url);
   await page.waitForSelector('.octolinker-link');
 
-  // TODO Allow annotations beyond the first line
-  const annotation = await page.$eval('#LC1', el => el.textContent);
-  const targetPath = annotation
-    .replace('// Should resolve to: ', '')
-    .replace('<root>', '');
+  await insertResolveUrlsIntoDom();
 
   await page.click('.octolinker-link');
+  const result = await page.$eval(
+    '.octolinker-link',
+    el => el.dataset.e2eResult,
+  );
   await page.waitForNavigation();
 
-  await expect(page.url()).toEqual(expect.stringMatching(targetPath));
+  // TODO remove double slash fix
+  await expect(page.url().replace(/\/\//g, '/')).toEqual(
+    expect.stringMatching(result.replace('<root>', '')),
+  );
 }
 
 describe('End to End tests', () => {
-  // TODO scrape https://github.com/OctoLinker/e2e/ for those urls
-  [
-    `${baseUrl}/blob/master/javascript/nodejs/index.js`,
-    `${baseUrl}/blob/master/javascript/nodejs/gentle-resonance-3436.js`,
-  ].forEach(url => {
+  urls.forEach(url => {
     it(`resolves ${url}`, async () => {
       await goto(url);
     });
