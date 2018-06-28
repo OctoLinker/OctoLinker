@@ -33,4 +33,12 @@ describe('go-universal', () => {
       '{BASE_URL}/foo/bar',
     ]);
   });
+
+  it('resolves k8s.io links', () => {
+    assert.deepEqual(goUniversal.resolve(path, ['k8s.io/foo/bar']), [
+      '{BASE_URL}/kubernetes/foo/blob/master/bar/bar.go',
+      '{BASE_URL}/kubernetes/foo/tree/master/bar',
+      '{BASE_URL}/kubernetes/foo',
+    ]);
+  });
 });
