@@ -378,6 +378,10 @@ const fixtures = {
         'import (\n"golang.org/x/net/context"\n"golang.org/pkg/net"\n)',
         ['golang.org/x/net/context', 'golang.org/pkg/net'],
       ],
+      [
+        'import (\n"k8s.io/client-go/kubernetes"\n)',
+        ['k8s.io/client-go/kubernetes'],
+      ],
     ],
     invalid: [
       'simport foo',

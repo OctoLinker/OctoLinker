@@ -33,6 +33,11 @@ function githubUrls(url) {
   ];
 }
 
+function kubernetesUrls(url) {
+  const newUrl = url.replace('k8s.io', 'github.com/kubernetes');
+  return githubUrls(newUrl);
+}
+
 export default {
   name: 'Go',
 
@@ -45,6 +50,10 @@ export default {
 
     if (target.startsWith('github.com')) {
       return githubUrls(target);
+    }
+
+    if (target.startsWith('k8s.io')) {
+      return kubernetesUrls(target);
     }
 
     return [`https://${target}`, `https://golang.org/pkg/${target}`];
