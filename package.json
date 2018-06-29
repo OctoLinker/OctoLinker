@@ -8,7 +8,7 @@
     "lint": "eslint .",
     "pretest": "yarn lint",
     "test": "jest",
-    "e2e": "node e2e/scrape-repo.js && jest --config=e2e/jest-e2e.config.js",
+    "e2e": "curl https://raw.githubusercontent.com/OctoLinker/e2e/master/resource.json > e2e/fixtures.json && jest --config=e2e/jest-e2e.config.js",
     "postinstall": "yarn lerna bootstrap",
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",

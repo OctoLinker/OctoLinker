@@ -4,4 +4,4 @@ lerna-debug.log
 
 dist/
 out/
-e2e/urls.json
+e2e/fixtures.json

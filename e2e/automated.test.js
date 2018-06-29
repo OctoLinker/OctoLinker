@@ -1,40 +1,25 @@
-const urls = require('./urls.json'); // eslint-disable-line import/no-unresolved
+const fixtures = require('./fixtures.json'); // eslint-disable-line import/no-unresolved
 
-async function insertResolveUrlsIntoDom() {
-  return page.evaluate(() => {
-    document.querySelectorAll('.octolinker-link').forEach(node => {
-      const resolveto = node
-        .closest('tr')
-        .previousElementSibling.textContent.trim()
-        .replace('// Should resolve to: ', '');
-      node.dataset.e2eResult = resolveto;
-    });
-  });
-}
+async function executeTest(url, lineNumber, targetUrl) {
+  const selector = `#LC${lineNumber} .octolinker-link`;
 
-async function goto(url) {
   await page.goto(url);
-  await page.waitForSelector('.octolinker-link');
 
-  await insertResolveUrlsIntoDom();
+  await page.waitForSelector(selector);
 
-  await page.click('.octolinker-link');
-  const result = await page.$eval(
-    '.octolinker-link',
-    el => el.dataset.e2eResult,
-  );
-  await page.waitForNavigation();
+  await Promise.all([
+    page.waitForNavigation(),
+    // page.click(selector), for some reason page.click is not working
+    page.$eval(selector, el => el.click()),
+  ]);
 
-  // TODO remove double slash fix
-  await expect(page.url().replace(/\/\//g, '/')).toEqual(
-    expect.stringMatching(result.replace('<root>', '')),
-  );
+  await expect(page.url()).toEqual(expect.stringMatching(targetUrl));
 }
 
 describe('End to End tests', () => {
-  urls.forEach(url => {
-    it(`resolves ${url}`, async () => {
-      await goto(url);
+  fixtures.forEach(({ url, content, lineNumber, targetUrl }) => {
+    it(`resolves ${content} to ${targetUrl}`, async () => {
+      await executeTest(url, lineNumber, targetUrl);
     });
   });
 });

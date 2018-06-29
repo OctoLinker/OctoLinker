@@ -7,6 +7,7 @@ module.exports = {
     dumpio: true,
     headless: false,
     args: [
+      '--no-sandbox',
       `--disable-extensions-except=${extPath}`,
       `--load-extension=${extPath}`,
     ],

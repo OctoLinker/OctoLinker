@@ -21,10 +21,9 @@ before_script:
   - git diff --exit-code # make sure that yarn.lock didn't change
   - ./packages/blob-reader/scripts/update-fixtures.sh
   - yarn package
-after_script:
-  - yarn e2e
 script:
   - travis_retry yarn test
+  - yarn e2e
 deploy:
   - provider: releases
     api_key: "$GH_DEPLOY"
