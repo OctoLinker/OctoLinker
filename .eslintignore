@@ -1,2 +1,3 @@
 dist/
 packages/**/node_modules
+e2e/fixtures/
