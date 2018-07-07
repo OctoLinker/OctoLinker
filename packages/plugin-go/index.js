@@ -1,5 +1,6 @@
 import { join, dirname } from 'path';
 import { go } from '@octolinker/helper-grammar-regex-collection';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 
 function goFile({ path, target }) {
   const list = [];
@@ -47,7 +48,11 @@ export default {
       return githubUrls(target);
     }
 
-    return [`https://${target}`, `https://golang.org/pkg/${target}`];
+    return [
+      `https://${target}`,
+      `https://golang.org/pkg/${target}`,
+      liveResolverQuery({ type: 'go', target }),
+    ];
   },
 
   getPattern() {
