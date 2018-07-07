@@ -57,20 +57,9 @@ We use NewRelic for monitoring our service, analyzing performance and reporting 
 ### Keen.io
 We use Keen.io to track and analyse how users interact with our service. In the “What information do we collect?” section we list all data that we collect.You can read [Keen's privacy terms](https://keen.io/privacy-policy/).
 
-### Google Analytics
-We use Google Analytics with the extension "_anonymizeIp()", which means that IP addresses are processed in an abbreviated form so that the IP address cannot be connected back to a user. You can read [Google's privacy terms](http://www.google.com/intl/en/policies/privacy/).
-
-## Opt-out of data collection 
-
-We respect the privacy settings of your browser by honoring your `Do Not Track` status. You can also opt-out in the browser exntesion settings.
-
 ## How long will the data be stored
 
-Keen.io
 Keen.io stores data for as long as it is necessary to provide service. In most cases, data associated with a Keen.io account will be kept until a customer requests deletion.
-
-Google Analytics 
-In our Google Analytics account we retain user data up to 26 months.
 
 ## How we protect your information
 

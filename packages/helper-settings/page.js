@@ -65,13 +65,6 @@ class App extends Component {
           checked={state.showUpdateNotification}
           onClick={linkState(this, 'showUpdateNotification')}
         />
-        <Checkbox
-          name="doTrack"
-          label="Usage reports"
-          description="Send anonymous usage reports to Google Analytics."
-          checked={state.doTrack}
-          onClick={linkState(this, 'doTrack')}
-        />
       </div>
     );
   }

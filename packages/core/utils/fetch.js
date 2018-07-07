@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export default async (urls, doTrack) => {
+export default async urls => {
   for (const { url, func, method = 'HEAD' } of urls) {
     try {
       if (func) {
@@ -10,10 +10,6 @@ export default async (urls, doTrack) => {
         };
       }
 
-      const headers = {
-        'Do-Not-Track': !doTrack ? '1' : undefined,
-      };
-
       // Normally, you wouldn't use `await` inside of a loop.
       // However, we explicity want to do this sequentially.
       // See http://eslint.org/docs/rules/no-await-in-loop
@@ -21,7 +17,6 @@ export default async (urls, doTrack) => {
       const res = await $.ajax({
         method,
         url,
-        headers,
       });
 
       return { url, res };

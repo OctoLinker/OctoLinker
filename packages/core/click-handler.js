@@ -85,19 +85,9 @@ async function onClick(event) {
     return;
   }
 
-  const track = action =>
-    chrome.runtime.sendMessage({
-      type: 'track',
-      payload: {
-        category: 'fetch',
-        action,
-      },
-    });
-
   try {
-    const { url, res } = await fetch(urls, storage.get('doTrack'));
+    const { url, res } = await fetch(urls);
 
-    track('success');
     showTooltip($tooltipTarget, RESOLVED);
 
     const newWindow =
@@ -109,7 +99,6 @@ async function onClick(event) {
     openUrl((res || {}).url || url, newWindow, newWindowActive);
     removeTooltip($tooltipTarget);
   } catch (err) {
-    track('error');
     showTooltip($tooltipTarget, SORRY);
 
     return console.error(err); // eslint-disable-line no-console
