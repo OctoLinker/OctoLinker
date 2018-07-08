@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/helper-array-reorder",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-array-reorder",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}
