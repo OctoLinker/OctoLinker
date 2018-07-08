@@ -145,6 +145,13 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 
 Our [Privacy Policy](privacy-policy.md) describes our practices related to the use, storage and disclosure of information we collect when you're using our service.
 
+# Related
+
+- [Awesome browser extensions for GitHub](https://github.com/stefanbuck/awesome-browser-extensions-for-github) - Awesome list
+- [Refined GitHub](https://github.com/sindresorhus/refined-github/) - Tones of useful features for GitHub
+- [Notifier for GitHub](https://github.com/sindresorhus/notifier-for-github-chrome) - Shows your notification unread count
+- [OctoPermalinker](https://github.com/josephfrazier/octopermalinker) - Fix outdated/broken GitHub links to branches
+
 # Legal and License
 
 OctoLinker is not affiliated with, sponsored by, or endorsed by GitHub Inc.
