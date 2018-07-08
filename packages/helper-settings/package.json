@@ -10,7 +10,6 @@
     "linkstate": "^1.1.0",
     "preact": "^8.2.5",
     "primer-core": "^6.4.0",
-    "primer-forms": "^1.4.0",
-    "uuid": "^3.1.0"
+    "primer-forms": "^1.4.0"
   }
 }

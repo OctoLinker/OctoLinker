@@ -1,5 +1,4 @@
 import browser from 'webextension-polyfill';
-import uuid from 'uuid';
 
 const store = {};
 
@@ -8,7 +7,6 @@ const defaults = {
   newWindowActive: true,
   showLinkIndicator: true,
   showUpdateNotification: true,
-  doTrack: true,
 };
 
 export const get = key => store[key];
@@ -43,24 +41,6 @@ export const load = async () => {
   }
 
   Object.assign(store, defaults, data);
-
-  if (!store.clientId) {
-    store.clientId = uuid.v4();
-    set('clientId', store.clientId);
-  }
-
-  for (const [key, value] of Object.entries(store)) {
-    if (Object.keys(defaults).includes(key)) {
-      chrome.runtime.sendMessage({
-        type: 'track',
-        payload: {
-          category: 'options',
-          action: key,
-          label: value.toString(),
-        },
-      });
-    }
-  }
 
   return store;
 };
