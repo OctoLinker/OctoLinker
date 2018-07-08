@@ -56,17 +56,6 @@ Anyone can help make this project better - check out the [Contributing](/CONTRIB
 
 If you encounter a problem using OctoLinker, or would like to request an enhancement, feel free to create an [issue](https://github.com/OctoLinker/OctoLinker/issues) or say hello [@OctoLinker](https://twitter.com/OctoLinker) on twitter.
 
-
-## Thanks
-
-- My wife for being so patient with me!
-- [@josephfrazier_](https://twitter.com/josephfrazier_) for his awesome contributions to this project!
-- [art-noir.net](http://art-noir.net) for the awesome mascot and website!
-- [@kkamilio](https://twitter.com/kkamilio) and [@WolnyAdrian](https://twitter.com/WolnyAdrian) for teaching me how Ruby works!
-- [@TheeApeman](https://twitter.com/TheeApeman) for code review!
-- Every early OctoLinker user, which contributed to OctoLinker by writing issues or PRs!
-- Everyone I forgot to mention here, but also influenced OctoLinker!
-
 ## Become a backer
 
 Show your support to our open source project. Your donation will help us to cover project expenses and allow the maintainers to dedicate more time for maintenance and new features for everyone.
