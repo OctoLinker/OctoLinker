@@ -2,7 +2,7 @@
 <a href="https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://cloud.githubusercontent.com/assets/1393946/15162649/647ca490-1704-11e6-8ed8-ef0674e40fc3.png" width="375"/></a
 </p>
 
-# What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/OctoLinker.svg?branch=master)](https://travis-ci.org/OctoLinker/OctoLinker) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/octolinker/OctoLinker?svg=true&branch=master)](https://ci.appveyor.com/project/stefanbuck/OctoLinker)
+## What is OctoLinker? [![Build Status](https://travis-ci.org/OctoLinker/OctoLinker.svg?branch=master)](https://travis-ci.org/OctoLinker/OctoLinker) [![Windows Build Status](https://ci.appveyor.com/api/projects/status/github/octolinker/OctoLinker?svg=true&branch=master)](https://ci.appveyor.com/project/stefanbuck/OctoLinker)
 
 
 OctoLinker is a browser extension for Chrome, Firefox and Opera which allows you to navigate through code on GitHub more efficiently.
@@ -11,7 +11,7 @@ It turns language-specific module-loading statements like `include`, `require` o
 
 <img src="https://user-images.githubusercontent.com/1393946/34275053-dca87148-e69b-11e7-9d8f-e43ce361755b.gif" width="600" heigh="338" />
 
-# Install
+## Install
 
 <a href="https://chrome.google.com/webstore/detail/octolinker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_128x128.png" width="48" /></a>
 <a href="https://addons.mozilla.org/en-US/firefox/addon/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_128x128.png" width="48" /></a>
@@ -19,7 +19,7 @@ It turns language-specific module-loading statements like `include`, `require` o
 
 Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/) or [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octolinker/).
 
-# Features
+## Features
 
 OctoLinker supports quite a few languages already. The supported features vary from language to language. A pink dot next to the line number indicates an OctoLinker action.
 
@@ -48,16 +48,16 @@ OctoLinker supports quite a few languages already. The supported features vary f
 <img src="https://octolinker.github.io/img/homebrew.png" width="100" hspace="20" vspace="20"/>
 </p>
 
-# Want to contribute?
+## Want to contribute?
 
 Anyone can help make this project better - check out the [Contributing](/CONTRIBUTING.md) guide!
 
-# Feedback please
+## Feedback please
 
 If you encounter a problem using OctoLinker, or would like to request an enhancement, feel free to create an [issue](https://github.com/OctoLinker/OctoLinker/issues) or say hello [@OctoLinker](https://twitter.com/OctoLinker) on twitter.
 
 
-# Thanks
+## Thanks
 
 - My wife for being so patient with me!
 - [@josephfrazier_](https://twitter.com/josephfrazier_) for his awesome contributions to this project!
@@ -73,7 +73,7 @@ Show your support to our open source project. Your donation will help us to cove
 
 - [Buy OctoLinker stickers](https://www.stickermule.com/marketplace/16611-the-official-logo)
 - [Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W)
-- [Support us with a monthly donation](https://opencollective.com/octolinker#backer)
+- [Support us with a monthly donation](https://opencollective.com/octolinker##backer)
 
 <a href="https://opencollective.com/octolinker/backer/0/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/0/avatar.svg"></a>
 <a href="https://opencollective.com/octolinker/backer/1/website" target="_blank"><img src="https://opencollective.com/octolinker/backer/1/avatar.svg"></a>
@@ -141,18 +141,18 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 <a href="https://opencollective.com/octolinker/sponsor/28/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/28/avatar.svg"></a>
 <a href="https://opencollective.com/octolinker/sponsor/29/website" target="_blank"><img src="https://opencollective.com/octolinker/sponsor/29/avatar.svg"></a>
 
-# Privacy Policy
+## Privacy Policy
 
 Our [Privacy Policy](privacy-policy.md) describes our practices related to the use, storage and disclosure of information we collect when you're using our service.
 
-# Related
+## Related
 
 - [Awesome browser extensions for GitHub](https://github.com/stefanbuck/awesome-browser-extensions-for-github) - Awesome list
 - [Refined GitHub](https://github.com/sindresorhus/refined-github/) - Tones of useful features for GitHub
 - [Notifier for GitHub](https://github.com/sindresorhus/notifier-for-github-chrome) - Shows your notification unread count
 - [OctoPermalinker](https://github.com/josephfrazier/octopermalinker) - Fix outdated/broken GitHub links to branches
 
-# Legal and License
+## Legal and License
 
 OctoLinker is not affiliated with, sponsored by, or endorsed by GitHub Inc.
 
