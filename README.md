@@ -141,8 +141,6 @@ Our [Privacy Policy](privacy-policy.md) describes our practices related to the u
 - [Notifier for GitHub](https://github.com/sindresorhus/notifier-for-github-chrome) - Shows your notification unread count
 - [OctoPermalinker](https://github.com/josephfrazier/octopermalinker) - Fix outdated/broken GitHub links to branches
 
-## Legal and License
+## Disclaimer 
 
 OctoLinker is not affiliated with, sponsored by, or endorsed by GitHub Inc.
-
-Copyright (c) 2014–present [Stefan Buck](https://github.com/stefanbuck) Licensed under the MIT license.
