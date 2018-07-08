@@ -354,6 +354,7 @@ const fixtures = {
       ['import "launchpad.net/foo/bar"', ['launchpad.net/foo/bar']],
       ['import "hub.jazz.net/foo/bar"', ['hub.jazz.net/foo/bar']],
       ['import "gopkg.in/foo/bar"', ['gopkg.in/foo/bar']],
+      ['import "k8s.io/foo/bar"', ['k8s.io/foo/bar']],
       ['import (\n"foo"\n)', ['foo']],
       ['import (\n_ "foo"\n)', ['foo']],
       ['import (\n. "foo"\n)', ['foo']],

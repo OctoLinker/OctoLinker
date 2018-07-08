@@ -9,6 +9,7 @@ const ALLOWED_DOMAINS = [
   'hub.jazz.net',
   'gopkg.in',
   'golang.org',
+  'k8s.io',
 ];
 
 function multiImportRegExpBuilder(input) {
