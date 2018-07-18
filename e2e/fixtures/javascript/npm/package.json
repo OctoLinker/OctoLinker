@@ -1,0 +1,10 @@
+{
+    "dependencies": {
+        "//": "@OctoLinkerResolve(https://github.com/lodash/lodash)",
+        "lodash": "^1.2.3"
+    },
+    "devDependencies": {
+        "//": "@OctoLinkerResolve(https://github.com/jashkenas/underscore)",
+        "underscore": "1.2.3"
+    }
+}
