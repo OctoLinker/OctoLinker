@@ -2,7 +2,7 @@
 
 ## What is E2E Testing?
 
-E2E stand for End to End testing and the following lines explains it the best which I have copied from [Protractor](https://docs.angularjs.org/guide/e2e-testing);
+E2E stand for End to End testing and the following lines from [Protractor](https://docs.angularjs.org/guide/e2e-testing) explain it the best:
 
 > As applications grow in size and complexity, it becomes unrealistic to rely on manual testing to verify the correctness of new features, catch bugs and notice regressions. Unit tests are the first line of defense for catching bugs, but sometimes issues come up with integration between components which can't be captured in a unit test. End-to-end tests are made to find these problems.
 
@@ -10,7 +10,7 @@ E2E stand for End to End testing and the following lines explains it the best wh
 
 We're using [Puppeteer](https://github.com/GoogleChrome/puppeteer) which allows us to spin up a Chrome instance which then loads the OctoLinker extension. Once Chrome has started we can navigate to any website which is github.com in our case. In this directory we also have a folder called [fixtures](https://github.com/OctoLinker/OctoLinker/tree/master/e2e/fixtures) which contains all our dummy files which we use for testing. 
 
-If you open one of those files, you will see a special annotation which we use to specify that the next line should resolve to the given target. 
+If you open one of those files, you will see a special annotation which we use to specify that the next line should resolve to the given target:
 
 ```js
 // When the target is an external url
@@ -22,14 +22,14 @@ require('fs')
 require('./foo.js')
 ```
 
-The annotation is language agnostic so you can also use it for ruby or any other language. 
+The annotation is language-agnostic so you can also use it for Ruby or any other language:
 
 ```ruby
 # @OctoLinkerResolve(https://rubygems.org/gems/rake)
 require 'rake'
 ```
 
-It's also working within json files.
+It also works within JSON files:
 
 ```js
 {
@@ -40,9 +40,7 @@ It's also working within json files.
 }
 ```
 
-## How do we know 
-
-Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for those annotation and write a file named `fixtures.json` on the disk. This json file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/master/e2e/automated.test.js) to scaffold those tests on-the-fly. 
+Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for the annotations described above and write a file named `fixtures.json` to the disk. This JSON file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/master/e2e/automated.test.js) to scaffold those tests on-the-fly. 
 
 
 ```js
@@ -65,4 +63,4 @@ Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures 
 
 ## Contribution
 
-We made this process super simple. Just create files within `e2e/fixtures` and make sure the annotation target is set correctly, that's all. If you have a minute or two we would really appreciate a PullReqeust from you.
+We made this process super simple. Just create files within `e2e/fixtures` and make sure the annotations are correct, that's all. If you have a minute or two, we would really appreciate a pull request from you!
