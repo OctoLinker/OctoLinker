@@ -40,8 +40,6 @@ It also works within JSON files:
 }
 ```
 
-## How do we know 
-
 Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for the annotations described above and write a file named `fixtures.json` to the disk. This JSON file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/master/e2e/automated.test.js) to scaffold those tests on-the-fly. 
 
 
