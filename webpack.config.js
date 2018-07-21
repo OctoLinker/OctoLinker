@@ -1,14 +1,14 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
 
-module.exports = {
+module.exports = (env, argv) => ({
   mode: 'development',
   entry: {
     app: './packages/core/app',
     background: './packages/core/background/index',
     options: './packages/helper-settings/page',
   },
-  devtool: 'source-map',
+  devtool: argv.mode === 'development' ? 'source-map' : '',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
@@ -27,4 +27,4 @@ module.exports = {
       },
     ],
   },
-};
+});

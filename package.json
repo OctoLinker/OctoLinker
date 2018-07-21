@@ -15,7 +15,7 @@
     "package": "yarn build && web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
     "release": "webstore upload --source dist --auto-publish",
     "build": "webpack --mode=production",
-    "watch": "webpack --watch",
+    "watch": "webpack --watch --mode=development",
     "chrome-open": "yarn build && yarn chrome-launch --",
     "chrome-launch": "node scripts/chrome-launch.js",
     "firefox-open": "yarn build && yarn firefox-launch --",
