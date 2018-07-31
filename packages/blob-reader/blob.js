@@ -5,6 +5,8 @@ export default class Blob {
     this.el = el;
     this.path = getPath(el);
     this.lines = readLines(el);
+    this.isDiff =
+      this.lines.filter(line => line.addition || line.deletion).length > 0;
   }
 
   toString() {

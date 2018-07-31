@@ -113,7 +113,7 @@ describe('blob-reader', () => {
     });
 
     it('sets isDiff indicator to false', () => {
-      expect(blob.isDiff).toBeFalsy();
+      expect(blob.isDiff).toBe(false);
     });
 
     it('1st line', () => {
@@ -145,6 +145,10 @@ describe('blob-reader', () => {
         [blob] = reader.read()._blobs;
       });
 
+      it('sets isDiff indicator to true', () => {
+        expect(result.isDiff).to(true);
+      });
+
       it('1st line', () => {
         expect(blob.lines[0]).toMatchSnapshot();
       });
@@ -167,6 +171,10 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
         [blob] = reader.read()._blobs;
+      });
+
+      it('sets isDiff indicator to true', () => {
+        expect(result.isDiff).toBe(true);
       });
 
       it('contains four lines', () => {
