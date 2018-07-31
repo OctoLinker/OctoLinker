@@ -1,4 +1,3 @@
-import assert from 'assert';
 import BlobReader from './index.js';
 
 describe('blob-reader', () => {
@@ -19,8 +18,7 @@ describe('blob-reader', () => {
 
     describe('contains blob path', () => {
       it('contains blob path', () => {
-        assert.equal(
-          result.path,
+        expect(result.path).toBe(
           '/OctoLinker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js',
         );
       });
@@ -31,8 +29,7 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        assert.equal(
-          reader.read()._blobs[0].path,
+        expect(reader.read()._blobs[0].path).toBe(
           '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js',
         );
       });
@@ -43,8 +40,7 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        assert.equal(
-          reader.read()._blobs[0].path,
+        expect(reader.read()._blobs[0].path).toBe(
           '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js',
         );
       });
@@ -55,26 +51,25 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        assert.equal(
-          reader.read()._blobs[1].path,
+        expect(reader.read()._blobs[1].path).toBe(
           '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js',
         );
       });
     });
 
     it('contains blob root element', () => {
-      assert(result.el !== undefined);
+      expect(result.el).toBeDefined();
     });
 
     it('contains lines', () => {
-      assert(Array.isArray(result.lines));
-      assert.equal(result.lines.length, 4);
+      expect(Array.isArray(result.lines)).toBe(true);
+      expect(result.lines).toHaveLength(4);
     });
 
     describe('toString()', () => {
       it('returns a string representation of the blobs content', () => {
         result.lines = [{ value: 'a' }, { value: 'b' }];
-        assert.equal(result.toString(), 'a\nb');
+        expect(result.toString()).toMatchSnapshot();
       });
     });
 
@@ -85,14 +80,12 @@ describe('blob-reader', () => {
           { value: '"foo": "bar"' },
           { value: '}' },
         ];
-        assert.deepEqual(result.toJSON(), {
-          foo: 'bar',
-        });
+        expect(result.toJSON()).toMatchSnapshot();
       });
 
       it('returns an empty object if JSON.parse fails', () => {
         result.lines = [{ value: '{' }, { value: 'invalid' }, { value: '}' }];
-        assert.deepEqual(result.toJSON(), {});
+        expect(result.toJSON()).toEqual({});
       });
     });
   });
@@ -109,34 +102,30 @@ describe('blob-reader', () => {
     });
 
     it('contains four lines', () => {
-      assert.equal(result.lines.length, 4);
+      expect(Array.isArray(result.lines)).toBe(true);
+      expect(result.lines).toHaveLength(4);
     });
 
     it('does not contain any diff meta information', () => {
-      assert.equal(
-        result.lines.filter(line => line.additions || line.deletions).length,
-        0,
-      );
+      expect(
+        result.lines.filter(line => line.additions || line.deletions),
+      ).toHaveLength(0);
     });
 
     it('1st line', () => {
-      assert.equal(result.lines[0].lineNumber, 1);
-      assert.equal(result.lines[0].value, '// Most popular rabbit names');
+      expect(result.lines[0]).toMatchSnapshot();
     });
 
     it('2nd line', () => {
-      assert.equal(result.lines[1].lineNumber, 2);
-      assert.equal(result.lines[1].value, '');
+      expect(result.lines[1]).toMatchSnapshot();
     });
 
     it('3rd line', () => {
-      assert.equal(result.lines[2].lineNumber, 3);
-      assert.equal(result.lines[2].value, 'Thumper');
+      expect(result.lines[2]).toMatchSnapshot();
     });
 
     it('4th line', () => {
-      assert.equal(result.lines[3].lineNumber, 4);
-      assert.equal(result.lines[3].value, 'Daisy');
+      expect(result.lines[3]).toMatchSnapshot();
     });
   });
 
@@ -153,28 +142,15 @@ describe('blob-reader', () => {
       });
 
       it('1st line', () => {
-        assert.equal(result.lines[0].lineNumber, 1);
-        // Use .trim() because Firefox puts a leading space, but Chrome doesn't.
-        assert.equal(
-          result.lines[0].value.trim(),
-          '// Most popular rabbit names',
-        );
+        expect(result.lines[0]).toMatchSnapshot();
       });
 
       it('additions', () => {
-        const line = result.lines[6];
-
-        assert.equal(line.lineNumber, 4);
-        assert.equal(line.value, '+Mozart');
-        assert.equal(line.addition, true);
+        expect(result.lines[6]).toMatchSnapshot();
       });
 
       it('deletions', () => {
-        const line = result.lines[9];
-
-        assert.equal(line.lineNumber, 5);
-        assert.equal(line.value, '-Lily');
-        assert.equal(line.deletion, true);
+        expect(result.lines[9]).toMatchSnapshot();
       });
     });
 
@@ -190,32 +166,19 @@ describe('blob-reader', () => {
       });
 
       it('contains four lines', () => {
-        assert.equal(result.lines.length, 7);
+        expect(result.lines).toHaveLength(7);
       });
 
       it('1st line', () => {
-        assert.equal(result.lines[0].lineNumber, 1);
-        // Use .trim() because Firefox puts a leading space, but Chrome doesn't.
-        assert.equal(
-          result.lines[0].value.trim(),
-          '// Most popular rabbit names',
-        );
+        expect(result.lines[0]).toMatchSnapshot();
       });
 
       it('additions', () => {
-        const line = result.lines[3];
-
-        assert.equal(line.lineNumber, 4);
-        assert.equal(line.value, '+Mozart');
-        assert.equal(line.addition, true);
+        expect(result.lines[3]).toMatchSnapshot();
       });
 
       it('deletions', () => {
-        const line = result.lines[5];
-
-        assert.equal(line.lineNumber, 5);
-        assert.equal(line.value, '-Lily');
-        assert.equal(line.deletion, true);
+        expect(result.lines[5]).toMatchSnapshot();
       });
     });
   });
@@ -232,7 +195,7 @@ describe('blob-reader', () => {
     });
 
     it('contains blob path', () => {
-      assert.equal(result.path, 'package.json');
+      expect(result.path).toBe('package.json');
     });
   });
 
@@ -246,22 +209,15 @@ describe('blob-reader', () => {
     });
 
     it('contains blob root element', () => {
-      assert(result.el !== undefined);
+      expect(result.el).toBeDefined();
     });
 
     it('contains lines', () => {
-      assert(Array.isArray(result.lines));
-      assert.equal(result.lines.length, 1);
-      assert.deepEqual(result.lines, [
-        {
-          value: 'import os',
-          lineNumber: 1,
-        },
-      ]);
+      expect(result.lines).toMatchSnapshot();
     });
 
     it('does not contain path', () => {
-      assert.equal(result.path, undefined);
+      expect(result.path).toBeUndefined();
     });
   });
 });

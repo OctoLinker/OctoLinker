@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blob-reader blob 1st line 1`] = `
+Object {
+  "lineNumber": "1",
+  "value": "// Most popular rabbit names",
+}
+`;
+
+exports[`blob-reader blob 2nd line 1`] = `
+Object {
+  "lineNumber": "2",
+  "value": "",
+}
+`;
+
+exports[`blob-reader blob 3rd line 1`] = `
+Object {
+  "lineNumber": "3",
+  "value": "Thumper",
+}
+`;
+
+exports[`blob-reader blob 4th line 1`] = `
+Object {
+  "lineNumber": "4",
+  "value": "Daisy",
+}
+`;
+
+exports[`blob-reader diff split 1st line 1`] = `
+Object {
+  "lineNumber": 1,
+  "value": "// Most popular rabbit names",
+}
+`;
+
+exports[`blob-reader diff split additions 1`] = `
+Object {
+  "addition": true,
+  "lineNumber": 4,
+  "value": "Mozart",
+}
+`;
+
+exports[`blob-reader diff split deletions 1`] = `
+Object {
+  "deletion": true,
+  "lineNumber": 5,
+  "value": "Lily",
+}
+`;
+
+exports[`blob-reader diff unified 1st line 1`] = `
+Object {
+  "lineNumber": 1,
+  "value": "// Most popular rabbit names",
+}
+`;
+
+exports[`blob-reader diff unified additions 1`] = `
+Object {
+  "addition": true,
+  "lineNumber": 4,
+  "value": "Mozart",
+}
+`;
+
+exports[`blob-reader diff unified deletions 1`] = `
+Object {
+  "deletion": true,
+  "lineNumber": 5,
+  "value": "Lily",
+}
+`;
+
+exports[`blob-reader issue contains lines 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "import os",
+  },
+]
+`;
+
+exports[`blob-reader returned values object toJSON() returns a JSON representation of the blobs content 1`] = `
+Object {
+  "foo": "bar",
+}
+`;
+
+exports[`blob-reader returned values object toString() returns a string representation of the blobs content 1`] = `
+"a
+b"
+`;
