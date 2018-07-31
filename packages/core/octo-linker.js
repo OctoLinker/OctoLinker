@@ -25,23 +25,21 @@ function run(self) {
   self._blobReader.read();
 
   let matches = [];
-  self._blobReader.forEach(blob => {
+  for (const blob of self._blobReader.getBlobs()) {
     const plugins = self._pluginManager.get(blob.path, blob.el.classList);
 
-    if (!plugins.length) {
-      return;
-    }
-
-    plugins.forEach(plugin => {
-      if (plugin.parseBlob) {
-        matches = matches.concat(plugin.parseBlob(blob));
-      } else if (plugin.getLinkRegexes) {
-        [].concat(plugin.getLinkRegexes(blob)).forEach(regex => {
-          matches = matches.concat(insertLink(blob, regex, plugin));
-        });
+    if (plugins.length) {
+      for (const plugin of plugins) {
+        if (plugin.parseBlob) {
+          matches = matches.concat(plugin.parseBlob(blob));
+        } else if (plugin.getLinkRegexes) {
+          for (const regex of [].concat(plugin.getLinkRegexes(blob))) {
+            matches = matches.concat(insertLink(blob, regex, plugin));
+          }
+        }
       }
-    });
-  });
+    }
+  }
 
   matches = matches
     .filter(result => result !== undefined)
