@@ -6,19 +6,19 @@ describe('blob-reader', () => {
   });
 
   describe('returned values object', () => {
-    let result;
+    let blob;
 
     beforeEach(() => {
       fixture.load(
         '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
       );
       const reader = new BlobReader();
-      [result] = reader.read()._blobs;
+      [blob] = reader.read()._blobs;
     });
 
     describe('contains blob path', () => {
       it('contains blob path', () => {
-        expect(result.path).toBe(
+        expect(blob.path).toBe(
           '/OctoLinker/testrepo/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js',
         );
       });
@@ -58,166 +58,170 @@ describe('blob-reader', () => {
     });
 
     it('contains blob root element', () => {
-      expect(result.el).toBeDefined();
+      expect(blob.el).toBeDefined();
     });
 
     it('contains lines', () => {
-      expect(Array.isArray(result.lines)).toBe(true);
-      expect(result.lines).toHaveLength(4);
+      expect(Array.isArray(blob.lines)).toBe(true);
+      expect(blob.lines).toHaveLength(4);
     });
 
     describe('toString()', () => {
       it('returns a string representation of the blobs content', () => {
-        result.lines = [{ value: 'a' }, { value: 'b' }];
-        expect(result.toString()).toMatchSnapshot();
+        blob.lines = [{ value: 'a' }, { value: 'b' }];
+        expect(blob.toString()).toMatchSnapshot();
       });
     });
 
     describe('toJSON()', () => {
       it('returns a JSON representation of the blobs content', () => {
-        result.lines = [
+        blob.lines = [
           { value: '{' },
           { value: '"foo": "bar"' },
           { value: '}' },
         ];
-        expect(result.toJSON()).toMatchSnapshot();
+        expect(blob.toJSON()).toMatchSnapshot();
       });
 
       it('returns an empty object if JSON.parse fails', () => {
-        result.lines = [{ value: '{' }, { value: 'invalid' }, { value: '}' }];
-        expect(result.toJSON()).toEqual({});
+        blob.lines = [{ value: '{' }, { value: 'invalid' }, { value: '}' }];
+        expect(blob.toJSON()).toEqual({});
       });
     });
   });
 
   describe('blob', () => {
-    let result;
+    let blob;
 
     beforeEach(() => {
       fixture.load(
         '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
       );
       const reader = new BlobReader();
-      [result] = reader.read()._blobs;
+      [blob] = reader.read()._blobs;
     });
 
     it('contains four lines', () => {
-      expect(Array.isArray(result.lines)).toBe(true);
-      expect(result.lines).toHaveLength(4);
+      expect(Array.isArray(blob.lines)).toBe(true);
+      expect(blob.lines).toHaveLength(4);
     });
 
     it('does not contain any diff meta information', () => {
       expect(
-        result.lines.filter(line => line.additions || line.deletions),
+        blob.lines.filter(line => line.addition || line.deletion),
       ).toHaveLength(0);
     });
 
+    it('sets isDiff indicator to false', () => {
+      expect(blob.isDiff).toBeFalsy();
+    });
+
     it('1st line', () => {
-      expect(result.lines[0]).toMatchSnapshot();
+      expect(blob.lines[0]).toMatchSnapshot();
     });
 
     it('2nd line', () => {
-      expect(result.lines[1]).toMatchSnapshot();
+      expect(blob.lines[1]).toMatchSnapshot();
     });
 
     it('3rd line', () => {
-      expect(result.lines[2]).toMatchSnapshot();
+      expect(blob.lines[2]).toMatchSnapshot();
     });
 
     it('4th line', () => {
-      expect(result.lines[3]).toMatchSnapshot();
+      expect(blob.lines[3]).toMatchSnapshot();
     });
   });
 
   describe('diff', () => {
     describe('split', () => {
-      let result;
+      let blob;
 
       beforeEach(() => {
         fixture.load(
           '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html',
         );
         const reader = new BlobReader();
-        [result] = reader.read()._blobs;
+        [blob] = reader.read()._blobs;
       });
 
       it('1st line', () => {
-        expect(result.lines[0]).toMatchSnapshot();
+        expect(blob.lines[0]).toMatchSnapshot();
       });
 
       it('additions', () => {
-        expect(result.lines[6]).toMatchSnapshot();
+        expect(blob.lines[6]).toMatchSnapshot();
       });
 
       it('deletions', () => {
-        expect(result.lines[9]).toMatchSnapshot();
+        expect(blob.lines[9]).toMatchSnapshot();
       });
     });
 
     describe('unified', () => {
-      let result;
+      let blob;
 
       beforeEach(() => {
         fixture.load(
           '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
         );
         const reader = new BlobReader();
-        [result] = reader.read()._blobs;
+        [blob] = reader.read()._blobs;
       });
 
       it('contains four lines', () => {
-        expect(result.lines).toHaveLength(7);
+        expect(blob.lines).toHaveLength(7);
       });
 
       it('1st line', () => {
-        expect(result.lines[0]).toMatchSnapshot();
+        expect(blob.lines[0]).toMatchSnapshot();
       });
 
       it('additions', () => {
-        expect(result.lines[3]).toMatchSnapshot();
+        expect(blob.lines[3]).toMatchSnapshot();
       });
 
       it('deletions', () => {
-        expect(result.lines[5]).toMatchSnapshot();
+        expect(blob.lines[5]).toMatchSnapshot();
       });
     });
   });
 
   describe('gist', () => {
-    let result;
+    let blob;
 
     beforeEach(() => {
       fixture.load(
         '/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html',
       );
       const reader = new BlobReader();
-      [result] = reader.read()._blobs;
+      [blob] = reader.read()._blobs;
     });
 
     it('contains blob path', () => {
-      expect(result.path).toBe('package.json');
+      expect(blob.path).toBe('package.json');
     });
   });
 
   describe('issue', () => {
-    let result;
+    let blob;
 
     beforeEach(() => {
       fixture.load('/packages/blob-reader/fixtures/github.com/issue/code.html');
       const reader = new BlobReader();
-      [result] = reader.read()._blobs;
+      [blob] = reader.read()._blobs;
     });
 
     it('contains blob root element', () => {
-      expect(result.el).toBeDefined();
+      expect(blob.el).toBeDefined();
     });
 
     it('contains lines', () => {
-      expect(result.lines).toMatchSnapshot();
+      expect(blob.lines).toMatchSnapshot();
     });
 
     it('does not contain path', () => {
-      expect(result.path).toBeUndefined();
+      expect(blob.path).toBeUndefined();
     });
   });
 });

@@ -2,28 +2,28 @@
 
 exports[`blob-reader blob 1st line 1`] = `
 Object {
-  "lineNumber": "1",
+  "lineNumber": 1,
   "value": "// Most popular rabbit names",
 }
 `;
 
 exports[`blob-reader blob 2nd line 1`] = `
 Object {
-  "lineNumber": "2",
+  "lineNumber": 2,
   "value": "",
 }
 `;
 
 exports[`blob-reader blob 3rd line 1`] = `
 Object {
-  "lineNumber": "3",
+  "lineNumber": 3,
   "value": "Thumper",
 }
 `;
 
 exports[`blob-reader blob 4th line 1`] = `
 Object {
-  "lineNumber": "4",
+  "lineNumber": 4,
   "value": "Daisy",
 }
 `;

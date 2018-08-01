@@ -75,7 +75,7 @@ function getLineNumber(el) {
   if (el.id) {
     const result = /^LC?([0-9]+)$/.exec(el.id);
     if (result && result[1]) {
-      return result[1];
+      return parseInt(result[1], 10);
     }
   }
 
