@@ -1,4 +1,16 @@
-import { getPath, readLines } from './helper';
+import ghParse from 'github-url-parse';
+import { getPath, readLines, getParentSha } from './helper';
+
+async function fetchRaw({ user, repo, branch, path }) {
+  const response = await fetch(
+    `https://raw.githubusercontent.com/${user}/${repo}/${branch}/${path}`,
+  );
+
+  const raw = await response.text();
+  return raw
+    .split('\n')
+    .map((value, lineNumber) => ({ value, lineNumber: lineNumber + 1 }));
+}
 
 export default class Blob {
   constructor(el) {
@@ -19,5 +31,12 @@ export default class Blob {
     } catch (err) {
       return {};
     }
+  }
+
+  async fetchBlob() {
+    const { user, repo, branch, path } = ghParse(
+      `https://github.com${this.path}`,
+    );
+    this.lines = await fetchRaw({ user, repo, branch, path });
   }
 }

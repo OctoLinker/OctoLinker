@@ -3,6 +3,7 @@ import BlobReader from './index.js';
 describe('blob-reader', () => {
   afterEach(() => {
     fixture.cleanup();
+    fetch.resetMocks();
   });
 
   describe('returned values object', () => {
@@ -130,6 +131,19 @@ describe('blob-reader', () => {
 
     it('4th line', () => {
       expect(blob.lines[3]).toMatchSnapshot();
+    });
+
+    describe('fetchBlob', () => {
+      it('fetch raw blob and update blob.lines property', async () => {
+        fetch.mockResponse(`// Most popular rabbit names\n\nThumper\nDaisy`);
+
+        await blob.fetchBlob();
+        expect(fetch.mock.calls[0][0]).toBe(
+          'https://raw.githubusercontent.com/OctoLinker/testrepo/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js',
+        );
+
+        expect(blob.lines).toMatchSnapshot();
+      });
     });
   });
 

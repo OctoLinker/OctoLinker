@@ -42,6 +42,7 @@
     "eslint-plugin-prettier": "^2.3.1",
     "eslint-plugin-react": "^7.4.0",
     "jest": "^22.0.6",
+    "jest-fetch-mock": "^1.6.5",
     "jest-puppeteer": "^3.2.1",
     "json": "^9.0.4",
     "json-loader": "^0.5.7",
