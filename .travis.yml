@@ -22,7 +22,7 @@ before_script:
   - ./packages/blob-reader/scripts/update-fixtures.sh
   - yarn package
 script:
-  - travis_retry yarn test
+  - travis_retry yarn test && codecov
   - yarn e2e
 deploy:
   - provider: releases

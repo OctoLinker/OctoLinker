@@ -31,6 +31,7 @@
     "babel-preset-jest": "^22.0.3",
     "chrome-launch": "^1.1.4",
     "chrome-webstore-upload-cli": "^1.1.1",
+    "codecov": "^3.0.4",
     "copy-webpack-plugin": "^4.4.2",
     "css-loader": "^0.28.7",
     "eslint": "^4.8.0",
