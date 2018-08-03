@@ -39,4 +39,12 @@ export default class Blob {
     );
     this.lines = await fetchRaw({ user, repo, branch, path });
   }
+
+  async fetchParentBlob() {
+    const { user, repo, path } = ghParse(`https://github.com${this.path}`);
+    const branch = getParentSha();
+
+    this.parent = new Blob(this.el);
+    this.parent.lines = await fetchRaw({ user, repo, branch, path });
+  }
 }

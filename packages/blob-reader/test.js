@@ -1,4 +1,5 @@
 import BlobReader from './index.js';
+import Blob from './blob.js';
 
 describe('blob-reader', () => {
   afterEach(() => {
@@ -205,6 +206,32 @@ describe('blob-reader', () => {
 
       it('deletions', () => {
         expect(blob.lines[5]).toMatchSnapshot();
+      });
+    });
+
+    describe('fetchParentBlob', () => {
+      let blob;
+
+      beforeEach(() => {
+        fixture.load(
+          '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
+        );
+        const reader = new BlobReader();
+        [blob] = reader.read().getBlobs();
+      });
+
+      it('fetch raw blob and update blob.lines property', async () => {
+        fetch.mockResponse(
+          `// Most popular rabbit names\n\nThumper\nDaisy\nLily`,
+        );
+
+        await blob.fetchParentBlob();
+
+        expect(fetch.mock.calls[0][0]).toBe(
+          'https://raw.githubusercontent.com/OctoLinker/testrepo/37d5cdd/sourcereader/popular-rabbit-names.js',
+        );
+        expect(blob.parent).toBeInstanceOf(Blob);
+        expect(blob.parent.lines).toMatchSnapshot();
       });
     });
   });
