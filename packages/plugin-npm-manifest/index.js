@@ -12,7 +12,7 @@ import githubShorthand from '@octolinker/resolver-github-shorthand';
 
 function linkDependency(blob, key, value) {
   const isValidSemver = isSemver(value);
-  const regex = jsonRegExKeyValue(key, value);
+  const regex = jsonRegExKeyValue(key, value, blob.isDiff);
 
   return insertLink(blob, regex, this, {
     type: isValidSemver ? 'liveResolverQuery' : 'git',
@@ -20,12 +20,13 @@ function linkDependency(blob, key, value) {
 }
 
 function linkFile(blob, key, value) {
-  const regex = jsonRegExValue(key, value);
+  const regex = jsonRegExValue(key, value, blob.isDiff);
   return insertLink(blob, regex, this, { type: 'file' });
 }
 
 export default {
   name: 'NpmManifest',
+  needsContext: true,
 
   resolve(path, values, { type }) {
     if (type === 'file') {

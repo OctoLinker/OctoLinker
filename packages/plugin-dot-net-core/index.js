@@ -4,13 +4,14 @@ import { jsonRegExKeyValue } from '@octolinker/helper-regex-builder';
 import nugetResolver from '@octolinker/resolver-nuget';
 
 function linkDependency(blob, key, value) {
-  const regex = jsonRegExKeyValue(key, value);
+  const regex = jsonRegExKeyValue(key, value, blob.isDiff);
 
   return insertLink(blob, regex, this);
 }
 
 export default {
   name: 'DotNetCore',
+  needsContext: true,
 
   resolve(path, [target]) {
     return nugetResolver({ target });
