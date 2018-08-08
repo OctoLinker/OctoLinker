@@ -17,7 +17,7 @@ function initialize(self) {
   self._pluginManager = new Plugins(loadPlugins);
 }
 
-function run(self) {
+async function run(self) {
   if (!self._blobReader.hasBlobs()) {
     return false;
   }
@@ -30,6 +30,11 @@ function run(self) {
 
     if (plugins.length) {
       for (const plugin of plugins) {
+        if (plugin.needsContext && blob.isDiff) {
+          await blob.fetchBlob(); // eslint-disable-line no-await-in-loop
+          await blob.fetchParentBlob(); // eslint-disable-line no-await-in-loop
+        }
+
         if (plugin.parseBlob) {
           matches = matches.concat(plugin.parseBlob(blob));
         } else if (plugin.getLinkRegexes) {
