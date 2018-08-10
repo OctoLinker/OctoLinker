@@ -17,7 +17,7 @@ function initialize(self) {
   self._pluginManager = new Plugins(loadPlugins);
 }
 
-function run(self) {
+async function run(self) {
   if (!self._blobReader.hasBlobs()) {
     return false;
   }
@@ -25,23 +25,26 @@ function run(self) {
   self._blobReader.read();
 
   let matches = [];
-  self._blobReader.forEach(blob => {
+  for (const blob of self._blobReader.getBlobs()) {
     const plugins = self._pluginManager.get(blob.path, blob.el.classList);
 
-    if (!plugins.length) {
-      return;
-    }
+    if (plugins.length) {
+      for (const plugin of plugins) {
+        if (plugin.needsContext && blob.isDiff) {
+          await blob.fetchBlob(); // eslint-disable-line no-await-in-loop
+          await blob.fetchParentBlob(); // eslint-disable-line no-await-in-loop
+        }
 
-    plugins.forEach(plugin => {
-      if (plugin.parseBlob) {
-        matches = matches.concat(plugin.parseBlob(blob));
-      } else if (plugin.getLinkRegexes) {
-        [].concat(plugin.getLinkRegexes(blob)).forEach(regex => {
-          matches = matches.concat(insertLink(blob, regex, plugin));
-        });
+        if (plugin.parseBlob) {
+          matches = matches.concat(plugin.parseBlob(blob));
+        } else if (plugin.getLinkRegexes) {
+          for (const regex of [].concat(plugin.getLinkRegexes(blob))) {
+            matches = matches.concat(insertLink(blob, regex, plugin));
+          }
+        }
       }
-    });
-  });
+    }
+  }
 
   matches = matches
     .filter(result => result !== undefined)

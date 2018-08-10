@@ -67,8 +67,6 @@ function findTests(contents) {
   const contents = await readContent(files);
   const out = findTests(contents);
 
-  console.log(out); // eslint-disable-line
-
   fs.writeFileSync(
     path.join(__dirname, 'fixtures.json'),
     JSON.stringify(out, null, ' '),

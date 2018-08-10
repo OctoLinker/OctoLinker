@@ -8,13 +8,14 @@ function linkDependency(blob, key, value) {
     return;
   }
 
-  const regex = jsonRegExKeyValue(key, value);
+  const regex = jsonRegExKeyValue(key, value, blob.isDiff);
 
   return insertLink(blob, regex, this);
 }
 
 export default {
   name: 'Composer',
+  needsContext: true,
 
   resolve(path, [target]) {
     return liveResolverQuery({ type: 'composer', target });

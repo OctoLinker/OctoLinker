@@ -27,6 +27,11 @@ function isGist() {
   return !!document.querySelector('#gist-pjax-container');
 }
 
+function getParentSha() {
+  const el = document.querySelector('.sha-block .sha[data-hotkey]');
+  return el ? el.textContent : null;
+}
+
 function getPath(el) {
   // When current page is a diff view get path from "View" button
   let ret = $('.file-actions a', el.parentElement.parentElement)
@@ -153,4 +158,4 @@ function readLines(el) {
     .filter(line => !!line);
 }
 
-export { getPath, getBlobWrapper, readLines };
+export { getPath, getBlobWrapper, readLines, getParentSha };

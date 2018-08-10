@@ -28,6 +28,52 @@ Object {
 }
 `;
 
+exports[`blob-reader blob fetchBlob fetch raw blob and update blob.lines property 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 4,
+    "value": "Daisy",
+  },
+]
+`;
+
+exports[`blob-reader diff fetchParentBlob fetch raw blob and update blob.lines property 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 4,
+    "value": "Daisy",
+  },
+  Object {
+    "lineNumber": 5,
+    "value": "Lily",
+  },
+]
+`;
+
 exports[`blob-reader diff split 1st line 1`] = `
 Object {
   "lineNumber": 1,

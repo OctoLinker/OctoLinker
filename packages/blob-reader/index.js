@@ -12,7 +12,7 @@ export default class BlobReader {
     return this;
   }
 
-  forEach(fn) {
-    this._blobs.forEach(fn);
+  getBlobs() {
+    return this._blobs;
   }
 }

@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
+import fetchMock from 'jest-fetch-mock';
 
 jest.mock('path');
+
+global.fetch = fetchMock;
 
 global.chrome = {};
 global.chrome.runtime = {

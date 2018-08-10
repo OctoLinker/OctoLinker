@@ -4,6 +4,7 @@ module.exports = {
   moduleNameMapper: {
     '\\.css$': '<rootDir>/__mocks__/styleMock.js',
   },
+  testURL: 'http://localhost/',
   coverageDirectory: './coverage/',
   collectCoverage: true,
 };
