@@ -35,7 +35,7 @@ describe('End to End tests', () => {
             '.selected-line.blob-code .octolinker-link',
           );
         },
-        10000,
+        20000,
       );
     });
   });

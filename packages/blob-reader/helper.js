@@ -28,7 +28,22 @@ function isGist() {
 }
 
 function getParentSha() {
+  // Pull request diff view
+  const input = document.querySelector('[name="comparison_start_oid"]');
+
+  if (input && input.value) {
+    return input.value;
+  }
+
+  // Pull request diff for unauthenticated users
+  const url = document.querySelector('.js-load-contents');
+  if (url && url.dataset.contentsUrl) {
+    return url.dataset.contentsUrl.match(/base_sha=([0-9a-z]+)/)[1];
+  }
+
+  // Commit diff view
   const el = document.querySelector('.sha-block .sha[data-hotkey]');
+
   return el ? el.textContent : null;
 }
 
