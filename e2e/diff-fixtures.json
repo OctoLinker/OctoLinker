@@ -6,5 +6,13 @@
   {
     "url": "https://github.com/OctoLinker/OctoLinker/commit/b97dfbfdbf3dee5f4836426e6dac6d6f473461db?diff=split#diff-b9cfc7f2cdf78a7f4b91a753d10865a2L23",
     "targetUrl": "https://github.com/eslint/eslint"
+  },
+  {
+    "url": "https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-b9cfc7f2cdf78a7f4b91a753d10865a2L59",
+    "targetUrl": "https://github.com/webpack/webpack"
+  },
+  {
+    "url": "https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-b9cfc7f2cdf78a7f4b91a753d10865a2R59",
+    "targetUrl": "https://github.com/webpack/webpack"
   }
 ]
