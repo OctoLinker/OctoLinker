@@ -13,7 +13,9 @@
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
     "package": "yarn build && web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
-    "release": "webstore upload --source dist --auto-publish",
+    "release:cws": "cd dist && webstore upload --auto-publish",
+    "release:amo": "cd dist && webext submit",
+    "release": "npm run release:cws && npm run release:amo",
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
     "chrome-open": "yarn build && yarn chrome-launch --",
@@ -56,6 +58,7 @@
     "sinon": "^4.0.1",
     "style-loader": "^0.19.0",
     "web-ext": "^2.0.0",
+    "webext": "1.9.1-with-submit.1",
     "webextension-polyfill": "^0.2.1",
     "webpack": "^4.0.1",
     "webpack-cli": "^2.0.9"
