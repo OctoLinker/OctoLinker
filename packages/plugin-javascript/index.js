@@ -92,6 +92,7 @@ export default {
         /\.es6$/,
         // CoffeeScript
         /\.coffee$/,
+        /\.vue$/,
       ],
       githubClasses: [
         'type-javascript',
@@ -100,6 +101,7 @@ export default {
         // CoffeeScript
         'type-coffeescript',
         'highlight-source-coffee',
+        'type-vue',
       ],
     };
   },
