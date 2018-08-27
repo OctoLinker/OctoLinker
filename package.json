@@ -12,7 +12,7 @@
     "postinstall": "yarn lerna bootstrap",
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
-    "package": "yarn build && web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
+    "package": "web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
     "release:cws": "cd dist && webstore upload --auto-publish",
     "release:amo": "cd dist && webext submit",
     "release": "npm run release:cws && npm run release:amo",

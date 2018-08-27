@@ -22,11 +22,16 @@ before_script:
   - ./packages/blob-reader/scripts/update-fixtures.sh
   - yarn eslint . -f json -o eslint.json || true
   - yarn danger ci
-  - yarn package
 script:
   - travis_retry yarn test && codecov
+  - yarn build
   - yarn e2e
 deploy:
+  - provider: script
+    script: yarn package
+    skip_cleanup: true
+    on:
+      tags: true
   - provider: releases
     api_key: "$GH_DEPLOY"
     file_glob: true
@@ -38,5 +43,4 @@ deploy:
     script: yarn release
     skip_cleanup: true
     on:
-      branch: master
       tags: true
