@@ -20,11 +20,16 @@ before_install:
 before_script:
   - git diff --exit-code # make sure that yarn.lock didn't change
   - ./packages/blob-reader/scripts/update-fixtures.sh
-  - yarn package
 script:
   - travis_retry yarn test && codecov
+  - yarn build
   - yarn e2e
 deploy:
+  - provider: script
+    script: yarn package
+    skip_cleanup: true
+    on:
+      tags: true
   - provider: releases
     api_key: "$GH_DEPLOY"
     file_glob: true
@@ -36,5 +41,4 @@ deploy:
     script: yarn release
     skip_cleanup: true
     on:
-      branch: master
       tags: true
