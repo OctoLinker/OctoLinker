@@ -2,6 +2,8 @@ import regex from './regex';
 
 export { default as go } from './go.js';
 
+const c = 'c';
+
 const captureQuotedWord = regex`
   ['"]              # beginning quote
   (?<$1>[^'"\s]+)   # capture the word inside the quotes

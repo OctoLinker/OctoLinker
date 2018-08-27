@@ -22,8 +22,15 @@ before_script:
   - ./packages/blob-reader/scripts/update-fixtures.sh
   - yarn package
 script:
+  - yarn eslint . -f json -o eslint.json
   - travis_retry yarn test && codecov
   - yarn e2e
+after_scritp:
+  - cat ./eslint.json
+  - yarn danger ci
+after_failure:
+  - cat ./eslint.json
+  - yarn danger ci
 deploy:
   - provider: releases
     api_key: "$GH_DEPLOY"
