@@ -20,6 +20,8 @@ before_install:
 before_script:
   - git diff --exit-code # make sure that yarn.lock didn't change
   - ./packages/blob-reader/scripts/update-fixtures.sh
+  - yarn eslint . -f json -o eslint.json || true
+  - yarn danger ci
   - yarn package
 script:
   - travis_retry yarn test && codecov
