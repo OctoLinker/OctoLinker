@@ -65,6 +65,16 @@ async function run(self) {
   clickHandler(matches);
 }
 
+function observeExpand(self) {
+  const observer = new MutationObserver(() => {
+    run(self);
+  });
+
+  for (const el of document.querySelectorAll('.diff-table tbody')) {
+    observer.observe(el, { childList: true });
+  }
+}
+
 export default class OctoLinkerCore {
   constructor(options) {
     initialize(this, options);
@@ -72,5 +82,6 @@ export default class OctoLinkerCore {
 
   init() {
     injection(run.bind(null, this));
+    observeExpand(this);
   }
 }

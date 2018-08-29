@@ -69,4 +69,19 @@ describe('End to End tests', () => {
       });
     });
   });
+
+  describe('expanded blob', () => {
+    it('should resolve after appending new blobs', async () => {
+      const url =
+        'https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-b9cfc7f2cdf78a7f4b91a753d10865a2';
+      const selector = '[data-line-number="45"] + td .octolinker-link';
+      const expandSelector = '[data-right-range="44-55"]';
+
+      await page.goto(url);
+
+      await page.click(expandSelector);
+
+      await page.waitForSelector(selector);
+    });
+  });
 });
