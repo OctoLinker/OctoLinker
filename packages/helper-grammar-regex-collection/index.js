@@ -73,6 +73,10 @@ export const DOCKER_FROM = regex`
   FROM \s (?<$1>[^\n]*)
 `;
 
+export const DOCKER_ENTRYPOINT = regex`
+  ENTRYPOINT \s \[${captureQuotedWord}\]
+`;
+
 export const VIM_PLUGIN = regex`
   ${diffSigns}
   (

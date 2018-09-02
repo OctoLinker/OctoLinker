@@ -1,4 +1,8 @@
-import { DOCKER_FROM } from '@octolinker/helper-grammar-regex-collection';
+import {
+  DOCKER_FROM,
+  DOCKER_ENTRYPOINT,
+} from '@octolinker/helper-grammar-regex-collection';
+import relativeFile from '@octolinker/resolver-relative-file';
 
 export default {
   name: 'Docker',
@@ -11,7 +15,10 @@ export default {
       isOffical = false;
     }
 
-    return `https://hub.docker.com/${isOffical ? '_' : 'r'}/${imageName}`;
+    return [
+      relativeFile({ path, target }),
+      `https://hub.docker.com/${isOffical ? '_' : 'r'}/${imageName}`,
+    ];
   },
 
   getPattern() {
@@ -22,6 +29,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return DOCKER_FROM;
+    return [DOCKER_FROM, DOCKER_ENTRYPOINT];
   },
 };
