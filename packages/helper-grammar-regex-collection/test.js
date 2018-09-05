@@ -240,6 +240,10 @@ const fixtures = {
       // 'FROM\nfoo',
     ],
   },
+  DOCKER_ENTRYPOINT: {
+    valid: [['ENTRYPOINT ["foo-bar.sh"]', ['foo-bar.sh']]],
+    invalid: ['ENTRYPOINTfoobar'],
+  },
   VIM_PLUGIN: {
     valid: [
       ["Plugin 'VundleVim/Vundle.vim'", ['VundleVim/Vundle.vim']],
