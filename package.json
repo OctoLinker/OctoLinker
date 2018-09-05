@@ -1,5 +1,6 @@
 {
   "name": "OctoLinker",
+  "version": "4.21.0",
   "engines": {
     "node": ">=8.0.0"
   },
@@ -11,7 +12,7 @@
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
     "postinstall": "yarn lerna bootstrap",
     "test:watch": "jest --watch",
-    "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json",
+    "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json && json -I -f packages/core/package.json -e \"this.version='`json -f package.json version`'\" && git add packages/core/package.json",
     "package": "web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
     "release:cws": "cd dist && webstore upload --auto-publish",
     "release:amo": "cd dist && webext submit",
