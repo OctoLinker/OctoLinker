@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import injection from 'github-injection';
 import BlobReader from '@octolinker/blob-reader';
 import insertLink from '@octolinker/helper-insert-link';
@@ -65,14 +66,14 @@ async function run(self) {
   clickHandler(matches);
 }
 
-function observeExpand(self) {
-  const observer = new MutationObserver(() => {
-    run(self);
+function waitFor(el, cb) {
+  const viewSpy = new MutationObserver(() => {
+    cb();
   });
 
-  for (const el of document.querySelectorAll('.diff-table tbody')) {
-    observer.observe(el, { childList: true });
-  }
+  viewSpy.observe(el, {
+    childList: true,
+  });
 }
 
 export default class OctoLinkerCore {
@@ -82,6 +83,9 @@ export default class OctoLinkerCore {
 
   init() {
     injection(run.bind(null, this));
-    observeExpand(this);
+
+    $('.js-expand').on('click', event => {
+      waitFor($(event.target).closest('tbody')[0], run.bind(null, this));
+    });
   }
 }
