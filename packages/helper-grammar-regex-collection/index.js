@@ -70,7 +70,7 @@ export const TYPESCRIPT_REFERENCE = regex`
 `;
 
 export const DOCKER_FROM = regex`
-  FROM \s (?<$1>[^\n]*)
+  FROM \s+ (?<$1>[^\n]*)
 `;
 
 export const DOCKER_ENTRYPOINT = regex`
