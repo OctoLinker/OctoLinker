@@ -233,6 +233,7 @@ const fixtures = {
       ['FROM foo', ['foo']],
       ['FROM foo:1.2.3', ['foo:1.2.3']],
       ['FROM foo:1.2.3-alpha', ['foo:1.2.3-alpha']],
+      ['FROM         foo:1.2.3-alpha', ['foo:1.2.3-alpha']],
       ['FROM foo/bar', ['foo/bar']],
     ],
     invalid: [
