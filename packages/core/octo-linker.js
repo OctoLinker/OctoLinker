@@ -82,10 +82,27 @@ export default class OctoLinkerCore {
   }
 
   init() {
-    injection(run.bind(null, this));
+    const runCb = run.bind(null, this);
+
+    injection(runCb);
+
+    const progressiveObserver = new MutationObserver((ch, ob) => {
+      $('.js-diff-progressive-container').each((idx, element) => {
+        ob.observe(element, {
+          childList: true,
+        });
+      });
+      runCb();
+    });
+
+    $('.js-diff-progressive-container').each((idx, element) => {
+      progressiveObserver.observe(element, {
+        childList: true,
+      });
+    });
 
     $('.js-expand').on('click', event => {
-      waitFor($(event.target).closest('tbody')[0], run.bind(null, this));
+      waitFor($(event.target).closest('tbody')[0], runCb);
     });
   }
 }
