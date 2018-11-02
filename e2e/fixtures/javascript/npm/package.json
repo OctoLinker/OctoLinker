@@ -1,7 +1,7 @@
 {
     "dependencies": {
         "//": "@OctoLinkerResolve(https://github.com/lodash/lodash)",
-        "lodash": "^1.2.3"
+        "lodash": "^4.17.5"
     },
     "devDependencies": {
         "//": "@OctoLinkerResolve(https://github.com/jashkenas/underscore)",
