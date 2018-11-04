@@ -5,7 +5,7 @@ module.exports = {
     },
   },
   plugins: [
-    'transform-object-rest-spread',
+    '@babel/plugin-proposal-object-rest-spread',
     ['@babel/transform-react-jsx', { pragma: 'h' }],
   ],
 };
