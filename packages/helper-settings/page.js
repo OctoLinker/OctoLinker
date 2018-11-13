@@ -1,73 +1,24 @@
-import { h, render, Component } from 'preact';
-import linkState from 'linkstate';
+/* eslint-disable react/no-unused-state */
 
-import './style.css';
-import { Input, Checkbox } from './components';
-import * as storage from './index';
+import { h, render } from 'preact';
+import SettingsForm from './SettingsForm';
 
-const githubTokenDescription = () => (
-  <span>
-    If you want better <strong>Sass, Less or Haskell support</strong> for
-    private repositories, you&apos;ll need to{' '}
-    <a href="https://github.com/settings/tokens/new?scopes=repo&description=OctoLinker%20browser%20extension">
-      create a token
-    </a>{' '}
-    with the repo permissions.
-  </span>
+const App = () => (
+  <div className="d-flex flex-justify-center p-6">
+    <div className="Box box-shadow four-fifth column">
+      <div className="Box-row">
+        <div className="d-flex">
+          <img height="54" alt="" src="icon.png" />
+          <div className="pt-3 px-2">
+            <h2>OctoLinker settings</h2>
+          </div>
+        </div>
+      </div>
+      <div className="Box-row">
+        <SettingsForm />
+      </div>
+    </div>
+  </div>
 );
 
-class App extends Component {
-  async componentWillMount() {
-    const store = { ...(await storage.load()) };
-    this.setState(store);
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    storage.save(nextState);
-  }
-
-  render(props, state) {
-    return (
-      <div>
-        <Input
-          type="password"
-          name="githubToken"
-          label="Access token"
-          description={githubTokenDescription()}
-          value={state.githubToken}
-          onInput={linkState(this, 'githubToken')}
-        />
-        <Checkbox
-          name="newWindow"
-          label="New tab"
-          description="Open link in a new tab."
-          checked={state.newWindow}
-          onClick={linkState(this, 'newWindow')}
-        />
-        <Checkbox
-          name="newWindowActive"
-          label="Focus new tab"
-          description="Focus new tab when opening a link."
-          checked={state.newWindowActive}
-          onClick={linkState(this, 'newWindowActive')}
-        />
-        <Checkbox
-          name="showLinkIndicator"
-          label="Line indicator"
-          description="Show an indicator if line contains OctoLinker links."
-          checked={state.showLinkIndicator}
-          onClick={linkState(this, 'showLinkIndicator')}
-        />
-        <Checkbox
-          name="showUpdateNotification"
-          label="Update notification"
-          description="Show a notification if a new version is available."
-          checked={state.showUpdateNotification}
-          onClick={linkState(this, 'showUpdateNotification')}
-        />
-      </div>
-    );
-  }
-}
-
-render(<App />, document.body);
+render(<App />, document.getElementById('app'));

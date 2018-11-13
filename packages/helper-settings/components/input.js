@@ -1,16 +1,25 @@
+/* eslint jsx-a11y/label-has-for: 0 */
+
 import { h } from 'preact';
+
+const validationClassName = error => (error ? ' errored' : '');
 
 export default ({
   name,
   label,
   description,
+  error,
   value,
   onInput,
   type = 'text',
 }) => (
-  <div className="form-group">
-    <label htmlFor={name}>
-      {label}
+  <dl className={`form-group${validationClassName(error)}`}>
+    <dt>
+      <label htmlFor={name} id={name}>
+        {label}
+      </label>
+    </dt>
+    <dd>
       <input
         className="form-control"
         type={type}
@@ -19,7 +28,8 @@ export default ({
         value={value}
         onInput={onInput}
       />
-    </label>
+    </dd>
+    {error && <dd className="error">{error}</dd>}
     <p className="note">{description}</p>
-  </div>
+  </dl>
 );
