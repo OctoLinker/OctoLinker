@@ -1,0 +1,8 @@
+{
+  "name": "@octolinker/user-interface",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/user-interface",
+  "license": "MIT",
+  "main": "./index.js"
+}

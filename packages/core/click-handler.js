@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import * as storage from '@octolinker/helper-settings';
-import { showTooltip, removeTooltip } from './gh-interface.js';
+import { showTooltip, removeTooltip } from '@octolinker/user-interface';
 import fetch from './utils/fetch.js';
 
 const SORRY = "I'm sorry, unable to resolve this link  😱";

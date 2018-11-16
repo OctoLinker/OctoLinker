@@ -7,9 +7,9 @@
   "main": "./index.js",
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
+    "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/helper-settings": "1.0.0",
     "@octolinker/helper-sort-urls": "1.0.0",
-    "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/plugin-bower-manifest": "1.0.0",
     "@octolinker/plugin-composer-manifest": "1.0.0",
     "@octolinker/plugin-css": "1.0.0",
@@ -33,6 +33,7 @@
     "@octolinker/plugin-sass": "1.0.0",
     "@octolinker/plugin-typescript": "1.0.0",
     "@octolinker/plugin-vim": "1.0.0",
+    "@octolinker/user-interface": "1.0.0",
     "github-injection": "^1.0.1",
     "jquery": "^3.2.1"
   }

@@ -1,5 +1,5 @@
 import * as storage from '@octolinker/helper-settings';
-import { showNotification } from './gh-interface';
+import { showNotification } from '@octolinker/user-interface';
 
 const pkgVersion = require('./package.json')
   .version.split('.')
@@ -22,9 +22,12 @@ export default async function() {
       'https://api.github.com/repos/OctoLinker/OctoLinker/releases/latest',
     );
     const json = await response.json();
-    const description = json.body.split('\n')[0];
+    const description = (json.body && json.body.split('\n')[0]) || '';
     const url = json.html_url;
     const version = json.tag_name.replace('v', '');
-    showNotification({ description, url, version });
+
+    const body = `New in OctoLinker ${version}: <b>${description}</b> – <a href="${url}" target="_blank">Release Notes</a>`;
+
+    showNotification({ body });
   }
 }
