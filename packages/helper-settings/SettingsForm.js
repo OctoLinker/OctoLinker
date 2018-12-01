@@ -46,7 +46,7 @@ export default class Form extends Component {
       });
 
       storage.save({
-        githubToken: undefined,
+        githubToken: null,
       });
       return;
     }
