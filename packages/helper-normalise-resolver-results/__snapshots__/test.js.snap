@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`normaliseResolverResults converts [object Object] 1`] = `
+Array [
+  Object {
+    "registry": "npm",
+    "target": "foo",
+    "type": "registry",
+  },
+]
+`;
+
+exports[`normaliseResolverResults converts {BASE_URL}/foo/bar/blob/1ab8cfd3b65d3b43335130d6cefbf8c62482680f/file.js 1`] = `
+Array [
+  Object {
+    "branch": "1ab8cfd3b65d3b43335130d6cefbf8c62482680f",
+    "path": "file.js",
+    "repo": "bar",
+    "type": "internal-link",
+    "url": "https://github.com/foo/bar/blob/1ab8cfd3b65d3b43335130d6cefbf8c62482680f/file.js",
+    "user": "foo",
+  },
+]
+`;
+
+exports[`normaliseResolverResults converts {BASE_URL}/foo/bar/blob/master/file.js 1`] = `
+Array [
+  Object {
+    "branch": "master",
+    "path": "file.js",
+    "repo": "bar",
+    "type": "internal-link",
+    "url": "https://github.com/foo/bar/blob/master/file.js",
+    "user": "foo",
+  },
+]
+`;
+
+exports[`normaliseResolverResults converts function () {} 1`] = `
+Array [
+  Object {
+    "handler": [Function],
+    "type": "function",
+  },
+]
+`;
+
+exports[`normaliseResolverResults converts https://foosearch.org/ 1`] = `
+Array [
+  Object {
+    "type": "external-link",
+    "url": "https://foosearch.org/",
+  },
+]
+`;

@@ -16,8 +16,9 @@ describe('Java', () => {
   });
 
   it('resolves community packages', () => {
-    expect(Java.resolve(path, ['com.company.app'])).toBe(
-      'https://githublinker.herokuapp.com/q/java/com.company.app',
-    );
+    expect(Java.resolve(path, ['com.company.app'])).toEqual({
+      registry: 'java',
+      target: 'com.company.app',
+    });
   });
 });

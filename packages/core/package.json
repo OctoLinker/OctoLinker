@@ -10,6 +10,7 @@
     "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/helper-settings": "1.0.0",
     "@octolinker/helper-sort-urls": "1.0.0",
+    "@octolinker/helper-normalise-resolver-results": "1.0.0",
     "@octolinker/plugin-bower-manifest": "1.0.0",
     "@octolinker/plugin-composer-manifest": "1.0.0",
     "@octolinker/plugin-css": "1.0.0",

@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/helper-normalise-resolver-results",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-normalise-resolver-results",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "github-url-parse": "^0.1.0"
+  }
+}
