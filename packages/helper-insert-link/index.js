@@ -175,9 +175,15 @@ export default function(blob, regex, plugin, meta = {}) {
         .slice(1)
         .map(item => item.replace(/['|"]/g, ''));
 
+      let urls = plugin.resolve(blob.path, values, meta);
+
+      if (Array.isArray(urls)) {
+        urls = urls.filter(Boolean);
+      }
+
       matches.push({
         link,
-        urls: plugin.resolve(blob.path, values, meta),
+        urls,
       });
 
       return node;

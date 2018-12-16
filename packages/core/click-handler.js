@@ -11,10 +11,17 @@ const LINK_SELECTOR = '.octolinker-link';
 const $body = $('body');
 let matches;
 
-function openUrl(url, newWindow = false, newWindowActive = true) {
+function openUrl(event, url) {
   if (!url) {
     return;
   }
+
+  const newWindow =
+    storage.get('newWindow') ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.which === 2;
+  const newWindowActive = storage.get('newWindowActive');
 
   if (newWindow) {
     chrome.runtime.sendMessage({
@@ -29,39 +36,52 @@ function openUrl(url, newWindow = false, newWindowActive = true) {
   }
 }
 
-function getResolverUrls(urls) {
-  const BASE_URL = 'https://github.com';
-
-  return [].concat(urls).map(url => {
-    if (!url) {
+function getResolverUrls(event, urls) {
+  return [].concat(urls).map(item => {
+    if (!item) {
       return null;
     }
 
     // github-search resolver returns a function
-    if (typeof url === 'function') {
+    if (item.type === 'function') {
       return {
-        func: url,
+        func: item.handler,
       };
     }
 
     // Live-query resolver results
-    if (url.startsWith('https://githublinker.herokuapp.com')) {
+    if (item.type === 'registry') {
+      let cacheResult;
+
+      try {
+        cacheResult = global.__ocotlinker_cache[item.registry][item.target];
+      } catch (error) {
+        //
+      }
+
+      if (cacheResult) {
+        openUrl(event, cacheResult);
+        return [];
+      }
+
       return {
-        url,
+        url: `https://githublinker.herokuapp.com/q/${item.registry}/${
+          item.target
+        }`,
         method: 'GET',
       };
     }
 
     // Relative file
-    if (url.startsWith('{BASE_URL}') || url.startsWith(BASE_URL)) {
+    if (item.type === 'internal-link') {
       return {
-        url: url.replace('{BASE_URL}', BASE_URL),
+        url: item.url,
       };
     }
 
     // External urls
     return {
-      url: `https://githublinker.herokuapp.com/ping?url=${url}`,
+      url: `https://githublinker.herokuapp.com/ping?url=${item.url}`,
       method: 'GET',
     };
   });
@@ -83,7 +103,7 @@ async function onClick(event) {
 
   showTooltip($tooltipTarget, PROCESS);
 
-  const urls = getResolverUrls(found.urls);
+  const urls = getResolverUrls(event, found.urls);
 
   if (!urls.length) {
     return;
@@ -93,14 +113,7 @@ async function onClick(event) {
     const { url, res } = await fetch(urls);
 
     showTooltip($tooltipTarget, RESOLVED);
-
-    const newWindow =
-      storage.get('newWindow') ||
-      event.metaKey ||
-      event.ctrlKey ||
-      event.which === 2;
-    const newWindowActive = storage.get('newWindowActive');
-    openUrl((res || {}).url || url, newWindow, newWindowActive);
+    openUrl(event, (res || {}).url || url);
     removeTooltip($tooltipTarget);
   } catch (err) {
     showTooltip($tooltipTarget, SORRY);

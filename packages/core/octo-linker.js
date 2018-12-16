@@ -4,10 +4,12 @@ import BlobReader from '@octolinker/blob-reader';
 import insertLink from '@octolinker/helper-insert-link';
 import * as storage from '@octolinker/helper-settings';
 import helperSortUrls from '@octolinker/helper-sort-urls';
+import normaliseResolverResults from '@octolinker/helper-normalise-resolver-results';
 import notification from './notification';
 import clickHandler from './click-handler';
 import Plugins from './plugin-manager.js';
 import debugMode from './debug-mode.js';
+import loader from './loader.js';
 import * as loadPlugins from './load-plugins';
 
 function initialize(self) {
@@ -50,18 +52,18 @@ async function run(self) {
   matches = matches
     .filter(result => result !== undefined)
     .map(({ link, urls }) => {
-      let finalUrls = urls;
-
-      // Some urls are single object e.g. live-resolver-query results
-      if (Array.isArray(urls)) {
-        finalUrls = helperSortUrls(urls, link.innerText);
-      }
+      const urlsSorted = helperSortUrls(urls, link.innerText);
 
       return {
         link,
-        urls: finalUrls,
+        urls: normaliseResolverResults(urlsSorted),
       };
     });
+
+  // Prefetch live resolver results in background
+  requestIdleCallback(() => {
+    loader(matches);
+  });
 
   clickHandler(matches);
 }

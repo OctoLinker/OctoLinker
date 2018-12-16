@@ -101,5 +101,12 @@ describe('insert-link', () => {
       expect(helper(input).matches.length).toBe(1);
       expect(helper(input).matches).toMatchSnapshot();
     });
+
+    it('returns an array with values', () => {
+      const input = 'foo <span>"bar"</span>';
+
+      fakePlugin.resolve.mockReturnValue([undefined, null, '', 'bar']);
+      expect(helper(input).matches[0].urls).toEqual(['bar']);
+    });
   });
 });
