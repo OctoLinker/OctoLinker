@@ -28,15 +28,15 @@ async function runLiveQuery(matches) {
   createStore(json, payload);
 }
 
+function matchContainsOnlyRegistyMatches(match) {
+  return match.urls.every(url => url.type === 'registry');
+}
+
 function filterLiveResolver(matches) {
   return matches.reduce((memo, match) => {
-    match.urls.forEach(url => {
-      if (url.type !== 'registry') {
-        return;
-      }
-
+    if (matchContainsOnlyRegistyMatches(match)) {
       memo.push(match);
-    });
+    }
 
     return memo;
   }, []);
