@@ -29,6 +29,10 @@ describe('helper-sort-urls', () => {
     expect(helperSortUrls(urls, 'file')).toEqual(urls);
   });
 
+  it('returns an object if the given argument is not an array', () => {
+    expect(helperSortUrls({ foo: 'bar' }, 'file.txt')).toEqual({ foo: 'bar' });
+  });
+
   it('keeps order when file extension is not present', () => {
     expect(helperSortUrls(urls, 'file.txt')).toEqual(urls);
   });
