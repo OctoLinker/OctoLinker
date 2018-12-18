@@ -3,7 +3,7 @@ import { extname } from 'path';
 export default function(urls, fileName) {
   const fileExtension = extname(fileName);
 
-  if (!fileExtension) {
+  if (!fileExtension || !Array.isArray(urls)) {
     return urls;
   }
 
