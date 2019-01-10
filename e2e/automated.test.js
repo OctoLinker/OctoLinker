@@ -70,7 +70,7 @@ describe('End to End tests', () => {
     });
   });
 
-  describe('expanded blob', () => {
+  describe.skip('expanded blob', () => {
     it('should resolve after appending new blobs', async () => {
       const url =
         'https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-b9cfc7f2cdf78a7f4b91a753d10865a2';
