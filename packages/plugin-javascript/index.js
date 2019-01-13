@@ -79,10 +79,7 @@ export default {
     // https://github.com/OctoLinker/browser-extension/issues/93
     const topModuleName = getTopModuleName(target);
 
-    return [
-      liveResolverQuery({ type: 'npm', target: topModuleName }),
-      liveResolverQuery({ type: 'bower', target: topModuleName }),
-    ];
+    return liveResolverQuery({ type: 'npm', target: topModuleName });
   },
 
   getPattern() {

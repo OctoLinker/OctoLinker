@@ -12,9 +12,10 @@ describe('javascript-universal', () => {
 
   it("resolves '@angular/core/bar.js' to '@angular/core'", () => {
     const type = 'npm';
-    expect(plugin.resolve(path, ['@angular/core/bar.js'], { type })[0]).toEqual(
-      { registry: 'npm', target: '@angular/core' },
-    );
+    expect(plugin.resolve(path, ['@angular/core/bar.js'], { type })).toEqual({
+      registry: 'npm',
+      target: '@angular/core',
+    });
   });
 
   it("resolves 'module' to 'https://nodejs.org/api/modules.html'", () => {
