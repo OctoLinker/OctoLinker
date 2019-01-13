@@ -60,7 +60,6 @@ If you encounter a problem using OctoLinker, or would like to request an enhance
 
 Show your support to our open source project. Your donation will help us to cover project expenses and allow the maintainers to dedicate more time for maintenance and new features for everyone.
 
-- [Buy OctoLinker stickers](https://www.stickermule.com/marketplace/16611-the-official-logo)
 - [Donate with PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WSXA9GCDRMX7W)
 - [Support us with a monthly donation](https://opencollective.com/octolinker##backer)
 
