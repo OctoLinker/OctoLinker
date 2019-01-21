@@ -18,6 +18,17 @@ exports[`insert-link does not remove closing parentheses from commented out requ
 </div>
 `;
 
+exports[`insert-link does not wrap element when capture group empty 1`] = `
+<div>
+  foo 
+  <span>
+    '
+    foo:
+    bar'
+  </span>
+</div>
+`;
+
 exports[`insert-link returns returns an array 1`] = `
 Array [
   Object {

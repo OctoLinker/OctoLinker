@@ -94,6 +94,13 @@ describe('insert-link', () => {
     expect(helper(input, REQUIRE).el).toMatchSnapshot();
   });
 
+  it('does not wrap element when capture group empty', () => {
+    const regex = /foo:([0-9])?/;
+    const input = "foo <span>'foo:bar'</span>";
+
+    expect(helper(input, regex).el).toMatchSnapshot();
+  });
+
   describe('returns', () => {
     it('returns an array', () => {
       const input = 'foo <span>"bar"</span>';
