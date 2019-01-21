@@ -20,6 +20,10 @@ function linkDependency(blob, key, value) {
 }
 
 function linkFile(blob, key, value) {
+  if (typeof value !== 'string') {
+    return;
+  }
+
   const regex = jsonRegExValue(key, value, blob.isDiff);
   return insertLink(blob, regex, this, { type: 'file' });
 }
