@@ -104,6 +104,14 @@ function replace(portion, match) {
 
   const matchValue = match[1];
 
+  if (matchValue === undefined) {
+    return {
+      isMatch: false,
+      node: text,
+      link: null,
+    };
+  }
+
   if (node.textContent.includes(matchValue)) {
     const el = wrapsInnerString(text, matchValue);
 
