@@ -34,7 +34,7 @@ export const needsTokenForPrivate = () => {
   showNotification({
     type: 'info',
     body:
-      'OctoLinker needs a GitHub API token to retrieve repository metadata for private repository. <a href="#" class="js-octolinker-open-settings">Create a token</a> to unlock OctoLinker for all your private repositories.',
+      'OctoLinker needs a GitHub API token to retrieve repository metadata for private repositories. <a href="#" class="js-octolinker-open-settings">Create a token</a> to enable OctoLinker for all your private repositories.',
   });
 };
 
