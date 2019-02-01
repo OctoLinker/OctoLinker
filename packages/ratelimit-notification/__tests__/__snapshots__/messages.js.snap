@@ -9,7 +9,7 @@ Object {
 
 exports[`ratelimit-notification rateLimitExceeded for authenticated requests 1`] = `
 Object {
-  "body": "OctoLinker exceed the GitHub API hourly limit. The rate limit will be resteted in 5 seconds.",
+  "body": "OctoLinker exceed the GitHub API hourly limit. The rate limit will be reset in 5 seconds.",
   "type": "warn",
 }
 `;
