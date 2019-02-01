@@ -26,7 +26,7 @@ export const rateLimitExceeded = ({ isUnauthenticated, remainingTime }) => {
 
   showNotification({
     type: 'warn',
-    body: `OctoLinker exceed the GitHub API hourly limit. The rate limit will be resteted in ${timeLeft}.`,
+    body: `OctoLinker exceed the GitHub API hourly limit. The rate limit will be reset in ${timeLeft}.`,
   });
 };
 
