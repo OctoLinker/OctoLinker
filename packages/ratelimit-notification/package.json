@@ -1,0 +1,11 @@
+{
+  "name": "@octolinker/ratelimit-notification",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/ratelimit-notification",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/user-interface": "1.0.0"
+  }
+}

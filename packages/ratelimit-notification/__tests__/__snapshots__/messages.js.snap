@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ratelimit-notification needsTokenForPrivate 1`] = `
+Object {
+  "body": "OctoLinker needs a GitHub API token to retrieve repository metadata for private repositories. <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">Create a token</a> to enable OctoLinker for all your private repositories.",
+  "type": "info",
+}
+`;
+
+exports[`ratelimit-notification rateLimitExceeded for authenticated requests 1`] = `
+Object {
+  "body": "OctoLinker exceed the GitHub API hourly limit. The rate limit will be reset in 5 seconds.",
+  "type": "warn",
+}
+`;
+
+exports[`ratelimit-notification rateLimitExceeded for unauthenticated requests 1`] = `
+Object {
+  "body": "OctoLinker exceed the GitHub API hourly limit for unauthenticated requests. You probably want to <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">create a token</a> or wait 5 minutes.",
+  "type": "warn",
+}
+`;
+
+exports[`ratelimit-notification tokenIsInvalid 1`] = `
+Object {
+  "body": "The token you provided is invalid. You must <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">create a new token</a> before you can continue using OctoLinker.",
+  "type": "error",
+}
+`;
