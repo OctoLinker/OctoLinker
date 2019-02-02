@@ -103,6 +103,13 @@ export default class Form extends Component {
           onClick={linkState(this, 'showLinkIndicator')}
         />
         <Checkbox
+          name="enablePrivateRepositories"
+          label="Private repositories"
+          description="Enable support for private repositories (requires a GitHub token)"
+          checked={state.enablePrivateRepositories}
+          onClick={linkState(this, 'enablePrivateRepositories')}
+        />
+        <Checkbox
           name="showUpdateNotification"
           label="Update notification"
           description="Show a notification if a new version is available."

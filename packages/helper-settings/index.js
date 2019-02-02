@@ -4,6 +4,7 @@ const store = {};
 
 const defaults = {
   showLinkIndicator: true,
+  enablePrivateRepositories: true,
   showUpdateNotification: true,
 };
 
