@@ -1,30 +1,20 @@
 import $ from 'jquery';
 import findAndReplaceDOMText from 'findandreplacedomtext';
-import * as storage from '@octolinker/helper-settings';
 import './style.css';
 
 const CLASS_NAME = 'octolinker-link';
-const CLASS_INDICATOR = 'octolinker-line-indicator';
 const QUOTE_SIGNS = '"\'';
 
 function createLinkElement(text) {
   const linkEl = document.createElement('a');
-  const spanEl = document.createElement('span');
 
-  linkEl.appendChild(spanEl);
-
-  // Set link text
-  spanEl.textContent = text;
-
-  // Add css classes
+  linkEl.dataset.pjax = 'true';
+  linkEl.textContent = text;
   linkEl.classList.add(CLASS_NAME);
-
-  if (storage.get('showLinkIndicator')) {
-    linkEl.classList.add(CLASS_INDICATOR);
-  }
 
   return linkEl;
 }
+
 function getIndexes(portion, entireMatch, matchValue) {
   let matchValueStriped = matchValue;
 
@@ -91,9 +81,10 @@ function wrapsInnerString(text, matchValue) {
 
 function replace(portion, match) {
   const { text, node, indexInMatch } = portion;
-  const isAlreadyWrapped = (
-    node.parentNode.parentNode || node.parentNode
-  ).classList.contains(CLASS_NAME);
+  const isAlreadyWrapped = (node.parentNode || node).classList.contains(
+    CLASS_NAME,
+  );
+
   if (isAlreadyWrapped) {
     return {
       isMatch: false,
