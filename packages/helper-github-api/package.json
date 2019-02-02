@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/helper-github-api",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-github-api",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-settings": "1.0.0",
+    "@octolinker/ratelimit-notification": "1.0.0"
+  }
+}
