@@ -96,20 +96,6 @@ export default class Form extends Component {
           onInput={linkState(this, 'githubToken')}
         />
         <Checkbox
-          name="newWindow"
-          label="New tab"
-          description="Open link in a new tab."
-          checked={state.newWindow}
-          onClick={linkState(this, 'newWindow')}
-        />
-        <Checkbox
-          name="newWindowActive"
-          label="Focus new tab"
-          description="Focus new tab when opening a link."
-          checked={state.newWindowActive}
-          onClick={linkState(this, 'newWindowActive')}
-        />
-        <Checkbox
           name="showLinkIndicator"
           label="Line indicator"
           description="Show an indicator if line contains OctoLinker links."

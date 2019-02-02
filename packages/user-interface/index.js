@@ -26,20 +26,4 @@ export const removeAllNotifications = () => {
   document.querySelectorAll('.js-octolinker-flash').forEach(el => el.remove());
 };
 
-export const showTooltip = ($target, msg) => {
-  if (!$target.hasClass('tooltipped')) {
-    $target.addClass('tooltipped tooltipped-e tooltipped-no-delay');
-  }
-
-  $target.attr('aria-label', msg);
-};
-
-export const removeTooltip = $target => {
-  if ($target.hasClass('tooltipped')) {
-    $target.removeClass('tooltipped tooltipped-e');
-  }
-
-  $target.removeAttr('aria-label');
-};
-
 export const isPrivateRepository = () => !!document.querySelector('h1.private');
