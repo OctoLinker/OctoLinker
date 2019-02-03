@@ -9,12 +9,8 @@ import * as storage from './index';
 
 const githubTokenDescription = () => (
   <span>
-    If you want better <strong>Sass, Less or Haskell support</strong> for
-    private repositories, you&apos;ll need to{' '}
-    <a href="https://github.com/settings/tokens/new?scopes=repo&description=OctoLinker%20browser%20extension">
-      create a token
-    </a>{' '}
-    with the repo permissions.
+    Get the maximum out of OctoLinker by providing a GitHub personal access
+    token.
   </span>
 );
 
@@ -95,6 +91,55 @@ export default class Form extends Component {
           error={errorMessage}
           onInput={linkState(this, 'githubToken')}
         />
+        <p className="note">
+          OctoLinker uses{' '}
+          <a
+            href="https://developer.github.com/v3/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub API
+          </a>{' '}
+          to retrieve repository metadata. By default, it makes unauthenticated
+          requests to the GitHub API. However, there are two situations when
+          requests must be authenticated:
+        </p>
+        <p className="note ml-5">
+          <ul>
+            <li>You access a private repository</li>
+            <li>
+              You exceed{' '}
+              <a
+                href="https://developer.github.com/v3/#rate-limiting"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                the rate limit of unauthenticated requests
+              </a>
+            </li>
+          </ul>
+        </p>
+        <p className="note">
+          When that happens, OctoLinker will ask for an API access token. If you
+          don&apos;t already have one, create one either for all your{' '}
+          <a
+            href="https://github.com/settings/tokens/new?scopes=public_repo&description=OctoLinker%20browser%20extension"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <strong>public repositories</strong>
+          </a>
+          {' or '}
+          <a
+            href="https://github.com/settings/tokens/new?scopes=repo&description=OctoLinker%20browser%20extension"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <strong>all public and private repositories</strong>
+          </a>
+          . Then copy and paste it into the input above.
+        </p>
+        <hr />
         <Checkbox
           name="showLinkIndicator"
           label="Line indicator"
