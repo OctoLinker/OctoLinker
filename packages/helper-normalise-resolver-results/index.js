@@ -19,8 +19,8 @@ const internal = url => {
 
 // An external url like a documenation page
 const external = url => ({
-  type: 'external-link',
-  url,
+  type: 'ping',
+  target: url,
 });
 
 // Async resolver
