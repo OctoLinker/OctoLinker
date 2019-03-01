@@ -50,6 +50,14 @@ export default function(urls) {
       return registry(url);
     }
 
+    if (url.type === 'github-search') {
+      return {
+        type: url.type,
+        target: url.target,
+        path: url.path,
+      };
+    }
+
     if (typeof url === 'function') {
       return func(url);
     }

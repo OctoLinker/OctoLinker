@@ -15,7 +15,7 @@ function filterLiveResolver(matches) {
       if (matchFor(match, ['registry', 'ping'])) {
         // Match contains just external urls
         memo.external.push(match);
-      } else if (matchFor(match, ['internal-link'])) {
+      } else if (matchFor(match, ['internal-link', 'github-search'])) {
         // Match contains just internal urls
         memo.internal.push(match);
       } else {
@@ -63,6 +63,18 @@ async function resolveInternalLinks(data) {
     for (const item of urls) {
       if (item.type === 'internal-link' && tree.includes(item.path)) {
         link.href = item.url;
+        break;
+      }
+      if (item.type === 'github-search') {
+        const allMatches = tree.filter(path => path.endsWith(item.target));
+
+        if (allMatches.length === 1) {
+          link.href = `https://github.com/${user}/${repo}/blob/${branch}/${
+            allMatches[0]
+          }`;
+        } else {
+          // TODO implement https://www.npmjs.com/package/fast-levenshtein
+        }
         break;
       }
     }
