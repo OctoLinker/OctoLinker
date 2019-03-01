@@ -9,8 +9,7 @@ import * as storage from './index';
 
 const githubTokenDescription = () => (
   <span>
-    Get the maximum out of OctoLinker by providing a GitHub personal access
-    token.
+    Get the most out of OctoLinker by providing a GitHub personal access token.
   </span>
 );
 
@@ -92,7 +91,7 @@ export default class Form extends Component {
           onInput={linkState(this, 'githubToken')}
         />
         <p className="note">
-          OctoLinker uses{' '}
+          OctoLinker uses the{' '}
           <a
             href="https://developer.github.com/v3/"
             target="_blank"
@@ -114,7 +113,7 @@ export default class Form extends Component {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                the rate limit of unauthenticated requests
+                the rate limit for unauthenticated requests
               </a>
             </li>
           </ul>
@@ -129,7 +128,7 @@ export default class Form extends Component {
           >
             <strong>public repositories</strong>
           </a>
-          {' or '}
+          {' or for '}
           <a
             href="https://github.com/settings/tokens/new?scopes=repo&description=OctoLinker%20browser%20extension"
             target="_blank"
@@ -137,7 +136,7 @@ export default class Form extends Component {
           >
             <strong>all public and private repositories</strong>
           </a>
-          . Then copy and paste it into the input above.
+          . Then copy and paste it into the input field above.
         </p>
         <hr />
         <Checkbox
