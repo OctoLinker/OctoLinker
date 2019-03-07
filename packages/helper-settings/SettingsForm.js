@@ -140,13 +140,6 @@ export default class Form extends Component {
         </p>
         <hr />
         <Checkbox
-          name="showLinkIndicator"
-          label="Line indicator"
-          description="Show an indicator if line contains OctoLinker links."
-          checked={state.showLinkIndicator}
-          onClick={linkState(this, 'showLinkIndicator')}
-        />
-        <Checkbox
           name="enablePrivateRepositories"
           label="Private repositories"
           description="Enable support for private repositories (requires a GitHub token)"
