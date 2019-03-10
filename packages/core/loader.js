@@ -9,7 +9,14 @@ function getRepoMetadata(data) {
 }
 
 function groupMatchesByType(matches) {
-  const flattenUrls = [].concat(...matches.map(match => match.urls));
+  const flattenUrls = [].concat(
+    ...matches.map(match =>
+      match.urls.map(url => ({
+        ...url,
+        link: match.link,
+      })),
+    ),
+  );
 
   const apiItems = flattenUrls.filter(({ type }) =>
     ['registry', 'ping'].includes(type),
@@ -75,11 +82,11 @@ function insertLinks({
         }
       }
     }
-  }
+  });
 }
 
 export default async function(matches) {
-  const { apiItems, internalItems } = groupMatchesByType(matches);
+  const { apiItems, internalItems, trustedItems } = groupMatchesByType(matches);
 
   let octolinkerApiResponsePromise = [];
   let githubTreePromise = [];
@@ -88,13 +95,20 @@ export default async function(matches) {
     octolinkerApiResponsePromise = bulkAction(apiItems);
   }
 
+  let user;
+  let repo;
+  let branch;
   if (internalItems.length) {
-    const { user, repo, branch } = getRepoMetadata(internalItems);
+    ({ user, repo, branch } = getRepoMetadata(internalItems));
 
     if (user && repo && branch) {
       githubTreePromise = fetchTree({ user, repo, branch });
     }
   }
+
+  trustedItems.forEach(item => {
+    item.link.href = item.target;
+  });
 
   const octolinkerApiResponse = await octolinkerApiResponsePromise;
   const githubTree = await githubTreePromise;

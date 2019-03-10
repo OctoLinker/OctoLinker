@@ -58,6 +58,13 @@ export default function(urls) {
       };
     }
 
+    if (url.type === 'trusted-url') {
+      return {
+        type: url.type,
+        target: url.target,
+      };
+    }
+
     if (typeof url === 'function') {
       return func(url);
     }
