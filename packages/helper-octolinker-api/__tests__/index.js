@@ -16,27 +16,18 @@ const response = JSON.stringify({
 
 const data = [
   {
-    link: '<a />',
-    urls: {
-      target: 'https://developer.mozilla.org/',
-      type: 'ping',
-    },
+    target: 'https://developer.mozilla.org/',
+    type: 'ping',
   },
   {
-    link: '<a />',
-    urls: {
-      registry: 'npm',
-      target: 'jquery',
-      type: 'registry',
-    },
+    registry: 'npm',
+    target: 'jquery',
+    type: 'registry',
   },
   {
-    link: '<a />',
-    urls: {
-      registry: 'npm',
-      target: 'i-do-not-exist',
-      type: 'registry',
-    },
+    registry: 'npm',
+    target: 'i-do-not-exist',
+    type: 'registry',
   },
 ];
 

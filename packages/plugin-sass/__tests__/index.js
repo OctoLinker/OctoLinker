@@ -1,5 +1,4 @@
 import assert from 'assert';
-import githubSearch from '@octolinker/resolver-github-search';
 import Sass from '../index';
 
 describe('Sass', () => {
@@ -10,8 +9,16 @@ describe('Sass', () => {
     assert.deepEqual(Sass.resolve(path, [target]), [
       '{BASE_URL}/octo/_foo.scss',
       '{BASE_URL}/octo/_foo.sass',
-      githubSearch({ path, target }).toString(),
-      githubSearch({ path, target }).toString(),
+      {
+        path: '/octo/dog.scss',
+        target: '_foo.scss',
+        type: 'github-search',
+      },
+      {
+        path: '/octo/dog.scss',
+        target: '_foo.sass',
+        type: 'github-search',
+      },
     ]);
   });
 
@@ -19,8 +26,16 @@ describe('Sass', () => {
     assert.deepEqual(Sass.resolve(path, ['foo.scss']), [
       '{BASE_URL}/octo/_foo.scss',
       '{BASE_URL}/octo/_foo.sass',
-      githubSearch({ path, target }).toString(),
-      githubSearch({ path, target }).toString(),
+      {
+        path: '/octo/dog.scss',
+        target: '_foo.scss',
+        type: 'github-search',
+      },
+      {
+        path: '/octo/dog.scss',
+        target: '_foo.sass',
+        type: 'github-search',
+      },
     ]);
   });
 });
