@@ -3,12 +3,10 @@ export const bulkAction = async function(data) {
     return [];
   }
 
-  const payload = []
-    .concat(...data.map(match => match.urls))
-    .map(({ type, registry, target }) => ({
-      target,
-      type: registry || type,
-    }));
+  const payload = data.map(({ type, registry, target }) => ({
+    target,
+    type: registry || type,
+  }));
 
   try {
     const response = await fetch('https://octolinker.now.sh/api', {

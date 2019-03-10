@@ -1,116 +1,112 @@
 import { fetchTree } from '@octolinker/helper-github-api';
 import { bulkAction } from '@octolinker/helper-octolinker-api';
 
-function matchFor({ urls }, types) {
-  return urls.every(url => types.some(type => type === url.type));
-}
-
-function filterLiveResolver(matches) {
-  return matches.reduce(
-    (memo, match) => {
-      if (match.urls.length === 0) {
-        return memo;
-      }
-
-      if (matchFor(match, ['registry', 'ping'])) {
-        // Match contains just external urls
-        memo.external.push(match);
-      } else if (matchFor(match, ['internal-link', 'github-search'])) {
-        // Match contains just internal urls
-        memo.internal.push(match);
-      } else {
-        // Match contains both internal and external urls
-        memo.internal.push(match);
-        memo.external.push(match);
-      }
-
-      return memo;
-    },
-    {
-      external: [],
-      internal: [],
-    },
-  );
-}
 function getRepoMetadata(data) {
   // Find first internal links which contains the information we need
-  const result = data.find(item =>
-    item.urls.find(({ type }) => type === 'internal-link'),
-  );
-
-  if (result && result.urls[0]) {
-    const { user, repo, branch } = result.urls[0];
-    return { user, repo, branch };
-  }
-
-  return {};
+  // TODO handle also githubSearch resolver results. Right now this works,
+  // because a relative file resolver is used as well in the less and sass plugin
+  return data.find(({ type }) => type === 'internal-link') || {};
 }
 
-async function resolveInternalLinks(data) {
-  const { user, repo, branch } = getRepoMetadata(data);
+function groupMatchesByType(matches) {
+  const flattenUrls = [].concat(...matches.map(match => match.urls));
 
-  let tree = [];
-  if (user && repo && branch) {
-    tree = await fetchTree({ user, repo, branch });
-  }
+  const apiItems = flattenUrls.filter(({ type }) =>
+    ['registry', 'ping'].includes(type),
+  );
 
-  for (const { urls, link } of data) {
+  const internalItems = flattenUrls.filter(({ type }) =>
+    ['internal-link', 'github-search'].includes(type),
+  );
+
+  const trustedItems = flattenUrls.filter(({ type }) =>
+    ['trusted-url'].includes(type),
+  );
+
+  return {
+    apiItems,
+    internalItems,
+    trustedItems,
+  };
+}
+
+function insertLinks({
+  matches,
+  githubTree,
+  octolinkerApiResponse,
+  user,
+  repo,
+  branch,
+}) {
+  matches.forEach(({ urls, link }) => {
     if (link.href) {
       // Return early if link is already set
       return;
     }
 
     for (const item of urls) {
-      if (item.type === 'internal-link' && tree.includes(item.path)) {
-        link.href = item.url;
-        break;
-      }
-      if (item.type === 'github-search') {
-        const allMatches = tree.filter(path => path.endsWith(item.target));
+      if (item.type === 'internal-link') {
+        if (githubTree.includes(item.path)) {
+          link.href = item.url;
+          break;
+        }
+      } else if (item.type === 'github-search') {
+        const allMatches = githubTree.filter(path =>
+          path.endsWith(item.target),
+        );
 
         if (allMatches.length === 1) {
           link.href = `https://github.com/${user}/${repo}/blob/${branch}/${
             allMatches[0]
           }`;
-        } else {
-          // TODO implement https://www.npmjs.com/package/fast-levenshtein
+          break;
         }
-        break;
+        // TODO implement https://www.npmjs.com/package/fast-levenshtein
+      } else if (['registry', 'ping'].includes(item.type)) {
+        const finalUrl = octolinkerApiResponse.find(
+          ({ type, target }) =>
+            (type === item.registry || type === item.type) &&
+            target === item.target,
+        );
+
+        if (finalUrl && finalUrl.result) {
+          link.href = finalUrl.result;
+          break;
+        }
       }
     }
   }
 }
 
-async function resolveExternalLinks(data) {
-  const response = await bulkAction(data);
-
-  data.forEach(({ link, urls }) => {
-    urls.forEach(url => {
-      if (link.href) {
-        // Return early if link is already set
-        return;
-      }
-
-      try {
-        const finalUrl = response.find(
-          ({ type, target }) =>
-            (type === url.registry || type === url.type) &&
-            target === url.target,
-        );
-
-        if (finalUrl && finalUrl.result) {
-          link.href = finalUrl.result;
-        }
-      } catch (error) {
-        // error
-      }
-    });
-  });
-}
-
 export default async function(matches) {
-  const { external, internal } = filterLiveResolver(matches);
+  const { apiItems, internalItems } = groupMatchesByType(matches);
 
-  resolveExternalLinks(external);
-  resolveInternalLinks(internal);
+  let octolinkerApiResponsePromise = [];
+  let githubTreePromise = [];
+
+  if (apiItems.length) {
+    octolinkerApiResponsePromise = bulkAction(apiItems);
+  }
+
+  if (internalItems.length) {
+    const { user, repo, branch } = getRepoMetadata(internalItems);
+
+    if (user && repo && branch) {
+      githubTreePromise = fetchTree({ user, repo, branch });
+    }
+  }
+
+  const octolinkerApiResponse = await octolinkerApiResponsePromise;
+  const githubTree = await githubTreePromise;
+
+  // TODO explore resolving on the fly so we don't have to wait for both calls to finish
+
+  insertLinks({
+    matches,
+    octolinkerApiResponse,
+    githubTree,
+    user,
+    repo,
+    branch,
+  });
 }
