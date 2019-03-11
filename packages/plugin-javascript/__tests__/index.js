@@ -19,9 +19,10 @@ describe('javascript-universal', () => {
   });
 
   it("resolves 'module' to 'https://nodejs.org/api/modules.html'", () => {
-    expect(plugin.resolve(path, ['module'])).toBe(
-      'https://nodejs.org/api/modules.html',
-    );
+    expect(plugin.resolve(path, ['module'])).toEqual({
+      target: 'https://nodejs.org/api/modules.html',
+      type: 'trusted-url',
+    });
   });
 
   it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {

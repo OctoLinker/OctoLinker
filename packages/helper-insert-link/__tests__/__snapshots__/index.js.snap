@@ -7,10 +7,9 @@ exports[`insert-link does not remove closing parentheses from commented out requ
     require('
     <a
       class="octolinker-link"
+      data-pjax="true"
     >
-      <span>
-        faker
-      </span>
+      faker
     </a>
     '
   </span>
@@ -34,10 +33,9 @@ Array [
   Object {
     "link": <a
       class="octolinker-link"
+      data-pjax="true"
     >
-      <span>
-        bar
-      </span>
+      bar
     </a>,
     "urls": "urlsToResolve",
   },
@@ -55,10 +53,9 @@ exports[`insert-link wraps a nested element 1`] = `
       </i>
       <a
         class="octolinker-link"
+        data-pjax="true"
       >
-        <span>
-          foo
-        </span>
+        foo
       </a>
       <i>
         "
@@ -75,10 +72,9 @@ exports[`insert-link wraps a single string 1`] = `
   <span>
     <a
       class="octolinker-link"
+      data-pjax="true"
     >
-      <span>
-        bar
-      </span>
+      bar
     </a>
   </span>
    baz
@@ -93,10 +89,9 @@ exports[`insert-link wraps a single word 1`] = `
     <span>
       <a
         class="octolinker-link"
+        data-pjax="true"
       >
-        <span>
-          bar
-        </span>
+        bar
       </a>
     </span>
     
@@ -113,10 +108,9 @@ exports[`insert-link wraps double quotes 1`] = `
       "
       <a
         class="octolinker-link"
+        data-pjax="true"
       >
-        <span>
-          foo
-        </span>
+        foo
       </a>
       "
     </span>
@@ -134,10 +128,9 @@ exports[`insert-link wraps mixed quotes 1`] = `
       '
       <a
         class="octolinker-link"
+        data-pjax="true"
       >
-        <span>
-          foo
-        </span>
+        foo
       </a>
       "
     </span>
@@ -152,10 +145,9 @@ exports[`insert-link wraps multiple strings 1`] = `
     foo 
     <a
       class="octolinker-link"
+      data-pjax="true"
     >
-      <span>
-        bar
-      </span>
+      bar
     </a>
   </span>
    baz
@@ -171,10 +163,9 @@ exports[`insert-link wraps single quotes 1`] = `
       '
       <a
         class="octolinker-link"
+        data-pjax="true"
       >
-        <span>
-          foo
-        </span>
+        foo
       </a>
       '
     </span>
@@ -194,10 +185,9 @@ exports[`insert-link wraps the element once 1`] = `
     </i>
     <a
       class="octolinker-link"
+      data-pjax="true"
     >
-      <span>
-        foo
-      </span>
+      foo
     </a>
     <i>
       "
@@ -218,10 +208,9 @@ exports[`insert-link wraps the elements based on their char position which is sp
     </i>
     <a
       class="octolinker-link"
+      data-pjax="true"
     >
-      <span>
-        foo
-      </span>
+      foo
     </a>
     <i>
       "
@@ -237,21 +226,20 @@ exports[`insert-link wraps the parent element when keyword is divided 1`] = `
   foo 
   <a
     class="octolinker-link"
+    data-pjax="true"
   >
     <span>
+      <i>
+        "
+      </i>
       <span>
-        <i>
-          "
-        </i>
-        <span>
-          fo
-        </span>
-        o
-        <i>
-          "
-          
-        </i>
+        fo
       </span>
+      o
+      <i>
+        "
+        
+      </i>
     </span>
   </a>
 </div>

@@ -9,6 +9,7 @@ import {
 import liveResolverQuery from '@octolinker/resolver-live-query';
 import gitUrl from '@octolinker/resolver-git-url';
 import githubShorthand from '@octolinker/resolver-github-shorthand';
+import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
 
 function linkDependency(blob, key, value) {
   const isValidSemver = isSemver(value);
@@ -38,7 +39,9 @@ export default {
       return liveResolverQuery({ type: 'bower', target });
     }
 
-    return [gitUrl({ target }), githubShorthand({ target })];
+    return [gitUrl({ target }), githubShorthand({ target })].map(url =>
+      resolverTrustedUrl({ target: url }),
+    );
   },
 
   getPattern() {

@@ -18,7 +18,8 @@ function mergeRepoAndFilePath(repoPath, filePath) {
   const repoUrl = repoPath
     .trim()
     .split('#')[0]
-    .replace(/pull\/[0-9]+\/files/, 'blob');
+    .replace(/pull\/[0-9]+\/files/, 'blob')
+    .split('..')[0];
 
   return `${repoUrl}/${filePath.trim()}`;
 }

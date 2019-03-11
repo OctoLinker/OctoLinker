@@ -48,8 +48,8 @@ Array [
 exports[`normaliseResolverResults converts https://foosearch.org/ 1`] = `
 Array [
   Object {
-    "type": "external-link",
-    "url": "https://foosearch.org/",
+    "target": "https://foosearch.org/",
+    "type": "ping",
   },
 ]
 `;

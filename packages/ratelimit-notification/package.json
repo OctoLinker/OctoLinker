@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "@octolinker/user-interface": "1.0.0"
+    "@octolinker/user-interface": "1.0.0",
+    "@octolinker/helper-settings": "1.0.0"
   }
 }
