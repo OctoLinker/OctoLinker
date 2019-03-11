@@ -2,6 +2,7 @@ import {
   removeAllNotifications,
   isPrivateRepository,
 } from '@octolinker/user-interface';
+import * as storage from '@octolinker/helper-settings';
 
 import {
   tokenIsInvalid,
@@ -28,6 +29,10 @@ export default (headers, statusCode) => {
 
   if (statusCode === 401) {
     return tokenIsInvalid();
+  }
+
+  if (isPrivate && !storage.get('enablePrivateRepositories')) {
+    return;
   }
 
   if (isPrivate && statusCode === 404) {

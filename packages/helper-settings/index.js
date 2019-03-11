@@ -3,9 +3,7 @@ import browser from 'webextension-polyfill';
 const store = {};
 
 const defaults = {
-  newWindow: false,
-  newWindowActive: true,
-  showLinkIndicator: true,
+  enablePrivateRepositories: true,
   showUpdateNotification: true,
 };
 

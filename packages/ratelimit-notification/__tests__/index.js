@@ -2,13 +2,19 @@ import {
   removeAllNotifications,
   isPrivateRepository,
 } from '@octolinker/user-interface';
+import { get } from '@octolinker/helper-settings';
 import ratelimitNotification from '../index';
+
 import {
   tokenIsInvalid,
   needsTokenForPrivate,
   rateLimitExceeded,
 } from '../messages';
 import { parse } from '../parse-github-header';
+
+jest.mock('@octolinker/helper-settings', () => ({
+  get: jest.fn().mockReturnValue(true),
+}));
 
 jest.mock('../parse-github-header', () => ({
   parse: jest.fn(),
@@ -44,11 +50,22 @@ describe('ratelimitNotification', () => {
   });
 
   describe('when status code is 404', () => {
+    beforeEach(() => {
+      needsTokenForPrivate.mockClear();
+    });
+
     it('shows needs private token message when repository is private', () => {
       isPrivateRepository.mockImplementation(() => true);
       ratelimitNotification('fakeHeader', 404);
 
       expect(needsTokenForPrivate).toHaveBeenCalled();
+    });
+    it('does not show needs private token message when settings', () => {
+      get.mockReturnValueOnce(false);
+      isPrivateRepository.mockImplementation(() => true);
+      ratelimitNotification('fakeHeader', 404);
+
+      expect(needsTokenForPrivate).not.toHaveBeenCalled();
     });
   });
 

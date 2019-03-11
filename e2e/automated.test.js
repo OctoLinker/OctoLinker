@@ -4,20 +4,12 @@ const fixtures = require('./fixtures.json'); // eslint-disable-line import/no-un
 const diffFixtures = require('./diff-fixtures.json'); // eslint-disable-line import/no-unresolved
 
 async function executeTest(url, targetUrl, selector) {
-  await page.goto(url);
+  if ((await page.url()) !== url) {
+    await page.goto(url);
+  }
 
-  await page.waitForSelector(selector);
-
-  await Promise.all([
-    page.waitForNavigation(),
-    // page.click(selector), for some reason page.click is not working
-    page.$eval(selector, el => el.click()),
-  ]);
-
-  await expect(page.url()).toEqual(expect.stringMatching(targetUrl));
+  await page.waitForSelector(`${selector}[href$="${targetUrl}"]`);
 }
-
-jest.setTimeout(20000);
 
 describe('End to End tests', () => {
   beforeAll(async () => {

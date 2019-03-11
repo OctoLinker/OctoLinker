@@ -12,6 +12,7 @@
     "@octolinker/plugin-javascript": "1.0.0",
     "@octolinker/resolver-live-query": "1.0.0",
     "@octolinker/resolver-git-url": "1.0.0",
+    "@octolinker/resolver-trusted-url": "1.0.0",
     "@octolinker/resolver-github-shorthand": "1.0.0",
     "@octolinker/helper-insert-link": "1.0.0"
   }

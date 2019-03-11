@@ -1,0 +1,8 @@
+{
+  "name": "@octolinker/helper-octolinker-api",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-octolinker-api",
+  "license": "MIT",
+  "main": "./index.js"
+}

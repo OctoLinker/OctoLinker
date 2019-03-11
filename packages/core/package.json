@@ -7,6 +7,8 @@
   "main": "./index.js",
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
+    "@octolinker/helper-github-api": "1.0.0",
+    "@octolinker/helper-octolinker-api": "1.0.0",
     "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/helper-settings": "1.0.0",
     "@octolinker/helper-sort-urls": "1.0.0",

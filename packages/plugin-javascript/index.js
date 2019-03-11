@@ -6,6 +6,7 @@ import {
   EXPORT,
 } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
+import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
 import builtinsDocs from './builtins-docs.js';
 
 function getTopModuleName(target) {
@@ -66,7 +67,7 @@ export default {
     const isBuildIn = target in builtinsDocs;
 
     if (isBuildIn) {
-      return builtinsDocs[target];
+      return resolverTrustedUrl({ target: builtinsDocs[target] });
     }
 
     if (isPath) {

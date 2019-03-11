@@ -22,7 +22,6 @@
   },
   "options_ui": {
     "page": "options.html",
-    "open_in_tab": true,
     "chrome_style": true
   },
   "content_scripts": [
@@ -42,6 +41,6 @@
     "storage",
     "https://github.com/",
     "https://gist.github.com/",
-    "https://githublinker.herokuapp.com/"
+    "https://octolinker.now.sh/"
   ]
 }
