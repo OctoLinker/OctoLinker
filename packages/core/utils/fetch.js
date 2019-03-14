@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 export default async urls => {
   for (const { url, func, method = 'HEAD' } of urls) {
     try {
@@ -14,18 +12,22 @@ export default async urls => {
       // However, we explicity want to do this sequentially.
       // See http://eslint.org/docs/rules/no-await-in-loop
       // eslint-disable-next-line
-      const res = await $.ajax({
+      const res = await fetch(url, {
         method,
-        url,
       });
 
-      return { url, res };
+      if (res.status < 300) {
+        if (method === 'GET') {
+          // eslint-disable-next-line
+          const json = await res.json();
+          return json;
+        }
+
+        return { url };
+      }
     } catch (err) {
       // There's nothing to do here, so just keep going.
       // eslint-disable-line no-empty
     }
   }
-
-  // If we get here, no urls could be loaded.
-  throw new Error('Could not load any url');
 };
