@@ -1,7 +1,6 @@
 import $ from 'jquery';
 import * as storage from '@octolinker/helper-settings';
 import { showTooltip, removeTooltip } from '@octolinker/user-interface';
-import fetch from './utils/fetch.js';
 
 const SORRY = "I'm sorry, unable to resolve this link  😱";
 const PROCESS = 'Processing  ⏳';
@@ -109,17 +108,16 @@ async function onClick(event) {
     return;
   }
 
-  try {
-    const { url, res } = await fetch(urls);
-
+  // const { url, res } = await fetch(urls);
+  chrome.runtime.sendMessage({ type: 'fetch', urls }, res => {
+    if (res === 'error') {
+      showTooltip($tooltipTarget, SORRY);
+      return;
+    }
     showTooltip($tooltipTarget, RESOLVED);
-    openUrl(event, (res || {}).url || url);
+    openUrl(event, (res || {}).url || res);
     removeTooltip($tooltipTarget);
-  } catch (err) {
-    showTooltip($tooltipTarget, SORRY);
-
-    return console.error(err); // eslint-disable-line no-console
-  }
+  });
 }
 
 export default function(_matches) {
