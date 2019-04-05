@@ -2,17 +2,15 @@ import Blob from './blob';
 import { getBlobWrapper } from './helper';
 
 export default class BlobReader {
+  constructor() {
+    this._blobs = [];
+  }
+
   hasBlobs() {
-    return !!getBlobWrapper().length;
+    return !!getBlobWrapper(document).length;
   }
 
-  read() {
-    this._blobs = getBlobWrapper().map(el => new Blob(el));
-
-    return this;
-  }
-
-  getBlobs() {
-    return this._blobs;
+  read(rootElement) {
+    return getBlobWrapper(rootElement).map(el => new Blob(el));
   }
 }
