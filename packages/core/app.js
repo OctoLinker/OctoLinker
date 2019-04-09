@@ -81,12 +81,30 @@ function init() {
   });
 
   const viewSpy = new MutationObserver(mutationRecords => {
-    console.log('callback'); // check how often this gets invoked
     mutationRecords.forEach(mutationRecord => {
       if (mutationRecord.addedNodes.length > 0) {
-        run(this, mutationRecord.target);
+        run(mutationRecord.target);
         watch(viewSpy);
       }
+    });
+  });
+
+  document.body.addEventListener('click', event => {
+    if (!event.target.closest('.js-expandable-line')) {
+      return;
+    }
+
+    const expandDiffObserver = new MutationObserver(mutationRecords => {
+      mutationRecords.forEach(mutationRecord => {
+        if (mutationRecord.addedNodes.length > 0) {
+          expandDiffObserver.disconnect();
+          run(mutationRecord.target.closest('.js-file'));
+        }
+      });
+    });
+
+    expandDiffObserver.observe(event.target.closest('tbody'), {
+      childList: true,
     });
   });
 
