@@ -5,7 +5,7 @@ import SettingsForm from './SettingsForm';
 
 const App = () => (
   <div className="d-flex flex-justify-center">
-    <div className="Box box-shadow four-fifth column">
+    <div className="four-fifth column">
       <div className="Box-row">
         <SettingsForm />
       </div>
