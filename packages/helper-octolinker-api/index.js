@@ -9,7 +9,7 @@ export const bulkAction = async function(data) {
   }));
 
   try {
-    const response = await fetch('https://octolinker.now.sh/api', {
+    const response = await fetch('https://octolinker-api.now.sh', {
       method: 'POST',
       body: JSON.stringify(payload),
       headers: {

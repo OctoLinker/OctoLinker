@@ -40,7 +40,7 @@ describe('helper-octolinker-api', () => {
     fetch.mockResponseOnce(response);
     await bulkAction(data);
 
-    expect(global.fetch).toBeCalledWith('https://octolinker.now.sh/api', {
+    expect(global.fetch).toBeCalledWith('https://octolinker-api.now.sh', {
       method: 'POST',
       body: expect.any(String),
       headers: {
