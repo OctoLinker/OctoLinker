@@ -16,6 +16,8 @@ const pluginManager = new Plugins(loadPlugins);
 async function run(rootElement) {
   const blobs = blobReader.read(rootElement);
 
+  console.log('Read blobs', blobs.length);
+
   let matches = [];
   for (const blob of blobs) {
     const plugins = pluginManager.get(blob.path, blob.el.classList);

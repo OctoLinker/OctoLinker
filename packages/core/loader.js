@@ -54,7 +54,10 @@ function insertLinks({
     for (const item of urls) {
       if (item.type === 'internal-link') {
         if (githubTree.includes(item.path)) {
-          link.href = item.url;
+          link.href = item.url.replace(
+            'https://github.com',
+            'https://octolinker-demo.now.sh',
+          );
           break;
         }
       } else if (item.type === 'github-search') {
@@ -65,7 +68,7 @@ function insertLinks({
         if (allMatches.length === 1) {
           link.href = `https://github.com/${user}/${repo}/blob/${branch}/${
             allMatches[0]
-          }`;
+          }`.replace('https://github.com', 'https://octolinker-demo.now.sh');
           break;
         }
         // TODO implement https://www.npmjs.com/package/fast-levenshtein
@@ -77,7 +80,10 @@ function insertLinks({
         );
 
         if (finalUrl && finalUrl.result) {
-          link.href = finalUrl.result;
+          link.href = finalUrl.result.replace(
+            'https://github.com',
+            'https://octolinker-demo.now.sh',
+          );
           break;
         }
       }
@@ -123,4 +129,6 @@ export default async function(matches) {
     repo,
     branch,
   });
+
+  document.querySelector('.octolinker-link').classList.add('octospot');
 }
