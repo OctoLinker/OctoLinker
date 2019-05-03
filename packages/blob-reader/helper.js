@@ -10,6 +10,10 @@ function getBlobWrapper(rootElement = document) {
   );
 
   if (!ret.length) {
+    ret = [].slice.call(rootElement.getElementsByClassName('blob-wrapper'));
+  }
+
+  if (!ret.length) {
     ret = [].slice.call(rootElement.getElementsByClassName('highlight'));
   }
 
@@ -80,6 +84,9 @@ function getPath(el) {
   // When current page is a gist, get path from blob name
   if (!ret && isGist()) {
     ret = $('.gist-blob-name', el.parentElement).text();
+    if (ret && !ret.startsWith('/')) {
+      ret = `/${ret}`;
+    }
   }
 
   // when page has pull request comment(s)
