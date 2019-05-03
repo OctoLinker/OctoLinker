@@ -1,5 +1,7 @@
 import { fetchTree } from '@octolinker/helper-github-api';
 import { bulkAction } from '@octolinker/helper-octolinker-api';
+import uniqWith from 'lodash.uniqwith';
+import isEqual from 'lodash.isequal';
 
 function getRepoMetadata(data) {
   // Find first internal links which contains the information we need
@@ -8,13 +10,27 @@ function getRepoMetadata(data) {
   return data.find(({ type }) => type === 'internal-link') || {};
 }
 
+function removeDuplicates(payload) {
+  return uniqWith(payload, (left, right) =>
+    // The link property is part of the item and prevents us from using a
+    // simple isEqual operation. By concatenating all other props we can easily
+    // identify duplications
+    isEqual(
+      left.type + left.registry + left.target,
+      right.type + right.registry + right.target,
+    ),
+  );
+}
+
 function groupMatchesByType(matches) {
-  const flattenUrls = [].concat(
-    ...matches.map(match =>
-      match.urls.map(url => ({
-        ...url,
-        link: match.link,
-      })),
+  const flattenUrls = removeDuplicates(
+    [].concat(
+      ...matches.map(match =>
+        match.urls.map(url => ({
+          ...url,
+          link: match.link,
+        })),
+      ),
     ),
   );
 
