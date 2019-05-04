@@ -15,7 +15,7 @@ describe('blob-reader', () => {
         '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
       );
       const reader = new BlobReader();
-      [blob] = reader.read().getBlobs();
+      [blob] = reader.read();
     });
 
     describe('contains blob path', () => {
@@ -31,7 +31,7 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        expect(reader.read().getBlobs()[0].path).toBe(
+        expect(reader.read()[0].path).toBe(
           '/OctoLinker/testrepo/blob/9981d1a99ef8fff1f569c2ae24b136d5a0275132/sourcereader/popular-cat-names.js',
         );
       });
@@ -42,7 +42,7 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        expect(reader.read().getBlobs()[0].path).toBe(
+        expect(reader.read()[0].path).toBe(
           '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js',
         );
       });
@@ -53,7 +53,7 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        expect(reader.read().getBlobs()[1].path).toBe(
+        expect(reader.read()[1].path).toBe(
           '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js',
         );
       });
@@ -100,7 +100,7 @@ describe('blob-reader', () => {
         '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
       );
       const reader = new BlobReader();
-      [blob] = reader.read().getBlobs();
+      [blob] = reader.read();
     });
 
     it('contains four lines', () => {
@@ -157,7 +157,7 @@ describe('blob-reader', () => {
           '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html',
         );
         const reader = new BlobReader();
-        [blob] = reader.read()._blobs;
+        [blob] = reader.read();
       });
 
       it('sets isDiff indicator to true', () => {
@@ -185,7 +185,7 @@ describe('blob-reader', () => {
           '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
         );
         const reader = new BlobReader();
-        [blob] = reader.read().getBlobs();
+        [blob] = reader.read();
       });
 
       it('sets isDiff indicator to true', () => {
@@ -217,7 +217,7 @@ describe('blob-reader', () => {
           '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
         );
         const reader = new BlobReader();
-        [blob] = reader.read().getBlobs();
+        [blob] = reader.read();
       });
 
       it('fetch raw blob and update blob.lines property', async () => {
@@ -244,11 +244,11 @@ describe('blob-reader', () => {
         '/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html',
       );
       const reader = new BlobReader();
-      [blob] = reader.read().getBlobs();
+      [blob] = reader.read();
     });
 
     it('contains blob path', () => {
-      expect(blob.path).toBe('package.json');
+      expect(blob.path).toBe('/package.json');
     });
   });
 
@@ -258,7 +258,7 @@ describe('blob-reader', () => {
     beforeEach(() => {
       fixture.load('/packages/blob-reader/fixtures/github.com/issue/code.html');
       const reader = new BlobReader();
-      [blob] = reader.read().getBlobs();
+      [blob] = reader.read();
     });
 
     it('contains blob root element', () => {

@@ -83,7 +83,9 @@ function getPath(el) {
 
   // When current page is a gist, get path from blob name
   if (!ret && isGist()) {
-    ret = $('.gist-blob-name', el.parentElement).text();
+    ret = $('.gist-blob-name', el.parentElement)
+      .text()
+      .trim();
     if (ret && !ret.startsWith('/')) {
       ret = `/${ret}`;
     }
