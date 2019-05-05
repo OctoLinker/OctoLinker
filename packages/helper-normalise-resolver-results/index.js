@@ -5,7 +5,7 @@ const BASE_URL = 'https://github.com';
 // Resource within this repositroy
 const internal = url => {
   const fullUrl = url.replace('{BASE_URL}', BASE_URL);
-  const { user, repo, branch, path } = ghParse(fullUrl);
+  const { user, repo, branch, path } = ghParse(fullUrl) || {};
 
   return {
     type: 'internal-link',
