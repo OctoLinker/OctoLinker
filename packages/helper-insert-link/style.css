@@ -49,3 +49,45 @@ div.highlight {
 .highlight .octolinker-link:after {
   top: inherit;
 }
+
+/* Live demo https://octolinker-demo.now.sh */
+
+.octospotlight:after {
+  color: rgba(255, 0, 255, 0.8);
+}
+
+.octospotlight-inner:hover {
+  text-decoration: underline;
+}
+
+.octospotlight-inner {
+  display: inline-block;
+  position: relative;
+}
+
+.octospotlight-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -4px 0 0 -4px;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  z-index: 1000;
+  animation: octoSpotlightPulse 2s infinite;
+}
+
+@keyframes octoSpotlightPulse {
+  0%{
+      transform: scale(1);
+      background-color: rgba(255, 0, 255, 0.6);
+ }
+  70%{
+      transform: scale(8);
+      background-color: rgba(255, 0, 255, 0);
+ }
+  to{
+      transform: scale(1);
+      background-color: rgba(255, 0, 255, 0);
+ }
+}

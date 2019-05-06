@@ -22,6 +22,10 @@ function removeDuplicates(payload) {
   );
 }
 
+function injectLiveDemoUrl(url) {
+  return url.replace('https://github.com', process.env.OCTOLINKER_LIVE_DEMO);
+}
+
 function groupMatchesByType(matches) {
   const flattenUrls = removeDuplicates(
     [].concat(
@@ -71,6 +75,9 @@ function insertLinks({
       if (item.type === 'internal-link') {
         if (githubTree.includes(item.path)) {
           link.href = item.url;
+          if (process.env.OCTOLINKER_LIVE_DEMO) {
+            link.href = injectLiveDemoUrl(link.href);
+          }
           break;
         }
       } else if (item.type === 'github-search') {
@@ -82,6 +89,9 @@ function insertLinks({
           link.href = `https://github.com/${user}/${repo}/blob/${branch}/${
             allMatches[0]
           }`;
+          if (process.env.OCTOLINKER_LIVE_DEMO) {
+            link.href = injectLiveDemoUrl(link.href);
+          }
           break;
         }
         // TODO implement https://www.npmjs.com/package/fast-levenshtein
@@ -94,6 +104,9 @@ function insertLinks({
 
         if (finalUrl && finalUrl.result) {
           link.href = finalUrl.result;
+          if (process.env.OCTOLINKER_LIVE_DEMO) {
+            link.href = injectLiveDemoUrl(link.href);
+          }
           break;
         }
       }
@@ -139,4 +152,22 @@ export default async function(matches) {
     repo,
     branch,
   });
+
+  if (process.env.OCTOLINKER_LIVE_DEMO) {
+    const el = document.querySelector('.octolinker-link[href]');
+    if (el) {
+      el.classList.add('octospotlight');
+
+      const container = document.createElement('div');
+      container.innerHTML = `<div class="octospotlight-inner">${
+        el.innerHTML
+      }</div>`;
+      el.innerHTML = container.innerHTML;
+
+      const spot = document.createElement('div');
+      spot.classList.add('octospotlight-dot');
+      // spot.style.left = `${el.getBoundingClientRect().width / 2}px`;
+      el.querySelector('.octospotlight-inner').appendChild(spot);
+    }
+  }
 }
