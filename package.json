@@ -4,7 +4,6 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "main": "lib/app.js",
   "scripts": {
     "lint": "eslint .",
     "pretest": "yarn lint",
