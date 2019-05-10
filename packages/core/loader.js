@@ -154,7 +154,14 @@ export default async function(matches) {
   });
 
   if (process.env.OCTOLINKER_LIVE_DEMO) {
-    const el = document.querySelector('.octolinker-link[href]');
+    let parentElement = document;
+
+    const activeLineNumber = window.location.hash.match(/#LO([0-9]+)/);
+    if (activeLineNumber && activeLineNumber[1]) {
+      parentElement = document.getElementById(`LC${activeLineNumber[1]}`);
+    }
+
+    const el = parentElement.querySelector('.octolinker-link[href]');
     if (el) {
       el.classList.add('octospotlight');
 
@@ -166,7 +173,6 @@ export default async function(matches) {
 
       const spot = document.createElement('div');
       spot.classList.add('octospotlight-dot');
-      // spot.style.left = `${el.getBoundingClientRect().width / 2}px`;
       el.querySelector('.octospotlight-inner').appendChild(spot);
     }
   }
