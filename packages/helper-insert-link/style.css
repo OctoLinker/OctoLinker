@@ -69,25 +69,25 @@ div.highlight {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -4px 0 0 -4px;
+  margin: -20px 0 0 -20px;
   border-radius: 50%;
-  height: 8px;
-  width: 8px;
+  height: 40px;
+  width: 40px;
   z-index: 1000;
   animation: octoSpotlightPulse 2s infinite;
 }
 
 @keyframes octoSpotlightPulse {
   0%{
-      transform: scale(1);
+      transform: scale(0.2);
       background-color: rgba(255, 0, 255, 0.6);
  }
   70%{
-      transform: scale(8);
+      transform: scale(2);
       background-color: rgba(255, 0, 255, 0);
  }
   to{
-      transform: scale(1);
+      transform: scale(0.2);
       background-color: rgba(255, 0, 255, 0);
  }
 }
