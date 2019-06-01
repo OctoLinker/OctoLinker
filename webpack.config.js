@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
 
 module.exports = (env, argv) => ({
@@ -13,7 +14,10 @@ module.exports = (env, argv) => ({
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
   },
-  plugins: [new CopyWebpackPlugin([{ from: 'assets' }])],
+  plugins: [
+    new CopyWebpackPlugin([{ from: 'assets' }]),
+    new webpack.EnvironmentPlugin(['OCTOLINKER_LIVE_DEMO']),
+  ],
   module: {
     rules: [
       {

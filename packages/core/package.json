@@ -7,16 +7,18 @@
   "main": "./index.js",
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
+    "@octolinker/helper-github-api": "1.0.0",
     "@octolinker/helper-insert-link": "1.0.0",
+    "@octolinker/helper-normalise-resolver-results": "1.0.0",
+    "@octolinker/helper-octolinker-api": "1.0.0",
     "@octolinker/helper-settings": "1.0.0",
     "@octolinker/helper-sort-urls": "1.0.0",
-    "@octolinker/helper-normalise-resolver-results": "1.0.0",
     "@octolinker/plugin-bower-manifest": "1.0.0",
     "@octolinker/plugin-composer-manifest": "1.0.0",
     "@octolinker/plugin-css": "1.0.0",
     "@octolinker/plugin-docker": "1.0.0",
-    "@octolinker/plugin-dot-net-core": "1.0.0",
     "@octolinker/plugin-dot-net": "1.0.0",
+    "@octolinker/plugin-dot-net-core": "1.0.0",
     "@octolinker/plugin-gemfile-manifest": "1.0.0",
     "@octolinker/plugin-go": "1.0.0",
     "@octolinker/plugin-haskell": "1.0.0",
@@ -36,6 +38,8 @@
     "@octolinker/plugin-vim": "1.0.0",
     "@octolinker/user-interface": "1.0.0",
     "github-injection": "^1.0.1",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "lodash.isequal": "^4.5.0",
+    "lodash.uniqwith": "^4.5.0"
   }
 }

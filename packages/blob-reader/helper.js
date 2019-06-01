@@ -4,11 +4,17 @@ function getBlobCodeInner(el) {
   return [].slice.call(el.getElementsByClassName('blob-code-inner'));
 }
 
-function getBlobWrapper() {
-  let ret = [].slice.call(document.getElementsByClassName('blob-wrapper'));
+function getBlobWrapper(rootElement = document) {
+  let ret = [].slice.call(
+    rootElement.getElementsByClassName('js-blob-wrapper'),
+  );
 
   if (!ret.length) {
-    ret = [].slice.call(document.getElementsByClassName('highlight'));
+    ret = [].slice.call(rootElement.getElementsByClassName('blob-wrapper'));
+  }
+
+  if (!ret.length) {
+    ret = [].slice.call(rootElement.getElementsByClassName('highlight'));
   }
 
   return ret;
@@ -18,7 +24,8 @@ function mergeRepoAndFilePath(repoPath, filePath) {
   const repoUrl = repoPath
     .trim()
     .split('#')[0]
-    .replace(/pull\/[0-9]+\/files/, 'blob');
+    .replace(/pull\/[0-9]+\/files/, 'blob')
+    .split('..')[0];
 
   return `${repoUrl}/${filePath.trim()}`;
 }
@@ -49,7 +56,18 @@ function getParentSha() {
 
 function getPath(el) {
   // When current page is a diff view get path from "View" button
-  let ret = $('.file-actions a', el.parentElement.parentElement)
+  let rootSelector = el.parentElement.parentElement.querySelectorAll(
+    '.file-actions a',
+  );
+
+  // When current diff blob is loaded on-demand get path from "View" button
+  if (!rootSelector.length) {
+    rootSelector = el.parentElement.parentElement.parentElement.querySelectorAll(
+      '.file-actions a',
+    );
+  }
+
+  let ret = $(rootSelector)
     .filter(function() {
       return (
         $(this)
@@ -65,7 +83,12 @@ function getPath(el) {
 
   // When current page is a gist, get path from blob name
   if (!ret && isGist()) {
-    ret = $('.gist-blob-name', el.parentElement).text();
+    ret = $('.gist-blob-name', el.parentElement)
+      .text()
+      .trim();
+    if (ret && !ret.startsWith('/')) {
+      ret = `/${ret}`;
+    }
   }
 
   // when page has pull request comment(s)

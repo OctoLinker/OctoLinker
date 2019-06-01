@@ -1,9 +1,9 @@
-.octolinker-link {
-  cursor: pointer;
+a.octolinker-link {
+  color: inherit;
 }
 
-.octolinker-link:hover {
-  text-decoration: underline !important;
+a.octolinker-link:hover {
+  text-decoration: none;
 }
 
 body.octolinker-debug .octolinker-link {
@@ -11,23 +11,34 @@ body.octolinker-debug .octolinker-link {
   border: 1px solid rgb(255, 0, 255);
 }
 
-a.octolinker-link {
-    color: inherit;
-}
-
-.octolinker-line-indicator:after {
+.octolinker-link:after {
   content: "●";
   position: absolute;
   left: -4px;
   top: -1px;
   width: 3px;
-  transition:color .2s ease-out, color 450ms ease-in;
+  transition: color 0.2s ease-out, color 450ms ease-in;
+}
+
+.octolinker-link[href] {
+  cursor: pointer;
+}
+
+.octolinker-link[href]:hover {
+  text-decoration: underline !important;
+}
+
+.octolinker-link:not([href]):after {
+  color: rgba(0, 0, 0, 0);
+}
+
+.octolinker-link[href]:after {
   color: rgba(255, 0, 255, 0.2);
 }
 
-.octolinker-line-indicator:hover:after {
-    color: rgba(255, 0, 255, .8);
-    cursor: default;
+.octolinker-link[href]:hover:after {
+  color: rgba(255, 0, 255, 0.8);
+  cursor: default;
 }
 
 /* Fix line indicator for issue code blocks */
@@ -35,6 +46,48 @@ div.highlight {
   position: relative;
 }
 
-.highlight .octolinker-line-indicator:after {
+.highlight .octolinker-link:after {
   top: inherit;
+}
+
+/* Live demo https://octolinker-demo.now.sh */
+
+.octospotlight:after {
+  color: rgba(255, 0, 255, 0.8);
+}
+
+.octospotlight-inner:hover {
+  text-decoration: underline;
+}
+
+.octospotlight-inner {
+  display: inline-block;
+  position: relative;
+}
+
+.octospotlight-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -20px 0 0 -20px;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: 1000;
+  animation: octoSpotlightPulse 2s infinite;
+}
+
+@keyframes octoSpotlightPulse {
+  0%{
+      transform: scale(0.2);
+      background-color: rgba(255, 0, 255, 0.6);
+ }
+  70%{
+      transform: scale(2);
+      background-color: rgba(255, 0, 255, 0);
+ }
+  to{
+      transform: scale(0.2);
+      background-color: rgba(255, 0, 255, 0);
+ }
 }

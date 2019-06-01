@@ -5,7 +5,7 @@ const BASE_URL = 'https://github.com';
 // Resource within this repositroy
 const internal = url => {
   const fullUrl = url.replace('{BASE_URL}', BASE_URL);
-  const { user, repo, branch, path } = ghParse(fullUrl);
+  const { user, repo, branch, path } = ghParse(fullUrl) || {};
 
   return {
     type: 'internal-link',
@@ -19,8 +19,8 @@ const internal = url => {
 
 // An external url like a documenation page
 const external = url => ({
-  type: 'external-link',
-  url,
+  type: 'ping',
+  target: url,
 });
 
 // Async resolver
@@ -48,6 +48,21 @@ export default function(urls) {
 
     if (url.registry) {
       return registry(url);
+    }
+
+    if (url.type === 'github-search') {
+      return {
+        type: url.type,
+        target: url.target,
+        path: url.path,
+      };
+    }
+
+    if (url.type === 'trusted-url') {
+      return {
+        type: url.type,
+        target: url.target,
+      };
     }
 
     if (typeof url === 'function') {
