@@ -4,7 +4,7 @@
 
 ## What is OctoLinker? 
 
-OctoLinker is a browser extension for GitHub, that turns language-specific statements like `include` `require` or `import` into links. Check out our live demo at [octolinker.now.sh](https://octolinker.now.sh) 
+OctoLinker is a browser extension for GitHub, that turns language-specific statements like `include` `require` or `import` into links. 
 
 <img src="./demo.png" width="890" />
 
