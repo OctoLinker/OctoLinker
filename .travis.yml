@@ -23,7 +23,7 @@ before_script:
 script:
   - travis_retry yarn test && codecov
   - yarn build
-  - yarn e2e
+  - travis_retry yarn e2e
 deploy:
   - provider: script
     script: yarn package
