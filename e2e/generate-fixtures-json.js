@@ -22,6 +22,8 @@ const repoSlug =
 const branch = process.env.TRAVIS_PULL_REQUEST_BRANCH || 'master';
 const fixturesRoot = `https://github.com/${repoSlug}/blob/${branch}/e2e`;
 
+console.log('Fixtures root:', fixturesRoot); // eslint-disable-line no-console
+
 async function readContent(files) {
   const readFile = util.promisify(fs.readFile);
   const mapLimit = util.promisify(async.mapLimit);

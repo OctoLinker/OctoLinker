@@ -1,2 +1,2 @@
-// @OctoLinkerResolve(<root>/javascript/nodejs/proud-tooth.js)
+// @OctoLinkerResolve(<root>/javascript/relative/proud-tooth.js)
 require('./proud-tooth');
