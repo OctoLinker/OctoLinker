@@ -1,4 +1,6 @@
 {
+    "//": "@OctoLinkerResolve(<root>/javascript/relative/index.js)",
+    "main": "./relative/index.js",
     "dependencies": {
         "//": "@OctoLinkerResolve(https://github.com/lodash/lodash)",
         "lodash": "^4.17.5"
