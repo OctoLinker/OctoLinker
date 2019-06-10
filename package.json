@@ -31,7 +31,7 @@
     "@babel/preset-env": "^7.1.0",
     "async": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.6.0",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.0",
     "babel-preset-jest": "^23.2.0",
     "chrome-launch": "^1.1.4",
