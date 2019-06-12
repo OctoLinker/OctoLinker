@@ -419,12 +419,8 @@ const fixtures = {
       ['import com.fasterxml.Foo', ['com.fasterxml.Foo']],
       ['import org.junit.Foo', ['org.junit.Foo']],
       ['import org.mockito.Foo', ['org.mockito.Foo']],
-      ['import org.apache.log4j.Foo', ['org.apache.log4j.Foo']],
+      ['import org.apache.Foo', ['org.apache.Foo']],
       ['import org.slf4j.Foo', ['org.slf4j.Foo']],
-      [
-        'import org.apache.commons.logging.Foo',
-        ['org.apache.commons.logging.Foo'],
-      ],
     ],
     invalid: [
       'import com.company.app', // For now, we support java core packages only

@@ -188,11 +188,9 @@ export const JAVA_IMPORT = regex`
       |
       org\.mockito
       |
-      org\.apache\.log4j
+      org\.apache
       |
       org\.slf4j
-      |
-      org\.apache\.commons\.logging
     )
     ((\.[a-zA-Z0-9_]+)+[a-zA-Z0-9_])*
   )
