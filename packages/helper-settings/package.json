@@ -6,11 +6,11 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "chrome-promise": "^2.1.1",
     "linkstate": "^1.1.0",
     "preact": "^8.2.5",
     "primer-core": "^7.0.0",
     "primer-forms": "^1.4.0",
-    "primer-product": "^5.7.0"
+    "primer-product": "^5.7.0",
+    "webextension-polyfill": "^0.4.0"
   }
 }
