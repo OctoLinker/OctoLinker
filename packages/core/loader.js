@@ -166,9 +166,7 @@ export default async function(matches) {
       el.classList.add('octospotlight');
 
       const container = document.createElement('div');
-      container.innerHTML = `<div class="octospotlight-inner">${
-        el.innerHTML
-      }</div>`;
+      container.innerHTML = `<div class="octospotlight-inner">${el.innerHTML}</div>`;
       el.innerHTML = container.innerHTML;
 
       const spot = document.createElement('div');
