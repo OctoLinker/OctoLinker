@@ -25,6 +25,29 @@ describe('javascript-universal', () => {
     });
   });
 
+  it("resolves 'https://example.org/foo.ts' to 'https://example.org/foo.ts'", () => {
+    expect(plugin.resolve(path, ['https://example.org/foo.ts'])).toEqual({
+      target: 'https://example.org/foo.ts',
+      type: 'trusted-url',
+    });
+  });
+
+  it("does not resolve 'https://example.org/'", () => {
+    // TODO: Currently resolves incorrectly as 'https' module,
+    // but should not resolve.
+    expect(plugin.resolve(path, ['https://example.org'])).toEqual({
+      registry: 'npm',
+      target: 'https',
+    });
+  });
+
+  it("resolves 'https://example.org/foo.js' to 'https://example.org/foo.js'", () => {
+    expect(plugin.resolve(path, ['https://example.org/foo.js'])).toEqual({
+      target: 'https://example.org/foo.js',
+      type: 'trusted-url',
+    });
+  });
+
   it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {
     expect(plugin.resolve('', ['./modules/es6.symbol'])).toMatchSnapshot();
   });

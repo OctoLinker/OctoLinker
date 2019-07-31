@@ -59,17 +59,32 @@ export function javascriptFile({ path, target }) {
   });
 }
 
+function isURLImport(target) {
+  try {
+    const { protocol, pathname } = new URL(target);
+    if (protocol !== 'https:' && protocol !== 'http:') return false;
+    const ext = extname(pathname);
+    if (ext !== '.js' && ext !== '.ts') return false;
+    return true;
+  } catch (err) {
+    return false;
+  }
+}
+
 export default {
   name: 'JavaScript',
 
   resolve(path, [target]) {
-    const isPath = !!target.match(/^\.\.?[\\|\/]?/);
-    const isBuildIn = target in builtinsDocs;
+    if (isURLImport(target)) {
+      return resolverTrustedUrl({ target });
+    }
 
-    if (isBuildIn) {
+    const isBuiltIn = target in builtinsDocs;
+    if (isBuiltIn) {
       return resolverTrustedUrl({ target: builtinsDocs[target] });
     }
 
+    const isPath = !!target.match(/^\.\.?[\\|\/]?/);
     if (isPath) {
       return javascriptFile({ target, path });
     }
