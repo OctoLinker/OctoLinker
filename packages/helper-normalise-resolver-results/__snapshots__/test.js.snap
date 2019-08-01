@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`normaliseResolverResults converts [object Object] 1`] = `
+Array [
+  Object {
+    "registry": "npm",
+    "target": "foo",
+    "type": "registry",
+  },
+]
+`;
+
 exports[`normaliseResolverResults converts { registry: 'npm', target: 'foo' } 1`] = `
 Array [
   Object {
