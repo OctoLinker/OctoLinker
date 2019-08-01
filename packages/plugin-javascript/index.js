@@ -1,5 +1,6 @@
 import { join, dirname, extname } from 'path';
 import concatMap from 'concat-map';
+import isUrl from 'is-url';
 import {
   REQUIRE,
   IMPORT,
@@ -59,23 +60,11 @@ export function javascriptFile({ path, target }) {
   });
 }
 
-function isURLImport(target) {
-  try {
-    const { protocol, pathname } = new URL(target);
-    if (protocol !== 'https:' && protocol !== 'http:') return false;
-    const ext = extname(pathname);
-    if (ext !== '.js' && ext !== '.ts') return false;
-    return true;
-  } catch (err) {
-    return false;
-  }
-}
-
 export default {
   name: 'JavaScript',
 
   resolve(path, [target]) {
-    if (isURLImport(target)) {
+    if (isUrl(target)) {
       return resolverTrustedUrl({ target });
     }
 
