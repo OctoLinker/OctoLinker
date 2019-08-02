@@ -25,6 +25,27 @@ describe('javascript-universal', () => {
     });
   });
 
+  it("does not resolve 'https://example.org/'", () => {
+    expect(plugin.resolve(path, ['https://example.org'])).toEqual({
+      target: 'https://example.org',
+      type: 'trusted-url',
+    });
+  });
+
+  it("resolves 'https://example.org/foo.js' to 'https://example.org/foo.js'", () => {
+    expect(plugin.resolve(path, ['https://example.org/foo.js'])).toEqual({
+      target: 'https://example.org/foo.js',
+      type: 'trusted-url',
+    });
+  });
+
+  it("resolves 'https://example.org/foo.ts' to 'https://example.org/foo.ts'", () => {
+    expect(plugin.resolve(path, ['https://example.org/foo.ts'])).toEqual({
+      target: 'https://example.org/foo.ts',
+      type: 'trusted-url',
+    });
+  });
+
   it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {
     expect(plugin.resolve('', ['./modules/es6.symbol'])).toMatchSnapshot();
   });
