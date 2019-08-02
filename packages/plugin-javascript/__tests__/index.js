@@ -33,11 +33,9 @@ describe('javascript-universal', () => {
   });
 
   it("does not resolve 'https://example.org/'", () => {
-    // TODO: Currently resolves incorrectly as 'https' module,
-    // but should not resolve.
     expect(plugin.resolve(path, ['https://example.org'])).toEqual({
-      registry: 'npm',
-      target: 'https',
+      target: 'https://example.org',
+      type: 'trusted-url',
     });
   });
 
