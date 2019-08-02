@@ -10,16 +10,6 @@ Array [
 ]
 `;
 
-exports[`normaliseResolverResults converts { registry: 'npm', target: 'foo' } 1`] = `
-Array [
-  Object {
-    "registry": "npm",
-    "target": "foo",
-    "type": "registry",
-  },
-]
-`;
-
 exports[`normaliseResolverResults converts {BASE_URL}/file.js 1`] = `
 Array [
   Object {
