@@ -9,7 +9,7 @@
     "linkstate": "^1.1.0",
     "preact": "^8.2.5",
     "primer-core": "^7.0.0",
-    "primer-forms": "^1.4.0",
+    "primer-forms": "^3.0.0",
     "primer-product": "^6.0.0",
     "webextension-polyfill": "^0.4.0"
   }
