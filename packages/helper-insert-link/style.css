@@ -41,8 +41,8 @@ body.octolinker-debug .octolinker-link {
   cursor: default;
 }
 
-/* Fix line indicator for issue code blocks */
-div.highlight {
+/* Keep line indicator inside the box in Markdown `pre` blocks */
+.markdown-body .highlight {
   position: relative;
 }
 
