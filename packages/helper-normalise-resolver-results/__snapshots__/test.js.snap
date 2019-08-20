@@ -49,6 +49,32 @@ Array [
 ]
 `;
 
+exports[`normaliseResolverResults converts {BASE_URL}/foo/bar/blob/master/file.js 2`] = `
+Array [
+  Object {
+    "branch": "master",
+    "path": "file.js",
+    "repo": "bar",
+    "type": "internal-link",
+    "url": "https://github.com/foo/bar/blob/master/file.js",
+    "user": "foo",
+  },
+]
+`;
+
+exports[`normaliseResolverResults converts {BASE_URL}/foo/bar/blob/master/file.js,{BASE_URL}/foo/bar/blob/master/file.js 1`] = `
+Array [
+  Object {
+    "target": "https://github.com/foo/bar/blob/master/file.js",
+    "type": "ping",
+  },
+  Object {
+    "target": "https://github.com/foo/bar/blob/master/file.js",
+    "type": "ping",
+  },
+]
+`;
+
 exports[`normaliseResolverResults converts {BASE_URL}file.js 1`] = `
 Array [
   Object {
