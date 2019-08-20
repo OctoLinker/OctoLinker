@@ -20,7 +20,7 @@ const internal = url => {
 // An external url like a documenation page
 const external = url => ({
   type: 'ping',
-  target: url,
+  target: url.replace('{BASE_URL}', BASE_URL),
 });
 
 // Async resolver
@@ -39,7 +39,7 @@ const registry = ({ registry: type, target }) => ({
 export default function(urls) {
   return [].concat(urls).map(url => {
     if (typeof url === 'string') {
-      if (url.startsWith('{BASE_URL}')) {
+      if (url.startsWith('{BASE_URL}') && urls.length === 1) {
         return internal(url);
       }
 
