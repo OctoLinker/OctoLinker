@@ -1,10 +1,10 @@
 dist: trusty
 sudo: false
-addons:
-  firefox: latest
-  apt:
-    packages:
-      - google-chrome-stable
+# addons:
+#   firefox: latest
+#   apt:
+#     packages:
+#       - google-chrome-stable
 language: node_js
 node_js:
   - 10
@@ -12,9 +12,9 @@ cache:
   yarn: true
 # Use npm > 4 to fix https://github.com/npm/npm/issues/14042
 before_install:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+  # - export CHROME_BIN=/usr/bin/google-chrome
+  # - export DISPLAY=:99.0
+  # - sh -e /etc/init.d/xvfb start
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.7.0
   - export PATH=$HOME/.yarn/bin:$PATH
 before_script:
@@ -23,7 +23,7 @@ before_script:
 script:
   - travis_retry yarn test && codecov
   - yarn build
-  - travis_retry yarn e2e
+  # - travis_retry yarn e2e
 deploy:
   - provider: script
     script: yarn package
