@@ -33,6 +33,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'import/no-extraneous-dependencies': 0,
     'no-underscore-dangle': 0,
+    'no-unused-vars': 0,
     'no-useless-escape': 0,
     'class-methods-use-this': 0,
     'no-param-reassign': 0,
