@@ -8,11 +8,11 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - name: npm install, test, and build
-      run: |
-        npm install
-        npm test
-        npm run build
+    - run: npm install
       env:
         CI: true
+    - run: npm test
+      env:
+        CI: true
+    - run: npm run build
 
