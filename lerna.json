@@ -4,6 +4,7 @@
   "packages": [
     "packages/*"
   ],
+  "npmClient": "npm",
   "npmClientArgs": [
     "--no-package-lock"
   ]

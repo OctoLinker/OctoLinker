@@ -8,9 +8,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
-    - run: npm install
-      env:
-        CI: true
+    - run: npm ci
     - run: npm test
       env:
         CI: true
