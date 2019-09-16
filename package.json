@@ -6,28 +6,29 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "pretest": "yarn lint",
+    "pretest": "npm run lint",
     "test": "jest",
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
-    "postinstall": "yarn lerna bootstrap",
+    "postinstall": "lerna bootstrap",
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json && json -I -f packages/core/package.json -e \"this.version='`json -f package.json version`'\" && git add packages/core/package.json",
     "package": "web-ext build --source-dir dist --artifacts-dir out --overwrite-dest",
-    "patch-permissions": "yarn json -I -f assets/manifest.json -e 'this.permissions.push(\"https://api.github.com/\")'",
+    "patch-permissions": "npm run json -I -f assets/manifest.json -e 'this.permissions.push(\"https://api.github.com/\")'",
     "release:cws": "cd dist && webstore upload --auto-publish",
-    "release:amo": "cd dist && yarn patch-permissions && webext submit",
+    "release:amo": "cd dist && npm run patch-permissions && webext submit",
     "release": "npm run release:cws && npm run release:amo",
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
-    "chrome-open": "yarn build && yarn chrome-launch --",
+    "chrome-open": "npm run build && npm run chrome-launch --",
     "chrome-launch": "node scripts/chrome-launch.js",
-    "firefox-open": "yarn build && yarn firefox-launch --",
+    "firefox-open": "npm run build && npm run firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/master/package.json"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-runtime": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
     "async": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0",
@@ -71,7 +72,5 @@
     "fsevents": "2.0.7"
   },
   "private": true,
-  "dependencies": {
-    "@babel/plugin-transform-runtime": "^7.4.4"
-  }
+  "dependencies": {}
 }
