@@ -6,8 +6,28 @@ const pkgVersion = require('./package.json')
   .slice(0, -1)
   .join('.');
 
+const showPromo = function(promoVersion) {
+  const lastpromoVersion = storage.get('promoVersion');
+
+  storage.set('promoVersion', promoVersion);
+
+  if (lastpromoVersion !== promoVersion) {
+    const body = `<div style="display: grid; grid-template-columns: 60px auto;">
+      <div>
+        <img width="40" src="https://octolinker.now.sh/static/octolinker-small.png">
+      </div>
+      <div>
+      We're super interested to learn what you think about <b>OctoLinker</b>!<br/>Please fill out this <a href="http://bit.ly/2lRJ7MB" target="_blank"><b>two questions</b></a> survey so that we can make it better!
+      </div>
+     </div>`;
+    showNotification({ body });
+  }
+};
+
 export default async function() {
   const showUpdateNotification = storage.get('showUpdateNotification');
+
+  showPromo(2019);
 
   if (!showUpdateNotification) {
     return;
