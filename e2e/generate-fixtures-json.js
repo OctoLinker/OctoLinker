@@ -44,7 +44,11 @@ function findTests(contents) {
 
     lines.forEach((line, index) => {
       if (line.includes('@OctoLinkerResolve')) {
-        const lineNumber = index + 2;
+        let lineNumber = index + 2;
+        if (file.endsWith('.md')) {
+          lineNumber = undefined;
+        }
+
         const targetUrl = line
           .match(/@OctoLinkerResolve\((.*?)\)/)[1]
           .replace('<root>', '');

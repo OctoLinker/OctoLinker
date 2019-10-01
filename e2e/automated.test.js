@@ -45,7 +45,19 @@ describe('End to End tests', () => {
   describe('single blob', () => {
     fixtures.forEach(({ url, content, lineNumber, targetUrl }) => {
       it(`resolves ${content} to ${targetUrl}`, async () => {
-        await executeTest(url, targetUrl, `#LC${lineNumber} .octolinker-link`);
+        if (lineNumber) {
+          await executeTest(
+            url,
+            targetUrl,
+            `#LC${lineNumber} .octolinker-link`,
+          );
+        } else {
+          await executeTest(
+            url,
+            targetUrl,
+            `.octolinker-link[href="${targetUrl}"]`,
+          );
+        }
       });
     });
   });
