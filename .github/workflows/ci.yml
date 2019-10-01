@@ -13,6 +13,13 @@ jobs:
       env:
         CI: true
     - run: npm run build
+    - name: Run E2E
+      uses: mujo-code/puppeteer-headful@master
+      env:
+        CI: true
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
+      with:
+        args: npm run e2e
     - run: npm run package
       if: startsWith(github.ref, 'refs/tags/')
     - name: Release
