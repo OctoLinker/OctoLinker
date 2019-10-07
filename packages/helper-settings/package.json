@@ -7,7 +7,7 @@
   "main": "./index.js",
   "dependencies": {
     "linkstate": "^1.1.0",
-    "preact": "^8.2.5",
+    "preact": "^10.0.0",
     "primer-core": "^7.0.0",
     "primer-forms": "^3.0.0",
     "primer-product": "^6.0.0",
