@@ -47,7 +47,7 @@ describe('blob-reader', () => {
         );
       });
 
-      it.skip('when PR comment is outdated', () => {
+      it('when PR comment is outdated', () => {
         fixture.load(
           '/packages/blob-reader/fixtures/github.com/pull/comments.html',
         );
@@ -164,15 +164,15 @@ describe('blob-reader', () => {
         expect(blob.isDiff).toBe(true);
       });
 
-      it.skip('1st line', () => {
+      it('1st line', () => {
         expect(blob.lines[0]).toMatchSnapshot();
       });
 
-      it.skip('additions', () => {
+      it('additions', () => {
         expect(blob.lines[6]).toMatchSnapshot();
       });
 
-      it.skip('deletions', () => {
+      it('deletions', () => {
         expect(blob.lines[9]).toMatchSnapshot();
       });
     });
@@ -192,19 +192,19 @@ describe('blob-reader', () => {
         expect(blob.isDiff).toBe(true);
       });
 
-      it.skip('contains four lines', () => {
+      it('contains four lines', () => {
         expect(blob.lines).toHaveLength(7);
       });
 
-      it.skip('1st line', () => {
+      it('1st line', () => {
         expect(blob.lines[0]).toMatchSnapshot();
       });
 
-      it.skip('additions', () => {
+      it('additions', () => {
         expect(blob.lines[3]).toMatchSnapshot();
       });
 
-      it.skip('deletions', () => {
+      it('deletions', () => {
         expect(blob.lines[5]).toMatchSnapshot();
       });
     });
