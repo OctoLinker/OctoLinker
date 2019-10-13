@@ -78,6 +78,10 @@ function getPath(el) {
     .attr('href');
 
   if (!ret) {
+    if (el.classList.contains('highlight')) {
+      // Markdown code snippets does not support relative imports
+      return;
+    }
     ret = $('.js-permalink-shortcut').attr('href');
   }
 
