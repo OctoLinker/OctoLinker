@@ -18,11 +18,32 @@ export default class Blob {
     this.path = getPath(el);
     this.lines = readLines(el);
     this.isDiff =
-      this.lines.filter(line => line.addition || line.deletion).length > 0;
+      this.lines.filter(({ side }) => ['left', 'right'].includes(side)).length >
+      0;
+    this.firstLineNumber = this.isDiff
+      ? parseInt(
+          el.querySelector('tr:nth-child(2n) [data-line-number]').dataset
+            .lineNumber,
+          10,
+        )
+      : 1;
   }
 
-  toString() {
-    return this.lines.map(({ value }) => value).join('\n');
+  toString(type = null) {
+    let filterFunc = () => true;
+
+    // Diff left side
+    if (type === 'left') {
+      filterFunc = ({ side }) => ['left', 'context'].includes(side);
+    }
+    // Diff right side
+    if (type === 'right') {
+      filterFunc = ({ side }) => ['right', 'context'].includes(side);
+    }
+    return this.lines
+      .filter(filterFunc)
+      .map(({ value }) => value)
+      .join('\n');
   }
 
   toJSON() {

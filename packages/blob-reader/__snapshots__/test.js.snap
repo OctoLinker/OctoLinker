@@ -74,50 +74,162 @@ Array [
 ]
 `;
 
-exports[`blob-reader diff split 1st line 1`] = `
-Object {
-  "lineNumber": 1,
-  "value": "// Most popular rabbit names",
-}
+exports[`blob-reader diff split internals 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "side": "left",
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 1,
+    "side": "right",
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "side": "left",
+    "value": "",
+  },
+  Object {
+    "lineNumber": 2,
+    "side": "right",
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "side": "left",
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 3,
+    "side": "right",
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 4,
+    "side": "right",
+    "value": "Mozart",
+  },
+  Object {
+    "lineNumber": 4,
+    "side": "left",
+    "value": "Daisy",
+  },
+  Object {
+    "lineNumber": 5,
+    "side": "right",
+    "value": "Daisy",
+  },
+  Object {
+    "lineNumber": 5,
+    "side": "left",
+    "value": "Lily",
+  },
+  Object {
+    "lineNumber": 6,
+    "side": "right",
+    "value": "Annelie",
+  },
+]
 `;
 
-exports[`blob-reader diff split additions 1`] = `
-Object {
-  "addition": true,
-  "lineNumber": 4,
-  "value": "Mozart",
-}
+exports[`blob-reader diff split toString("left") 1`] = `
+"// Most popular rabbit names
+
+Thumper
+Daisy
+Lily"
 `;
 
-exports[`blob-reader diff split deletions 1`] = `
-Object {
-  "deletion": true,
-  "lineNumber": 5,
-  "value": "Lily",
-}
+exports[`blob-reader diff split toString("right") 1`] = `
+"// Most popular rabbit names
+
+Thumper
+Mozart
+Daisy
+Annelie"
 `;
 
-exports[`blob-reader diff unified 1st line 1`] = `
-Object {
-  "lineNumber": 1,
-  "value": "// Most popular rabbit names",
-}
+exports[`blob-reader diff split toString() 1`] = `
+"// Most popular rabbit names
+// Most popular rabbit names
+
+
+Thumper
+Thumper
+Mozart
+Daisy
+Daisy
+Lily
+Annelie"
 `;
 
-exports[`blob-reader diff unified additions 1`] = `
-Object {
-  "addition": true,
-  "lineNumber": 4,
-  "value": "Mozart",
-}
+exports[`blob-reader diff unified internals 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "side": "context",
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "side": "context",
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "side": "context",
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 4,
+    "side": "right",
+    "value": "Mozart",
+  },
+  Object {
+    "lineNumber": 5,
+    "side": "context",
+    "value": "Daisy",
+  },
+  Object {
+    "lineNumber": 5,
+    "side": "left",
+    "value": "Lily",
+  },
+  Object {
+    "lineNumber": 6,
+    "side": "right",
+    "value": "Annelie",
+  },
+]
 `;
 
-exports[`blob-reader diff unified deletions 1`] = `
-Object {
-  "deletion": true,
-  "lineNumber": 5,
-  "value": "Lily",
-}
+exports[`blob-reader diff unified toString("left") 1`] = `
+"// Most popular rabbit names
+
+Thumper
+Daisy
+Lily"
+`;
+
+exports[`blob-reader diff unified toString("right") 1`] = `
+"// Most popular rabbit names
+
+Thumper
+Mozart
+Daisy
+Annelie"
+`;
+
+exports[`blob-reader diff unified toString() 1`] = `
+"// Most popular rabbit names
+
+Thumper
+Mozart
+Daisy
+Lily
+Annelie"
 `;
 
 exports[`blob-reader issue contains lines 1`] = `

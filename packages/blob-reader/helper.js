@@ -150,10 +150,38 @@ function getLineNumber(el) {
 }
 
 function diffMetaInformation(el) {
-  const $td = $(el).closest('td');
+  const td = $(el)
+    .closest('td')
+    .get(0);
+
+  // Blob view
+  if (td.classList.contains('js-file-line')) {
+    return {};
+  }
+
+  let side;
+
+  // split diff
+  if (td.cellIndex === 1) {
+    side = 'left';
+  } else if (td.cellIndex === 3) {
+    side = 'right';
+  }
+
+  // unified diff
+  if (!side && td.cellIndex === 2) {
+    if (td.classList.contains('blob-code-addition')) {
+      side = 'right';
+    } else if (td.classList.contains('blob-code-deletion')) {
+      side = 'left';
+    } else if (td.classList.contains('blob-code-context')) {
+      side = 'context';
+    }
+  }
+
+  // Diff view
   return {
-    deletion: $td.hasClass('blob-code-deletion'),
-    addition: $td.hasClass('blob-code-addition'),
+    side,
   };
 }
 
@@ -164,22 +192,13 @@ function readLine(el) {
     return null;
   }
 
-  const { deletion, addition } = diffMetaInformation(el);
-
   // Each array element represents a single line.
   // Therefore we can get ride of the newline here.
   const ret = {
     value: el.textContent.replace(/\n/, ''),
     lineNumber,
+    ...diffMetaInformation(el),
   };
-
-  if (deletion) {
-    ret.deletion = deletion;
-  }
-
-  if (addition) {
-    ret.addition = addition;
-  }
 
   return ret;
 }
