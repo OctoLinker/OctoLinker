@@ -164,16 +164,21 @@ describe('blob-reader', () => {
         expect(blob.isDiff).toBe(true);
       });
 
-      it('1st line', () => {
-        expect(blob.lines[0]).toMatchSnapshot();
+      it('internals', () => {
+        expect(blob.firstLineNumber).toBe(1);
+        expect(blob.lines).toMatchSnapshot();
       });
 
-      it('additions', () => {
-        expect(blob.lines[6]).toMatchSnapshot();
+      it('toString()', () => {
+        expect(blob.toString()).toMatchSnapshot();
       });
 
-      it('deletions', () => {
-        expect(blob.lines[9]).toMatchSnapshot();
+      it('toString("left")', () => {
+        expect(blob.toString('left')).toMatchSnapshot();
+      });
+
+      it('toString("right")', () => {
+        expect(blob.toString('right')).toMatchSnapshot();
       });
     });
 
@@ -192,20 +197,21 @@ describe('blob-reader', () => {
         expect(blob.isDiff).toBe(true);
       });
 
-      it('contains four lines', () => {
-        expect(blob.lines).toHaveLength(7);
+      it('internals', () => {
+        expect(blob.firstLineNumber).toBe(1);
+        expect(blob.lines).toMatchSnapshot();
       });
 
-      it('1st line', () => {
-        expect(blob.lines[0]).toMatchSnapshot();
+      it('toString()', () => {
+        expect(blob.toString()).toMatchSnapshot();
       });
 
-      it('additions', () => {
-        expect(blob.lines[3]).toMatchSnapshot();
+      it('toString("left")', () => {
+        expect(blob.toString('left')).toMatchSnapshot();
       });
 
-      it('deletions', () => {
-        expect(blob.lines[5]).toMatchSnapshot();
+      it('toString("right")', () => {
+        expect(blob.toString('right')).toMatchSnapshot();
       });
     });
 
