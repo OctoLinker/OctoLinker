@@ -105,3 +105,9 @@ Array [
   },
 ]
 `;
+
+exports[`normaliseResolverResults converts https://novalidurl 1`] = `
+Array [
+  Object {},
+]
+`;
