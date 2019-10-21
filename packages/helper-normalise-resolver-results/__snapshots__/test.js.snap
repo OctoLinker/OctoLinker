@@ -13,12 +13,8 @@ Array [
 exports[`normaliseResolverResults converts {BASE_URL}/file.js 1`] = `
 Array [
   Object {
-    "branch": undefined,
-    "path": undefined,
-    "repo": undefined,
-    "type": "internal-link",
-    "url": "https://github.com/file.js",
-    "user": "file.js",
+    "target": "https://github.com/file.js",
+    "type": "ping",
   },
 ]
 `;
@@ -65,12 +61,20 @@ Array [
 exports[`normaliseResolverResults converts {BASE_URL}/foo/bar/blob/master/file.js,{BASE_URL}/foo/bar/blob/master/file.js 1`] = `
 Array [
   Object {
-    "target": "https://github.com/foo/bar/blob/master/file.js",
-    "type": "ping",
+    "branch": "master",
+    "path": "file.js",
+    "repo": "bar",
+    "type": "internal-link",
+    "url": "https://github.com/foo/bar/blob/master/file.js",
+    "user": "foo",
   },
   Object {
-    "target": "https://github.com/foo/bar/blob/master/file.js",
-    "type": "ping",
+    "branch": "master",
+    "path": "file.js",
+    "repo": "bar",
+    "type": "internal-link",
+    "url": "https://github.com/foo/bar/blob/master/file.js",
+    "user": "foo",
   },
 ]
 `;
@@ -78,12 +82,8 @@ Array [
 exports[`normaliseResolverResults converts {BASE_URL}file.js 1`] = `
 Array [
   Object {
-    "branch": undefined,
-    "path": undefined,
-    "repo": undefined,
-    "type": "internal-link",
-    "url": "https://github.comfile.js",
-    "user": undefined,
+    "target": "https://github.comfile.js",
+    "type": "ping",
   },
 ]
 `;

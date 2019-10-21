@@ -38,6 +38,9 @@ async function run(rootElement) {
     }
   }
 
+  const [, user, repo] = window.location.pathname.split('/');
+  const currentRepoSlug = `${user}/${repo}`;
+
   matches = matches
     .filter(result => result !== undefined)
     .map(({ link, urls }) => {
@@ -45,7 +48,7 @@ async function run(rootElement) {
 
       return {
         link,
-        urls: normaliseResolverResults(urlsSorted),
+        urls: normaliseResolverResults(urlsSorted, currentRepoSlug),
       };
     });
 

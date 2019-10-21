@@ -52,10 +52,10 @@ const registry = ({ registry: type, target }) => ({
   target,
 });
 
-export default function(urls) {
+export default function(urls, slug) {
   return [].concat(urls).map(url => {
     if (typeof url === 'string') {
-      if (url.startsWith('{BASE_URL}') && urls.length === 1) {
+      if (url.startsWith(`{BASE_URL}/${slug}/`)) {
         return internal(url);
       }
 
