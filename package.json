@@ -69,7 +69,7 @@
     "webpack-cli": "^3.3.4"
   },
   "optionalDependencies": {
-    "fsevents": "2.0.7"
+    "fsevents": "2.1.1"
   },
   "private": true,
   "dependencies": {}
