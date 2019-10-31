@@ -88,7 +88,10 @@ export default class Form extends Component {
           description={githubTokenDescription()}
           value={state.githubToken}
           error={errorMessage}
-          onInput={linkState(this, 'githubToken')}
+          onInput={event => {
+            linkState(this, 'githubToken')(event);
+            this.validateToken();
+          }}
         />
         <p className="note ">
           For public repositories,{' '}
