@@ -166,6 +166,10 @@ export const NET_PACKAGE = regex`
   .*/>
 `;
 
+export const GITHUB_ACTIONS = regex`
+  uses:\s(?<$1>[^@\s]+)
+`;
+
 export const JAVA_IMPORT = regex`
   ${diffSigns}
   import
