@@ -17,10 +17,11 @@ const async = require('async');
 //    ...
 // ]
 
-const repoSlug =
-  process.env.TRAVIS_PULL_REQUEST_SLUG || 'OctoLinker/OctoLinker';
-const branch = process.env.TRAVIS_PULL_REQUEST_BRANCH || 'master';
-const fixturesRoot = `https://github.com/${repoSlug}/blob/${branch}/e2e`;
+console.log(JSON.stringify(process.env, null, ''));
+
+const user = process.env.GITHUB_ACTOR || 'OctoLinker';
+const branch = process.env.GITHUB_HEAD_REF || 'master';
+const fixturesRoot = `https://github.com/${user}/OctoLinker/blob/${branch}/e2e`;
 
 console.log('Fixtures root:', fixturesRoot); // eslint-disable-line no-console
 
