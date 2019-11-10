@@ -1,5 +1,5 @@
 name: Node CI
-on: [push, pull_request]
+on: push
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,3 +29,11 @@ jobs:
         files: "out/*.zip"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Publish
+      run: 'npm run release'
+      if: startsWith(github.ref, 'refs/tags/')
+      env:      
+        CLIENT_ID: ${{ secrets.PUBLISHER_CHROME_CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.PUBLISHER_CHROME_CLIENT_SECRET }}
+        REFRESH_TOKEN: ${{ secrets.PUBLISHER_CHROME_REFRESH_TOKEN }}
+        EXTENSION_ID: 'jlmafbaeoofdegohdhinkhilhclaklkp'

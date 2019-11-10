@@ -16,7 +16,7 @@
     "patch-permissions": "npm run json -I -f assets/manifest.json -e 'this.permissions.push(\"https://api.github.com/\")'",
     "release:cws": "cd dist && webstore upload --auto-publish",
     "release:amo": "cd dist && npm run patch-permissions && webext submit",
-    "release": "npm run release:cws && npm run release:amo",
+    "release": "npm run release:cws",
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development",
     "chrome-open": "npm run build && npm run chrome-launch --",
