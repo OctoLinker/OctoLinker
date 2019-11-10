@@ -25,3 +25,4 @@ export { default as Rust } from '@octolinker/plugin-rust';
 export { default as Sass } from '@octolinker/plugin-sass';
 export { default as TypeScript } from '@octolinker/plugin-typescript';
 export { default as Vim } from '@octolinker/plugin-vim';
+export { default as GitHubActions } from '@octolinker/plugin-github-actions';

@@ -1,0 +1,13 @@
+name: "Test"
+on: ['push']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    # @OctoLinkerResolve(https://github.com/actions/checkout)
+    - uses: actions/checkout@v1
+    # @OctoLinkerResolve(https://github.com/actions/setup-node)
+    - uses: actions/setup-node
+    # @OctoLinkerResolve(https://github.com/actions/upload-artifact)
+    - uses: actions/upload-artifact@master

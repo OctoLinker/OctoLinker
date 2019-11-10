@@ -464,6 +464,14 @@ const fixtures = {
       '< DotNetCliToolReference  Include="Microsoft.DotNet.Xdt.Tools" Version="2.0.0" />',
     ],
   },
+  GITHUB_ACTIONS: {
+    valid: [
+      ['uses: foo/bar', ['foo/bar']],
+      ['uses: foo/bar@v1', ['foo/bar']],
+      ['uses: foo/bar@master', ['foo/bar']],
+    ],
+    invalid: [],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {
