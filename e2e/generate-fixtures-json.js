@@ -17,9 +17,16 @@ const async = require('async');
 //    ...
 // ]
 
-console.log(JSON.stringify(process.env, null, ''));
+let username;
 
-const user = process.env.GITHUB_ACTOR || 'OctoLinker';
+if (process.env.GITHUB_EVENT_PATH) {
+  const json = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
+  if (json && json.pull_request) {
+    username = json.pull_request.head.user.login;
+  }
+}
+
+const user = username || 'OctoLinker';
 const branch = process.env.GITHUB_HEAD_REF || 'master';
 const fixturesRoot = `https://github.com/${user}/OctoLinker/blob/${branch}/e2e`;
 
