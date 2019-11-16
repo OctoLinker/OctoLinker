@@ -19,7 +19,7 @@ To build and run the extension follow these steps.
    * Chrome (Quickstart):
      1. `npm run chrome-open`
    * Chrome (Long Version):
-     1. To build the extension once run `npm run build` or `npm run watch` during development.
+     1. To build the extension once run `npm run build` or `npm start` during development.
      1. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
 [CSS]: https://github.com/OctoLinker/OctoLinker/commit/ccbefb7

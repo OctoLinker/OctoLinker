@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin'); // eslint-disable-line
+const ExtensionReloader = require('webpack-extension-reloader');
 
 module.exports = (env, argv) => ({
   mode: 'development',
@@ -17,7 +18,17 @@ module.exports = (env, argv) => ({
   plugins: [
     new CopyWebpackPlugin([{ from: 'assets' }]),
     new webpack.EnvironmentPlugin(['OCTOLINKER_LIVE_DEMO']),
-  ],
+    argv.mode === 'development'
+      ? new ExtensionReloader({
+          port: 9090,
+          reloadPage: true,
+          entries: {
+            contentScript: ['app'],
+            background: 'background',
+          },
+        })
+      : false,
+  ].filter(Boolean),
   module: {
     rules: [
       {
