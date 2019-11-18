@@ -39,7 +39,7 @@ export default function(blobString, regex) {
     const endPos = startPos + matchValueStriped.length;
 
     return {
-      lineNumber: lineNumber - 1,
+      lineNumber,
       startPos,
       endPos,
       values: [matchValueStriped],
