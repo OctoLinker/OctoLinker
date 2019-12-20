@@ -1,0 +1,24 @@
+name: Release
+on:
+  push:
+    tags:
+      - v*
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+    - run: npm ci
+    - run: npm run build
+    - run: 'npm run release'
+      if: startsWith(github.ref, 'refs/tags/')
+      env:      
+        CLIENT_ID: ${{ secrets.PUBLISHER_CHROME_CLIENT_ID }}
+        CLIENT_SECRET: ${{ secrets.PUBLISHER_CHROME_CLIENT_SECRET }}
+        REFRESH_TOKEN: ${{ secrets.PUBLISHER_CHROME_REFRESH_TOKEN }}
+        WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+        WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+        EXTENSION_ID: 'jlmafbaeoofdegohdhinkhilhclaklkp'
