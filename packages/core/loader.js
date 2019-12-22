@@ -86,9 +86,7 @@ function insertLinks({
         );
 
         if (allMatches.length === 1) {
-          link.href = `https://github.com/${user}/${repo}/blob/${branch}/${
-            allMatches[0]
-          }`;
+          link.href = `https://github.com/${user}/${repo}/blob/${branch}/${allMatches[0]}`;
           if (process.env.OCTOLINKER_LIVE_DEMO) {
             link.href = injectLiveDemoUrl(link.href);
           }
