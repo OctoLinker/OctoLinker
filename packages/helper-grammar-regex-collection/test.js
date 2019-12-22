@@ -175,7 +175,10 @@ const fixtures = {
     ],
   },
   GEM: {
-    valid: [['gem "foo"', ['foo']], ["gem 'foo'", ['foo']]],
+    valid: [
+      ['gem "foo"', ['foo']],
+      ["gem 'foo'", ['foo']],
+    ],
     invalid: ['gem     "foo"'],
   },
   HASKELL_IMPORT: {
@@ -485,7 +488,10 @@ function fixturesIterator(fixturesList, next) {
 
 function addModifiedLines(valid) {
   const [text, expected] = valid[0];
-  const diffLines = [[` -${text}`, expected], [` +${text}`, expected]];
+  const diffLines = [
+    [` -${text}`, expected],
+    [` +${text}`, expected],
+  ];
 
   return [].concat([], diffLines, valid);
 }

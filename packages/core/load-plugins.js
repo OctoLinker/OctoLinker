@@ -12,14 +12,10 @@ export { default as HTML } from '@octolinker/plugin-html';
 export { default as Java } from '@octolinker/plugin-java';
 export { default as JavaScript } from '@octolinker/plugin-javascript';
 export { default as Less } from '@octolinker/plugin-less';
-export {
-  default as NodejsRelativePath,
-} from '@octolinker/plugin-nodejs-relative-path';
+export { default as NodejsRelativePath } from '@octolinker/plugin-nodejs-relative-path';
 export { default as NpmManifest } from '@octolinker/plugin-npm-manifest';
 export { default as Python } from '@octolinker/plugin-python';
-export {
-  default as RequirementsTxt,
-} from '@octolinker/plugin-requirements-txt';
+export { default as RequirementsTxt } from '@octolinker/plugin-requirements-txt';
 export { default as Ruby } from '@octolinker/plugin-ruby';
 export { default as Rust } from '@octolinker/plugin-rust';
 export { default as Sass } from '@octolinker/plugin-sass';
