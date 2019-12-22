@@ -26,7 +26,7 @@ export default async function() {
     const url = json.html_url;
     const version = json.tag_name.replace('v', '');
 
-    const body = `New in OctoLinker ${version}: <b>${description}</b> – <a href="${url}" target="_blank">Release Notes</a>`;
+    const body = `${description} &ndash; see what's new in OctoLinker ${version}! <a href="${url}" target="_blank">Learn more</a>`;
 
     showNotification({ body });
   }
