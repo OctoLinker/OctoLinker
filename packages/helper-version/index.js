@@ -1,5 +1,6 @@
-import semver from 'semver';
+import valid from 'semver/functions/valid';
+import validRange from 'semver/ranges/valid';
 
 export function isSemver(value) {
-  return semver.valid(value) || semver.validRange(value);
+  return valid(value) || validRange(value);
 }
