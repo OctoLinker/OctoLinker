@@ -59,7 +59,7 @@
     "prettier": "^1.18.2",
     "puppeteer": "^1.20.0",
     "recursive-readdir": "^2.2.2",
-    "sinon": "^7.3.2",
+    "sinon": "^8.0.1",
     "string.prototype.matchall": "^4.0.0",
     "style-loader": "^1.0.0",
     "web-ext": "^4.0.0",
