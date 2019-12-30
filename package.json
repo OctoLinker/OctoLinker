@@ -62,7 +62,7 @@
     "sinon": "^7.3.2",
     "string.prototype.matchall": "^4.0.0",
     "style-loader": "^1.0.0",
-    "web-ext": "^3.0.0",
+    "web-ext": "^4.0.0",
     "web-ext-submit": "^3.2.1",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.4",
