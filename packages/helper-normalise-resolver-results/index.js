@@ -52,10 +52,12 @@ const registry = ({ registry: type, target }) => ({
   target,
 });
 
-export default function(urls, slug) {
+export default function(urls) {
   return [].concat(urls).map(url => {
     if (typeof url === 'string') {
-      if (url.startsWith(`{BASE_URL}/${slug}/`)) {
+      const [, user, repo] = url.split('/');
+
+      if (url.startsWith(`{BASE_URL}/${user}/${repo}/blob/`)) {
         return internal(url);
       }
 
