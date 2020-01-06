@@ -24,7 +24,6 @@ async function run(rootElement) {
       for (const plugin of plugins) {
         if (plugin.needsContext && blob.isDiff) {
           await blob.fetchBlob(); // eslint-disable-line no-await-in-loop
-          await blob.fetchParentBlob(); // eslint-disable-line no-await-in-loop
         }
 
         if (plugin.parseBlob) {

@@ -1,6 +1,6 @@
 import jsonPath from 'JSONPath';
 
-function callInsertLink(blob, plugin, config) {
+export default function(blob, plugin, config) {
   let results = [];
   const json = blob.toJSON();
   Object.entries(config).forEach(([path, linker]) => {
@@ -17,16 +17,6 @@ function callInsertLink(blob, plugin, config) {
       }
     });
   });
-
-  return results;
-}
-
-export default function(blob, plugin, config) {
-  let results = callInsertLink(blob, plugin, config);
-
-  if (blob.parent) {
-    results = results.concat(callInsertLink(blob.parent, plugin, config));
-  }
 
   return results;
 }
