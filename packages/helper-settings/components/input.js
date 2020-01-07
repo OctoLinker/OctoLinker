@@ -21,6 +21,7 @@ export default ({
     </dt>
     <dd>
       <input
+        style={{ width: '100%' }}
         className="form-control"
         type={type}
         id={name}
