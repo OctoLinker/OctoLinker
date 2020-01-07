@@ -1,33 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`blob-reader blob 1st line 1`] = `
-Object {
-  "lineNumber": 1,
-  "value": "// Most popular rabbit names",
-}
-`;
-
-exports[`blob-reader blob 2nd line 1`] = `
-Object {
-  "lineNumber": 2,
-  "value": "",
-}
-`;
-
-exports[`blob-reader blob 3rd line 1`] = `
-Object {
-  "lineNumber": 3,
-  "value": "Thumper",
-}
-`;
-
-exports[`blob-reader blob 4th line 1`] = `
-Object {
-  "lineNumber": 4,
-  "value": "Daisy",
-}
-`;
-
 exports[`blob-reader blob fetchBlob fetch raw blob and update blob.lines property 1`] = `
 Array [
   Object {
@@ -49,7 +21,39 @@ Array [
 ]
 `;
 
-exports[`blob-reader diff fetchParentBlob fetch raw blob and update blob.lines property 1`] = `
+exports[`blob-reader blob internals 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 4,
+    "value": "Daisy",
+  },
+]
+`;
+
+exports[`blob-reader blob toJSON() returns a JSON representation of the blobs content 1`] = `
+Object {
+  "foo": "bar",
+}
+`;
+
+exports[`blob-reader blob toString() returns a string representation of the blobs content 1`] = `
+"a
+b"
+`;
+
+exports[`blob-reader diff split left internals 1`] = `
 Array [
   Object {
     "lineNumber": 1,
@@ -74,67 +78,7 @@ Array [
 ]
 `;
 
-exports[`blob-reader diff split internals 1`] = `
-Array [
-  Object {
-    "lineNumber": 1,
-    "side": "left",
-    "value": "// Most popular rabbit names",
-  },
-  Object {
-    "lineNumber": 1,
-    "side": "right",
-    "value": "// Most popular rabbit names",
-  },
-  Object {
-    "lineNumber": 2,
-    "side": "left",
-    "value": "",
-  },
-  Object {
-    "lineNumber": 2,
-    "side": "right",
-    "value": "",
-  },
-  Object {
-    "lineNumber": 3,
-    "side": "left",
-    "value": "Thumper",
-  },
-  Object {
-    "lineNumber": 3,
-    "side": "right",
-    "value": "Thumper",
-  },
-  Object {
-    "lineNumber": 4,
-    "side": "right",
-    "value": "Mozart",
-  },
-  Object {
-    "lineNumber": 4,
-    "side": "left",
-    "value": "Daisy",
-  },
-  Object {
-    "lineNumber": 5,
-    "side": "right",
-    "value": "Daisy",
-  },
-  Object {
-    "lineNumber": 5,
-    "side": "left",
-    "value": "Lily",
-  },
-  Object {
-    "lineNumber": 6,
-    "side": "right",
-    "value": "Annelie",
-  },
-]
-`;
-
-exports[`blob-reader diff split toString("left") 1`] = `
+exports[`blob-reader diff split left toString() 1`] = `
 "// Most popular rabbit names
 
 Thumper
@@ -142,70 +86,70 @@ Daisy
 Lily"
 `;
 
-exports[`blob-reader diff split toString("right") 1`] = `
-"// Most popular rabbit names
-
-Thumper
-Mozart
-Daisy
-Annelie"
-`;
-
-exports[`blob-reader diff split toString() 1`] = `
-"// Most popular rabbit names
-// Most popular rabbit names
-
-
-Thumper
-Thumper
-Mozart
-Daisy
-Daisy
-Lily
-Annelie"
-`;
-
-exports[`blob-reader diff unified internals 1`] = `
+exports[`blob-reader diff split right internals 1`] = `
 Array [
   Object {
     "lineNumber": 1,
-    "side": "context",
     "value": "// Most popular rabbit names",
   },
   Object {
     "lineNumber": 2,
-    "side": "context",
     "value": "",
   },
   Object {
     "lineNumber": 3,
-    "side": "context",
     "value": "Thumper",
   },
   Object {
     "lineNumber": 4,
-    "side": "right",
     "value": "Mozart",
   },
   Object {
     "lineNumber": 5,
-    "side": "context",
     "value": "Daisy",
   },
   Object {
-    "lineNumber": 5,
-    "side": "left",
-    "value": "Lily",
-  },
-  Object {
     "lineNumber": 6,
-    "side": "right",
     "value": "Annelie",
   },
 ]
 `;
 
-exports[`blob-reader diff unified toString("left") 1`] = `
+exports[`blob-reader diff split right toString() 1`] = `
+"// Most popular rabbit names
+
+Thumper
+Mozart
+Daisy
+Annelie"
+`;
+
+exports[`blob-reader diff unified left internals 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 5,
+    "value": "Daisy",
+  },
+  Object {
+    "lineNumber": 5,
+    "value": "Lily",
+  },
+]
+`;
+
+exports[`blob-reader diff unified left toString() 1`] = `
 "// Most popular rabbit names
 
 Thumper
@@ -213,7 +157,36 @@ Daisy
 Lily"
 `;
 
-exports[`blob-reader diff unified toString("right") 1`] = `
+exports[`blob-reader diff unified right internals 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "// Most popular rabbit names",
+  },
+  Object {
+    "lineNumber": 2,
+    "value": "",
+  },
+  Object {
+    "lineNumber": 3,
+    "value": "Thumper",
+  },
+  Object {
+    "lineNumber": 4,
+    "value": "Mozart",
+  },
+  Object {
+    "lineNumber": 5,
+    "value": "Daisy",
+  },
+  Object {
+    "lineNumber": 6,
+    "value": "Annelie",
+  },
+]
+`;
+
+exports[`blob-reader diff unified right toString() 1`] = `
 "// Most popular rabbit names
 
 Thumper
@@ -222,32 +195,28 @@ Daisy
 Annelie"
 `;
 
-exports[`blob-reader diff unified toString() 1`] = `
-"// Most popular rabbit names
-
-Thumper
-Mozart
-Daisy
-Lily
-Annelie"
+exports[`blob-reader gist internals 1`] = `
+Array [
+  Object {
+    "lineNumber": 1,
+    "value": "Max",
+  },
+  Object {
+    "lineNumber": 2,
+    "value": "Buddy",
+  },
+  Object {
+    "lineNumber": 3,
+    "value": "Charlie",
+  },
+]
 `;
 
-exports[`blob-reader issue contains lines 1`] = `
+exports[`blob-reader issue internals 1`] = `
 Array [
   Object {
     "lineNumber": 1,
     "value": "import os",
   },
 ]
-`;
-
-exports[`blob-reader returned values object toJSON() returns a JSON representation of the blobs content 1`] = `
-Object {
-  "foo": "bar",
-}
-`;
-
-exports[`blob-reader returned values object toString() returns a string representation of the blobs content 1`] = `
-"a
-b"
 `;

@@ -45,6 +45,9 @@ describe('blob-reader', () => {
         expect(reader.read()[0].path).toBe(
           '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js',
         );
+        expect(reader.read()[1].path).toBe(
+          '/OctoLinker/testrepo/blob/64dc9c25b3e09d1d9af437e09d968d08ad5ec903/sourcereader/popular-cat-names.js',
+        );
       });
 
       it('when PR comment is outdated', () => {
@@ -53,19 +56,45 @@ describe('blob-reader', () => {
         );
         const reader = new BlobReader();
 
-        expect(reader.read()[1].path).toBe(
+        expect(reader.read()[2].path).toBe(
+          '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js',
+        );
+        expect(reader.read()[3].path).toBe(
           '/OctoLinker/testrepo/blob/cc14b0ce8b94b7044f8c5d2d7af656270330bca2/sourcereader/popular-rabbit-names.js',
         );
       });
     });
+  });
 
-    it('contains blob root element', () => {
+  describe('blob', () => {
+    let blob;
+
+    beforeEach(() => {
+      fixture.load(
+        '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
+      );
+      const reader = new BlobReader();
+      [blob] = reader.read();
+    });
+
+    it('sets blobType to full', () => {
+      expect(blob.blobType).toBe('full');
+    });
+
+    it('sets isDiff indicator to false', () => {
+      expect(blob.isDiff).toBe(false);
+    });
+
+    it('internals', () => {
+      expect(Array.isArray(blob.lines)).toBe(true);
+      expect(blob.lines).toHaveLength(4);
+      expect(blob.lines).toMatchSnapshot();
+      expect(blob.firstLineNumber).toBe(1);
       expect(blob.el).toBeDefined();
     });
 
-    it('contains lines', () => {
-      expect(Array.isArray(blob.lines)).toBe(true);
-      expect(blob.lines).toHaveLength(4);
+    it('lineSelector()', () => {
+      expect(blob.lineSelector(123)).toBe('#LC123');
     });
 
     describe('toString()', () => {
@@ -90,53 +119,12 @@ describe('blob-reader', () => {
         expect(blob.toJSON()).toEqual({});
       });
     });
-  });
-
-  describe('blob', () => {
-    let blob;
-
-    beforeEach(() => {
-      fixture.load(
-        '/packages/blob-reader/fixtures/github.com/blob/89f13651df126efdb4f1e3ae40183c9fdccdb4d3.html',
-      );
-      const reader = new BlobReader();
-      [blob] = reader.read();
-    });
-
-    it('contains four lines', () => {
-      expect(Array.isArray(blob.lines)).toBe(true);
-      expect(blob.lines).toHaveLength(4);
-    });
-
-    it('does not contain any diff meta information', () => {
-      expect(
-        blob.lines.filter(line => line.addition || line.deletion),
-      ).toHaveLength(0);
-    });
-
-    it('sets isDiff indicator to false', () => {
-      expect(blob.isDiff).toBe(false);
-    });
-
-    it('1st line', () => {
-      expect(blob.lines[0]).toMatchSnapshot();
-    });
-
-    it('2nd line', () => {
-      expect(blob.lines[1]).toMatchSnapshot();
-    });
-
-    it('3rd line', () => {
-      expect(blob.lines[2]).toMatchSnapshot();
-    });
-
-    it('4th line', () => {
-      expect(blob.lines[3]).toMatchSnapshot();
-    });
 
     describe('fetchBlob', () => {
       it('fetch raw blob and update blob.lines property', async () => {
-        fetch.mockResponse(`// Most popular rabbit names\n\nThumper\nDaisy`);
+        fetch.mockResponseOnce(
+          `// Most popular rabbit names\n\nThumper\nDaisy`,
+        );
 
         await blob.fetchBlob();
         expect(fetch.mock.calls[0][0]).toBe(
@@ -144,100 +132,89 @@ describe('blob-reader', () => {
         );
 
         expect(blob.lines).toMatchSnapshot();
+        expect(blob.firstLineNumber).toBe(1);
+      });
+
+      it('when request fails set lines property to empty array', async () => {
+        fetch.mockResponseOnce('Not Found', { status: 404 });
+
+        await blob.fetchBlob();
+        expect(fetch.mock.calls[0][0]).toBe(
+          'https://raw.githubusercontent.com/OctoLinker/testrepo/89f13651df126efdb4f1e3ae40183c9fdccdb4d3/sourcereader/popular-rabbit-names.js',
+        );
+        expect(blob.lines).toStrictEqual([]);
       });
     });
   });
 
   describe('diff', () => {
-    describe('split', () => {
-      let blob;
+    describe.each([
+      [
+        'split',
+        '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html',
+      ],
+      [
+        'unified',
+        '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
+      ],
+    ])('%s', (type, fixtureUrl) => {
+      let blobLeft;
+      let blobRight;
 
       beforeEach(() => {
-        fixture.load(
-          '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_split.html',
-        );
+        fixture.load(fixtureUrl);
         const reader = new BlobReader();
-        [blob] = reader.read();
+        [blobLeft, blobRight] = reader.read();
       });
 
-      it('sets isDiff indicator to true', () => {
-        expect(blob.isDiff).toBe(true);
+      describe('left', () => {
+        it('sets isDiff indicator to true', () => {
+          expect(blobLeft.isDiff).toBe(true);
+        });
+
+        it('sets blobType to diffLeft', () => {
+          expect(blobLeft.blobType).toBe('diffLeft');
+        });
+
+        it('internals', () => {
+          expect(blobLeft.firstLineNumber).toBe(1);
+          expect(blobLeft.lines).toMatchSnapshot();
+        });
+
+        it('lineSelector()', () => {
+          expect(blobLeft.lineSelector(123)).toBe(
+            `[id$='L123'][data-line-number='123']`,
+          );
+        });
+
+        it('toString()', () => {
+          expect(blobLeft.toString()).toMatchSnapshot();
+        });
       });
 
-      it('internals', () => {
-        expect(blob.firstLineNumber).toBe(1);
-        expect(blob.lines).toMatchSnapshot();
-      });
+      describe('right', () => {
+        it('sets isDiff indicator to true', () => {
+          expect(blobRight.isDiff).toBe(true);
+        });
 
-      it('toString()', () => {
-        expect(blob.toString()).toMatchSnapshot();
-      });
+        it('sets blobType to diffRight', () => {
+          expect(blobRight.blobType).toBe('diffRight');
+        });
 
-      it('toString("left")', () => {
-        expect(blob.toString('left')).toMatchSnapshot();
-      });
+        it('internals', () => {
+          expect(blobRight.firstLineNumber).toBe(1);
+          expect(blobRight.lines).toMatchSnapshot();
+        });
 
-      it('toString("right")', () => {
-        expect(blob.toString('right')).toMatchSnapshot();
-      });
-    });
+        it('lineSelector()', () => {
+          expect(blobRight.lineSelector(123)).toBe(
+            `[id$='R123'][data-line-number='123']`,
+          );
+        });
 
-    describe('unified', () => {
-      let blob;
-
-      beforeEach(() => {
-        fixture.load(
-          '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
-        );
-        const reader = new BlobReader();
-        [blob] = reader.read();
-      });
-
-      it('sets isDiff indicator to true', () => {
-        expect(blob.isDiff).toBe(true);
-      });
-
-      it('internals', () => {
-        expect(blob.firstLineNumber).toBe(1);
-        expect(blob.lines).toMatchSnapshot();
-      });
-
-      it('toString()', () => {
-        expect(blob.toString()).toMatchSnapshot();
-      });
-
-      it('toString("left")', () => {
-        expect(blob.toString('left')).toMatchSnapshot();
-      });
-
-      it('toString("right")', () => {
-        expect(blob.toString('right')).toMatchSnapshot();
-      });
-    });
-
-    describe('fetchParentBlob', () => {
-      let blob;
-
-      beforeEach(() => {
-        fixture.load(
-          '/packages/blob-reader/fixtures/github.com/commit/b0775a93ea27ee381858ddd9fa2bb953d5b74acb_unified.html',
-        );
-        const reader = new BlobReader();
-        [blob] = reader.read();
-      });
-
-      it('fetch raw blob and update blob.lines property', async () => {
-        fetch.mockResponse(
-          `// Most popular rabbit names\n\nThumper\nDaisy\nLily`,
-        );
-
-        await blob.fetchParentBlob();
-
-        expect(fetch.mock.calls[0][0]).toBe(
-          'https://raw.githubusercontent.com/OctoLinker/testrepo/37d5cdd/sourcereader/popular-rabbit-names.js',
-        );
-        expect(blob.parent).toBeInstanceOf(Blob);
-        expect(blob.parent.lines).toMatchSnapshot();
+        it('toString()', () => {
+          expect(blobRight.toString()).toMatchSnapshot();
+        });
       });
     });
   });
@@ -247,14 +224,31 @@ describe('blob-reader', () => {
 
     beforeEach(() => {
       fixture.load(
-        '/packages/blob-reader/fixtures/github.com/gist/113827963013e98c6196db51cd889c39.html',
+        '/packages/blob-reader/fixtures/github.com/gist/cbc01d87dca84a6e0b118b73a2d49927.html',
       );
       const reader = new BlobReader();
       [blob] = reader.read();
     });
 
     it('contains blob path', () => {
-      expect(blob.path).toBe('/package.json');
+      expect(blob.path).toBe('/dogs.json');
+    });
+
+    it('sets isDiff indicator to false', () => {
+      expect(blob.isDiff).toBe(false);
+    });
+
+    it('sets blobType to full', () => {
+      expect(blob.blobType).toBe('full');
+    });
+
+    it('lineSelector()', () => {
+      expect(blob.lineSelector(123)).toBe(`#LC123`);
+    });
+
+    it('internals', () => {
+      expect(blob.firstLineNumber).toBe(1);
+      expect(blob.lines).toMatchSnapshot();
     });
   });
 
@@ -267,16 +261,29 @@ describe('blob-reader', () => {
       [blob] = reader.read();
     });
 
+    it('sets blobType to snippet', () => {
+      expect(blob.blobType).toBe('snippet');
+    });
+
+    it('sets isDiff indicator to false', () => {
+      expect(blob.isDiff).toBe(false);
+    });
+
     it('contains blob root element', () => {
       expect(blob.el).toBeDefined();
     });
 
-    it('contains lines', () => {
+    it('internals', () => {
+      expect(blob.firstLineNumber).toBe(1);
       expect(blob.lines).toMatchSnapshot();
     });
 
     it('does not contain path', () => {
       expect(blob.path).toBeUndefined();
+    });
+
+    it('lineSelector()', () => {
+      expect(blob.lineSelector(123)).toBe(`pre`);
     });
   });
 });

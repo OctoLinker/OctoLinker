@@ -64,24 +64,4 @@ describe('helper-process-json', () => {
       'qux',
     );
   });
-
-  it('runs xPath on parent blob and the actual blob and returns both results', () => {
-    const parentJson = {
-      dependencies: 'bar',
-    };
-    const parentBlob = {
-      toJSON: jest.fn().mockReturnValue(parentJson),
-    };
-    blob.parent = parentBlob;
-
-    const result = helperProcessJson(blob, plugin, config);
-    expect(config['$.dependencies']).toHaveBeenNthCalledWith(
-      2,
-      parentBlob,
-      'dependencies',
-      'bar',
-    );
-
-    expect(result).toEqual(['callbackValue', 'callbackValue']);
-  });
 });
