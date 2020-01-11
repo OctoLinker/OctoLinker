@@ -40,6 +40,13 @@ It also works within JSON files:
 }
 ```
 
+There is also a `OctoLinkerResolveAbove` annotation. This might be needed for situation where the comment doesn't work in the line above for whatever reason.
+
+```js
+require('fs')
+// @OctoLinkerResolveAbove(https://nodejs.org/api/fs.html)
+```
+
 Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for the annotations described above and write a file named `fixtures.json` to the disk. This JSON file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/master/e2e/automated.test.js) to scaffold those tests on-the-fly. 
 
 
