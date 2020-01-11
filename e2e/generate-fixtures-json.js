@@ -55,10 +55,12 @@ function findTests(contents) {
         let lineNumber = index + 2;
         if (file.endsWith('.md')) {
           lineNumber = undefined;
+        } else if (line.includes('@OctoLinkerResolveAbove')) {
+          lineNumber = index;
         }
 
         const targetUrl = line
-          .match(/@OctoLinkerResolve\((.*?)\)/)[1]
+          .match(/@OctoLinkerResolve(Above)?\((.*?)\)/)[2]
           .replace('<root>', '');
 
         const filePath = file.replace(__dirname, '');
