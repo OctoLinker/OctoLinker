@@ -7,7 +7,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: '12.x'
     - run: npm ci
     - run: npm test
       env:
