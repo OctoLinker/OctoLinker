@@ -77,8 +77,8 @@ describe('blob-reader', () => {
       [blob] = reader.read();
     });
 
-    it('sets blobType to full', () => {
-      expect(blob.blobType).toBe('full');
+    it('sets type to full', () => {
+      expect(blob.type).toBe('full');
     });
 
     it('sets isDiff indicator to false', () => {
@@ -172,8 +172,8 @@ describe('blob-reader', () => {
           expect(blobLeft.isDiff).toBe(true);
         });
 
-        it('sets blobType to diffLeft', () => {
-          expect(blobLeft.blobType).toBe('diffLeft');
+        it('sets type to diffLeft', () => {
+          expect(blobLeft.type).toBe('diffLeft');
         });
 
         it('internals', () => {
@@ -197,8 +197,8 @@ describe('blob-reader', () => {
           expect(blobRight.isDiff).toBe(true);
         });
 
-        it('sets blobType to diffRight', () => {
-          expect(blobRight.blobType).toBe('diffRight');
+        it('sets type to diffRight', () => {
+          expect(blobRight.type).toBe('diffRight');
         });
 
         it('internals', () => {
@@ -238,12 +238,12 @@ describe('blob-reader', () => {
       expect(blob.isDiff).toBe(false);
     });
 
-    it('sets blobType to full', () => {
-      expect(blob.blobType).toBe('full');
+    it('sets type to gist', () => {
+      expect(blob.type).toBe('gist');
     });
 
     it('lineSelector()', () => {
-      expect(blob.lineSelector(123)).toBe(`#LC123`);
+      expect(blob.lineSelector(123)).toBe(`[id$='LC123']`);
     });
 
     it('internals', () => {
@@ -261,8 +261,8 @@ describe('blob-reader', () => {
       [blob] = reader.read();
     });
 
-    it('sets blobType to snippet', () => {
-      expect(blob.blobType).toBe('snippet');
+    it('sets type to snippet', () => {
+      expect(blob.type).toBe('snippet');
     });
 
     it('sets isDiff indicator to false', () => {

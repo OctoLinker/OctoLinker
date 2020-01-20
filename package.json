@@ -60,7 +60,6 @@
     "puppeteer": "^2.0.0",
     "recursive-readdir": "^2.2.2",
     "sinon": "^8.0.1",
-    "string.prototype.matchall": "^4.0.0",
     "style-loader": "^1.0.0",
     "web-ext": "^4.0.0",
     "web-ext-submit": "^3.2.1",

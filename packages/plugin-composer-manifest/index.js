@@ -8,7 +8,7 @@ function linkDependency(blob, key, value) {
     return;
   }
 
-  const regex = jsonRegExKeyValue(key, value, blob.isDiff);
+  const regex = jsonRegExKeyValue(key, value);
 
   return insertLink(blob, regex, this);
 }

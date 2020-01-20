@@ -4,7 +4,7 @@ import { jsonRegExKeyValue } from '@octolinker/helper-regex-builder';
 import nugetResolver from '@octolinker/resolver-nuget';
 
 function linkDependency(blob, key, value) {
-  const regex = jsonRegExKeyValue(key, value, blob.isDiff);
+  const regex = jsonRegExKeyValue(key, value);
 
   return insertLink(blob, regex, this);
 }

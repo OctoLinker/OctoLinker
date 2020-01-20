@@ -1,148 +1,47 @@
-import $ from 'jquery';
-import findAndReplaceDOMText from 'findandreplacedomtext';
 import './style.css';
+import findAndReplaceDOMText from 'findandreplacedomtext';
+import getPosition from './get-position.js';
 
 const CLASS_NAME = 'octolinker-link';
-const QUOTE_SIGNS = '"\'';
 
-function createLinkElement(text) {
+let isDiffViewUnified;
+
+function createLinkElement() {
   const linkEl = document.createElement('a');
 
   linkEl.dataset.pjax = 'true';
-  linkEl.textContent = text;
   linkEl.classList.add(CLASS_NAME);
 
   return linkEl;
 }
 
-function getIndexes(portion, entireMatch, matchValue) {
-  let matchValueStriped = matchValue;
+function injectUrl(node, value, startOffset, endOffset) {
+  let el;
+  try {
+    // Take quote marks into account to narrow down match
+    // in case value is given on the left and right hand side
+    const textMatch = node.textContent
+      .slice(startOffset - 1, endOffset + 1)
+      .trim(); // we don't want to include whitespace in the link
 
-  let offset = 0;
-  if (matchValue.length !== matchValue.replace(/['|"]/g, '').length) {
-    offset = 1;
+    findAndReplaceDOMText(node, {
+      find: textMatch,
+      replace: portion => {
+        if (el || !portion.text.includes(value)) {
+          return portion.text;
+        }
+
+        el = createLinkElement();
+        el.textContent = portion.text;
+
+        return el;
+      },
+    });
+  } catch (error) {
+    console.error(error);
   }
 
-  const removeQuotes = offset === 1;
-  if (removeQuotes) {
-    matchValueStriped = matchValueStriped.replace(/['|"]/g, '');
-  }
-
-  const valueStartPos = entireMatch.indexOf(matchValue) + offset;
-  const valueEndPos = valueStartPos + matchValueStriped.length;
-  const portionEndPos = portion.indexInMatch + portion.text.length;
-
-  return {
-    valueStartPos,
-    valueEndPos,
-    portionEndPos,
-  };
-}
-
-function getQuoteAtPos(str, pos) {
-  const sign = str.charAt(pos);
-
-  if (QUOTE_SIGNS.includes(sign)) {
-    return sign;
-  }
-
-  return '';
-}
-
-function wrapClosestElement(node, matchValue) {
-  let currentNode = node;
-
-  while (!currentNode.textContent.includes(matchValue)) {
-    currentNode = currentNode.parentNode;
-  }
-
-  if (currentNode) {
-    return $(currentNode).wrap(createLinkElement(''));
-  }
-}
-
-function wrapsInnerString(text, matchValue) {
-  const parent = document.createElement('span');
-  const [leftSide, rightSide] = text.split(matchValue);
-  const openingQuote = getQuoteAtPos(matchValue, 0);
-  const closingQuote = getQuoteAtPos(matchValue, matchValue.length - 1);
-  const linkText = matchValue.slice(
-    openingQuote ? 1 : 0,
-    closingQuote ? matchValue.length - 1 : undefined,
-  );
-
-  if (leftSide) parent.appendChild(document.createTextNode(leftSide));
-  if (openingQuote) parent.appendChild(document.createTextNode(openingQuote));
-  parent.appendChild(createLinkElement(linkText));
-  if (closingQuote) parent.appendChild(document.createTextNode(closingQuote));
-  if (rightSide) parent.appendChild(document.createTextNode(rightSide));
-  return parent;
-}
-
-function replace(portion, match) {
-  const { text, node, indexInMatch } = portion;
-  const isAlreadyWrapped = (node.parentNode || node).classList.contains(
-    CLASS_NAME,
-  );
-
-  if (isAlreadyWrapped) {
-    return {
-      isMatch: false,
-      node: text,
-      link: null,
-    };
-  }
-
-  const matchValue = match[1];
-
-  if (matchValue === undefined) {
-    return {
-      isMatch: false,
-      node: text,
-      link: null,
-    };
-  }
-
-  if (node.textContent.includes(matchValue)) {
-    const el = wrapsInnerString(text, matchValue);
-
-    return {
-      isMatch: true,
-      node: el,
-      link: el.querySelector('a'),
-    };
-  }
-
-  const { valueStartPos, valueEndPos, portionEndPos } = getIndexes(
-    portion,
-    match[0],
-    matchValue,
-  );
-
-  if (valueStartPos === indexInMatch) {
-    if (portionEndPos === valueEndPos) {
-      const el = createLinkElement(text);
-      return {
-        isMatch: true,
-        node: el,
-        link: el,
-      };
-    }
-
-    return {
-      isMatch: true,
-      node: text,
-      link: wrapClosestElement(node, matchValue)
-        .closest(`a.${CLASS_NAME}`)
-        .get(0),
-    };
-  }
-
-  return {
-    isMatch: false,
-    node: text,
-    link: null,
-  };
+  return el;
 }
 
 export default function(blob, regex, plugin, meta = {}) {
@@ -160,34 +59,67 @@ export default function(blob, regex, plugin, meta = {}) {
 
   const matches = [];
 
-  findAndReplaceDOMText(blob.el, {
-    find: regex,
-    replace: (portion, match) => {
-      const { isMatch, node, link } = replace(portion, match);
-
-      if (!isMatch) {
-        return node;
-      }
-
-      const values = match
-        .filter(item => !!item)
-        .slice(1)
-        .map(item => item.replace(/['|"]/g, ''));
-
+  getPosition(blob.toString(), regex).forEach(
+    ({
+      lineNumber,
+      startPos,
+      endPos,
+      startPosInBlob,
+      endPosInBlob,
+      values,
+    }) => {
       let urls = plugin.resolve(blob.path, values, meta);
-
       if (Array.isArray(urls)) {
         urls = urls.filter(Boolean);
       }
 
-      matches.push({
-        link,
-        urls,
-      });
+      const lineNumberInBlob = lineNumber + blob.firstLineNumber - 1;
 
-      return node;
+      let el;
+      if (blob.isDiff) {
+        let lineRootEl = blob.el.querySelector(
+          blob.lineSelector(lineNumberInBlob),
+        );
+
+        // When line number exsists in both left and right diff
+        if (lineRootEl) {
+          if (isDiffViewUnified === undefined) {
+            isDiffViewUnified =
+              lineRootEl.parentElement.childElementCount === 3;
+          }
+
+          // TODO make unified diff view working again
+          if (isDiffViewUnified && blob.type === 'diffLeft') {
+            // When diff view is unified, the target element is the third sibling
+            lineRootEl = lineRootEl.nextElementSibling;
+          }
+
+          lineRootEl = lineRootEl.nextElementSibling;
+          el = lineRootEl.querySelector('.blob-code-inner') || lineRootEl;
+        }
+      } else {
+        el = blob.el.querySelector(blob.lineSelector(lineNumberInBlob));
+      }
+
+      if (!el) {
+        return;
+      }
+
+      if (blob.isSnippet) {
+        startPos = startPosInBlob;
+        endPos = endPosInBlob;
+      }
+
+      // TODO push link el into matches along with the urls prop
+      const retEl = injectUrl(el, values[0], startPos, endPos);
+      if (retEl) {
+        matches.push({
+          link: retEl,
+          urls,
+        });
+      }
     },
-  });
+  );
 
   return matches;
 }
