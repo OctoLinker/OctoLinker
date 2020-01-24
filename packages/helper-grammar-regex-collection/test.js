@@ -478,6 +478,12 @@ const fixtures = {
     ],
     invalid: [],
   },
+  NET_PROJ_SDK: {
+    valid: [['<Project Sdk="foo">', ['foo']]],
+    invalid: [
+      '<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">',
+    ],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {

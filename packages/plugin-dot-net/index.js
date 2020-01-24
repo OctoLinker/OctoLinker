@@ -1,6 +1,7 @@
 import {
   NET_PACKAGE,
   NET_PROJ_PACKAGE,
+  NET_PROJ_SDK,
 } from '@octolinker/helper-grammar-regex-collection';
 import nugetResolver from '@octolinker/resolver-nuget';
 
@@ -24,6 +25,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return [NET_PACKAGE, NET_PROJ_PACKAGE];
+    return [NET_PACKAGE, NET_PROJ_PACKAGE, NET_PROJ_SDK];
   },
 };
