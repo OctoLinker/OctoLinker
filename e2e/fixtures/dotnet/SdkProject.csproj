@@ -1,3 +1,4 @@
+<!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.NET.Sdk) -->
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>

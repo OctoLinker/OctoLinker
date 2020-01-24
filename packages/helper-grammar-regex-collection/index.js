@@ -207,3 +207,11 @@ export const NET_PROJ_PACKAGE = regex`
   (Include|Update)=${captureQuotedWord}
   .*/?>
 `;
+
+export const NET_PROJ_SDK = regex`
+  <Project
+  \s+
+  .*
+  Sdk=${captureQuotedWord}
+  .*>
+`;
