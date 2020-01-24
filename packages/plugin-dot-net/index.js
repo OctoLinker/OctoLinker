@@ -13,7 +13,12 @@ export default {
 
   getPattern() {
     return {
-      pathRegexes: [/packages\.config$/, /\.(cs|fs|vb)proj$/, /\.props$/],
+      pathRegexes: [
+        /packages\.config$/,
+        /\.(cs|fs|vb)proj$/,
+        /\.props$/,
+        /\.targets$/,
+      ],
       githubClasses: [],
     };
   },
