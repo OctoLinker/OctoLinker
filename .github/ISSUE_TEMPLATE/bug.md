@@ -1,25 +1,24 @@
 ---
-name: 🐛 Reporting a Bug
-about: Open a new issue here if something isn't working as expected.
+name: 🐛 Bug report
+about: Create a report to help us improve
+title: ''
+labels: bug
+assignees: ''
+
 ---
 
-<!--
-  Thanks for filing an issue!
+**Describe the bug**
+A clear and concise description of what the bug is.
 
-  Please make sure that you include the following information to ensure that your issue is actionable.
--->
+**To Reproduce**
+Steps to reproduce the behavior:
+1. Go to '...'
+2. Click on '....'
+3. Scroll down to '....'
+4. See error
 
-**Intended outcome:**
-<!--
-What you were trying to accomplish when the bug occurred.
--->
+**Expected behavior**
+A clear and concise description of what you expected to happen.
 
-**Actual outcome:**
-<!--
-A description of what actually happened.
--->
-
-**How to reproduce the issue:**
-<!--
-If possible, please provide URL and line number where issue occurs
--->
+**Additional context**
+Add any other context about the problem here.
