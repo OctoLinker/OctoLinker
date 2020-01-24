@@ -1,22 +1,3 @@
-# @OctoLinkerResolve(<root>/docker)
-/docker @stefanbuck
-
-# @OctoLinkerResolve(<root>/go)
-./go @stefanbuck
-
-# @OctoLinkerResolve(<root>/java/)
-java/ @stefanbuck
-
-# @OctoLinkerResolve(<root>/ruby/)
-/ruby/ @stefanbuck
-
-# @OctoLinkerResolve(<root>/javascript/relative)
-/javascript/relative/** @stefanbuck
-
-# @OctoLinkerResolve(<root>/.github/CODEOWNERS)
-.github/CODEOWNERS @stefanbuck
-
-
 # should ignore lines below
 
 *
