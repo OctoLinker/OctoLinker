@@ -457,7 +457,9 @@ const fixtures = {
         '<DotNetCliToolReference Include="foo">\n<Version>2.0.0</Version>\n</DotNetCliToolReference>',
         ['foo'],
       ],
+      ['<PackageReference Update="foo" Version="6.2.0" />', ['foo']],
       ['<FrameworkReference Include="foo" />', ['foo']],
+      ['<FrameworkReference Update="foo" />', ['foo']],
     ],
     invalid: [
       '<PackageReferences Include="EntityFramework" Version="6.2.0" />',

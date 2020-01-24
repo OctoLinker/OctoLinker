@@ -204,6 +204,6 @@ export const NET_PROJ_PACKAGE = regex`
   <(PackageReference|DotNetCliToolReference|FrameworkReference)
   \s+
   .*
-  Include=${captureQuotedWord}
+  (Include|Update)=${captureQuotedWord}
   .*/?>
 `;
