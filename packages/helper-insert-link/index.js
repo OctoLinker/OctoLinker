@@ -20,9 +20,10 @@ function injectUrl(node, value, startOffset, endOffset) {
   try {
     // Take quote marks into account to narrow down match
     // in case value is given on the left and right hand side
-    const textMatch = node.textContent
-      .slice(startOffset - 1, endOffset + 1)
-      .trim(); // we don't want to include whitespace in the link
+    if (startOffset > 0) {
+      startOffset -= 1;
+    }
+    const textMatch = node.textContent.slice(startOffset, endOffset + 1).trim(); // we don't want to include whitespace in the link
 
     findAndReplaceDOMText(node, {
       find: textMatch,
