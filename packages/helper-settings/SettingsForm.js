@@ -90,7 +90,7 @@ export default class Form extends Component {
           error={errorMessage}
           onInput={event => {
             linkState(this, 'githubToken')(event);
-            this.validateToken();
+            setTimeout(this.validateToken.bind(this), 100);
           }}
         />
         <p className="note ">
