@@ -219,4 +219,4 @@ function readLines(el) {
     .filter(line => !!line);
 }
 
-export { getPath, getBlobWrapper, readLines, getParentSha };
+export { getPath, getBlobWrapper, readLines, getParentSha, isGist };

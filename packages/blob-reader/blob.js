@@ -16,32 +16,45 @@ async function fetchRaw({ user, repo, ref, path }) {
 }
 
 export default class Blob {
-  constructor({ el, path, lines, blobType, branch = undefined }) {
+  constructor({ el, path, lines, type, branch = undefined }) {
     this.el = el;
     this.path = path;
     this.lines = lines;
     this.branch = branch;
-    this.blobType = blobType; // one of: diffLeft, diffRight, snippet, full
+
+    if (this.lines.length > 5000) {
+      this.lines = this.lines.slice(0, 500);
+    }
+
+    this.type = type; // one of: diffLeft, diffRight, snippet, full, gist
   }
 
   lineSelector(lineNumber) {
     if (this.isDiff) {
-      const side = this.blobType === 'diffLeft' ? 'L' : 'R';
+      const side = this.type === 'diffLeft' ? 'L' : 'R';
 
       // The double selector is needed to avoid situations where the first line
       // is the chunk information like: @@ -0,0 +1 @@
       return `[id$='${side}${lineNumber}'][data-line-number='${lineNumber}']`;
     }
 
-    if (this.blobType === 'snippet') {
+    if (this.isSnippet) {
       return 'pre';
+    }
+
+    if (this.type === 'gist') {
+      return `[id$='LC${lineNumber}']`;
     }
 
     return `#LC${lineNumber}`;
   }
 
   get isDiff() {
-    return ['diffLeft', 'diffRight'].includes(this.blobType);
+    return ['diffLeft', 'diffRight'].includes(this.type);
+  }
+
+  get isSnippet() {
+    return this.type === 'snippet';
   }
 
   toString() {
@@ -68,7 +81,7 @@ export default class Blob {
     this.lines = await fetchRaw({
       user,
       repo,
-      ref: this.branch || branch, // this.branch is given when blobType is diffLeft
+      ref: this.branch || branch, // this.branch is given when type is diffLeft
       path,
     });
   }

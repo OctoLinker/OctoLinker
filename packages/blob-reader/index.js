@@ -1,5 +1,11 @@
 import Blob from './blob';
-import { getBlobWrapper, getPath, readLines, getParentSha } from './helper';
+import {
+  getBlobWrapper,
+  getPath,
+  readLines,
+  getParentSha,
+  isGist,
+} from './helper';
 
 function parseBlob(el) {
   const path = getPath(el);
@@ -21,25 +27,25 @@ function parseBlob(el) {
       path,
       lines: lines.map(diffLineFilter('left')).filter(Boolean),
       branch: getParentSha(),
-      blobType: 'diffLeft',
+      type: 'diffLeft',
     });
 
     const rightBlob = new Blob({
       el,
       path,
       lines: lines.map(diffLineFilter('right')).filter(Boolean),
-      blobType: 'diffRight',
+      type: 'diffRight',
     });
 
     return [leftBlob, rightBlob];
   }
 
-  let blobType = 'full';
+  let type = isGist() ? 'gist' : 'full';
   if (el.getElementsByTagName('pre').length) {
-    blobType = 'snippet';
+    type = 'snippet';
   }
 
-  return new Blob({ el, path, lines, blobType });
+  return new Blob({ el, path, lines, type });
 }
 
 export default class BlobReader {

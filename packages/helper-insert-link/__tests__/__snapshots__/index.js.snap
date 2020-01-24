@@ -2,29 +2,14 @@
 
 exports[`insert-link does not remove closing parentheses from commented out require() calls 1`] = `
 <div>
-  // var faker = 
-  <span>
-    require('
-    <a
-      class="octolinker-link"
-      data-pjax="true"
-    >
-      faker
-    </a>
-    '
-  </span>
+  // var faker = require(
+  <a
+    class="octolinker-link"
+    data-pjax="true"
+  >
+    'faker'
+  </a>
   )
-</div>
-`;
-
-exports[`insert-link does not wrap element when capture group empty 1`] = `
-<div>
-  foo 
-  <span>
-    '
-    foo:
-    bar'
-  </span>
 </div>
 `;
 
@@ -35,7 +20,7 @@ Array [
       class="octolinker-link"
       data-pjax="true"
     >
-      bar
+      "bar"
     </a>,
     "urls": "urlsToResolve",
   },
@@ -44,11 +29,11 @@ Array [
 
 exports[`insert-link wraps a nested element 1`] = `
 <div>
-  
   foo 
   <div>
     <span>
       <i>
+        
         "
       </i>
       <a
@@ -69,80 +54,20 @@ exports[`insert-link wraps a nested element 1`] = `
 exports[`insert-link wraps a single string 1`] = `
 <div>
   foo 
-  <span>
-    <a
-      class="octolinker-link"
-      data-pjax="true"
-    >
-      bar
-    </a>
-  </span>
+  <a
+    class="octolinker-link"
+    data-pjax="true"
+  >
+    bar
+  </a>
    baz
 </div>
 `;
 
 exports[`insert-link wraps a single word 1`] = `
 <div>
-  
   foo 
   <span>
-    <span>
-      <a
-        class="octolinker-link"
-        data-pjax="true"
-      >
-        bar
-      </a>
-    </span>
-    
-  </span>
-</div>
-`;
-
-exports[`insert-link wraps double quotes 1`] = `
-<div>
-  
-  foo 
-  <span>
-    <span>
-      "
-      <a
-        class="octolinker-link"
-        data-pjax="true"
-      >
-        foo
-      </a>
-      "
-    </span>
-    
-  </span>
-</div>
-`;
-
-exports[`insert-link wraps mixed quotes 1`] = `
-<div>
-  
-  foo 
-  <span>
-    <span>
-      '
-      <a
-        class="octolinker-link"
-        data-pjax="true"
-      >
-        foo
-      </a>
-      "
-    </span>
-    
-  </span>
-</div>
-`;
-
-exports[`insert-link wraps multiple strings 1`] = `
-<div>
-  <span>
-    foo 
     <a
       class="octolinker-link"
       data-pjax="true"
@@ -150,37 +75,70 @@ exports[`insert-link wraps multiple strings 1`] = `
       bar
     </a>
   </span>
+</div>
+`;
+
+exports[`insert-link wraps double quotes 1`] = `
+<div>
+  foo 
+  <span>
+    <a
+      class="octolinker-link"
+      data-pjax="true"
+    >
+      "foo"
+    </a>
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps mixed quotes 1`] = `
+<div>
+  foo 
+  <span>
+    <a
+      class="octolinker-link"
+      data-pjax="true"
+    >
+      'foo"
+    </a>
+  </span>
+</div>
+`;
+
+exports[`insert-link wraps multiple strings 1`] = `
+<div>
+  foo 
+  <a
+    class="octolinker-link"
+    data-pjax="true"
+  >
+    bar
+  </a>
    baz
 </div>
 `;
 
 exports[`insert-link wraps single quotes 1`] = `
 <div>
-  
   foo 
   <span>
-    <span>
-      '
-      <a
-        class="octolinker-link"
-        data-pjax="true"
-      >
-        foo
-      </a>
-      '
-    </span>
-    
+    <a
+      class="octolinker-link"
+      data-pjax="true"
+    >
+      'foo'
+    </a>
   </span>
 </div>
 `;
 
 exports[`insert-link wraps the element once 1`] = `
 <div>
-  
-  
   foo 
   <span>
     <i>
+      
       "
     </i>
     <a
@@ -191,7 +149,6 @@ exports[`insert-link wraps the element once 1`] = `
     </a>
     <i>
       "
-      
       
     </i>
   </span>
@@ -200,10 +157,10 @@ exports[`insert-link wraps the element once 1`] = `
 
 exports[`insert-link wraps the elements based on their char position which is specified in the keywords map 1`] = `
 <div>
-  
   foo 
   <span>
     <i>
+      
       "
     </i>
     <a
@@ -217,30 +174,5 @@ exports[`insert-link wraps the elements based on their char position which is sp
       
     </i>
   </span>
-</div>
-`;
-
-exports[`insert-link wraps the parent element when keyword is divided 1`] = `
-<div>
-  
-  foo 
-  <a
-    class="octolinker-link"
-    data-pjax="true"
-  >
-    <span>
-      <i>
-        "
-      </i>
-      <span>
-        fo
-      </span>
-      o
-      <i>
-        "
-        
-      </i>
-    </span>
-  </a>
 </div>
 `;
