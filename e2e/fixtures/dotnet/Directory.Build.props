@@ -1,0 +1,36 @@
+<Project>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/dotnet-compile-fsc) -->
+    <DotNetCliToolReference Include="dotnet-compile-fsc">
+      <Version>1.0.0-preview2-020000</Version>
+    </DotNetCliToolReference>
+
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Tools) -->
+     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" />
+
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.DotNet.Watcher.Tools) -->
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.AspNetCore.App) -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Abstractions) -->
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <Version>3.1.1</Version>
+    </PackageReference>
+
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions) -->
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions) -->
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" />
+  </ItemGroup>
+
+</Project>
