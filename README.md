@@ -2,9 +2,9 @@
 <a href="https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp"><img src="https://cloud.githubusercontent.com/assets/1393946/15162649/647ca490-1704-11e6-8ed8-ef0674e40fc3.png" width="375"/></a
 </p>
 
-## What is OctoLinker? 
+## What is OctoLinker?
 
-OctoLinker is a browser extension for GitHub, that turns language-specific statements like `include` `require` or `import` into links. 
+OctoLinker is a browser extension for GitHub, that turns language-specific statements like `include` `require` or `import` into links.
 
 <img src="./demo.png" width="890" />
 
@@ -23,7 +23,7 @@ Trusted by over 25,000 developers! Install OctoLinker from [Chrome Web Store](ht
 - [▲ ZEIT](https://zeit.co/) for sponsoring OctoLinker with hosting!
 - [Redis Green](https://redisgreen.net) for sponsoring OctoLinker with four dedicated Redis server!
 - [Art Noir](https://www.art-noir.net/) for this amazing logo!
-- Everyone who supported, [contributed](https://github.com/OctoLinker/OctoLinker/graphs/contributors), promoted the project. 
+- Everyone who supported, [contributed](https://github.com/OctoLinker/OctoLinker/graphs/contributors), promoted the project.
 
 ## Become a backer
 
@@ -74,6 +74,6 @@ Our [Privacy Policy](https://octolinker.now.sh/privacy/) describes our practices
 - [Notifier for GitHub](https://github.com/sindresorhus/notifier-for-github-chrome) - Shows your notification unread count
 - [OctoPermalinker](https://github.com/josephfrazier/octopermalinker) - Fix outdated/broken GitHub links to branches
 
-## Disclaimer 
+## Disclaimer
 
 OctoLinker is not affiliated with, sponsored by, or endorsed by GitHub Inc.
