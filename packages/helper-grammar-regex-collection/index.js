@@ -225,7 +225,7 @@ export const NET_PROJ_REFERENCE = regex`
 `;
 
 export const NET_PROJ_FILE_REFERENCE = regex`
-  <(Compile|None)
+  <(Compile|Content|EmbeddedResource|None)
   \s+
   .*
   (Include|Update)=${captureQuotedWord}
