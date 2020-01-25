@@ -12,7 +12,7 @@ import githubShorthand from '@octolinker/resolver-github-shorthand';
 import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
 
 function linkDependency(blob, key, value) {
-  const isValidSemver = isSemver(value);
+  const isValidSemver = isSemver(value) || value === 'latest';
   const regex = jsonRegExKeyValue(key, value);
 
   return insertLink(blob, regex, this, {

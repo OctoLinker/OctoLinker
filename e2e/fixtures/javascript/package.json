@@ -3,7 +3,9 @@
     "main": "./relative/index.js",
     "dependencies": {
         "//": "@OctoLinkerResolve(https://github.com/lodash/lodash)",
-        "lodash": "^4.17.5"
+        "lodash": "^4.17.5",
+        "//": "@OctoLinkerResolve(https://github.com/jashkenas/backbone)",
+        "backbone": "latest"
     },
     "devDependencies": {
         "//": "@OctoLinkerResolve(https://github.com/jashkenas/underscore)",
