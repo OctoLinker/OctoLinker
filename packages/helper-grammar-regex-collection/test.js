@@ -484,6 +484,24 @@ const fixtures = {
       '<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">',
     ],
   },
+  NET_PROJ_REFERENCE: {
+    valid: [
+      [
+        '<ProjectReference Include="..\\Project\\Project.csproj">',
+        ['..\\Project\\Project.csproj'],
+      ],
+    ],
+    invalid: [],
+  },
+  NET_PROJ_FILE_REFERENCE: {
+    valid: [
+      ['<Compile Include="foo">', ['foo']],
+      ['<Compile Update="foo">', ['foo']],
+      ['<None Include="foo">', ['foo']],
+      ['<None Update="foo">', ['foo']],
+    ],
+    invalid: [],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {
