@@ -217,7 +217,7 @@ export const NET_PROJ_SDK = regex`
 `;
 
 export const NET_PROJ_REFERENCE = regex`
-  <(ProjectReference)
+  <ProjectReference
   \s+
   .*
   Include=${captureQuotedWord}
