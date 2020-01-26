@@ -4,5 +4,8 @@
   "description": "",
   "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-nuget",
   "license": "MIT",
-  "main": "./index.js"
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/resolver-trusted-url": "1.0.0"
+  }
 }
