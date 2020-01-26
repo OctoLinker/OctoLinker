@@ -111,7 +111,6 @@ export default function(blob, regex, plugin, meta = {}) {
         endPos = endPosInBlob;
       }
 
-      // TODO push link el into matches along with the urls prop
       const retEl = injectUrl(el, values[0], startPos, endPos);
       if (retEl) {
         matches.push({

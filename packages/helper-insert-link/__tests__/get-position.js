@@ -35,4 +35,7 @@ describe('get-position', () => {
   test('returns an empty array when capture group is empty', () => {
     expect(getPosition('foo:bar', /foo:([0-9])?/g)).toStrictEqual([]);
   });
+  test('returns an empty array when capture group is empty', () => {
+    expect(getPosition('foo:bar', /(foo):(bar)/g)).toMatchSnapshot();
+  });
 });

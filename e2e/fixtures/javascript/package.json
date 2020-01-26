@@ -9,6 +9,12 @@
     },
     "devDependencies": {
         "//": "@OctoLinkerResolve(https://github.com/jashkenas/underscore)",
-        "underscore": "1.2.3"
+        "underscore": "1.2.3",
+        "//": "@OctoLinkerResolve(https://github.com/expressjs/express)",
+        "express": "expressjs/express",
+        "//": "@OctoLinkerResolve(https://github.com/mochajs/mocha/tree/v7.0.0)",
+        "mocha": "mochajs/mocha#v7.0.0",
+        "//": "@OctoLinkerResolve(https://github.com/angular/angular)",
+        "angular": "git@github.com:angular/angular.git"
     }
 }
