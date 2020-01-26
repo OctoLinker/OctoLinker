@@ -8,7 +8,7 @@ function regexBuilder(key, value, groupKey) {
   }
 
   const regexValue = escapeRegexString(value);
-  const valueField = `("${regexValue}")`;
+  const valueField = `"(${regexValue})"`;
   return new RegExp(`${keyField}\\s*:\\s*${valueField}`, 'g');
 }
 

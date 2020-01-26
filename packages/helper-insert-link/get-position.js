@@ -49,7 +49,7 @@ export default function(blobString, regex) {
         endPosInBlob,
         startPos,
         endPos,
-        values: [matchValueStriped],
+        values: [matchValueStriped, ...match.slice(2)],
       };
     })
     .filter(Boolean);

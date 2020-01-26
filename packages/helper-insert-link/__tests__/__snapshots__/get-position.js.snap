@@ -189,3 +189,19 @@ Array [
   },
 ]
 `;
+
+exports[`get-position returns an empty array when capture group is empty 1`] = `
+Array [
+  Object {
+    "endPos": 3,
+    "endPosInBlob": 3,
+    "lineNumber": 1,
+    "startPos": 0,
+    "startPosInBlob": 0,
+    "values": Array [
+      "foo",
+      "bar",
+    ],
+  },
+]
+`;
