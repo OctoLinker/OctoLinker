@@ -4,7 +4,7 @@ require('fs');
 // @OctoLinkerResolve(https://github.com/lodash/lodash)
 require("lodash");
 
-// @OctoLinkerResolve(https://github.com/facebook/react)
+// @OctoLinkerResolve(https://github.com/facebook/react/tree/master/packages/react)
 require('react');
 
 // @OctoLinkerResolve(https://nodejs.org/api/http.html)
