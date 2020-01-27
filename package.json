@@ -34,7 +34,7 @@
     "babel-eslint": "^10.0.3",
     "babel-jest": "^25.1.0",
     "babel-loader": "^8.0.6",
-    "babel-preset-jest": "^24.9.0",
+    "babel-preset-jest": "^25.1.0",
     "chrome-launch": "^1.1.4",
     "chrome-webstore-upload-cli": "^1.2.0",
     "codecov": "^3.5.0",
