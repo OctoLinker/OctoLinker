@@ -62,7 +62,7 @@
     "sinon": "^8.0.1",
     "style-loader": "^1.0.0",
     "web-ext": "^4.0.0",
-    "web-ext-submit": "^3.2.1",
+    "web-ext-submit": "^4.0.0",
     "webpack": "^4.40.2",
     "webpack-cli": "^3.3.4",
     "webpack-extension-reloader": "^1.1.4"
