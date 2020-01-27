@@ -1,7 +1,4 @@
-import {
-  NET_PROJ_REFERENCE,
-  NET_PROJ_FILE_REFERENCE,
-} from '@octolinker/helper-grammar-regex-collection';
+import { NET_PROJ_FILE_REFERENCE } from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '@octolinker/resolver-relative-file';
 
 export default {
@@ -22,6 +19,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return [NET_PROJ_REFERENCE, NET_PROJ_FILE_REFERENCE];
+    return [NET_PROJ_FILE_REFERENCE];
   },
 };

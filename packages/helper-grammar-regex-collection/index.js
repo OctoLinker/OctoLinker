@@ -216,16 +216,8 @@ export const NET_PROJ_SDK = regex`
   .*>
 `;
 
-export const NET_PROJ_REFERENCE = regex`
-  <ProjectReference
-  \s+
-  .*
-  Include=${captureQuotedWord}
-  .*/?>
-`;
-
 export const NET_PROJ_FILE_REFERENCE = regex`
-  <(Compile|Content|EmbeddedResource|None)
+  <(Compile|Content|EmbeddedResource|None|ProjectReference)
   \s+
   .*
   (Include|Update)=${captureQuotedWord}
