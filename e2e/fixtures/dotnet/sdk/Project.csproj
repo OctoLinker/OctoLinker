@@ -24,4 +24,31 @@
     <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(Project.csproj) -->
+    <ProjectReference Include="../Classic/Project.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <Compile Include="../Directory.Build.props" />
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <Compile Update="../Directory.Build.props" />
+
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <Content Include="../Directory.Build.props" />
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <Content Update="../Directory.Build.props" />
+
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <EmbeddedResource Include="../Directory.Build.props" />
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <EmbeddedResource Update="../Directory.Build.props" />
+
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <None Include="../Directory.Build.props" />
+    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <None Update="../Directory.Build.props" />
+  </ItemGroup>
+
 </Project>
