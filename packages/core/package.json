@@ -19,6 +19,7 @@
     "@octolinker/plugin-docker": "1.0.0",
     "@octolinker/plugin-dot-net": "1.0.0",
     "@octolinker/plugin-dot-net-core": "1.0.0",
+    "@octolinker/plugin-dot-net-project": "1.0.0",
     "@octolinker/plugin-gemfile-manifest": "1.0.0",
     "@octolinker/plugin-github-actions": "1.0.0",
     "@octolinker/plugin-github-codeowners": "1.0.0",
