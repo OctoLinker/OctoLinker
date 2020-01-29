@@ -12,29 +12,29 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- @OctoLinkerResolve(Project.csproj) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/sdk/Project.csproj) -->
     <ProjectReference Include="..\sdk\Project.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <Compile Include="..\Directory.Build.props" />
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <Compile Update="..\Directory.Build.props" />
 
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <Content Include="..\Directory.Build.props" />
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <Content Update="..\Directory.Build.props" />
 
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <EmbeddedResource Include="..\Directory.Build.props" />
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <EmbeddedResource Update="..\Directory.Build.props" />
 
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <None Include="..\Directory.Build.props" />
-    <!-- @OctoLinkerResolve(Directory.Build.props) -->
+    <!-- @OctoLinkerResolve(<root>/dotnet/Directory.Build.props) -->
     <None Update="..\Directory.Build.props" />
   </ItemGroup>
 
