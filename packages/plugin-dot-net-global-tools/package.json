@@ -1,8 +1,8 @@
 {
-  "name": "@octolinker/plugin-dot-net-core",
+  "name": "@octolinker/plugin-dot-net-global-tools",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dot-net-core",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dot-net-global-tools",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

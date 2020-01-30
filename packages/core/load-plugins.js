@@ -4,6 +4,7 @@ export { default as CSS } from '@octolinker/plugin-css';
 export { default as Docker } from '@octolinker/plugin-docker';
 export { default as DotNetCore } from '@octolinker/plugin-dot-net-core';
 export { default as DotNet } from '@octolinker/plugin-dot-net';
+export { default as DotNetGlobalTools } from '@octolinker/plugin-dot-net-global-tools';
 export { default as DotNetProject } from '@octolinker/plugin-dot-net-project';
 export { default as Rubygems } from '@octolinker/plugin-gemfile-manifest';
 export { default as Go } from '@octolinker/plugin-go';
