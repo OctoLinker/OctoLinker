@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "@octolinker/resolver-nuget": "1.0.0",
-    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "@octolinker/resolver-nuget": "1.0.0"
   }
 }

@@ -6,9 +6,9 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
+    "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/helper-process-json": "1.0.0",
     "@octolinker/helper-regex-builder": "1.0.0",
-    "@octolinker/resolver-nuget": "1.0.0",
-    "@octolinker/helper-insert-link": "1.0.0"
+    "@octolinker/resolver-nuget": "1.0.0"
   }
 }
