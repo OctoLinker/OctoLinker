@@ -17,11 +17,17 @@
   <ItemGroup>
     <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions) -->
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" />
+
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions) -->
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions" />
   </ItemGroup>
 
   <ItemGroup>
     <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions) -->
-    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" />
+    <PackageReference Update="Microsoft.AspNetCore.Hosting.Abstractions" />
+
+    <!-- @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions) -->
+    <Reference Update="Microsoft.Extensions.Hosting.Abstractions" />
   </ItemGroup>
 
   <ItemGroup>
