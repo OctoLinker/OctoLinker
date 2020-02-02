@@ -50,6 +50,7 @@ export const bulkAction = async function(data) {
     const json = await response.json();
     return json.result;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return [];
   }
