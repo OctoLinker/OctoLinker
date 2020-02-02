@@ -201,7 +201,7 @@ export const JAVA_IMPORT = regex`
 `;
 
 export const NET_PROJ_PACKAGE = regex`
-  <(PackageReference|DotNetCliToolReference|FrameworkReference)
+  <(DotNetCliTool|Framework|Package)?Reference
   \s+
   .*
   (Include|Update)=${captureQuotedWord}
