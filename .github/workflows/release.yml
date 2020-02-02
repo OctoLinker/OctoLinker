@@ -7,14 +7,14 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
     - run: npm ci
     - run: npm run build
     - run: 'npm run release'
-      env:      
+      env:
         CLIENT_ID: ${{ secrets.PUBLISHER_CHROME_CLIENT_ID }}
         CLIENT_SECRET: ${{ secrets.PUBLISHER_CHROME_CLIENT_SECRET }}
         REFRESH_TOKEN: ${{ secrets.PUBLISHER_CHROME_REFRESH_TOKEN }}
