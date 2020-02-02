@@ -27,18 +27,16 @@ function injectLiveDemoUrl(url) {
 }
 
 function groupMatchesByType(matches) {
-  const flattenUrls = removeDuplicates(
-    [].concat(
-      ...matches.map(match =>
-        match.urls.map(url => ({
-          ...url,
-          link: match.link,
-        })),
-      ),
+  const flattenUrls = [].concat(
+    ...matches.map(match =>
+      match.urls.map(url => ({
+        ...url,
+        link: match.link,
+      })),
     ),
   );
 
-  const apiItems = flattenUrls.filter(({ type }) =>
+  const apiItems = removeDuplicates(flattenUrls).filter(({ type }) =>
     ['registry', 'ping'].includes(type),
   );
 
