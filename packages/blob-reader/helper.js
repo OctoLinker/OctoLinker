@@ -5,17 +5,13 @@ function getBlobCodeInner(el) {
 }
 
 function getBlobWrapper(rootElement = document) {
-  let ret = [].slice.call(
-    rootElement.getElementsByClassName('js-blob-wrapper'),
-  );
-
-  if (!ret.length) {
-    ret = [].slice.call(rootElement.getElementsByClassName('blob-wrapper'));
-  }
-
-  if (!ret.length) {
-    ret = [].slice.call(rootElement.getElementsByClassName('highlight'));
-  }
+  const ret = [
+    ...[].slice.call(rootElement.getElementsByClassName('blob-wrapper')),
+    ...[].slice.call(rootElement.getElementsByClassName('js-blob-wrapper')),
+    ...[].slice.call(
+      rootElement.querySelectorAll('[class*="highlight-source-"]'),
+    ),
+  ];
 
   return ret;
 }
@@ -204,7 +200,11 @@ function readLine(el) {
 }
 
 function readLines(el) {
-  if (el.classList.contains('highlight')) {
+  if (
+    el.classList.contains('highlight') &&
+    el.firstElementChild &&
+    el.firstElementChild.nodeName === 'PRE'
+  ) {
     const issueCode = el.getElementsByTagName('pre');
     if (issueCode.length) {
       return issueCode[0].textContent.split(/\n/).map((line, index) => ({
