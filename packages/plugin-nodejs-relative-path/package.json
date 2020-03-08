@@ -8,6 +8,7 @@
   "dependencies": {
     "@octolinker/plugin-javascript": "1.0.0",
     "@octolinker/plugin-typescript": "1.0.0",
+    "@octolinker/resolver-relative-file": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0"
   }
 }

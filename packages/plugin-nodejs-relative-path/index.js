@@ -5,12 +5,13 @@ import {
 } from '@octolinker/helper-grammar-regex-collection';
 import JavaScript from '@octolinker/plugin-javascript';
 import TypeScript from '@octolinker/plugin-typescript';
+import relativeFile from '@octolinker/resolver-relative-file';
 
 export default {
   name: 'NodejsRelativePath',
 
   resolve(path, [target]) {
-    return `{BASE_URL}${join(dirname(path), target)}`;
+    return relativeFile({ path, target });
   },
 
   getPattern() {
