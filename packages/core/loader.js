@@ -71,7 +71,7 @@ function insertLinks({
 
     for (const item of urls) {
       if (item.type === 'internal-link') {
-        if (githubTree.includes(item.path)) {
+        if (githubTree.includes(item.path.replace(/%20/g, ' '))) {
           link.href = item.url;
           if (process.env.OCTOLINKER_LIVE_DEMO) {
             link.href = injectLiveDemoUrl(link.href);

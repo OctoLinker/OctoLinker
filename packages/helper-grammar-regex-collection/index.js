@@ -8,6 +8,12 @@ const captureQuotedWord = regex`
   ['"]              # end quote
 `;
 
+const captureSpacedQuotedWord = regex`
+  ['"]              # beginning quote
+  (?<$1>[^'"]+)     # capture the word inside the quotes
+  ['"]              # end quote
+`;
+
 const captureJsQuotedWord = regex`
   ['"\`]            # beginning quote
   (?<$1>[^'"\`\s]+) # capture the word inside the quotes
@@ -220,6 +226,6 @@ export const NET_PROJ_FILE_REFERENCE = regex`
   <(Compile|Content|EmbeddedResource|None|ProjectReference)
   \s+
   .*
-  (Include|Update)=${captureQuotedWord}
+  (Include|Update)=${captureSpacedQuotedWord}
   .*/?>
 `;
