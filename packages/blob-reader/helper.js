@@ -188,6 +188,11 @@ function readLine(el) {
     return null;
   }
 
+  // Ignore suggested code changes
+  if (el.closest('.js-suggested-changes-blob')) {
+    return null;
+  }
+
   // Each array element represents a single line.
   // Therefore we can get ride of the newline here.
   const ret = {
