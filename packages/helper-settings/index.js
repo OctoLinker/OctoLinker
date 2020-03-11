@@ -24,6 +24,8 @@ export const set = async (key, value) => {
     [key]: value,
   };
 
+  Object.assign(store, data);
+
   return browser.storage.local.set(data);
 };
 
