@@ -11,6 +11,10 @@ global.chrome.runtime = {
   sendMessage: jest.fn(),
 };
 
+// Needed to run webextension-polyfill within Jest
+// see https://github.com/mozilla/webextension-polyfill/issues/218#issuecomment-584936358
+chrome.runtime.id = 'fake-chrome';
+
 global.fixture = {
   load: file => {
     const fullPath = path.join(__dirname, file);
