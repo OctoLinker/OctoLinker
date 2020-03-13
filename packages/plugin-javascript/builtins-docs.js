@@ -1,6 +1,6 @@
 import builtins from 'builtins';
 
-const docs = builtins.reduce((result, builtin) => {
+const docs = builtins('10.0.0').reduce((result, builtin) => {
   let filename = builtin;
   if (filename === 'module') {
     filename = 'modules';
@@ -8,7 +8,5 @@ const docs = builtins.reduce((result, builtin) => {
   result[builtin] = `https://nodejs.org/api/${filename}.html`;
   return result;
 }, {});
-
-docs.constants = 'https://github.com/nodejs/node/blob/master/lib/constants.js';
 
 export default docs;
