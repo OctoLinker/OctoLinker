@@ -67,6 +67,7 @@ describe('helper-github-api tree', () => {
   it('calls rateLimitNotification on success', async () => {
     const headers = new Headers();
     headers.append('foo', 'bar');
+    headers.append('Content-Type', 'application/json');
 
     fetch.mockResponseOnce(response, {
       status: 201,
