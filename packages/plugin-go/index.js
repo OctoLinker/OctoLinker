@@ -57,7 +57,7 @@ export default {
 
   getPattern() {
     return {
-      pathRegexes: [/\.go$/],
+      pathRegexes: [/\.go$/, /go\.mod$/],
       githubClasses: ['type-go', 'highlight-source-go'],
     };
   },

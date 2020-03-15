@@ -387,12 +387,33 @@ const fixtures = {
         'import (\n"golang.org/x/net/context"\n"golang.org/pkg/net"\n)',
         ['golang.org/x/net/context', 'golang.org/pkg/net'],
       ],
+
+      // go.mod
+      ['require github.com/foo v1.1.0', ['github.com/foo']],
+      ['require bitbucket.org/foo v1.1.0', ['bitbucket.org/foo']],
+      ['require launchpad.net/foo v1.1.0', ['launchpad.net/foo']],
+      ['require    github.com/foo v1.1.0', ['github.com/foo']],
+      ['require github.com/foo v1.1.0      ', ['github.com/foo']],
+      ['require github.com/foo v1.1.0\n', ['github.com/foo']],
+
+      ['require github.com/foo/v2', ['github.com/foo/v2']],
+
+      ['require (\ngithub.com/foo v1.1.0\n)', ['github.com/foo']],
+      [
+        'require (\ngithub.com/foo v1.1.0\n\ngithub.com/bar v1.1.0\n)',
+        ['github.com/foo', 'github.com/bar'],
+      ],
     ],
     invalid: [
       'simport foo',
       'simport\nfoo',
       'import "octo.com/foo/bar"',
       'import (\n"octo.com/foo/bar"\n)',
+
+      'require (github.com/foo v1.1.0)',
+      'require \n"foo" v1.1.0',
+      'srequire "foo" v1.1.0',
+      'require "foo" v1.1.0',
     ],
   },
   NET_PACKAGE: {
