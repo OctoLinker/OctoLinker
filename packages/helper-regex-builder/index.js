@@ -22,3 +22,21 @@ export function jsonRegExKeyValue(key, value, global = true) {
 export function jsonRegExValue(key, value, global = true) {
   return regexBuilder(key, value, false, global);
 }
+
+function tomlRegexBuilder(key, value, groupKey) {
+  const regexKey = escapeRegexString(key);
+  const keyField = groupKey ? `(${regexKey})` : `${regexKey}`;
+  if (Object.prototype.toString.call(value) !== '[object String]') {
+    return new RegExp(`${keyField}`);
+  }
+
+  const regexValue = escapeRegexString(value);
+  const valueField = `"(${regexValue})"`;
+  return new RegExp(
+    `${keyField}\\s*=\\s*${valueField}`,
+    global ? 'g' : undefined,
+  );
+}
+export function tomlRegExKeyValue(key, value) {
+  return tomlRegexBuilder(key, value, true);
+}
