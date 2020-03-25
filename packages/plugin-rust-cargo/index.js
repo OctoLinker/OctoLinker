@@ -32,6 +32,7 @@ export default {
   getPattern() {
     return {
       pathRegexes: [/cargo\.toml/i],
+      githubClasses: [],
     };
   },
 
