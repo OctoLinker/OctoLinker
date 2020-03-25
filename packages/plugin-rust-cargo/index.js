@@ -27,7 +27,7 @@ function processTOML(blob, plugin, config) {
 }
 
 export default {
-  name: 'Rust Cargo',
+  name: 'RustCargo',
 
   resolve(path, values, { type }) {
     return liveResolverQuery({ type: 'crates', target: values[0] });
