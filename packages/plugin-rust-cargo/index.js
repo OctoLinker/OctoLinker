@@ -8,7 +8,7 @@ function linkDependency(blob, key, value) {
   return insertLink(blob, regex, this);
 }
 
-function processTOML(blob, plugin, config) {
+function processTOML(blob, plugin) {
   let results = [];
   const json = TOML.parse(blob.toString());
 
