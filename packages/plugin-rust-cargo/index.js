@@ -1,7 +1,7 @@
-import liveResolverQuery from '@octolinker/resolver-live-query';
 import * as TOML from '@iarna/toml';
 import insertLink from '@octolinker/helper-insert-link';
 import { tomlRegExKeyValue } from '@octolinker/helper-regex-builder';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 
 function linkDependency(blob, key, value) {
   const regex = tomlRegExKeyValue(key, value);
