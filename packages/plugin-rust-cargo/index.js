@@ -11,16 +11,11 @@ function linkDependency(blob, key, value) {
 function processTOML(blob, plugin, config) {
   let results = [];
   const json = TOML.parse(blob.toString());
-  const toml = TOML.stringify(json.dependencies).split('\n');
 
-  toml.forEach(line => {
-    const match = /^([^=\s]+)\s*=\s*"([^"\s]+)"$/.exec(line);
+  Object.entries(json.dependencies).forEach(([name, version]) => {
+    const linked = linkDependency.call(plugin, blob, name, version);
 
-    if (match) {
-      const linked = linkDependency.call(plugin, blob, match[1], match[2]);
-
-      results = results.concat(linked);
-    }
+    results = results.concat(linked);
   });
 
   return results;
@@ -30,7 +25,7 @@ export default {
   name: 'RustCargo',
   needsContext: true,
 
-  resolve(path, values, { type }) {
+  resolve(path, values) {
     return liveResolverQuery({ type: 'crates', target: values[0] });
   },
 
