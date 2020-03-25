@@ -22,3 +22,10 @@ export function jsonRegExKeyValue(key, value, global = true) {
 export function jsonRegExValue(key, value, global = true) {
   return regexBuilder(key, value, false, global);
 }
+
+export function tomlRegExKeyValue(key, value) {
+  const regexKey = escapeRegexString(key);
+  const regexValue = escapeRegexString(value);
+
+  return new RegExp(`(${regexKey})\\s*=\\s*"(${regexValue})"`, 'g');
+}

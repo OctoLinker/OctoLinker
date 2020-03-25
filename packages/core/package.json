@@ -37,6 +37,7 @@
     "@octolinker/plugin-requirements-txt": "1.0.0",
     "@octolinker/plugin-ruby": "1.0.0",
     "@octolinker/plugin-rust": "1.0.0",
+    "@octolinker/plugin-rust-cargo": "1.0.0",
     "@octolinker/plugin-sass": "1.0.0",
     "@octolinker/plugin-typescript": "1.0.0",
     "@octolinker/plugin-vim": "1.0.0",
