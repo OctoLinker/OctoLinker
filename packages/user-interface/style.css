@@ -3,6 +3,10 @@
   padding-left: 60px;
 }
 
+.octolinker-flash-close svg {
+  pointer-events: none;
+}
+
 .octolinker-flash-image  {
   width: 58px;
   height: 40px;
