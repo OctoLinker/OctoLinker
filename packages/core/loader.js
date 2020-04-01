@@ -100,6 +100,14 @@ function insertLinks({
 
         if (finalUrl && finalUrl.result) {
           link.href = finalUrl.result;
+
+          if (finalUrl.result.startsWith('https://github.com')) {
+            [, , , user, repo] = finalUrl.result.split('/');
+            link.dataset.repositoryHovercardsEnabled = true;
+            link.dataset.hovercardType = 'repository';
+            link.dataset.hovercardUrl = `/${user}/${repo}/hovercard`;
+          }
+
           if (process.env.OCTOLINKER_LIVE_DEMO) {
             link.href = injectLiveDemoUrl(link.href);
           }
