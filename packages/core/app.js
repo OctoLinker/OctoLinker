@@ -5,6 +5,7 @@ import * as storage from '@octolinker/helper-settings';
 import helperSortUrls from '@octolinker/helper-sort-urls';
 import normaliseResolverResults from '@octolinker/helper-normalise-resolver-results';
 import notification from './notification';
+import updateNotice from './update-notice';
 import Plugins from './plugin-manager.js';
 import debugMode from './debug-mode.js';
 import loader from './loader.js';
@@ -70,6 +71,7 @@ function watch(viewSpy) {
 function init() {
   debugMode(storage.get('debugMode'));
   notification();
+  updateNotice();
 
   injection(() => {
     if (!blobReader.hasBlobs()) {
