@@ -28,7 +28,6 @@
     {
       "matches": [
         "https://github.com/*",
-        "https://api.github.com/*",
         "https://gist.github.com/*"
       ],
       "js": [
