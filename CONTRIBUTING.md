@@ -10,16 +10,16 @@ First off, thanks for taking the time to contribute! :tada: :+1:
 To build and run the extension follow these steps.
 
 1. Clone the repository.
-1. Run `npm install` to setup the project and install all required dependencies.
+1. Run `yarn install` to setup the project and install all required dependencies.
 1. Start hacking. If you're adding a plugin, you may be interested in seeing the commits that add these plugins:
    * [CSS]
 1. Build and load the extension:
    * Firefox (Quickstart):
-     1. `npm run firefox-open`
+     1. `yarn firefox-open`
    * Chrome (Quickstart):
-     1. `npm run chrome-open`
+     1. `yarn chrome-open`
    * Chrome (Long Version):
-     1. To build the extension once run `npm run build` or `npm start` during development.
+     1. To build the extension once run `yarn build` or `yarn start` during development.
      1. Load extension https://developer.chrome.com/extensions/getstarted#unpacked.
 
 [CSS]: https://github.com/OctoLinker/OctoLinker/commit/ccbefb7
@@ -37,9 +37,9 @@ The outline above is an extremely simplified version. In real life you have to d
 - Please check to make sure that there aren't existing pull requests attempting to address the issue mentioned. We also recommend checking for issues related to the issue on the tracker, as a team member may be working on the issue in a branch or fork.
 - Non-trivial changes should be discussed in an issue first
 - Develop in a topic branch, not master
-- Lint the code by `npm run lint`
+- Lint the code by `yarn lint`
 - Add relevant tests to cover the change
-- Make sure test-suite passes: `npm test`
+- Make sure test-suite passes: `yarn test`
 - Document any new features in [README.md](./README.md#features)
 - Squash your commits
 - Write a convincing description of your PR and why we should land it

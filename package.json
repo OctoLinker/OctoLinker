@@ -6,21 +6,20 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "pretest": "npm run lint",
+    "pretest": "yarn lint",
     "test": "jest",
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
-    "postinstall": "lerna bootstrap",
     "test:watch": "jest --watch",
     "version": "json -I -f assets/manifest.json -e \"this.version='`json -f package.json version`'\" && git add assets/manifest.json && json -I -f packages/core/package.json -e \"this.version='`json -f package.json version`'\" && git add packages/core/package.json",
     "patch-permissions": "json -I -f dist/manifest.json -e 'this.permissions.push(\"https://api.github.com/\")'",
     "release:cws": "cd dist && webstore upload --auto-publish",
-    "release:amo": "cd dist && npm run patch-permissions && web-ext-submit",
-    "release": "npm run release:cws && npm run release:amo",
+    "release:amo": "cd dist && yarn patch-permissions && web-ext-submit",
+    "release": "yarn release:cws && yarn release:amo",
     "build": "webpack --mode=production",
     "start": "webpack --watch --mode=development",
-    "chrome-open": "npm run build && npm run chrome-launch --",
+    "chrome-open": "yarn build && yarn chrome-launch --",
     "chrome-launch": "node scripts/chrome-launch.js",
-    "firefox-open": "npm run build && npm run firefox-launch --",
+    "firefox-open": "yarn build && yarn firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/master/package.json"
   },
   "devDependencies": {
@@ -53,8 +52,6 @@
     "jest-puppeteer": "^4.2.0",
     "json": "^9.0.6",
     "json-loader": "^0.5.7",
-    "lerna": "^3.15.0",
-    "npm-run-all": "^4.1.5",
     "prettier": "^1.18.2",
     "puppeteer": "^2.0.0",
     "recursive-readdir": "^2.2.2",
@@ -69,6 +66,9 @@
   "optionalDependencies": {
     "fsevents": "2.1.2"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "private": true,
   "dependencies": {}
 }
