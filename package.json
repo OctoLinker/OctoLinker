@@ -52,7 +52,7 @@
     "jest-puppeteer": "^4.2.0",
     "json": "^9.0.6",
     "json-loader": "^0.5.7",
-    "prettier": "^1.18.2",
+    "prettier": "^2.0.4",
     "puppeteer": "^2.0.0",
     "recursive-readdir": "^2.2.2",
     "sinon": "^9.0.0",
