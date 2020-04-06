@@ -72,4 +72,4 @@ Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures 
 
 We made this process super simple. Just create files within `e2e/fixtures` and make sure the annotations are correct, that's all. If you have a minute or two, we would really appreciate a pull request from you!
 
-By default e2e tests run against the latest OctoLinker master. However, you can overwrite the target as follow `TRAVIS_PULL_REQUEST_SLUG=stefanbuck/OctoLinker TRAVIS_PULL_REQUEST_BRANCH=fix-642 npm run e2e`
+By default e2e tests run against the latest OctoLinker master. However, you can overwrite the target as follow `TRAVIS_PULL_REQUEST_SLUG=stefanbuck/OctoLinker TRAVIS_PULL_REQUEST_BRANCH=fix-642 yarn e2e`
