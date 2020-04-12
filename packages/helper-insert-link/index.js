@@ -27,7 +27,7 @@ function injectUrl(node, value, startOffset, endOffset) {
 
     findAndReplaceDOMText(node, {
       find: textMatch,
-      replace: portion => {
+      replace: (portion) => {
         if (el || !portion.text.includes(value)) {
           return portion.text;
         }
@@ -46,7 +46,7 @@ function injectUrl(node, value, startOffset, endOffset) {
   return el;
 }
 
-export default function(blob, regex, plugin, meta = {}) {
+export default function (blob, regex, plugin, meta = {}) {
   if (!blob) {
     throw new Error('must be called with a blob');
   }

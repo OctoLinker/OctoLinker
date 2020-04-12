@@ -7,7 +7,7 @@ describe('load-plugins', () => {
 
     assert(Array.isArray(plugins));
 
-    plugins.forEach(plugin => {
+    plugins.forEach((plugin) => {
       assert.equal(typeof plugin, 'object');
       assert(plugin.name);
       assert(plugin.resolve);
@@ -28,11 +28,11 @@ describe('load-plugins', () => {
         );
       });
 
-      const presets = Object.values(loadPlugins).map(plugin =>
+      const presets = Object.values(loadPlugins).map((plugin) =>
         plugin.getPattern(),
       );
       for (const [lang, value] of Object.entries(presets)) {
-        value.githubClasses.forEach(className => {
+        value.githubClasses.forEach((className) => {
           if (!className.includes('highlight')) {
             return;
           }

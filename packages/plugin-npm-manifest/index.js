@@ -51,7 +51,7 @@ export default {
     return [
       githubShorthand({ target: values[1] }),
       gitUrl({ target: values[1] }),
-    ].map(url => url && resolverTrustedUrl({ target: url }));
+    ].map((url) => url && resolverTrustedUrl({ target: url }));
   },
 
   getPattern() {

@@ -13,7 +13,7 @@ import { parse } from './parse-github-header';
 
 const MAX_UNAUTHENTICATED_REQUESTS = 60;
 
-document.body.addEventListener('click', event => {
+document.body.addEventListener('click', (event) => {
   if (event.target.classList.contains('js-octolinker-open-settings')) {
     chrome.runtime.sendMessage({ action: 'openSettings' });
   }

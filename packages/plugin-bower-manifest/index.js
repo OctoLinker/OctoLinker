@@ -39,7 +39,7 @@ export default {
       return liveResolverQuery({ type: 'bower', target });
     }
 
-    return [gitUrl({ target }), githubShorthand({ target })].map(url =>
+    return [gitUrl({ target }), githubShorthand({ target })].map((url) =>
       resolverTrustedUrl({ target: url }),
     );
   },

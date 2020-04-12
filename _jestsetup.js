@@ -16,7 +16,7 @@ global.chrome.runtime = {
 chrome.runtime.id = 'fake-chrome';
 
 global.fixture = {
-  load: file => {
+  load: (file) => {
     const fullPath = path.join(__dirname, file);
     const fixture = fs.readFileSync(fullPath);
     document.body.innerHTML = fixture.toString();

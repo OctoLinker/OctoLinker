@@ -15,7 +15,7 @@ describe('normaliseResolverResults', () => {
     ],
     { registry: 'npm', target: 'foo' },
     () => {},
-  ])('converts %s', url => {
+  ])('converts %s', (url) => {
     expect(normaliseResolverResults([].concat(url))).toMatchSnapshot();
   });
 });

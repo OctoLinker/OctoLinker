@@ -36,7 +36,7 @@ async function readContent(files) {
   const readFile = util.promisify(fs.readFile);
   const mapLimit = util.promisify(async.mapLimit);
 
-  return mapLimit(files, 10, async file => {
+  return mapLimit(files, 10, async (file) => {
     const content = await readFile(file, 'utf8');
 
     return {

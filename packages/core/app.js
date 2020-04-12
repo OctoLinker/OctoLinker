@@ -38,7 +38,7 @@ async function run(rootElement) {
   }
 
   matches = matches
-    .filter(result => result !== undefined)
+    .filter((result) => result !== undefined)
     .map(({ link, urls }) => {
       const urlsSorted = helperSortUrls(urls, link.innerText);
 
@@ -60,7 +60,7 @@ function watch(viewSpy) {
     ...document.getElementsByClassName('js-diff-progressive-container'),
   ];
 
-  elements.forEach(element => {
+  elements.forEach((element) => {
     viewSpy.observe(element, {
       childList: true,
     });
@@ -79,8 +79,8 @@ function init() {
     run(document);
   });
 
-  const viewSpy = new MutationObserver(mutationRecords => {
-    mutationRecords.forEach(mutationRecord => {
+  const viewSpy = new MutationObserver((mutationRecords) => {
+    mutationRecords.forEach((mutationRecord) => {
       if (mutationRecord.addedNodes.length > 0) {
         run(mutationRecord.target);
         watch(viewSpy);
@@ -88,13 +88,13 @@ function init() {
     });
   });
 
-  document.body.addEventListener('click', event => {
+  document.body.addEventListener('click', (event) => {
     if (!event.target.closest('.js-expandable-line')) {
       return;
     }
 
-    const expandDiffObserver = new MutationObserver(mutationRecords => {
-      mutationRecords.forEach(mutationRecord => {
+    const expandDiffObserver = new MutationObserver((mutationRecords) => {
+      mutationRecords.forEach((mutationRecord) => {
         if (mutationRecord.addedNodes.length > 0) {
           expandDiffObserver.disconnect();
           run(mutationRecord.target.closest('.js-file'));

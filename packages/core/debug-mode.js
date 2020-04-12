@@ -1,4 +1,4 @@
-export default function(enable = false) {
+export default function (enable = false) {
   if (!enable) {
     return;
   }

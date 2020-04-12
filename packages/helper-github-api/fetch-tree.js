@@ -1,7 +1,7 @@
 import * as storage from '@octolinker/helper-settings';
 import rateLimitNotification from '@octolinker/ratelimit-notification';
 
-export default async function({ user, repo, branch }) {
+export default async function ({ user, repo, branch }) {
   const token = storage.get('githubToken');
 
   const headers = {

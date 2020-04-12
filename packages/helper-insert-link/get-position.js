@@ -10,11 +10,11 @@ function getLineFromPos(str, pos, matchPartial, matchValue) {
   return lines ? lines.length + offset : offset;
 }
 
-export default function(blobString, regex) {
+export default function (blobString, regex) {
   const lines = blobString.split('\n');
 
   return [...blobString.matchAll(regex)]
-    .map(match => {
+    .map((match) => {
       const matchPartial = match[0];
       const matchValue = match[1];
 

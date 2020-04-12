@@ -20,7 +20,7 @@ function parseBlob(el) {
     lines.filter(({ side }) => ['left', 'right'].includes(side)).length > 0;
 
   if (isDiff) {
-    const diffLineFilter = type => ({ side, ...rest }) => {
+    const diffLineFilter = (type) => ({ side, ...rest }) => {
       if ([type, 'context'].includes(side)) {
         return { ...rest };
       }
@@ -60,7 +60,7 @@ export default class BlobReader {
   read(rootElement) {
     return [].concat(
       ...getBlobWrapper(rootElement)
-        .map(el => {
+        .map((el) => {
           return parseBlob(el);
         })
         .filter(Boolean),

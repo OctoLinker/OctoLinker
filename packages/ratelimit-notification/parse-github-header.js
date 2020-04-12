@@ -1,4 +1,4 @@
-export const parse = headers => {
+export const parse = (headers) => {
   const rateLimitTotal = parseInt(headers.get('x-ratelimit-limit'), 10) || 0;
   const rateLimitRemaining =
     parseInt(headers.get('x-ratelimit-remaining'), 10) || 0;
