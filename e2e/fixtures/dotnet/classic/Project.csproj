@@ -38,4 +38,9 @@
     <None Update="..\Directory.Build.props" />
   </ItemGroup>
 
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/dotnet/foo bar/test file.cs) -->
+    <Content Include="../foo bar/test file.cs" />
+  </ItemGroup>
+
 </Project>
