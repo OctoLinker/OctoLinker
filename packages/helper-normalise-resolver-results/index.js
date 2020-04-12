@@ -11,7 +11,7 @@ function isURL(str) {
 }
 
 // Resource within this repositroy
-const internal = url => {
+const internal = (url) => {
   const fullUrl = url.replace('{BASE_URL}', BASE_URL);
   const { user, repo, branch, path } = ghParse(fullUrl) || {};
 
@@ -26,7 +26,7 @@ const internal = url => {
 };
 
 // An external url like a documenation page
-const external = url => {
+const external = (url) => {
   const target = url.replace('{BASE_URL}', BASE_URL);
 
   if (!isURL(target)) {
@@ -40,7 +40,7 @@ const external = url => {
 };
 
 // Async resolver
-const func = handler => ({
+const func = (handler) => ({
   type: 'function',
   handler,
 });
@@ -52,8 +52,8 @@ const registry = ({ registry: type, target }) => ({
   target,
 });
 
-export default function(urls) {
-  return [].concat(urls).map(url => {
+export default function (urls) {
+  return [].concat(urls).map((url) => {
     if (typeof url === 'string') {
       const [, user, repo] = url.split('/');
 

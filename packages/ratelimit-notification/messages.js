@@ -1,6 +1,6 @@
 import { showNotification } from '@octolinker/user-interface';
 
-const prettyTime = ms => {
+const prettyTime = (ms) => {
   const sec = ms / 1000;
 
   if (sec > 120) {

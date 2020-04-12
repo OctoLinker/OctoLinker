@@ -48,7 +48,7 @@ export default class Form extends Component {
 
     const response = await fetch('https://api.github.com/user', {
       headers: { Authorization: `token ${githubToken}` },
-    }).then(res => res.json());
+    }).then((res) => res.json());
 
     if (!response.login) {
       this.setState({
@@ -78,7 +78,7 @@ export default class Form extends Component {
     return (
       <form
         onChange={this.onBlur.bind(this)}
-        onSubmit={event => event.preventDefault()}
+        onSubmit={(event) => event.preventDefault()}
       >
         {tokenLoaded && this.tokenMessage()}
         <Input
@@ -88,7 +88,7 @@ export default class Form extends Component {
           description={githubTokenDescription()}
           value={state.githubToken}
           error={errorMessage}
-          onInput={event => {
+          onInput={(event) => {
             linkState(this, 'githubToken')(event);
             setTimeout(this.validateToken.bind(this), 100);
           }}

@@ -85,7 +85,7 @@ function singleImportRegExpBuilder(input) {
   });
 }
 
-export default function(blobSource) {
+export default function (blobSource) {
   return []
     .concat(
       multiImportRegExpBuilder(blobSource),
@@ -93,5 +93,5 @@ export default function(blobSource) {
       multiRequireRegExpBuilder(blobSource),
       singleRequireRegExpBuilder(blobSource),
     )
-    .filter(item => !!item);
+    .filter((item) => !!item);
 }

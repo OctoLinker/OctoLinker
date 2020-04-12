@@ -12,10 +12,7 @@ import builtinsDocs from './builtins-docs.js';
 function getTopModuleName(target) {
   const isScoped = target.startsWith('@');
   const numComponents = isScoped ? 2 : 1;
-  const topModuleName = target
-    .split('/')
-    .slice(0, numComponents)
-    .join('/');
+  const topModuleName = target.split('/').slice(0, numComponents).join('/');
   return topModuleName;
 }
 
@@ -37,14 +34,14 @@ export function javascriptFile({ path, target }) {
     extName.unshift(pathExt);
   }
 
-  extName.forEach(ext => {
+  extName.forEach((ext) => {
     list.push(ext);
     list.push(`/index${ext}`);
   });
 
   list.push('');
 
-  return concatMap(list, file => {
+  return concatMap(list, (file) => {
     const origPath = `{BASE_URL}${basePath}${file}`;
     const paths = [origPath];
 

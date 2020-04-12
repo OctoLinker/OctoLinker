@@ -1,10 +1,10 @@
 import jsonPath from 'JSONPath';
 
-export default function(blob, plugin, config) {
+export default function (blob, plugin, config) {
   let results = [];
   const json = blob.toJSON();
   Object.entries(config).forEach(([path, linker]) => {
-    jsonPath({ json, path, resultType: 'all' }).forEach(result => {
+    jsonPath({ json, path, resultType: 'all' }).forEach((result) => {
       if (typeof result.value === 'string') {
         results = results.concat(
           linker.call(plugin, blob, result.parentProperty, result.value),

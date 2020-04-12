@@ -2,7 +2,7 @@
 
 import { h } from 'preact';
 
-const validationClassName = error => (error ? ' errored' : '');
+const validationClassName = (error) => (error ? ' errored' : '');
 
 export default ({
   name,

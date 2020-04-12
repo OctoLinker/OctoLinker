@@ -64,12 +64,8 @@ function getPath(el) {
   }
 
   let ret = $(rootSelector)
-    .filter(function() {
-      return (
-        $(this)
-          .text()
-          .trim() === 'View file'
-      );
+    .filter(function () {
+      return $(this).text().trim() === 'View file';
     })
     .attr('href');
 
@@ -79,9 +75,7 @@ function getPath(el) {
 
   // When current page is a gist, get path from blob name
   if (!ret && isGist()) {
-    ret = $('.gist-blob-name', el.parentElement)
-      .text()
-      .trim();
+    ret = $('.gist-blob-name', el.parentElement).text().trim();
     if (ret && !ret.startsWith('/')) {
       ret = `/${ret}`;
     }
@@ -123,17 +117,11 @@ function getLineNumber(el) {
   }
 
   // split diff view
-  let lineNumber = $(el)
-    .closest('td')
-    .prev()
-    .data('line-number');
+  let lineNumber = $(el).closest('td').prev().data('line-number');
 
   // unified diff view
   if (!lineNumber) {
-    lineNumber = $(el)
-      .closest('tr')
-      .find('td')
-      .data('line-number');
+    lineNumber = $(el).closest('tr').find('td').data('line-number');
   }
 
   if (lineNumber) {
@@ -146,9 +134,7 @@ function getLineNumber(el) {
 }
 
 function diffMetaInformation(el) {
-  const td = $(el)
-    .closest('td')
-    .get(0);
+  const td = $(el).closest('td').get(0);
 
   // Blob view
   if (td.classList.contains('js-file-line')) {
@@ -221,7 +207,7 @@ function readLines(el) {
 
   return getBlobCodeInner(el)
     .map(readLine)
-    .filter(line => !!line);
+    .filter((line) => !!line);
 }
 
 export { getPath, getBlobWrapper, readLines, getParentSha, isGist };

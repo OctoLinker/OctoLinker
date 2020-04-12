@@ -28,8 +28,8 @@ function injectLiveDemoUrl(url) {
 
 function groupMatchesByType(matches) {
   const flattenUrls = [].concat(
-    ...matches.map(match =>
-      match.urls.map(url => ({
+    ...matches.map((match) =>
+      match.urls.map((url) => ({
         ...url,
         link: match.link,
       })),
@@ -79,7 +79,7 @@ function insertLinks({
           break;
         }
       } else if (item.type === 'github-search') {
-        const allMatches = githubTree.filter(path =>
+        const allMatches = githubTree.filter((path) =>
           path.endsWith(item.target),
         );
 
@@ -118,7 +118,7 @@ function insertLinks({
   });
 }
 
-export default async function(matches) {
+export default async function (matches) {
   const { apiItems, internalItems, trustedItems } = groupMatchesByType(matches);
 
   let octolinkerApiResponsePromise = [];
@@ -139,7 +139,7 @@ export default async function(matches) {
     }
   }
 
-  trustedItems.forEach(item => {
+  trustedItems.forEach((item) => {
     item.link.href = item.target;
   });
 

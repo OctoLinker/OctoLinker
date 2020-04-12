@@ -1,4 +1,4 @@
-export default function({ path, target }) {
+export default function ({ path, target }) {
   return {
     type: 'github-search',
     path,

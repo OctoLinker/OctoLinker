@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-export default function(
+export default function (
   blobSource,
   { openingPattern, closingPattern, matchPattern },
 ) {
@@ -25,7 +25,7 @@ export default function(
 
   const NO_CAPTURE_GROUP = 1;
 
-  blobSource.split('\n').forEach(line => {
+  blobSource.split('\n').forEach((line) => {
     if (!noGroup && !reading) {
       reading = !!line.match(openingPattern);
       return;

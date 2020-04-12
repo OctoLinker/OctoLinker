@@ -7,7 +7,7 @@ const pkgVersion = require('./package.json')
   .slice(0, -1)
   .join('.');
 
-document.body.addEventListener('click', event => {
+document.body.addEventListener('click', (event) => {
   if (
     event.target.classList.contains('js-hide-new-version') ||
     event.target.classList.contains('js-flash-close-update-info')
@@ -19,7 +19,7 @@ document.body.addEventListener('click', event => {
   }
 });
 
-export default async function() {
+export default async function () {
   const showUpdateNotification = storage.get('showUpdateNotification');
 
   if (!showUpdateNotification) {

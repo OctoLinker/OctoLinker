@@ -11,7 +11,7 @@ function goFile({ path, target }) {
   list.push('.go');
   list.push('');
 
-  return list.map(file => `{BASE_URL}${basePath}${file}`);
+  return list.map((file) => `{BASE_URL}${basePath}${file}`);
 }
 
 function githubUrls(url) {

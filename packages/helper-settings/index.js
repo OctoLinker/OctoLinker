@@ -7,7 +7,7 @@ const defaults = {
   showUpdateNotification: true,
 };
 
-export const get = key => {
+export const get = (key) => {
   if (process.env.OCTOLINKER_LIVE_DEMO) {
     return;
   }
@@ -29,7 +29,7 @@ export const set = async (key, value) => {
   return browser.storage.local.set(data);
 };
 
-export const save = async data => {
+export const save = async (data) => {
   if (process.env.OCTOLINKER_LIVE_DEMO) {
     return;
   }

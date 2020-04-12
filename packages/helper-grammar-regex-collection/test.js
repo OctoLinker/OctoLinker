@@ -525,7 +525,7 @@ const fixtures = {
 };
 
 function fixturesIterator(fixturesList, next) {
-  fixturesList.forEach(statement => {
+  fixturesList.forEach((statement) => {
     const text = Array.isArray(statement) ? statement[0] : statement;
     const expected = Array.isArray(statement) ? statement[1] : null;
 
@@ -544,7 +544,7 @@ function addModifiedLines(valid) {
 }
 
 describe('helper-grammar-regex-collection', () => {
-  Object.keys(fixtures).forEach(grammar => {
+  Object.keys(fixtures).forEach((grammar) => {
     const spec = fixtures[grammar];
 
     const { invalid } = spec;
@@ -568,10 +568,10 @@ describe('helper-grammar-regex-collection', () => {
             let match;
             let result = [];
 
-            regexes(text).forEach(regex => {
+            regexes(text).forEach((regex) => {
               // eslint-disable-next-line
               while (match = regex.exec(text)) {
-                result = result.concat(match.filter(item => !!item).slice(1));
+                result = result.concat(match.filter((item) => !!item).slice(1));
               }
             });
 
@@ -581,9 +581,9 @@ describe('helper-grammar-regex-collection', () => {
       });
 
       describe('invalid', () => {
-        fixturesIterator(invalid, text => {
+        fixturesIterator(invalid, (text) => {
           it(text, () => {
-            regexes(text).forEach(regex => {
+            regexes(text).forEach((regex) => {
               assert.equal(regex.exec(text), null);
             });
           });

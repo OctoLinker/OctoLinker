@@ -19,8 +19,8 @@ function updatePluginsForKey(lookup, plugin, key) {
 function buildPluginCache(plugins) {
   const lookup = new Map();
 
-  plugins.forEach(plugin => {
-    plugin.getPattern().pathRegexes.forEach(pattern => {
+  plugins.forEach((plugin) => {
+    plugin.getPattern().pathRegexes.forEach((pattern) => {
       updatePluginsForKey(lookup, plugin, pattern);
     });
 
@@ -28,7 +28,7 @@ function buildPluginCache(plugins) {
       return;
     }
 
-    plugin.getPattern().githubClasses.forEach(githubClass => {
+    plugin.getPattern().githubClasses.forEach((githubClass) => {
       updatePluginsForKey(lookup, plugin, githubClass);
     });
   });

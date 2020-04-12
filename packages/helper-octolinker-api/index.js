@@ -13,7 +13,7 @@ function buildSearchParams(payload) {
   return new URLSearchParams(params);
 }
 
-export const bulkAction = async function(data) {
+export const bulkAction = async function (data) {
   if (!data.length) {
     return [];
   }

@@ -26,7 +26,9 @@ export const showNotification = ({ body, type = 'info', id = 'common' }) => {
 };
 
 export const removeAllNotifications = () => {
-  document.querySelectorAll('.js-octolinker-flash').forEach(el => el.remove());
+  document
+    .querySelectorAll('.js-octolinker-flash')
+    .forEach((el) => el.remove());
 };
 
 export const isPrivateRepository = () => !!document.querySelector('h1.private');
