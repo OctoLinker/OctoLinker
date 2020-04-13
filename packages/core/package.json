@@ -43,7 +43,7 @@
     "@octolinker/plugin-vim": "1.0.0",
     "@octolinker/user-interface": "1.0.0",
     "github-injection": "^1.0.1",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "lodash.isequal": "^4.5.0",
     "lodash.uniqwith": "^4.5.0"
   }
