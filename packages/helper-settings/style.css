@@ -1,7 +1,7 @@
 html {
   user-select: none;
-  min-width: 27em; /* Fits the token description in Chrome */
 }
+
 body, p { /* p required to override chrome_style */
   line-height: 1.5;
 }
