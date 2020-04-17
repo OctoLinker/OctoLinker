@@ -93,7 +93,7 @@ export default class Form extends Component {
             setTimeout(this.validateToken.bind(this), 100);
           }}
         />
-        <p className="note ">
+        <p>
           For public repositories,{' '}
           <a
             href="https://github.com/settings/tokens/new?scopes=public_repo&description=OctoLinker"
@@ -120,9 +120,11 @@ export default class Form extends Component {
             <strong>repo</strong>
           </code>{' '}
           permissions. Then copy and paste it into the input field above.
-          <details className="mt-3">
+        </p>
+        <p>
+          <details>
             <summary>Why is a GitHub token needed?</summary>
-            <p className="note">
+            <p>
               OctoLinker uses the{' '}
               <a
                 href="https://developer.github.com/v3/"
@@ -135,7 +137,7 @@ export default class Form extends Component {
               unauthenticated requests to the GitHub API. However, there are two
               situations when requests must be authenticated:
             </p>
-            <p className="note ml-5">
+            <p>
               <ul>
                 <li>You access a private repository</li>
                 <li>
@@ -150,7 +152,7 @@ export default class Form extends Component {
                 </li>
               </ul>
             </p>
-            <p className="note">
+            <p>
               When that happens, OctoLinker needs an GitHub access token in
               order to continue to work.
             </p>

@@ -1,11 +1,21 @@
 body {
   user-select: none;
+  min-width: 27em; /* Fits the token description in Chrome */
+}
+body, p { /* p required to override chrome_style */
+  line-height: 1.5;
 }
 
-label {
-  font-size: 12px;
+.form-checkbox {
+  display: flex;
 }
 
-.form-checkbox input[type=checkbox], .form-checkbox input[type=radio] {
-  margin-top: 2px;
+.note {
+  display: block;
+  opacity: 0.6;
+}
+
+input[type='checkbox'] {
+  margin-inline-end: 0.6em;
+  margin-top: 0.2em;
 }
