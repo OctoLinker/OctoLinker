@@ -23,13 +23,10 @@ jobs:
           ${{ runner.os }}-yarn-
     - run: yarn install
     - run: yarn test
-      env:
-        CI: true
     - run: yarn build
     - name: Run E2E
       uses: mujo-code/puppeteer-headful@master
       env:
-        CI: true
         PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
       with:
         args: yarn e2e
