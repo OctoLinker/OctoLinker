@@ -100,6 +100,7 @@ export default {
         // CoffeeScript
         /\.coffee$/,
         /\.vue$/,
+        /\.svelte$/,
       ],
       githubClasses: [
         'type-javascript',
