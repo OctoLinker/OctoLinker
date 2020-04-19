@@ -10,6 +10,10 @@ body, p { /* p required to override chrome_style */
   display: flex;
 }
 
+code {
+  font-size: 1rem;
+}
+
 .note {
   display: block;
   opacity: 0.6;
