@@ -1,5 +1,3 @@
-/* eslint jsx-a11y/label-has-for: 0 */
-
 import { h } from 'preact';
 
 export default ({

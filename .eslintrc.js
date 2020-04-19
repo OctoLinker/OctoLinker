@@ -40,6 +40,7 @@ module.exports = {
     'no-restricted-syntax': 0,
     'consistent-return': 0,
     'array-callback-return': 0,
+    'jsx-a11y/label-has-for': 0
   },
   globals: {
     fixture: true,
