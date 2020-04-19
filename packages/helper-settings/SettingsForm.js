@@ -34,6 +34,11 @@ export default class Form extends Component {
   async validateToken() {
     const { githubToken } = this.state;
 
+    if (!this.tokenInputEl) {
+      this.tokenInputEl = document.querySelector('.js-token');
+    }
+    this.tokenInputEl.setCustomValidity('');
+
     if (!githubToken) {
       this.setState({
         errorMessage: undefined,
@@ -53,8 +58,18 @@ export default class Form extends Component {
     if (!response.login) {
       this.setState({
         tokenLoaded: false,
-        errorMessage: response.message || 'Something went wrong',
       });
+
+      let message = 'The token could not be validated';
+      if (
+        response.message &&
+        response.message.toLowerCase() === 'bad credentials'
+      ) {
+        message = 'Your token is not valid';
+      }
+
+      this.tokenInputEl.setCustomValidity(message);
+      this.tokenInputEl.reportValidity();
       return;
     }
 
@@ -68,10 +83,6 @@ export default class Form extends Component {
     });
   }
 
-  tokenMessage() {
-    return <div className="flash flash-success">Token successfully added</div>;
-  }
-
   render(props, state) {
     const { errorMessage, tokenLoaded } = this.state;
 
@@ -80,10 +91,13 @@ export default class Form extends Component {
         onChange={this.onBlur.bind(this)}
         onSubmit={(event) => event.preventDefault()}
       >
-        {tokenLoaded && this.tokenMessage()}
+        <div className="flash-success">
+          {tokenLoaded && '✔ Token successfully added!'}
+        </div>
         <Input
           type="password"
           name="githubToken"
+          className="js-token"
           label="Access token"
           description={githubTokenDescription()}
           value={state.githubToken}
@@ -93,7 +107,7 @@ export default class Form extends Component {
             setTimeout(this.validateToken.bind(this), 100);
           }}
         />
-        <p className="note ">
+        <p>
           For public repositories,{' '}
           <a
             href="https://github.com/settings/tokens/new?scopes=public_repo&description=OctoLinker"
@@ -120,9 +134,11 @@ export default class Form extends Component {
             <strong>repo</strong>
           </code>{' '}
           permissions. Then copy and paste it into the input field above.
-          <details className="mt-3">
+        </p>
+        <p>
+          <details>
             <summary>Why is a GitHub token needed?</summary>
-            <p className="note">
+            <p>
               OctoLinker uses the{' '}
               <a
                 href="https://developer.github.com/v3/"
@@ -135,7 +151,7 @@ export default class Form extends Component {
               unauthenticated requests to the GitHub API. However, there are two
               situations when requests must be authenticated:
             </p>
-            <p className="note ml-5">
+            <p>
               <ul>
                 <li>You access a private repository</li>
                 <li>
@@ -150,7 +166,7 @@ export default class Form extends Component {
                 </li>
               </ul>
             </p>
-            <p className="note">
+            <p>
               When that happens, OctoLinker needs an GitHub access token in
               order to continue to work.
             </p>

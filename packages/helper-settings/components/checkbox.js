@@ -1,17 +1,18 @@
 import { h } from 'preact';
 
 export default ({ name, label, description, checked, onClick }) => (
-  <div className="form-checkbox">
-    <label htmlFor={name}>
-      <input
-        id={name}
-        name={name}
-        type="checkbox"
-        checked={checked}
-        onClick={onClick}
-      />
-      {label}
-    </label>
-    <p className="note">{description}</p>
-  </div>
+  <p className="form-checkbox">
+    <input
+      id={name}
+      name={name}
+      type="checkbox"
+      checked={checked}
+      onClick={onClick}
+    />
+    <span>
+      <label htmlFor={name}>{label}</label>
+      <br />
+      <span className="note">{description}</span>
+    </span>
+  </p>
 );

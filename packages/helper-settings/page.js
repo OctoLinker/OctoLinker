@@ -3,14 +3,4 @@
 import { h, render } from 'preact';
 import SettingsForm from './SettingsForm';
 
-const App = () => (
-  <div className="d-flex flex-justify-center">
-    <div className="four-fifth column">
-      <div className="Box-row">
-        <SettingsForm />
-      </div>
-    </div>
-  </div>
-);
-
-render(<App />, document.getElementById('app'));
+render(<SettingsForm />, document.getElementById('app'));
