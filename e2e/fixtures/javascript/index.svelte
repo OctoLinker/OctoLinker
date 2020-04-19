@@ -7,4 +7,7 @@
 
   // @OctoLinkerResolve(<root>/javascript/relative/proud-tooth.js)
   import * as pt from './relative/proud-tooth.js';
+
+  // @OctoLinkerResolve(<root>/javascript/relative/proud-tooth.svelte)
+  import * as pt from './relative/proud-tooth.svelte';
 </script>
