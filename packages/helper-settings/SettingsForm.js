@@ -34,6 +34,11 @@ export default class Form extends Component {
   async validateToken() {
     const { githubToken } = this.state;
 
+    if (!this.tokenInputEl) {
+      this.tokenInputEl = document.querySelector('.js-token');
+    }
+    this.tokenInputEl.setCustomValidity('');
+
     if (!githubToken) {
       this.setState({
         errorMessage: undefined,
@@ -53,8 +58,11 @@ export default class Form extends Component {
     if (!response.login) {
       this.setState({
         tokenLoaded: false,
-        errorMessage: response.message || 'Something went wrong',
       });
+      this.tokenInputEl.setCustomValidity(
+        response.message || 'Something went wrong',
+      );
+      this.tokenInputEl.reportValidity();
       return;
     }
 
@@ -84,6 +92,7 @@ export default class Form extends Component {
         <Input
           type="password"
           name="githubToken"
+          className="js-token"
           label="Access token"
           description={githubTokenDescription()}
           value={state.githubToken}

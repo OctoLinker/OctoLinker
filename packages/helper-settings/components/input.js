@@ -6,9 +6,9 @@ export default ({
   name,
   label,
   description,
-  error,
   value,
   onInput,
+  className,
   type = 'text',
 }) => (
   <p>
@@ -18,7 +18,7 @@ export default ({
 
     <input
       style={{ width: '100%' }}
-      className="form-control"
+      className={className}
       type={type}
       id={name}
       name={name}
