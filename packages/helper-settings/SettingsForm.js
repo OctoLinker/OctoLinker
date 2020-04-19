@@ -69,7 +69,7 @@ export default class Form extends Component {
   }
 
   tokenMessage() {
-    return <div className="flash flash-success">Token successfully added</div>;
+    return <div className="flash-success">Token successfully added</div>;
   }
 
   render(props, state) {

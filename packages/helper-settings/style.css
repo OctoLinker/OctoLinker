@@ -19,3 +19,11 @@ input[type='checkbox'] {
   margin-inline-end: 0.6em;
   margin-top: 0.2em;
 }
+
+.flash-success {
+   color: #165c26;
+    background-color: #dcffe4;
+    padding: 8px 16px;
+    border: 1px solid rgba(27,31,35,0.15);
+    border-radius: 3px;
+}
