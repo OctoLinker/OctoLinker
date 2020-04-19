@@ -83,10 +83,6 @@ export default class Form extends Component {
     });
   }
 
-  tokenMessage() {
-    return <div className="flash-success">Token successfully added</div>;
-  }
-
   render(props, state) {
     const { errorMessage, tokenLoaded } = this.state;
 
@@ -95,7 +91,9 @@ export default class Form extends Component {
         onChange={this.onBlur.bind(this)}
         onSubmit={(event) => event.preventDefault()}
       >
-        {tokenLoaded && this.tokenMessage()}
+        <div className="flash-success">
+          {tokenLoaded && '✔ Token successfully added!'}
+        </div>
         <Input
           type="password"
           name="githubToken"

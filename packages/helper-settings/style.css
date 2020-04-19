@@ -25,9 +25,12 @@ input[type='checkbox'] {
 }
 
 .flash-success {
-   color: #165c26;
-    background-color: #dcffe4;
-    padding: 8px 16px;
-    border: 1px solid rgba(27,31,35,0.15);
-    border-radius: 3px;
+  height: 0.5rem;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+  .flash-success {
+    color: #165c26;
+ }
 }
