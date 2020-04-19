@@ -59,9 +59,16 @@ export default class Form extends Component {
       this.setState({
         tokenLoaded: false,
       });
-      this.tokenInputEl.setCustomValidity(
-        response.message || 'Something went wrong',
-      );
+
+      let message = 'The token could not be validated';
+      if (
+        response.message &&
+        response.message.toLowerCase() === 'bad credentials'
+      ) {
+        message = 'Your token is not valid';
+      }
+
+      this.tokenInputEl.setCustomValidity(message);
       this.tokenInputEl.reportValidity();
       return;
     }
