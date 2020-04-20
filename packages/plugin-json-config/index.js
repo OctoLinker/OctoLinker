@@ -33,6 +33,7 @@ export default {
         /babel\.config\.json$/,
         /\.stylelintrc\.json$/,
         /tsconfig\.json$/,
+        /package\.json$/,
       ],
       githubClasses: [],
     };
@@ -43,6 +44,7 @@ export default {
       '$.extends': linkDependency,
       '$.presets': linkDependency,
       '$.plugins': linkDependency,
+      '$.stylelintConfig': linkDependency,
     });
   },
 };
