@@ -44,7 +44,13 @@ export default {
       '$.extends': linkDependency,
       '$.presets': linkDependency,
       '$.plugins': linkDependency,
-      '$.stylelintConfig': linkDependency,
+      '$.ava.require': linkDependency,
+      '$.babel.presets': linkDependency,
+      '$.babel.plugins': linkDependency,
+      '$.stylelint.extends': linkDependency,
+      '$.stylelintConfig.extends': linkDependency,
+      '$.xo.extends': linkDependency,
+      '$.xo.parser': linkDependency,
     });
   },
 };
