@@ -1,0 +1,14 @@
+{
+  "name": "@octolinker/plugin-json-config",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-npm-manifest",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-process-json": "1.0.0",
+    "@octolinker/helper-regex-builder": "1.0.0",
+    "@octolinker/resolver-live-query": "1.0.0",
+    "@octolinker/helper-insert-link": "1.0.0"
+  }
+}
