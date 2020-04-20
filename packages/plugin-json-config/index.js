@@ -30,6 +30,7 @@ export default {
     return {
       pathRegexes: [
         /\.babelrc\.json$/,
+        /babel\.config\.json$/,
         /\.stylelintrc\.json$/,
         /tsconfig\.json$/,
       ],
