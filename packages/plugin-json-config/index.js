@@ -8,7 +8,7 @@ import liveResolverQuery from '@octolinker/resolver-live-query';
 
 function linkDependency(blob, key, value) {
   let regex;
-  
+
   if (Number.isNaN(key)) {
     regex = jsonRegExValue(key, value, true);
   } else {
@@ -28,7 +28,11 @@ export default {
 
   getPattern() {
     return {
-      pathRegexes: [/\.stylelintrc\.json$/, /tsconfig\.json$/],
+      pathRegexes: [
+        /\.babelrc\.json$/,
+        /\.stylelintrc\.json$/,
+        /tsconfig\.json$/,
+      ],
       githubClasses: [],
     };
   },
@@ -36,6 +40,8 @@ export default {
   parseBlob(blob) {
     return processJSON(blob, this, {
       '$.extends': linkDependency,
+      '$.presets': linkDependency,
+      '$.plugins': linkDependency,
     });
   },
 };
