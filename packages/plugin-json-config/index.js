@@ -48,6 +48,8 @@ export default {
       '$.ava.require': linkDependency,
       '$.babel.presets': linkDependency,
       '$.babel.plugins': linkDependency,
+      '$.eslintConfig.extends': linkDependency,
+      '$.eslintConfig.parser': linkDependency,
       '$.stylelint.extends': linkDependency,
       '$.stylelintConfig.extends': linkDependency,
       '$.xo.extends': linkDependency,
