@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "@iarna/toml": "^2.2.3",
+    "@iarna/toml": "^2.2.5",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
     "@octolinker/helper-insert-link": "1.0.0",
     "@octolinker/helper-regex-builder": "1.0.0",
