@@ -9,6 +9,7 @@ import Plugins from './plugin-manager.js';
 import debugMode from './debug-mode.js';
 import loader from './loader.js';
 import * as loadPlugins from './load-plugins';
+import './stats.js';
 
 const blobReader = new BlobReader();
 const pluginManager = new Plugins(loadPlugins);
