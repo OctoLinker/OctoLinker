@@ -74,7 +74,7 @@ export default class Blob {
   }
 
   async fetchBlob() {
-    // TODO try to avoid request if blob is alreay fully repsrent
+    // TODO try to avoid request if blob is already fully present
     const { user, repo, branch, path } = ghParse(
       `https://github.com${this.path}`,
     );

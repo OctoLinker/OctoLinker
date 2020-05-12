@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 function getBlobCodeInner(el) {
   return [].slice.call(el.getElementsByClassName('blob-code-inner'));
 }
@@ -63,40 +61,47 @@ function getPath(el) {
     );
   }
 
-  let ret = $(rootSelector)
-    .filter(function () {
-      return $(this).text().trim() === 'View file';
-    })
-    .attr('href');
+  const [link] = Array.from(rootSelector).filter((value) => {
+    return value.textContent.trim() === 'View file';
+  });
+
+  let ret = link && link.getAttribute('href');
 
   if (!ret) {
-    ret = $('.js-permalink-shortcut').attr('href');
+    const shortcut = document.querySelector('.js-permalink-shortcut');
+
+    ret = shortcut && shortcut.getAttribute('href');
   }
 
   // When current page is a gist, get path from blob name
   if (!ret && isGist()) {
-    ret = $('.gist-blob-name', el.parentElement).text().trim();
+    ret = el.parentElement.querySelector('.gist-blob-name').textContent;
+
+    if (ret) {
+      ret = ret.trim();
+    }
+
     if (ret && !ret.startsWith('/')) {
       ret = `/${ret}`;
     }
   }
-
   // when page has pull request comment(s)
-  const $fileHeader = $('.file-header', el.parentElement);
-  if (!ret && $fileHeader.length) {
+  const fileHeader = el.parentElement.querySelector('.file-header');
+  if (!ret && fileHeader) {
     let repoPath = '';
     let filePath = '';
 
-    if ($('a.file-action', $fileHeader).length) {
+    if (fileHeader.querySelector('a.file-action')) {
       // comment is outdated
 
-      filePath = $('.file-info', $fileHeader).text();
-      repoPath = $('a.file-action', $fileHeader).attr('href');
+      filePath = fileHeader.querySelector('.file-info').textContent;
+      repoPath = fileHeader.querySelector('a.file-action').getAttribute('href');
     } else {
       // comment is up-to-date
 
-      filePath = $('a', $fileHeader).text();
-      repoPath = $('a', $fileHeader).attr('href');
+      const fileHeaderLink = fileHeader.querySelector('a');
+      filePath = fileHeaderLink.textContent;
+      repoPath = fileHeaderLink.getAttribute('href');
     }
 
     if (repoPath && filePath) {
@@ -117,24 +122,26 @@ function getLineNumber(el) {
   }
 
   // split diff view
-  let lineNumber = $(el).closest('td').prev().data('line-number');
+  let lineNumber = Number(
+    el.closest('td').previousElementSibling.dataset.lineNumber,
+  );
 
   // unified diff view
   if (!lineNumber) {
-    lineNumber = $(el).closest('tr').find('td').data('line-number');
+    lineNumber = Number(
+      el.closest('tr').querySelector('td').dataset.lineNumber,
+    );
   }
 
   if (lineNumber) {
-    if (Number.isInteger(lineNumber)) {
-      return lineNumber;
-    }
+    return lineNumber;
   }
 
   return null;
 }
 
 function diffMetaInformation(el) {
-  const td = $(el).closest('td').get(0);
+  const td = el.closest('td');
 
   // Blob view
   if (td.classList.contains('js-file-line')) {
