@@ -24,7 +24,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/plugin-transform-react-jsx": "^7.10.1",
     "@babel/plugin-transform-runtime": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
     "async": "^3.0.1",
