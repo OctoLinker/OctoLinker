@@ -1,4 +1,4 @@
-const path = require.requireActual('path');
+const path = jest.requireActual('path');
 
 path.join = path.posix.join;
 
