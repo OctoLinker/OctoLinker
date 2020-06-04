@@ -11,3 +11,6 @@ jobs:
     - uses: actions/setup-node
     # @OctoLinkerResolve(https://github.com/actions/upload-artifact)
     - uses: actions/upload-artifact@master
+    # @OctoLinkerResolve(https://github.com/OctoLinker/OctoLinker)
+    - uses: ./
+    
