@@ -15,6 +15,12 @@ export default {
       return `{BASE_URL}/${join(org, repo, 'tree', sha, target)}`;
     }
 
+    const [org, repo, ...folder] = target.split('/');
+
+    if (folder.length) {
+      return `{BASE_URL}/${join(org, repo, 'tree', 'master', ...folder)}`;
+    }
+
     return `{BASE_URL}/${target}`;
   },
 
