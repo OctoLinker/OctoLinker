@@ -61,7 +61,12 @@ function findTests(contents) {
 
         const targetUrl = line
           .match(/@OctoLinkerResolve(Above)?\((.*?)\)/)[2]
-          .replace('<root>', '');
+          .replace('<root>', '')
+          .replace('<sha>', branch)
+          .replace(
+            'https://github.com/OctoLinker/OctoLinker/tree/',
+            `https://github.com/${user}/OctoLinker/tree/`,
+          );
 
         const filePath = file.replace(__dirname, '');
 

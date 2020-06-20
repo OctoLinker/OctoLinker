@@ -13,6 +13,6 @@ jobs:
     - uses: actions/upload-artifact@master
     # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/master/init)
     - uses: github/codeql-action/init@v1
-    # @OctoLinkerResolve(https://github.com/OctoLinker/OctoLinker)
+    # @OctoLinkerResolve(https://github.com/OctoLinker/OctoLinker/tree/<sha>/)
     - uses: ./
     
