@@ -32,6 +32,7 @@ const sha = process.env.GITHUB_SHA || 'HEAD';
 const fixturesRoot = `https://github.com/${user}/OctoLinker/blob/${branch}/e2e`;
 
 console.log('Fixtures root:', fixturesRoot); // eslint-disable-line no-console
+console.log('Fixtures sha:', sha); // eslint-disable-line no-console
 
 async function readContent(files) {
   const readFile = util.promisify(fs.readFile);
