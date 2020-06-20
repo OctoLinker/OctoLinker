@@ -18,17 +18,19 @@ const async = require('async');
 // ]
 
 let username;
+let sha = 'HEAD';
 
 if (process.env.GITHUB_EVENT_PATH) {
   const json = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH));
   if (json && json.pull_request) {
     username = json.pull_request.head.user.login;
+    // eslint-disable-next-line prefer-destructuring
+    sha = json.payload.pull_request.head.sha;
   }
 }
 
 const user = username || 'OctoLinker';
 const branch = process.env.GITHUB_HEAD_REF || 'master';
-const sha = process.env.GITHUB_SHA || 'HEAD';
 const fixturesRoot = `https://github.com/${user}/OctoLinker/blob/${branch}/e2e`;
 
 console.log('Fixtures root:', fixturesRoot); // eslint-disable-line no-console
