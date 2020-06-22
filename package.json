@@ -25,7 +25,7 @@
     "@babel/core": "^7.10.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.10.3",
     "@babel/plugin-transform-react-jsx": "^7.10.1",
-    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
     "async": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0",
