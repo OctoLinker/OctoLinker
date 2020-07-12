@@ -11,6 +11,5 @@ jobs:
     - uses: actions/setup-node
     # @OctoLinkerResolve(https://github.com/actions/upload-artifact)
     - uses: actions/upload-artifact@master
-    # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/master/init)
+    # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/main/init)
     - uses: github/codeql-action/init@v1
-    
