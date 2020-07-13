@@ -9,13 +9,10 @@ const pkgVersion = require('./package.json')
 
 document.body.addEventListener('click', (event) => {
   if (
-    event.target.classList.contains('js-hide-new-version') ||
-    event.target.classList.contains('js-flash-close-update-info')
+    event.target.classList.contains('js-octolinker-release-link') ||
+    event.target.classList.contains('js-octolinker-toast-close-update-info')
   ) {
     storage.set('showUpdateInfo', false);
-    if (notificationEl) {
-      notificationEl.remove();
-    }
   }
 });
 
@@ -43,8 +40,12 @@ export default async function () {
     const url = json.html_url;
     const version = json.tag_name.replace('v', '');
 
-    const body = `${description} &ndash; see what's new in OctoLinker ${version}! <a href="${url}" target="_blank" class="js-hide-new-version">Learn more</a>`;
+    const body = `${description} &ndash; see what's new in OctoLinker ${version}! <a href="${url}" target="_blank" class="js-octolinker-release-link">Learn more</a>`;
 
-    notificationEl = showNotification({ body, id: 'update-info' });
+    notificationEl = showNotification({
+      body,
+      id: 'update-info',
+      type: 'info',
+    });
   }
 }
