@@ -31,4 +31,7 @@ export const removeAllNotifications = () => {
     .forEach((el) => el.remove());
 };
 
-export const isPrivateRepository = () => !!document.querySelector('h1.private');
+export const isPrivateRepository = () => {
+  const privateLabel = document.querySelector('h1 > .Label');
+  return !!privateLabel && privateLabel.textContent === 'Private';
+};
