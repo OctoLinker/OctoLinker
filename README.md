@@ -20,7 +20,7 @@ Trusted by over 25,000 developers! Install OctoLinker from [Chrome Web Store](ht
 
 ## Special thanks to
 
-- [▲ ZEIT](https://zeit.co/) for sponsoring OctoLinker with hosting!
+- [▲ Vercel](https://vercel.com/) for sponsoring OctoLinker with hosting!
 - [Redis Green](https://redisgreen.net) for sponsoring OctoLinker with four dedicated Redis server!
 - [Art Noir](https://www.art-noir.net/) for this amazing logo!
 - Everyone who supported, [contributed](https://github.com/OctoLinker/OctoLinker/graphs/contributors), promoted the project.
