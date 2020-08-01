@@ -2,19 +2,11 @@ import * as storage from '@octolinker/helper-settings';
 import { showNotification } from '@octolinker/user-interface';
 
 let notificationEl;
-const pkgVersion = require('./package.json')
-  .version.split('.')
-  .slice(0, -1)
-  .join('.');
+const releaseDescription = 'Test';
+const { version } = require('./package.json');
 
-document.body.addEventListener('click', (event) => {
-  if (
-    event.target.classList.contains('js-octolinker-release-link') ||
-    event.target.classList.contains('js-octolinker-toast-close-update-info')
-  ) {
-    storage.set('showUpdateInfo', false);
-  }
-});
+const displayVersion = version.replace('v', '');
+const majorMinor = version.split('.').slice(0, -1).join('.');
 
 export default async function () {
   const showUpdateNotification = storage.get('showUpdateNotification');
@@ -25,27 +17,23 @@ export default async function () {
 
   const installedVersion = storage.get('version');
 
-  storage.set('version', pkgVersion);
+  storage.set('version', majorMinor);
 
-  if (installedVersion && installedVersion !== pkgVersion) {
+  if (installedVersion && installedVersion !== majorMinor) {
     storage.set('showUpdateInfo', true);
   }
 
   if (storage.get('showUpdateInfo')) {
-    const response = await fetch(
-      'https://api.github.com/repos/OctoLinker/OctoLinker/releases/latest',
-    );
-    const json = await response.json();
-    const description = (json.body && json.body.split('\n')[0]) || '';
-    const url = json.html_url;
-    const version = json.tag_name.replace('v', '');
-
-    const body = `${description} &ndash; see what's new in OctoLinker ${version}! <a href="${url}" target="_blank" class="js-octolinker-release-link">Learn more</a>`;
+    const releaseUrl = `https://github.com/OctoLinker/OctoLinker/releases/tag/v${version}`;
+    const body = `${releaseDescription} &ndash; see what's new in OctoLinker ${displayVersion}! <a href="${releaseUrl}" target="_blank" class="js-octolinker-release-link">Learn more</a>`;
 
     notificationEl = showNotification({
       body,
       id: 'update-info',
       type: 'info',
+      clickHandler: () => {
+        storage.set('showUpdateInfo', false);
+      },
     });
   }
 }

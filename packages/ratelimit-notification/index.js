@@ -1,7 +1,4 @@
-import {
-  removeAllNotifications,
-  isPrivateRepository,
-} from '@octolinker/user-interface';
+import { isPrivateRepository } from '@octolinker/user-interface';
 import * as storage from '@octolinker/helper-settings';
 
 import {
@@ -13,16 +10,8 @@ import { parse } from './parse-github-header';
 
 const MAX_UNAUTHENTICATED_REQUESTS = 60;
 
-document.body.addEventListener('click', (event) => {
-  if (event.target.classList.contains('js-octolinker-open-settings')) {
-    chrome.runtime.sendMessage({ action: 'openSettings' });
-  }
-});
-
 export default (headers, statusCode) => {
   const { rateLimitTotal, rateLimitRemaining, rateLimitReset } = parse(headers);
-
-  removeAllNotifications();
 
   const isUnauthenticated = rateLimitTotal === MAX_UNAUTHENTICATED_REQUESTS;
   const isPrivate = isPrivateRepository();
@@ -46,7 +35,11 @@ export default (headers, statusCode) => {
     const remainingTime = rateLimitReset - new Date().getTime();
 
     if (rateLimitRemaining === 0) {
-      return rateLimitExceeded({ isUnauthenticated, remainingTime });
+      return rateLimitExceeded({
+        isUnauthenticated,
+        remainingTime,
+        rateLimitReset,
+      });
     }
   }
 };

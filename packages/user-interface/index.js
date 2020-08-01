@@ -1,11 +1,11 @@
-document.body.addEventListener('click', (event) => {
-  const octoToast = event.target.closest('.octolinker-toast');
-  if (octoToast) {
-    octoToast.remove();
-  }
-});
+import './style.css';
 
-export const showNotification = ({ body, type = 'info', id = 'common' }) => {
+export const showNotification = ({
+  body,
+  clickHandler = () => {},
+  type = 'info',
+  id = 'common',
+}) => {
   const typeClass = {
     info: 'Toast--info',
     success: 'Toast--success',
@@ -25,25 +25,24 @@ export const showNotification = ({ body, type = 'info', id = 'common' }) => {
   };
 
   const el = document.createElement('div');
-  el.innerHTML = `<div class="position-fixed bottom-0 left-0 ml-5 mb-5 anim-fade-in fast octolinker-toast Toast ${typeClass[type]}" role="log" style="z-index: 101;">
+  el.innerHTML = `<div class="position-fixed bottom-0 left-0 ml-5 mb-5 anim-fade-in fast js-octolinker-toast octolinker-toast Toast ${typeClass[type]}" role="log" style="z-index: 101;">
     <span class="Toast-icon">
         ${icons[type]}
     </span>
-    <span class="Toast-content">${body}</span>
+    <span class="Toast-content">
+      <div class="octo-toast-image"></div>
+      ${body}
+    </span>
       <button class="Toast-dismissButton js-octolinker-toast-close-${id}" type="button" aria-label="Close">
         <svg class="octicon octicon-x" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
       </button>
   </div>`;
 
-  document.getElementById('js-flash-container').append(el);
-
-  return el;
-};
-
-export const removeAllNotifications = () => {
-  document
-    .querySelectorAll('.js-octolinker-flash')
-    .forEach((el) => el.remove());
+  document.body.append(el);
+  el.addEventListener('click', function (event) {
+    clickHandler(event);
+    el.remove();
+  });
 };
 
 export const isPrivateRepository = () => {

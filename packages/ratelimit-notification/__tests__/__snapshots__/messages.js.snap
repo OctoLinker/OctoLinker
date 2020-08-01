@@ -3,6 +3,7 @@
 exports[`ratelimit-notification needsTokenForPrivate 1`] = `
 Object {
   "body": "OctoLinker needs a GitHub API token to retrieve repository metadata for private repositories. <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">Create a token</a> to enable OctoLinker for all your private repositories. <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">Disable OctoLinker for private repositories</a> to get rid of this notification.",
+  "clickHandler": [Function],
   "type": "info",
 }
 `;
@@ -10,6 +11,7 @@ Object {
 exports[`ratelimit-notification rateLimitExceeded for authenticated requests 1`] = `
 Object {
   "body": "OctoLinker exceed the GitHub API hourly limit. The rate limit will be reset in 5 seconds.",
+  "clickHandler": [Function],
   "type": "warn",
 }
 `;
@@ -17,6 +19,7 @@ Object {
 exports[`ratelimit-notification rateLimitExceeded for unauthenticated requests 1`] = `
 Object {
   "body": "OctoLinker exceed the GitHub API hourly limit for unauthenticated requests. You probably want to <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">create a token</a> or wait 5 minutes.",
+  "clickHandler": [Function],
   "type": "warn",
 }
 `;
@@ -24,6 +27,7 @@ Object {
 exports[`ratelimit-notification tokenIsInvalid 1`] = `
 Object {
   "body": "The token you provided is invalid. You must <a href=\\"#\\" class=\\"js-octolinker-open-settings\\">create a new token</a> before you can continue using OctoLinker.",
+  "clickHandler": [Function],
   "type": "error",
 }
 `;
