@@ -58,7 +58,7 @@
     "style-loader": "^1.2.1",
     "web-ext": "^4.0.0",
     "web-ext-submit": "^4.3.0",
-    "webpack": "^4.44.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-extension-reloader": "^1.1.4"
   },
