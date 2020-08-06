@@ -2,7 +2,7 @@ import * as storage from '@octolinker/helper-settings';
 import { showNotification } from '@octolinker/user-interface';
 
 let notificationEl;
-const releaseDescription = 'Test';
+const releaseDescription = '';
 const { version } = require('./package.json');
 
 const displayVersion = version.replace('v', '');
