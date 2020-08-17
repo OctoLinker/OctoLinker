@@ -54,7 +54,7 @@
     "prettier": "^2.0.5",
     "puppeteer": "^2.0.0",
     "recursive-readdir": "^2.2.2",
-    "sinon": "^9.0.2",
+    "sinon": "^9.0.3",
     "style-loader": "^1.2.1",
     "web-ext": "^4.0.0",
     "web-ext-submit": "^4.3.0",
