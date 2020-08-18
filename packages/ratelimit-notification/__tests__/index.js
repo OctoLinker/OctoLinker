@@ -1,7 +1,4 @@
-import {
-  removeAllNotifications,
-  isPrivateRepository,
-} from '@octolinker/user-interface';
+import { isPrivateRepository } from '@octolinker/user-interface';
 import { get } from '@octolinker/helper-settings';
 import ratelimitNotification from '../index';
 
@@ -31,11 +28,6 @@ parse.mockImplementation(() => ({
 }));
 
 describe('ratelimitNotification', () => {
-  it('removes all notifications', () => {
-    ratelimitNotification();
-    expect(removeAllNotifications).toHaveBeenCalled();
-  });
-
   it('parse github header', () => {
     ratelimitNotification('fakeHeader');
     expect(parse).toHaveBeenCalledWith('fakeHeader');
@@ -87,6 +79,7 @@ describe('ratelimitNotification', () => {
         parse.mockImplementation(() => ({
           rateLimitTotal: 60,
           rateLimitRemaining: 0,
+          rateLimitReset: 30000,
         }));
         ratelimitNotification('fakeHeader', 403);
 
@@ -94,6 +87,7 @@ describe('ratelimitNotification', () => {
         expect(rateLimitExceeded).toHaveBeenCalledWith({
           isUnauthenticated: true,
           remainingTime: expect.any(Number),
+          rateLimitReset: expect.any(Number),
         });
       });
     });
@@ -113,6 +107,7 @@ describe('ratelimitNotification', () => {
         expect(rateLimitExceeded).toHaveBeenCalledWith({
           isUnauthenticated: false,
           remainingTime: expect.any(Number),
+          rateLimitReset: expect.any(Number),
         });
       });
     });

@@ -1,9 +1,11 @@
-chrome.runtime.onMessage.addListener(({ action }) => {
+import browser from 'webextension-polyfill';
+
+browser.runtime.onMessage.addListener(({ action }) => {
   if (action !== 'openSettings') return;
 
-  chrome.runtime.openOptionsPage();
+  browser.runtime.openOptionsPage();
 });
 
-if (chrome.runtime.setUninstallURL) {
-  chrome.runtime.setUninstallURL('https://octolinker.now.sh/goodbye');
+if (browser.runtime.setUninstallURL) {
+  browser.runtime.setUninstallURL('https://octolinker.now.sh/goodbye');
 }
