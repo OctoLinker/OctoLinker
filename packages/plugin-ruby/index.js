@@ -14,6 +14,13 @@ export default {
 
     const isRequireRelative = regex.toString() === REQUIRE_RELATIVE.toString();
 
+    if (isRequireRelative) {
+      let resolvedPath = path;
+      const splitPath = path.split('/');
+      const currentFile = splitPath[splitPath.length - 1];
+      resolvedPath = resolvedPath.replace(currentFile, `${target}.rb`);
+      return `{BASE_URL}${resolvedPath}`;
+    }
 
     if (isPath) {
       let splitPath = path.split('/lib/');
@@ -22,14 +29,6 @@ export default {
       }
       const basePath = join(splitPath[0], 'lib');
       return `{BASE_URL}${join(basePath, `${target}.rb`)}`;
-    }
-
-    if (isRequireRelative) {
-      let resolvedPath = path;
-      const splitPath = path.split('/');
-      const currentFile = splitPath[splitPath.length - 1];
-      resolvedPath = resolvedPath.replace(currentFile, `${target}.rb`);
-      return `{BASE_URL}${resolvedPath}`;
     }
 
     return liveResolverQuery({ type: 'rubygems', target });
