@@ -70,7 +70,7 @@ export default function (blob, regex, plugin, meta = {}) {
       endPosInBlob,
       values,
     }) => {
-      let urls = plugin.resolve(blob.path, values, meta);
+      let urls = plugin.resolve(blob.path, values, meta, regex);
       if (Array.isArray(urls)) {
         urls = urls.filter(Boolean);
       }

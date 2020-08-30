@@ -86,7 +86,6 @@ const fixtures = {
         ['./foo', './bar'],
       ],
       ['require "foo"', ['foo']],
-      ['require_relative "foo"', ['foo']],
       // require.resolve
       ['require.resolve "foo"', ['foo']],
       ['require.resolve("foo")', ['foo']],
@@ -172,6 +171,18 @@ const fixtures = {
       'import.resolve(\t"foo"\t)',
       'var foo = import.resolve("foo")',
       'var foo = import.resolve("foo")var bar = import.resolve("bar")',
+    ],
+  },
+  REQUIRE_RELATIVE: {
+    valid: [
+      ['require_relative "foo"', ['foo']],
+      ['require_relative "channel_prefix"', ['channel_prefix']],
+    ],
+    invalid: [
+      'require_relative(foo)',
+      'require_relative"foo"',
+      'require_relative (foo)',
+      'require_relative("fo o")',
     ],
   },
   GEM: {
