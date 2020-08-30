@@ -10,8 +10,10 @@ export default {
 
   resolve(path, [target], meta, regex) {
     const isPath = !!target.match(/\//);
-    const isRequireRelative = regex.toString() === REQUIRE_RELATIVE.toString();
     // https://github.com/github/pages-gem/blob/master/lib/github-pages/dependencies.rb
+
+    const isRequireRelative = regex.toString() === REQUIRE_RELATIVE.toString();
+
 
     if (isPath) {
       let splitPath = path.split('/lib/');

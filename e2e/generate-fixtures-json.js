@@ -29,8 +29,8 @@ if (process.env.GITHUB_EVENT_PATH) {
   }
 }
 
-const user = username || 'OctoLinker';
-const branch = process.env.GITHUB_HEAD_REF || 'master';
+const user = username || 'MatthewDG';
+const branch = process.env.GITHUB_HEAD_REF || '773-ruby-require-fixes';
 const fixturesRoot = `https://github.com/${user}/OctoLinker/blob/${branch}/e2e`;
 
 console.log('Fixtures root:', fixturesRoot); // eslint-disable-line no-console
