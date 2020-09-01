@@ -42,7 +42,13 @@ export const NODEJS_RELATIVE_PATH_JOIN = regex`
 `;
 
 export const REQUIRE = regex`
-  ( require(\.resolve)? | proxyquire | import | require_relative )
+  ( require(\.resolve)? | proxyquire | import )
+  \s* ( \s | \( ) \s*
+  ${captureJsQuotedWord}
+`;
+
+export const REQUIRE_RELATIVE = regex`
+  ( require_relative )
   \s* ( \s | \( ) \s*
   ${captureJsQuotedWord}
 `;
