@@ -1,5 +1,5 @@
 module.exports = {
   globals: {
-    page: true
-  }
-}
+    page: true,
+  },
+};
