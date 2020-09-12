@@ -13,3 +13,7 @@ jobs:
     - uses: actions/upload-artifact@master
     # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/main/init)
     - uses: github/codeql-action/init@v1
+    # @OctoLinkerResolve(https://hub.docker.com/_/alpine)
+    - uses: docker://alpine:3.8
+    # @OctoLinkerResolve(https://hub.docker.com/r/github/super-linter)
+    - uses: docker://github/super-linter:3.10.0

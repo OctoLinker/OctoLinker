@@ -4,21 +4,22 @@ import {
 } from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '@octolinker/resolver-relative-file';
 
+export function dockerHubUrl(target) {
+  let isOfficial = true;
+  const imageName = target.split(':')[0];
+
+  if (target.includes('/')) {
+    isOfficial = false;
+  }
+
+  return `https://hub.docker.com/${isOfficial ? '_' : 'r'}/${imageName}`;
+}
+
 export default {
   name: 'Docker',
 
   resolve(path, [target]) {
-    let isOffical = true;
-    const imageName = target.split(':')[0];
-
-    if (target.includes('/')) {
-      isOffical = false;
-    }
-
-    return [
-      relativeFile({ path, target }),
-      `https://hub.docker.com/${isOffical ? '_' : 'r'}/${imageName}`,
-    ];
+    return [relativeFile({ path, target }), dockerHubUrl(target)];
   },
 
   getPattern() {

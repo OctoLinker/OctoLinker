@@ -1,5 +1,8 @@
 import { join } from 'path';
 import { GITHUB_ACTIONS } from '@octolinker/helper-grammar-regex-collection';
+import { dockerHubUrl } from '@octolinker/plugin-docker';
+
+const DOCKER_SOURCE = 'docker://';
 
 export default {
   name: 'GitHubActions',
@@ -7,6 +10,12 @@ export default {
   resolve(path, [target]) {
     if (!path.includes('.github/workflows')) {
       return '';
+    }
+
+    if (target.startsWith(DOCKER_SOURCE)) {
+      const image = target.substring(DOCKER_SOURCE.length);
+
+      return dockerHubUrl(image);
     }
 
     if (target.startsWith('.')) {
