@@ -3,30 +3,33 @@ module.exports = {
   plugins: ['prettier', 'react'],
   env: {
     jest: true,
-    browser: true
+    browser: true,
   },
   settings: {
     react: {
-      pragma: 'h'
-    }
+      pragma: 'h',
+    },
   },
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
       modules: true,
-      jsx: true
-    }
+      jsx: true,
+    },
   },
   rules: {
-    'prettier/prettier': ['error', {
-      singleQuote: true,
-      trailingComma: 'all',
-    }],
-    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        trailingComma: 'all',
+      },
+    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'react/prop-types': 0,
     'func-names': 0,
-    'id-length': [1, {'exceptions': ['$']}],
-    'new-cap': [2, {'capIsNewExceptions': ['Deferred']}],
+    'id-length': [1, { exceptions: ['$'] }],
+    'new-cap': [2, { capIsNewExceptions: ['Deferred'] }],
     'max-len': 0,
     'no-prototype-builtins': 0,
     'import/extensions': 0,
@@ -40,10 +43,10 @@ module.exports = {
     'no-restricted-syntax': 0,
     'consistent-return': 0,
     'array-callback-return': 0,
-    'jsx-a11y/label-has-for': 0
+    'jsx-a11y/label-has-for': 0,
   },
   globals: {
     fixture: true,
     chrome: true,
-  }
-}
+  },
+};
