@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "@octolinker/plugin-docker": "1.0.0"
   }
 }
