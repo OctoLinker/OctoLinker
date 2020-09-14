@@ -8,7 +8,7 @@
   "dependencies": {
     "linkstate": "^1.1.0",
     "preact": "^10.4.8",
-    "webext-base-css": "^1.1.0",
+    "webext-base-css": "^1.2.0",
     "webextension-polyfill": "^0.6.0"
   }
 }
