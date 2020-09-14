@@ -9777,10 +9777,10 @@ web-ext@^4.0.0, web-ext@^4.3.0:
     yargs "15.3.1"
     zip-dir "1.0.2"
 
-webext-base-css@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.1.0.tgz#bc641d7246c593ec5832879305cb7b196e4a9f22"
-  integrity sha512-idimmVKsaf9ACwbSDnVjE0kFngu0e36yqbmUWEj4sqFd+g1DLkuvYKQcB7e/i73JFE9EOv8apICE7jqC7oWmHA==
+webext-base-css@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.2.0.tgz#ccb65dd4500842d98c88cd2d954f01b1972b90f0"
+  integrity sha512-QmhbTAVwN1EVHocQSQSG8q3DTh0DQJB4ZWI335E4/DO/EgKUKeCG9ziVhPg4gxe3WVDCRsaVFePn92heFkWL9g==
 
 webextension-polyfill@^0.5.0:
   version "0.5.0"
