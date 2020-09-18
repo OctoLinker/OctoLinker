@@ -268,3 +268,27 @@ export const NET_PROJ_FILE_REFERENCE = regex`
   (Include|Update)=${captureSpacedQuotedWord}
   .*/?>
 `;
+
+export const PAKET_NUGET_DEPENDENCIES = regex`
+  nuget
+  \s
+  (?<$1>\S+)
+`;
+
+export const PAKET_GITHUB_DEPENDENCIES = regex`
+  github
+  \s
+  (?<$1>[^ :]+)     # repo
+  (
+    :
+    (?<$2>[\w-]+)   # hash/tag
+  )?
+  (
+    \s
+    (?<$3>[^\n]*)   # file path
+  )?
+`;
+
+export const PAKET_REFERENCES = regex`
+  ^(?![Ff]ile:)(?<$1>[^#\n]+)$
+`;

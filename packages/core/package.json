@@ -22,6 +22,8 @@
     "@octolinker/plugin-dotnet-core": "1.0.0",
     "@octolinker/plugin-dotnet-global-tools": "1.0.0",
     "@octolinker/plugin-dotnet-project": "1.0.0",
+    "@octolinker/plugin-dotnet-paket-dependencies": "1.0.0",
+    "@octolinker/plugin-dotnet-paket-references": "1.0.0",
     "@octolinker/plugin-gemfile-manifest": "1.0.0",
     "@octolinker/plugin-github-actions": "1.0.0",
     "@octolinker/plugin-github-codeowners": "1.0.0",

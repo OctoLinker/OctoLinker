@@ -11,6 +11,9 @@ root = true
 indent_style = space
 indent_size = 2
 
+[*.js]
+end_of_line = lf
+
 [*.json]
 indent_size = 2
 
