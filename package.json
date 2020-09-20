@@ -56,7 +56,7 @@
     "recursive-readdir": "^2.2.2",
     "sinon": "^9.0.3",
     "style-loader": "^1.2.1",
-    "web-ext": "^4.0.0",
+    "web-ext": "^5.0.0",
     "web-ext-submit": "^4.3.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
