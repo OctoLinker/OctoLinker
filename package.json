@@ -36,7 +36,7 @@
     "chrome-launch": "^1.1.4",
     "chrome-webstore-upload-cli": "^1.2.0",
     "codecov": "^3.7.2",
-    "copy-webpack-plugin": "^5.0.3",
+    "copy-webpack-plugin": "^6.1.1",
     "css-loader": "^4.3.0",
     "dot-json": "^1.2.1",
     "dotenv": "^8.0.0",
