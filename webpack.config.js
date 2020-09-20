@@ -16,7 +16,7 @@ module.exports = (env, argv) => ({
     filename: '[name].js',
   },
   plugins: [
-    new CopyWebpackPlugin([{ from: 'assets' }]),
+    new CopyWebpackPlugin({ patterns: [{ from: 'assets' }] }),
     new webpack.EnvironmentPlugin(['OCTOLINKER_LIVE_DEMO']),
     argv.mode === 'development'
       ? new ExtensionReloader({
