@@ -5,11 +5,11 @@ const recursive = require('recursive-readdir');
 const async = require('async');
 
 // This will generate a json file which is consumed by automated.test.js in the following format.
-// Checkout out https://github.com/OctoLinker/OctoLinker/blob/master/e2e/README.md for details.
+// Checkout out https://github.com/OctoLinker/OctoLinker/blob/main/e2e/README.md for details.
 //
 // [
 //    {
-//     "url": "https://github.com/OctoLinker/OctoLinker/blob/master/e2e/fixtures/javascript/nodejs/gentle-resonance-3436.js",
+//     "url": "https://github.com/OctoLinker/OctoLinker/blob/main/e2e/fixtures/javascript/nodejs/gentle-resonance-3436.js",
 //     "content": "require('./proud-tooth-7361');",
 //     "targetUrl": "/javascript/nodejs/proud-tooth-7361.js",
 //     "lineNumber": 2
@@ -30,7 +30,7 @@ if (process.env.GITHUB_EVENT_PATH) {
 }
 
 const user = username || 'OctoLinker';
-const branch = process.env.GITHUB_HEAD_REF || 'master';
+const branch = process.env.GITHUB_HEAD_REF || 'main';
 const fixturesRoot = `https://github.com/${user}/OctoLinker/blob/${branch}/e2e`;
 
 console.log('Fixtures root:', fixturesRoot); // eslint-disable-line no-console
