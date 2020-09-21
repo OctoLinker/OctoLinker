@@ -33,6 +33,7 @@
     "@octolinker/plugin-less": "1.0.0",
     "@octolinker/plugin-nodejs-relative-path": "1.0.0",
     "@octolinker/plugin-npm-manifest": "1.0.0",
+    "@octolinker/plugin-php": "1.0.0",
     "@octolinker/plugin-python": "1.0.0",
     "@octolinker/plugin-requirements-txt": "1.0.0",
     "@octolinker/plugin-ruby": "1.0.0",

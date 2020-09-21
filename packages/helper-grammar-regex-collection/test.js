@@ -510,6 +510,17 @@ const fixtures = {
     ],
     invalid: [],
   },
+  PHP: {
+    valid: [
+      ['use Closure', ['Closure']],
+      ['use ArrayAccess', ['ArrayAccess']],
+      [
+        'use Illuminate\\Contracts\\Container\\BindingResolutionException',
+        ['Illuminate\\Contracts\\Container\\BindingResolutionException'],
+      ],
+    ],
+    invalid: [''],
+  },
   NET_PROJ_SDK: {
     valid: [['<Project Sdk="foo">', ['foo']]],
     invalid: [

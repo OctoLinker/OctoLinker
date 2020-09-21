@@ -110,6 +110,13 @@ export const RUST_CRATE = regex`
   (?<$1>[^:;\s]+)
 `;
 
+export const PHP = regex`
+  ${diffSigns}
+  use
+  \s
+  (?<$1>[^;\s]+)
+`;
+
 export const PYTHON_IMPORT = regex`
   ${diffSigns}
   (import|from)
