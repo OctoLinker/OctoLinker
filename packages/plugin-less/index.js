@@ -6,7 +6,15 @@ export default {
   name: 'Less',
 
   resolve(path, [target]) {
-    return [relativeFile({ path, target }), githubSearch({ path, target })];
+    const list = [relativeFile({ path, target })];
+
+    if (!target.endsWith('.less')) {
+      list.push(relativeFile({ path, target: `${target}.less` }));
+    }
+
+    list.push(githubSearch({ path, target }));
+
+    return list;
   },
 
   getPattern() {
