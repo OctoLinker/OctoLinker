@@ -2,7 +2,4 @@
 @import 'import.css';
 
 /* @OctoLinkerResolve(<root>/css/import.css) */
-@import "import.css";
-
-/* @OctoLinkerResolve(<root>/css/import.css) */
-@import url("import.css") screen;
+@import url('import.css') screen;
