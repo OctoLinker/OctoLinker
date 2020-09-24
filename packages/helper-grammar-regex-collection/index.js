@@ -268,3 +268,31 @@ export const NET_PROJ_FILE_REFERENCE = regex`
   (Include|Update)=${captureSpacedQuotedWord}
   .*/?>
 `;
+
+export const NET_SCRIPT_FILE = regex`
+  \#load
+  \s+
+  ['"]?             # beginning quote
+  (?<$1>[^'"\s]+)   # capture the word inside the quotes
+  ['"]?             # end quote
+`;
+
+export const NET_SCRIPT_NUGET = regex`
+  \#(addin|module|tool)
+  \s+
+  "?
+  (dotnet|nuget):
+  .*
+  package=
+  (?<$1>[^'"&\s]+)
+  .*
+  "?
+`;
+
+export const FAKE_NUGET = regex`
+  nuget
+  \s+
+  ['"]?             # beginning quote
+  (?<$1>[^'"\s]+)   # capture the word inside the quotes
+  ['"]?             # end quote
+`;
