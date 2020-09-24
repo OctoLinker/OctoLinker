@@ -140,7 +140,12 @@ export const CSS_IMPORT = regex`
   @import
   \s
   ((url|URL)\()?
-  ${captureQuotedWord}
+  ['"]                # beginning quote
+  (?<$1>
+    (?!https?:\/\/)   # exclude urls
+    [^'")]+           # capture the word inside the quotes
+  )
+  ['"]                # end quote
 `;
 
 export const LESS_IMPORT = regex`
