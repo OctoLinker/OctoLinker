@@ -98,6 +98,13 @@ describe('insert-link', () => {
     expect(el).toMatchSnapshot();
   });
 
+  it('does not wrap already links twice', () => {
+    const input =
+      'foo <span><a class="octolinker-link" data-pjax="true">"foo"</a></span>';
+
+    expect(helper(input).el).toMatchSnapshot();
+  });
+
   it('does not remove closing parentheses from commented out require() calls', () => {
     const input = "// var faker = require('faker')";
     expect(helper(input, REQUIRE).el).toMatchSnapshot();

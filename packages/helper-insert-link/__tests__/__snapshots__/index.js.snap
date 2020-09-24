@@ -13,6 +13,20 @@ exports[`insert-link does not remove closing parentheses from commented out requ
 </div>
 `;
 
+exports[`insert-link does not wrap already links twice 1`] = `
+<div>
+  foo 
+  <span>
+    <a
+      class="octolinker-link"
+      data-pjax="true"
+    >
+      "foo"
+    </a>
+  </span>
+</div>
+`;
+
 exports[`insert-link returns returns an array 1`] = `
 Array [
   Object {
