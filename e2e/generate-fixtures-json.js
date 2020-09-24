@@ -80,6 +80,7 @@ function findTests(contents) {
 
         memo.push({
           url: `${fixturesRoot}${filePath}`,
+          file: `e2e${filePath}`,
           content: lines[index + 1].trim(),
           targetUrl,
           lineNumber,
