@@ -1,16 +1,27 @@
-import { PHP } from '@octolinker/helper-grammar-regex-collection';
+import { PHP, PHP_FUNC } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 
 export default {
   name: 'PHP',
 
-  resolve(path, [target]) {
+  resolve(path, [target], meta, regExp) {
     if (target.includes('\\')) {
       return;
     }
 
-    const docsUrl = `https://www.php.net/manual/en/class.${target.toLowerCase()}.php`;
-    return liveResolverQuery({ type: 'ping', target: docsUrl });
+    if (regExp === PHP_FUNC) {
+      return liveResolverQuery({
+        type: 'ping',
+        target: `https://www.php.net/manual/en/function.${target
+          .toLowerCase()
+          .replace(/_/g, '-')}.php`,
+      });
+    }
+
+    return liveResolverQuery({
+      type: 'ping',
+      target: `https://www.php.net/manual/en/class.${target.toLowerCase()}.php`,
+    });
   },
 
   getPattern() {
@@ -21,6 +32,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return PHP;
+    return [PHP, PHP_FUNC];
   },
 };

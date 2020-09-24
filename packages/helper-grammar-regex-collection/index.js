@@ -114,6 +114,14 @@ export const PHP = regex`
   ${diffSigns}
   use
   \s
+  (?!function\s)
+  (?<$1>[^;\s]+)
+`;
+
+export const PHP_FUNC = regex`
+  ${diffSigns}
+  use
+  \sfunction\s
   (?<$1>[^;\s]+)
 `;
 
