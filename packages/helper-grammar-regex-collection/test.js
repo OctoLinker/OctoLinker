@@ -313,7 +313,12 @@ const fixtures = {
       ['@import url("foo")', ['foo']],
       ['@import url("foo") bar', ['foo']],
     ],
-    invalid: ['@import foo', '@import url(foo)'],
+    invalid: [
+      '@import foo',
+      '@import url(foo)',
+      '@import url("http://octolinker.now.sh/")',
+      '@import url("https://octolinker.now.sh/")',
+    ],
   },
   LESS_IMPORT: {
     valid: [
