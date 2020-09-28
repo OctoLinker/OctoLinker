@@ -40,7 +40,7 @@
     "css-loader": "^4.3.0",
     "dot-json": "^1.2.1",
     "dotenv": "^8.0.0",
-    "eslint": "^7.9.0",
+    "eslint": "^7.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^6.12.0",
     "eslint-plugin-import": "^2.22.0",
