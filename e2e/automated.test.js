@@ -8,6 +8,11 @@ async function executeTest(url, targetUrl, selector) {
     await page.goto(url);
   }
 
+  if (targetUrl === false) {
+    await expect(page).not.toMatchElement(selector);
+    return;
+  }
+
   await page.waitForSelector(`${selector}[href$="${targetUrl}"]`);
 }
 
@@ -44,6 +49,17 @@ describe('End to End tests', () => {
 
   describe('single blob', () => {
     fixtures.forEach(({ url, content, lineNumber, targetUrl }) => {
+      if (targetUrl === false) {
+        it(`does not resolves ${content}`, async () => {
+          await executeTest(
+            url,
+            targetUrl,
+            `#LC${lineNumber} .octolinker-link`,
+          );
+        });
+        return;
+      }
+
       it(`resolves ${content} to ${targetUrl}`, async () => {
         if (lineNumber) {
           await executeTest(

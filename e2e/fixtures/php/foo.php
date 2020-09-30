@@ -15,7 +15,10 @@ use function is_array;
 // @OctoLinkerResolve(https://www.php.net/manual/en/function.preg-last-error.php)
 use function preg_last_error;
 
+// @OctoLinkerDoesNotResolve
 use Illuminate\Contracts\Container\BindingResolutionException;
+
+// @OctoLinkerDoesNotResolve
 use Illuminate\Contracts\Container\Container as ContainerContract;
 
 ?>
