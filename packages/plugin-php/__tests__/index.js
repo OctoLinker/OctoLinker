@@ -1,7 +1,7 @@
 import { PHP_FUNC } from '@octolinker/helper-grammar-regex-collection';
 import php from '../index';
 
-describe('rust-crate', () => {
+describe('php', () => {
   const path = '/blob/path/dummy';
 
   it('resolves classes', () => {
