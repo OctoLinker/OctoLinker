@@ -1,4 +1,7 @@
-import { CSS_IMPORT } from '@octolinker/helper-grammar-regex-collection';
+import {
+  CSS_IMPORT,
+  CSS_URL,
+} from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '@octolinker/resolver-relative-file';
 
 export default {
@@ -16,6 +19,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return CSS_IMPORT;
+    return [CSS_IMPORT, CSS_URL];
   },
 };

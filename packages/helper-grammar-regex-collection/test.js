@@ -320,6 +320,18 @@ const fixtures = {
       '@import url("https://octolinker.now.sh/")',
     ],
   },
+  CSS_URL: {
+    valid: [
+      ['background: url(foo);', ['foo']],
+      ['background: URL(foo);', ['foo']],
+      ['background-image:\nurl(foo)\n;', ['foo']],
+    ],
+    invalid: [
+      'background: url(http://foo);',
+      'background: url(https://foo);',
+      'background-image:\nurl(https://foo)\n;',
+    ],
+  },
   LESS_IMPORT: {
     valid: [
       ['@import (less) "foo";', ['foo']],

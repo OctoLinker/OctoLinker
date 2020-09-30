@@ -3,3 +3,13 @@
 
 /* @OctoLinkerResolve(<root>/css/import.css) */
 @import url('import.css') screen;
+
+.test-1 {
+  /* @OctoLinkerResolve(<root>/css/icon.png) */
+  background-image: url('icon.png');
+}
+
+.test-2 {
+  /* @OctoLinkerResolve(<root>/css/icon.png) */
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,0,0.5)), url('icon.png');
+}

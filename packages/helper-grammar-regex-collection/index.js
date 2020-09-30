@@ -163,6 +163,19 @@ export const CSS_IMPORT = regex`
   ['"]                # end quote
 `;
 
+export const CSS_URL = regex`
+  ${diffSigns}
+  .*
+  (url|URL)\(
+    ['"]?               # begin optional quote
+    (?<$1>
+      (?!https?:\/\/)   # exclude urls
+      [^'")]+           # capture the word inside the quotes
+    )
+    ['"]?               # end optional quote
+  \)
+`;
+
 export const LESS_IMPORT = regex`
   ${diffSigns}
   @import

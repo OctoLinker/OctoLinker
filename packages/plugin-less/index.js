@@ -1,4 +1,7 @@
-import { LESS_IMPORT } from '@octolinker/helper-grammar-regex-collection';
+import {
+  LESS_IMPORT,
+  CSS_URL,
+} from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '@octolinker/resolver-relative-file';
 import githubSearch from '@octolinker/resolver-github-search';
 
@@ -25,6 +28,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return LESS_IMPORT;
+    return [LESS_IMPORT, CSS_URL];
   },
 };
