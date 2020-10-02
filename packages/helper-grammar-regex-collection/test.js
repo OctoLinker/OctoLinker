@@ -580,6 +580,8 @@ const fixtures = {
       ['    nuget foo', ['foo']],
       ['    nuget foo = 1.0', ['foo']],
       ['    nuget foo >= 5', ['foo']],
+      ['nuget foo 1.2.3 -> source ./local_source', ['foo']],
+      ['nuget foo.bar 1.2.3 -> source ./local_source', ['foo.bar']],
     ],
     invalid: [
       'foo',
