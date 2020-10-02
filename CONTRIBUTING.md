@@ -36,7 +36,7 @@ The outline above is an extremely simplified version. In real life you have to d
 
 - Please check to make sure that there aren't existing pull requests attempting to address the issue mentioned. We also recommend checking for issues related to the issue on the tracker, as a team member may be working on the issue in a branch or fork.
 - Non-trivial changes should be discussed in an issue first
-- Develop in a topic branch, not master
+- Develop in a topic branch, not main
 - Lint the code by `yarn lint`
 - Add relevant tests to cover the change
 - Make sure test-suite passes: `yarn test`
@@ -46,14 +46,11 @@ The outline above is an extremely simplified version. In real life you have to d
 
 ## Release Checklist
 
-- Update the version number in [packages/core/package.json](https://github.com/OctoLinker/OctoLinker/blob/master/packages/core/package.json) and [assets/manifest.json](https://github.com/OctoLinker/OctoLinker/blob/master/assets/manifest.json). Use `minor` or `major` instead of `patch` if needed (see [semver.org](http://semver.org/) for details).
+- Run `npm version <patch|minor|major>` to update the version number in [packages/core/package.json](https://github.com/OctoLinker/OctoLinker/blob/main/packages/core/package.json) and [assets/manifest.json](https://github.com/OctoLinker/OctoLinker/blob/main/assets/manifest.json). Use `minor` or `major` instead of `patch` if needed (see [semver.org](http://semver.org/) for details).
   Consider that non-`patch` releases will cause users to receive update notifications, so lean towards a `patch` release for platform-specific stuff.
-  See [lib/notification.js](https://github.com/OctoLinker/OctoLinker/blob/030859292f7ea4e8a3852a876707c22a6fe74d9a/lib/notification.js#L4).
 - Open a [pull request](https://github.com/OctoLinker/OctoLinker/pulls) with the new version.
 - Once the pull request is merged in, tag the resulting commit as `vX.Y.Z` (where `X`, `Y`, `Z` are the major, minor, and patch versions).
-- Push the tag to GitHub. This will trigger Travis CI to create a new [GitHub Release](https://github.com/OctoLinker/OctoLinker/releases) and submit the new Chrome extension to the Chrome Web Store. See [.travis.yml](https://github.com/OctoLinker/OctoLinker/blob/master/.travis.yml) for details.
-- Submit `firefox-octolinker-X.Y.Z.zip` from the [GitHub Release](https://github.com/OctoLinker/OctoLinker/releases) to [addons.mozilla.org](https://addons.mozilla.org/en-US/developers/addon/octolinker/versions#version-upload). Be sure to include the `Source code (zip)` file from the release as well.
+- Push the tag to GitHub. This will trigger a GitHub Action to create a new [GitHub Release](https://github.com/OctoLinker/OctoLinker/releases). This is uploading a new extension version to the Chrome Web Store and Mozilla Add-On Store. See [release.yml](https://github.com/OctoLinker/OctoLinker/blob/main/.github/workflows/release.yml) workflow for details.
+- Submit 
 - Submit `opera-octolinker-X.Y.Z.zip` from the [GitHub Release](https://github.com/OctoLinker/OctoLinker/releases) to [addons.opera.com](https://addons.opera.com/developer/package/226344/?tab=versions). Afterwards, go to the [Conversation tab](https://addons.opera.com/developer/package/226344/?tab=conversation), add a link to the `Source code (zip)` file and copy/paste the build instructions from previous releases.
 - Update release notes at https://github.com/OctoLinker/OctoLinker/releases/tag/vX.Y.Z. You can find a list of changes since the previous release at https://github.com/OctoLinker/OctoLinker/compare/vA.B.C...vX.Y.Z, where `A.B.C` is the previous version number.
-  Consider that non-`patch` releases will cause users to receive update notifications showing the first line of the release notes.
-  See [lib/notification.js](https://github.com/OctoLinker/OctoLinker/blob/030859292f7ea4e8a3852a876707c22a6fe74d9a/lib/notification.js#L4).

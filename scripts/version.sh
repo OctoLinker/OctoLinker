@@ -1,5 +1,4 @@
 #!/bin/bash
-# This script will test if you have given a leap year or not.
 
 echo "Please summarize this release in one sentence"
 
