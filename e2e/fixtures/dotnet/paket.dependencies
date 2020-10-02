@@ -3,6 +3,7 @@ content: none
 
 # @OctoLinkerResolve(https://www.nuget.org/packages/FSharp.Core)
 nuget FSharp.Core > 4.3 lowest_matching: true, redirects: force
+
 # @OctoLinkerResolve(https://www.nuget.org/packages/Chessie)
 nuget Chessie >= 0.6
 
@@ -10,5 +11,6 @@ group Build
 framework: net46
     # @OctoLinkerResolve(https://github.com/fsharp/FAKE/blob/master/modules/Octokit/Octokit.fsx)
     github fsharp/FAKE modules/Octokit/Octokit.fsx
+
     # @OctoLinkerResolve(https://github.com/fable-compiler/fake-helpers/blob/fake_legacy/Fable.FakeHelpers.fs)
     github fable-compiler/fake-helpers:fake_legacy Fable.FakeHelpers.fs
