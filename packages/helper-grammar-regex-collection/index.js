@@ -269,13 +269,13 @@ export const NET_PROJ_FILE_REFERENCE = regex`
   .*/?>
 `;
 
-export const PAKET_NUGET_DEPENDENCIES = regex`
+export const PAKET_DEPENDENCIES_NUGET = regex`
   nuget
   \s
-  (?<$1>\S+)
+  (?<$1>[^\s#]+)
 `;
 
-export const PAKET_GITHUB_DEPENDENCIES = regex`
+export const PAKET_DEPENDENCIES_GITHUB = regex`
   github
   \s
   (?<$1>[^ :]+)     # repo
@@ -290,5 +290,7 @@ export const PAKET_GITHUB_DEPENDENCIES = regex`
 `;
 
 export const PAKET_REFERENCES = regex`
-  ^(?![Ff]ile:)(?<$1>[^#\n]+)$
+  ${diffSigns}
+  (?![Ff]ile:)
+  (?<$1>[^# \n]+)
 `;

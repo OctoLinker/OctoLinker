@@ -572,6 +572,45 @@ const fixtures = {
     ],
     invalid: [],
   },
+  PAKET_DEPENDENCIES_NUGET: {
+    valid: [
+      ['nuget foo', ['foo']],
+      ['nuget foo = 1.0', ['foo']],
+      ['nuget foo >= 5', ['foo']],
+      ['    nuget foo', ['foo']],
+      ['    nuget foo = 1.0', ['foo']],
+      ['    nuget foo >= 5', ['foo']],
+    ],
+    invalid: [
+      'foo',
+      'nuget',
+      '# nuget',
+      'nuget # foo',
+      'https://nuget.org',
+      'source https://nuget.org/api/v2',
+    ],
+  },
+  PAKET_DEPENDENCIES_GITHUB: {
+    valid: [
+      ['github foo', ['foo']],
+      ['github foo/bar', ['foo/bar']],
+      ['github foo/bar:abc123', ['foo/bar', 'abc123']],
+      ['github foo/bar:abc123 bar/baz', ['foo/bar', 'abc123', 'bar/baz']],
+      ['    github foo', ['foo']],
+      ['    github foo/bar', ['foo/bar']],
+      ['    github foo/bar:abc123', ['foo/bar', 'abc123']],
+      ['    github foo/bar:abc123 bar/baz', ['foo/bar', 'abc123', 'bar/baz']],
+    ],
+    invalid: ['foo', 'github', '# github', 'https://github.com'],
+  },
+  PAKET_REFERENCES: {
+    valid: [
+      ['foo', ['foo']],
+      ['foo # bar', ['foo']],
+      ['foo.bar', ['foo.bar']],
+    ],
+    invalid: ['File:foo', 'file:foo'],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {

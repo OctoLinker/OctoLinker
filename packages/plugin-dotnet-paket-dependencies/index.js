@@ -1,6 +1,6 @@
 import {
-  PAKET_NUGET_DEPENDENCIES,
-  PAKET_GITHUB_DEPENDENCIES,
+  PAKET_DEPENDENCIES_NUGET,
+  PAKET_DEPENDENCIES_GITHUB,
 } from '@octolinker/helper-grammar-regex-collection';
 import nugetResolver from '@octolinker/resolver-nuget';
 
@@ -43,6 +43,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return [PAKET_NUGET_DEPENDENCIES, PAKET_GITHUB_DEPENDENCIES];
+    return [PAKET_DEPENDENCIES_NUGET, PAKET_DEPENDENCIES_GITHUB];
   },
 };
