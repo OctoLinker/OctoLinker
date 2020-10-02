@@ -262,7 +262,7 @@ export const NET_PROJ_SDK = regex`
 `;
 
 export const NET_PROJ_FILE_REFERENCE = regex`
-  <(Compile|Content|EmbeddedResource|None|ProjectReference)
+  <(ClCompile|ClInclude|Compile|Content|EmbeddedResource|None|ProjectReference)
   \s+
   .*
   (Include|Update)=${captureSpacedQuotedWord}

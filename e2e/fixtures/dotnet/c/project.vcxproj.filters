@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/c/foo.cpp) -->
+    <ClCompile Include="foo.cpp" />
+
+    <!-- @OctoLinkerDoesNotResolve -->
+    <ClCompile Include="$(OutDir)strings.cpp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/c/foo.h) -->
+    <ClInclude Include="foo.h" />
+
+    <!-- @OctoLinkerResolve(<root>/c/foo.h) -->
+    <ClInclude Include="foo.h">
+      <Filter>strings</Filter>
+    </ClInclude>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/dotnet/dotnet-tools.json) -->
+    <None Include="../dotnet-tools.json" />
+  </ItemGroup>
+
+</Project>
