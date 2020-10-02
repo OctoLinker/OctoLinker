@@ -55,22 +55,26 @@ function findTests(contents) {
     const lines = content.split('\n');
 
     lines.forEach((line, index) => {
-      if (line.includes('@OctoLinkerResolve')) {
+      if (/@OctoLinker(DoesNot)?Resolve(Above)?/.test(line)) {
         let lineNumber = index + 2;
         if (file.endsWith('.md')) {
           lineNumber = undefined;
-        } else if (line.includes('@OctoLinkerResolveAbove')) {
+        } else if (/@OctoLinker(DoesNot)?ResolveAbove/.test(line)) {
           lineNumber = index;
         }
 
-        const targetUrl = line
-          .match(/@OctoLinkerResolve(Above)?\((.*?)\)/)[2]
-          .replace('<root>', '')
-          .replace('<sha>', sha)
-          .replace(
-            'https://github.com/OctoLinker/OctoLinker/tree/',
-            `https://github.com/${user}/OctoLinker/tree/`,
-          );
+        let targetUrl = false;
+
+        if (/@OctoLinker(?!DoesNot)Resolve/.test(line)) {
+          targetUrl = line
+            .match(/@OctoLinkerResolve(Above)?\((.*?)\)/)[2]
+            .replace('<root>', '')
+            .replace('<sha>', sha)
+            .replace(
+              'https://github.com/OctoLinker/OctoLinker/tree/',
+              `https://github.com/${user}/OctoLinker/tree/`,
+            );
+        }
 
         const filePath = file.replace(__dirname, '');
 

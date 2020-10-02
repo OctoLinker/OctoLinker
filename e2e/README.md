@@ -47,6 +47,13 @@ require('fs')
 // @OctoLinkerResolveAbove(https://nodejs.org/api/fs.html)
 ```
 
+For negative test you can use the `OctoLinkerDoesNotResolve` and `OctoLinkerDoesNotResolveAbove` annotation.
+
+```js
+// @OctoLinkerDoesNotResolve
+require('ftp://foo.bar')
+```
+
 Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for the annotations described above and write a file named `fixtures.json` to the disk. This JSON file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/master/e2e/automated.test.js) to scaffold those tests on-the-fly.
 
 
