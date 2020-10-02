@@ -27,8 +27,8 @@ function githubPaths({ target, hash, filePath }) {
 export default {
   name: 'DotNetPaketDependencies',
 
-  resolve(_path, [target, hash, filePath]) {
-    if (target.includes('/')) {
+  resolve(_path, [target, hash, filePath], _meta, regExp) {
+    if (regExp === PAKET_DEPENDENCIES_GITHUB) {
       return githubPaths({ target, hash, filePath });
     }
 
