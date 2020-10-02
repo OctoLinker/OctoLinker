@@ -10,7 +10,7 @@
     "test": "jest",
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
     "test:watch": "jest --watch",
-    "version": "dot-json assets/manifest.json version $npm_package_version && dot-json packages/core/package.json version $npm_package_version && git add assets/manifest.json packages/core/package.json",
+    "version": "./scripts/version.sh",
     "release:cws": "cd dist && webstore upload --auto-publish",
     "release:amo": "cd dist && web-ext-submit",
     "release": "yarn release:cws && yarn release:amo",
