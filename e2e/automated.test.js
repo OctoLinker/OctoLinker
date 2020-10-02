@@ -16,6 +16,11 @@ async function executeTest(url, targetUrl, selector) {
   await page.waitForSelector(`${selector}[href$="${targetUrl}"]`);
 }
 
+function createAnnotation({ file, lineNumber, ex }) {
+  // eslint-disable-next-line no-console
+  console.log(`::error file=${file},line=${lineNumber}::${ex.message}`);
+}
+
 describe('End to End tests', () => {
   beforeAll(async () => {
     if (!process.env.E2E_USER_NAME || !process.env.E2E_USER_PASSWORD) {
@@ -48,25 +53,35 @@ describe('End to End tests', () => {
   });
 
   describe('single blob', () => {
-    fixtures.forEach(({ url, content, lineNumber, targetUrl }) => {
+    fixtures.forEach(({ url, file, content, lineNumber, targetUrl }) => {
       if (targetUrl === false) {
         it(`does not resolve ${content}`, async () => {
-          await executeTest(
-            url,
-            targetUrl,
-            `#LC${lineNumber} .octolinker-link`,
-          );
+          try {
+            await executeTest(
+              url,
+              targetUrl,
+              `#LC${lineNumber} .octolinker-link`,
+            );
+          } catch (ex) {
+            createAnnotation({ file, lineNumber, ex });
+            throw ex;
+          }
         });
         return;
       }
 
       it(`resolves ${content} to ${targetUrl}`, async () => {
         if (lineNumber) {
-          await executeTest(
-            url,
-            targetUrl,
-            `#LC${lineNumber} .octolinker-link`,
-          );
+          try {
+            await executeTest(
+              url,
+              targetUrl,
+              `#LC${lineNumber} .octolinker-link`,
+            );
+          } catch (ex) {
+            createAnnotation({ file, lineNumber, ex });
+            throw ex;
+          }
         } else {
           await executeTest(
             url,
