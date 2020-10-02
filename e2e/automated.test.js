@@ -50,7 +50,7 @@ describe('End to End tests', () => {
   describe('single blob', () => {
     fixtures.forEach(({ url, content, lineNumber, targetUrl }) => {
       if (targetUrl === false) {
-        it(`does not resolves ${content}`, async () => {
+        it(`does not resolve ${content}`, async () => {
           await executeTest(
             url,
             targetUrl,
