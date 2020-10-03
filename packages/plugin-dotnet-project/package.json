@@ -1,8 +1,8 @@
 {
-  "name": "@octolinker/plugin-dot-net-project",
+  "name": "@octolinker/plugin-dotnet-project",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dot-net-project",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dotnet-project",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
