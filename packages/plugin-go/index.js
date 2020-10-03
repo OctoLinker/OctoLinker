@@ -1,17 +1,18 @@
 import { join, dirname } from 'path';
 import { go } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
+import relativeFile from '@octolinker/resolver-relative-file';
 
 function goFile({ path, target }) {
   const list = [];
-  const basePath = join(dirname(path), target);
+  const basePath = relativeFile({ path, target });
   const filename = target.slice(target.lastIndexOf('/') + 1);
 
   list.push(`/${filename}.go`);
   list.push('.go');
   list.push('');
 
-  return list.map((file) => `{BASE_URL}${basePath}${file}`);
+  return list.map((file) => `${basePath}${file}`);
 }
 
 function githubUrls(url) {

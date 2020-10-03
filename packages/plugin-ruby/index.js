@@ -4,6 +4,7 @@ import {
   REQUIRE_RELATIVE,
 } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
+import relativeFile from '@octolinker/resolver-relative-file';
 
 export default {
   name: 'Ruby',
@@ -28,7 +29,7 @@ export default {
         splitPath = path.split('/test/');
       }
       const basePath = join(splitPath[0], 'lib');
-      return `{BASE_URL}${join(basePath, `${target}.rb`)}`;
+      return relativeFile({ path: basePath, target: `${target}.rb` });
     }
 
     return liveResolverQuery({ type: 'rubygems', target });
