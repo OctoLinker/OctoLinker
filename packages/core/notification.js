@@ -2,9 +2,7 @@ import * as storage from '@octolinker/helper-settings';
 import { showNotification } from '@octolinker/user-interface';
 
 let notificationEl;
-const releaseDescription =
-  'More GitHub Actions support and better OctoLinker notifications';
-const { version } = require('./package.json');
+const { version, releaseDescription } = require('./package.json');
 
 const displayVersion = version.replace('v', '');
 const majorMinor = version.split('.').slice(0, -1).join('.');
