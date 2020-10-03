@@ -8,7 +8,7 @@ E2E stand for End to End testing and the following lines from [Protractor](https
 
 ### How we do E2E tests
 
-We're using [Puppeteer](https://github.com/GoogleChrome/puppeteer) which allows us to spin up a Chrome instance which then loads the OctoLinker extension. Once Chrome has started we can navigate to any website which is github.com in our case. In this directory we also have a folder called [fixtures](https://github.com/OctoLinker/OctoLinker/tree/master/e2e/fixtures) which contains all our dummy files which we use for testing.
+We're using [Puppeteer](https://github.com/GoogleChrome/puppeteer) which allows us to spin up a Chrome instance which then loads the OctoLinker extension. Once Chrome has started we can navigate to any website which is github.com in our case. In this directory we also have a folder called [fixtures](https://github.com/OctoLinker/OctoLinker/tree/main/e2e/fixtures) which contains all our dummy files which we use for testing.
 
 If you open one of those files, you will see a special annotation which we use to specify that the next line should resolve to the given target:
 

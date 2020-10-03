@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-requirements-txt",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-requirements-txt",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-requirements-txt",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

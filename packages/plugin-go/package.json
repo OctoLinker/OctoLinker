@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-go",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-go",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-go",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

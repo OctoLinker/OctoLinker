@@ -2,7 +2,7 @@
   "name": "@octolinker/helper-regex-builder",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-regex-builder",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/helper-regex-builder",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

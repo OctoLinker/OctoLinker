@@ -2,7 +2,7 @@
   "name": "@octolinker/resolver-github-shorthand",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-github-shorthand",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/resolver-github-shorthand",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

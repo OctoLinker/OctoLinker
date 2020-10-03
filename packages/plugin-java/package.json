@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-java",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-java",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-java",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

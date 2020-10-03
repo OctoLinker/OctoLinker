@@ -2,7 +2,7 @@
   "name": "@octolinker/blob-reader",
   "version": "1.0.0",
   "description": "This provides a unified interface for GitHubs blob view",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/blob-reader",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/blob-reader",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

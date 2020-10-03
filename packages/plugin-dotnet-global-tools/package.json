@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-dotnet-global-tools",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dotnet-global-tools",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-dotnet-global-tools",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

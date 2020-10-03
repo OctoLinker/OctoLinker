@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-nodejs-relative-path",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-nodejs-relative-path",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-nodejs-relative-path",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
