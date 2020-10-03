@@ -1,4 +1,3 @@
-import { join, dirname } from 'path';
 import { go } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 import relativeFile from '@octolinker/resolver-relative-file';
