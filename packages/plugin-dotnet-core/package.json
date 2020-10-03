@@ -1,8 +1,8 @@
 {
-  "name": "@octolinker/plugin-dot-net-core",
+  "name": "@octolinker/plugin-dotnet-core",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dot-net-core",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-dotnet-core",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
