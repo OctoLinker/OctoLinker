@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-rust-cargo",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-rust",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-rust",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

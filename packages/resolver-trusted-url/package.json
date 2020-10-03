@@ -2,7 +2,7 @@
   "name": "@octolinker/resolver-trusted-url",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-trusted-url",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/resolver-trusted-url",
   "license": "MIT",
   "main": "./index.js"
 }

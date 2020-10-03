@@ -2,7 +2,7 @@
   "name": "@octolinker/resolver-relative-file",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-relative-file",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/resolver-relative-file",
   "license": "MIT",
   "main": "./index.js"
 }

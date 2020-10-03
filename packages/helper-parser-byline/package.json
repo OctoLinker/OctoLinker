@@ -2,7 +2,7 @@
   "name": "@octolinker/helper-parser-byline",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-parser-byline",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/helper-parser-byline",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

@@ -2,7 +2,7 @@
   "name": "@octolinker/helper-grammar-regex-collection",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-grammar-regex-collection",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/helper-grammar-regex-collection",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

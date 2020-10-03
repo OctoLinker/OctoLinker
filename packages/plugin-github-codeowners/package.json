@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-github-codeowners",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-github-codeowners",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-github-codeowners",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

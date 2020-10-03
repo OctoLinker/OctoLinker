@@ -2,7 +2,7 @@
   "name": "@octolinker/core",
   "version": "6.5.0",
   "description": "OctoLinker browser extension core",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/core",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/core",
   "license": "MIT",
   "main": "./index.js",
   "releaseDescription": "More GitHub Actions support and better OctoLinker notifications",

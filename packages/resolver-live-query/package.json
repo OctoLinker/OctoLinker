@@ -2,7 +2,7 @@
   "name": "@octolinker/resolver-live-query",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-live-query",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/resolver-live-query",
   "license": "MIT",
   "main": "./index.js"
 }

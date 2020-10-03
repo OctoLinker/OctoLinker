@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-vim",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-vim",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-vim",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

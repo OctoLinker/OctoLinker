@@ -2,7 +2,7 @@
   "name": "@octolinker/resolver-hoogle-search",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-hoogle-search",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/resolver-hoogle-search",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

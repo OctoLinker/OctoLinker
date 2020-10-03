@@ -2,7 +2,7 @@
   "name": "@octolinker/helper-sort-urls",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/helper-sort-urls",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/helper-sort-urls",
   "license": "MIT",
   "main": "./index.js"
 }

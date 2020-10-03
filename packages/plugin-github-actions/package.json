@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-github-actions",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-github-actions",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-github-actions",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

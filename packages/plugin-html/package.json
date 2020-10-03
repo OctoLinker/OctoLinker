@@ -2,7 +2,7 @@
   "name": "@octolinker/plugin-html",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-html",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-html",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {

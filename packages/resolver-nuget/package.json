@@ -2,7 +2,7 @@
   "name": "@octolinker/resolver-nuget",
   "version": "1.0.0",
   "description": "",
-  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/resolver-nuget",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/resolver-nuget",
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
