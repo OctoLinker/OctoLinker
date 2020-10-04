@@ -7,8 +7,8 @@ import {
 } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
-import builtinsDocs from './builtins-docs.js';
 import relativeFile from '@octolinker/resolver-relative-file';
+import builtinsDocs from './builtins-docs.js';
 
 function getTopModuleName(target) {
   const isScoped = target.startsWith('@');
