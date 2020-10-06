@@ -1,0 +1,11 @@
+# @OctoLinkerResolve(https://www.nuget.org/packages/NUnit)
+nuget NUnit -> source ./local_source
+
+# @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.EntityFrameworkCore)
+nuget Microsoft.EntityFrameworkCore -> source ./local_source
+
+# @OctoLinkerResolve(https://www.nuget.org/packages/NUnit)
+nuget NUnit 3.12.0 -> source ./local_source
+
+# @OctoLinkerResolve(https://www.nuget.org/packages/Microsoft.EntityFrameworkCore)
+nuget Microsoft.EntityFrameworkCore 5.0.0-rc.1.20451.13-> source ./local_source

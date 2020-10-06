@@ -6,6 +6,8 @@ export { default as DotNetCore } from '@octolinker/plugin-dotnet-core';
 export { default as DotNet } from '@octolinker/plugin-dotnet';
 export { default as DotNetGlobalTools } from '@octolinker/plugin-dotnet-global-tools';
 export { default as DotNetProject } from '@octolinker/plugin-dotnet-project';
+export { default as DotNetPaketDependencies } from '@octolinker/plugin-dotnet-paket-dependencies';
+export { default as DotNetPaketReferences } from '@octolinker/plugin-dotnet-paket-references';
 export { default as Rubygems } from '@octolinker/plugin-gemfile-manifest';
 export { default as Go } from '@octolinker/plugin-go';
 export { default as Haskell } from '@octolinker/plugin-haskell';

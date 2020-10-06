@@ -1,0 +1,5 @@
+# @OctoLinkerResolve(https://www.nuget.org/packages/FSharp.Core)
+FSharp.Core
+
+# @OctoLinkerResolve(https://www.nuget.org/packages/Chessie)
+Chessie

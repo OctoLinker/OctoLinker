@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/plugin-dotnet-paket-dependencies",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-dotnet-paket-dependencies",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "@octolinker/resolver-nuget": "1.0.0"
+  }
+}
