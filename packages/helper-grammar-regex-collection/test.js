@@ -582,6 +582,7 @@ const fixtures = {
       ['    nuget foo >= 5', ['foo']],
       ['nuget foo 1.2.3 -> source ./local_source', ['foo']],
       ['nuget foo.bar 1.2.3 -> source ./local_source', ['foo.bar']],
+      ['clitool foo', ['foo']],
     ],
     invalid: [
       'foo',

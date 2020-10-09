@@ -14,3 +14,6 @@ framework: net46
 
     # @OctoLinkerResolve(https://github.com/fable-compiler/fake-helpers/blob/fake_legacy/Fable.FakeHelpers.fs)
     github fable-compiler/fake-helpers:fake_legacy Fable.FakeHelpers.fs
+
+# @OctoLinkerResolve(https://www.nuget.org/packages/dotnet-fake)
+clitool dotnet-fake

@@ -270,7 +270,7 @@ export const NET_PROJ_FILE_REFERENCE = regex`
 `;
 
 export const PAKET_DEPENDENCIES_NUGET = regex`
-  nuget
+  (clitool|nuget)
   \s
   (?<$1>[^\s#]+)
 `;
