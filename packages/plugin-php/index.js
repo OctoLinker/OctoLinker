@@ -6,7 +6,7 @@ export default {
 
   resolve(path, [target], meta, regExp) {
     if (target.includes('\\')) {
-      return;
+      return [];
     }
 
     if (regExp === PHP_FUNC) {
