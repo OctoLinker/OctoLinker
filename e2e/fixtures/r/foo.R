@@ -1,20 +1,20 @@
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 library(rlang)
 
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 library("rlang")
 
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 require(rlang, quietly = TRUE)
 
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 require("rlang")
 
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 requireNamespace("rlang", quietly = TRUE)
 
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 requireNamespace("rlang")
 
-# @octoLinkerResolve(http://rlang.r-lib.org)
+# @octoLinkerResolve(https://github.com/r-lib/rlang)
 loadNamespace("rlang")
