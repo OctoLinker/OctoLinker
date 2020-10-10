@@ -23,6 +23,6 @@ describe('php', () => {
       php.resolve(path, [
         'Illuminate\\Contracts\\Container\\BindingResolutionException',
       ]),
-    ).toEqual(undefined);
+    ).toEqual([]);
   });
 });
