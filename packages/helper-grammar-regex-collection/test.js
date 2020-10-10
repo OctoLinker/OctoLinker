@@ -614,6 +614,25 @@ const fixtures = {
     ],
     invalid: ['File:foo', 'file:foo'],
   },
+  R_LIBRARY: {
+    valid: [
+      ['library(foo)', ['foo']],
+      ['library("foo")', ['foo']],
+      ['require(foo, quietly = TRUE)', ['foo']],
+      ['require("foo", quietly = TRUE)', ['foo']],
+      ['requireNamespace("foo", quietly = TRUE)', ['foo']],
+      ['requireNamespace("foo")', ['foo']],
+      ['loadNamespace("foo")', ['foo']],
+    ],
+    invalid: [],
+  },
+  R_NAMESPACE: {
+    valid: [
+      ['foo::bar()', ['foo']],
+      ['foo:::bar()', ['foo']],
+    ],
+    invalid: [],
+  },
 };
 
 function fixturesIterator(fixturesList, next) {

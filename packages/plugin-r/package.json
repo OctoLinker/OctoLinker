@@ -1,0 +1,12 @@
+{
+  "name": "@octolinker/plugin-r",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/master/packages/plugin-r",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-grammar-regex-collection": "1.0.0",
+    "@octolinker/resolver-live-query": "1.0.0"
+  }
+}

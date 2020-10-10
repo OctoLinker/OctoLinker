@@ -19,6 +19,7 @@ export { default as Less } from '@octolinker/plugin-less';
 export { default as NodejsRelativePath } from '@octolinker/plugin-nodejs-relative-path';
 export { default as NpmManifest } from '@octolinker/plugin-npm-manifest';
 export { default as Python } from '@octolinker/plugin-python';
+export { default as R } from '@octolinker/plugin-r';
 export { default as RequirementsTxt } from '@octolinker/plugin-requirements-txt';
 export { default as Ruby } from '@octolinker/plugin-ruby';
 export { default as Rust } from '@octolinker/plugin-rust';
