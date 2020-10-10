@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/dotnet/c/foo.cpp) -->
+    <ClCompile Include="foo.cpp" />
+
+    <!-- @OctoLinkerDoesNotResolve -->
+    <ClCompile Include="$(OutDir)strings.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/dotnet/c/foo.cpp) -->
+    <ClInclude Include="foo.h" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- @OctoLinkerResolve(<root>/dotnet/dotnet-tools.json) -->
+    <None Include="../dotnet-tools.json" />
+  </ItemGroup>
+
+</Project>

@@ -16,6 +16,7 @@
     "@octolinker/helper-sort-urls": "1.0.0",
     "@octolinker/plugin-bower-manifest": "1.0.0",
     "@octolinker/plugin-composer-manifest": "1.0.0",
+    "@octolinker/plugin-c": "1.0.0",
     "@octolinker/plugin-css": "1.0.0",
     "@octolinker/plugin-docker": "1.0.0",
     "@octolinker/plugin-dotnet": "1.0.0",

@@ -20,6 +20,12 @@ const captureJsQuotedWord = regex`
   ['"\`]            # end quote
 `;
 
+const captureCStyleQuotedWord = regex`
+  ["<]              # beginning quote
+  (?<$1>[^"<>]+)    # capture the word inside the quotes
+  [">]              # end quote
+`;
+
 const diffSigns = regex`
   ^[ \t]*[+-]?
 `;
@@ -262,7 +268,7 @@ export const NET_PROJ_SDK = regex`
 `;
 
 export const NET_PROJ_FILE_REFERENCE = regex`
-  <(Compile|Content|EmbeddedResource|None|ProjectReference)
+  <(ClCompile|ClInclude|Compile|Content|EmbeddedResource|None|ProjectReference)
   \s+
   .*
   (Include|Update)=${captureSpacedQuotedWord}
@@ -293,4 +299,10 @@ export const PAKET_REFERENCES = regex`
   ${diffSigns}
   (?![Ff]ile:)
   (?<$1>[^# \n]+)
+`;
+
+export const C_INCLUDE = regex`
+  \#include
+  \s*
+  ${captureCStyleQuotedWord}
 `;
