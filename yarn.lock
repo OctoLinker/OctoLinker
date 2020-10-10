@@ -1580,11 +1580,6 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha512-NuHqBY1PB/D8xU6s/thBgOAiAP7HOYDQ32+BFZILJ8ivkUkAHQnWfn6WhL79Owj1qmUnoN/YPhktdIoucipkAQ==
 
-JSONPath@^0.11.2:
-  version "0.11.2"
-  resolved "https://registry.yarnpkg.com/JSONPath/-/JSONPath-0.11.2.tgz#3fbd2033a9579f7ff56c11825b5d7dd77641583d"
-  integrity sha1-P70gM6lXn3/1bBGCW11913ZBWD0=
-
 JSONSelect@0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/JSONSelect/-/JSONSelect-0.2.1.tgz#415418a526d33fe31d74b4defa3c836d485ec203"
@@ -6089,6 +6084,11 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
+
+jsonpath-plus@0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-0.12.0.tgz#ba4d3260c451eb80e6d165d78b1c47994b508d9f"
+  integrity sha1-uk0yYMRR64Dm0WXXixxHmUtQjZ8=
 
 jsonwebtoken@8.5.1:
   version "8.5.1"
