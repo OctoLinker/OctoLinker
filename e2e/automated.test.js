@@ -60,7 +60,7 @@ describe('End to End tests', () => {
             await executeTest(
               url,
               targetUrl,
-              `#LC${lineNumber} .octolinker-link`,
+              `#LC${lineNumber} .octolinker-link[href]`,
             );
           } catch (ex) {
             createAnnotation({ file, lineNumber, ex });
