@@ -294,3 +294,17 @@ export const PAKET_REFERENCES = regex`
   (?![Ff]ile:)
   (?<$1>[^# \n]+)
 `;
+
+export const R_LIBRARY = regex`
+  (library|require|requireNamespace|loadNamespace)\(
+    ['"]? # optional open quote
+    (?<$1>[\w\.]+) # package name
+    ['"]? # optional close quote
+    (.+)? # other optional function arguments
+  \)
+`;
+
+export const R_NAMESPACE = regex`
+(?<$1>[\w\.]+) # package name
+:{2,3} # namespace operator
+`
