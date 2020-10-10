@@ -1,5 +1,9 @@
-# should ignore lines below
-
+# @OctoLinkerDoesNotResolve
 *
+# @OctoLinkerDoesNotResolve
 javascript/**/*.js @stefanbuck
+# @OctoLinkerDoesNotResolve
 # /docker @stefanbuck
+
+# @OctoLinkerResolve(<root>/.github/workflows/ci.yml)
+.github/workflows/ci.yml @stefanbuck
