@@ -54,19 +54,19 @@ For negative test you can use the `OctoLinkerDoesNotResolve` and `OctoLinkerDoes
 require('ftp://foo.bar')
 ```
 
-Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for the annotations described above and write a file named `fixtures.json` to the disk. This JSON file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/master/e2e/automated.test.js) to scaffold those tests on-the-fly.
+Before we invoke [jest](https://github.com/facebook/jest), we scan the fixtures folder for the annotations described above and write a file named `fixtures.json` to the disk. This JSON file then gets loaded by our actual test file (https://github.com/OctoLinker/OctoLinker/blob/main/e2e/automated.test.js) to scaffold those tests on-the-fly.
 
 
 ```js
 [
  {
-  "url": "https://github.com/OctoLinker/OctoLinker/blob/master/e2e/fixtures/javascript/nodejs/gentle-resonance-3436.js",
+  "url": "https://github.com/OctoLinker/OctoLinker/blob/main/e2e/fixtures/javascript/nodejs/gentle-resonance-3436.js",
   "content": "require('./proud-tooth-7361');",
   "targetUrl": "/javascript/nodejs/proud-tooth-7361.js",
   "lineNumber": 2
  },
  {
-  "url": "https://github.com/OctoLinker/OctoLinker/blob/master/e2e/fixtures/javascript/npm/package.json",
+  "url": "https://github.com/OctoLinker/OctoLinker/blob/main/e2e/fixtures/javascript/npm/package.json",
   "content": "\"underscore\": \"1.2.3\"",
   "targetUrl": "https://github.com/jashkenas/underscore",
   "lineNumber": 8

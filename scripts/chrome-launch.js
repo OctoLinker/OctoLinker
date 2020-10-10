@@ -3,7 +3,7 @@
 const chromeLaunch = require('chrome-launch'); // eslint-disable-line import/no-extraneous-dependencies
 const path = require('path');
 
-const url = 'https://github.com/OctoLinker/OctoLinker/blob/master/package.json';
+const url = 'https://github.com/OctoLinker/OctoLinker/blob/main/package.json';
 const dist = path.resolve(__dirname, '..', 'dist');
 const args = [`--load-extension=${dist}`];
 
