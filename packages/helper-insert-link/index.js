@@ -1,5 +1,4 @@
 import './style.css';
-import findAndReplaceDOMText from 'findandreplacedomtext';
 import getPosition from './get-position.js';
 
 const CLASS_NAME = 'octolinker-link';
@@ -17,30 +16,42 @@ function createLinkElement() {
 
 function injectUrl(node, value, startOffset, endOffset) {
   let el;
-  try {
-    // Take quote marks into account to narrow down match
-    // in case value is given on the left and right hand side
-    if (startOffset > 0) {
-      startOffset -= 1;
-    }
-    const textMatch = node.textContent.slice(startOffset, endOffset + 1).trim(); // we don't want to include whitespace in the link
+  // Take quote marks into account to narrow down match
+  // in case value is given on the left and right hand side
+  if (startOffset > 0) {
+    startOffset -= 1;
+  }
+  const textMatch = node.textContent.slice(startOffset, endOffset + 1).trim(); // we don't want to include whitespace in the link
 
-    findAndReplaceDOMText(node, {
-      find: textMatch,
-      replace: (portion) => {
-        if (el || !portion.text.includes(value)) {
-          return portion.text;
+  if (!el && node.textContent.includes(textMatch)) {
+    el = createLinkElement();
+
+    [...node.childNodes].forEach((child) => {
+      if (child.textContent.includes(textMatch)) {
+        const [contentLeft, contentRight] = child.textContent.split(textMatch);
+        const nodeLeft = child.cloneNode(true);
+        const nodeRight = child.cloneNode(true);
+
+        if (contentLeft) {
+          nodeLeft.textContent = contentLeft;
+          node.appendChild(nodeLeft);
         }
 
-        el = createLinkElement();
-        el.textContent = portion.text;
+        if (!el.childElementCount) {
+          node.appendChild(el);
+        }
 
-        return el;
-      },
+        child.textContent = textMatch;
+        el.appendChild(child);
+
+        if (contentRight) {
+          nodeRight.textContent = contentRight;
+          node.appendChild(nodeRight);
+        }
+      } else {
+        node.appendChild(child);
+      }
     });
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
   }
 
   return el;
