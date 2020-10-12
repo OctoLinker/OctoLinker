@@ -14,7 +14,7 @@ export default {
   getPattern() {
     return {
       pathRegexes: [/\.R$/, /\.Rmd$/],
-      githubClasses: [],
+      githubClasses: ['type-r', 'highlight-source-r'],
     };
   },
 
