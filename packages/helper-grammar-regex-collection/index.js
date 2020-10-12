@@ -307,4 +307,4 @@ export const R_LIBRARY = regex`
 export const R_NAMESPACE = regex`
 (?<$1>[\w\.]+) # package name
 :{2,3} # namespace operator
-`
+`;

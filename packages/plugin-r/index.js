@@ -1,21 +1,24 @@
-import {R_LIBRARY, R_NAMESPACE} from '@octolinker/helper-grammar-regex-collection';
-import liveResolverQuery from '@octolinker/resolver-live-query'
+import {
+  R_LIBRARY,
+  R_NAMESPACE,
+} from '@octolinker/helper-grammar-regex-collection';
+import liveResolverQuery from '@octolinker/resolver-live-query';
 
 export default {
-  name: "r",
+  name: 'r',
 
   resolve(path, [target]) {
-    return liveResolverQuery({ target, type: 'cran'})
+    return liveResolverQuery({ type: 'cran', target });
   },
 
   getPattern() {
     return {
       pathRegexes: [/\.R$/, /\.Rmd$/],
-      githubClasses: ['type-r', 'highlight-source-r']
+      githubClasses: ['type-r', 'highlight-source-r'],
     };
   },
 
   getLinkRegexes() {
     return [R_LIBRARY, R_NAMESPACE];
-  }
-}
+  },
+};

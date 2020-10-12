@@ -624,14 +624,14 @@ const fixtures = {
       ['requireNamespace("foo")', ['foo']],
       ['loadNamespace("foo")', ['foo']],
     ],
-    invalid: []
+    invalid: [],
   },
   R_NAMESPACE: {
     valid: [
       ['foo::bar()', ['foo']],
-      ['foo:::bar()', ['foo']]
+      ['foo:::bar()', ['foo']],
     ],
-    invalid: []
+    invalid: [],
   },
 };
 
