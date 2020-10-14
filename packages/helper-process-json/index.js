@@ -1,4 +1,4 @@
-import jsonPath from 'JSONPath';
+import { JSONPath as jsonPath } from 'jsonpath-plus';
 
 export default function (blob, plugin, config) {
   let results = [];
