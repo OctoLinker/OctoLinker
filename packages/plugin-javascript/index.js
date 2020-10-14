@@ -1,4 +1,4 @@
-import { join, dirname, extname } from 'path';
+import { extname } from 'path';
 import concatMap from 'concat-map';
 import {
   REQUIRE,
@@ -7,6 +7,7 @@ import {
 } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
+import relativeFile from '@octolinker/resolver-relative-file';
 import builtinsDocs from './builtins-docs.js';
 
 function getTopModuleName(target) {
@@ -19,7 +20,7 @@ function getTopModuleName(target) {
 export function javascriptFile({ path, target }) {
   const list = [];
   const extName = ['.js', '.jsx', '.ts', '.tsx', '.ls', '.json'];
-  const basePath = join(dirname(path), target);
+  const basePath = relativeFile({ path, target });
   const pathExt = extname(path);
   const fileExt = extname(basePath);
 
@@ -42,7 +43,7 @@ export function javascriptFile({ path, target }) {
   list.push('');
 
   return concatMap(list, (file) => {
-    const origPath = `{BASE_URL}${basePath}${file}`;
+    const origPath = `${basePath}${file}`;
     const paths = [origPath];
 
     if (origPath.includes('/dist/')) {
