@@ -58,7 +58,7 @@
     "web-ext": "^5.2.0",
     "web-ext-submit": "^5.1.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12",
+    "webpack-cli": "^4.0.0",
     "webpack-extension-reloader": "^1.1.4"
   },
   "optionalDependencies": {
