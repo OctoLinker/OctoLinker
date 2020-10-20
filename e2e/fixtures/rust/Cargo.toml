@@ -15,7 +15,7 @@ actix-files = "0.2.1"
 # @OctoLinkerResolve(https://github.com/rust-lang/futures-rs)
 futures = "0.3.1"
 
-# @OctoLinkerResolve(https://github.com/sebasmagri/env_logger)
+# @OctoLinkerResolve(https://github.com/env-logger-rs/env_logger)
 env_logger = "0.5"
 
 # @OctoLinkerResolve(https://github.com/tokio-rs/bytes)
