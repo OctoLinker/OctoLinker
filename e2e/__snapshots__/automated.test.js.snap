@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`End to End tests diff view links commentbox 1`] = `27`;
+
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/commit/b97dfbfdbf3dee5f4836426e6dac6d6f473461db?diff=split#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L23 to https://github.com/eslint/eslint 1`] = `27`;
+
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/commit/b97dfbfdbf3dee5f4836426e6dac6d6f473461db?diff=split#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R24 to https://github.com/eslint/eslint 1`] = `27`;
+
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166fL2 to https://github.com/webpack-contrib/copy-webpack-plugin 1`] = `27`;
+
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166fR2 to https://github.com/webpack-contrib/copy-webpack-plugin 1`] = `27`;
+
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L42 to https://github.com/eslint/eslint 1`] = `27`;
+
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R42 to https://github.com/eslint/eslint 1`] = `27`;
+
+exports[`End to End tests single blob resolves  to https://nodejs.org/api/dns.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves "angular": "git@github.com:angular/angular.git", to https://github.com/angular/angular 1`] = `10`;
+
+exports[`End to End tests single blob resolves "backbone": "latest" to https://github.com/jashkenas/backbone 1`] = `10`;
+
+exports[`End to End tests single blob resolves "dotnet-format": { to https://www.nuget.org/packages/dotnet-format 1`] = `3`;
+
+exports[`End to End tests single blob resolves "express": "expressjs/express", to https://github.com/expressjs/express 1`] = `10`;
+
+exports[`End to End tests single blob resolves "lodash": "^4.17.5", to https://github.com/lodash/lodash 1`] = `10`;
+
+exports[`End to End tests single blob resolves "log": "github:pinkipi/log" to https://github.com/pinkipi/log 1`] = `10`;
+
+exports[`End to End tests single blob resolves "main": "./relative/index.js", to /javascript/relative/index.js 1`] = `10`;
+
+exports[`End to End tests single blob resolves "mocha": "mochajs/mocha#v7.0.0", to https://github.com/mochajs/mocha/tree/v7.0.0 1`] = `10`;
+
+exports[`End to End tests single blob resolves "underscore": "1.2.3", to https://github.com/jashkenas/underscore 1`] = `10`;
+
+exports[`End to End tests single blob resolves .github/workflows/ci.yml @stefanbuck to /.github/workflows/ci.yml 1`] = `3`;
+
+exports[`End to End tests single blob resolves <Compile Include="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <Compile Include="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <Compile Update="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <Compile Update="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <Content Include="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <Content Include="../foo bar/test file.cs" /> to /dotnet/foo bar/test file.cs 1`] = `12`;
+
+exports[`End to End tests single blob resolves <Content Include="../foo bar/test file.cs" /> to /dotnet/foo bar/test file.cs 2`] = `18`;
+
+exports[`End to End tests single blob resolves <Content Include="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <Content Update="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <Content Update="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" /> to https://www.nuget.org/packages/Microsoft.DotNet.Watcher.Tools 1`] = `7`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" /> to https://www.nuget.org/packages/Microsoft.DotNet.Watcher.Tools 2`] = `18`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" /> to https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Tools 1`] = `7`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" /> to https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Tools 2`] = `18`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Include="dotnet-compile-fsc"> to https://www.nuget.org/packages/dotnet-compile-fsc 1`] = `7`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Update="Microsoft.VisualStudio.Web.CodeGeneration.Tools" /> to https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Tools 1`] = `5`;
+
+exports[`End to End tests single blob resolves <DotNetCliToolReference Update="dotnet-compile-fsc"> to https://www.nuget.org/packages/dotnet-compile-fsc 1`] = `5`;
+
+exports[`End to End tests single blob resolves <EmbeddedResource Include="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <EmbeddedResource Include="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <EmbeddedResource Update="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <EmbeddedResource Update="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <FrameworkReference Include="Microsoft.AspNetCore.App" /> to https://www.nuget.org/packages/Microsoft.AspNetCore.App 1`] = `7`;
+
+exports[`End to End tests single blob resolves <FrameworkReference Include="Microsoft.AspNetCore.App" /> to https://www.nuget.org/packages/Microsoft.AspNetCore.App 2`] = `18`;
+
+exports[`End to End tests single blob resolves <FrameworkReference Update="Microsoft.AspNetCore.App" /> to https://www.nuget.org/packages/Microsoft.AspNetCore.App 1`] = `5`;
+
+exports[`End to End tests single blob resolves <None Include="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <None Include="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <None Update="../Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `18`;
+
+exports[`End to End tests single blob resolves <None Update="..\\Directory.Build.props" /> to /dotnet/Directory.Build.props 1`] = `12`;
+
+exports[`End to End tests single blob resolves <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" /> to https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions 1`] = `7`;
+
+exports[`End to End tests single blob resolves <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"> to https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Abstractions 1`] = `7`;
+
+exports[`End to End tests single blob resolves <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"> to https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Abstractions 2`] = `12`;
+
+exports[`End to End tests single blob resolves <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" /> to https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions 1`] = `7`;
+
+exports[`End to End tests single blob resolves <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" /> to https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions 2`] = `12`;
+
+exports[`End to End tests single blob resolves <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" /> to https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions 3`] = `18`;
+
+exports[`End to End tests single blob resolves <PackageReference Update="Microsoft.AspNetCore.Hosting.Abstractions" /> to https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions 1`] = `5`;
+
+exports[`End to End tests single blob resolves <PackageReference Update="Microsoft.AspNetCore.Hosting.Abstractions" /> to https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.Abstractions 2`] = `18`;
+
+exports[`End to End tests single blob resolves <PackageReference Update="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.1" /> to https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions 1`] = `5`;
+
+exports[`End to End tests single blob resolves <Project Sdk="Microsoft.NET.Sdk"> to https://www.nuget.org/packages/Microsoft.NET.Sdk 1`] = `18`;
+
+exports[`End to End tests single blob resolves <ProjectReference Include="../classic/Project.csproj" /> to /dotnet/classic/Project.csproj 1`] = `18`;
+
+exports[`End to End tests single blob resolves <ProjectReference Include="..\\sdk\\Project.csproj" /> to /dotnet/sdk/Project.csproj 1`] = `12`;
+
+exports[`End to End tests single blob resolves <Reference Include="Microsoft.Extensions.Hosting.Abstractions" /> to https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions 1`] = `18`;
+
+exports[`End to End tests single blob resolves <Reference Update="Microsoft.Extensions.Hosting.Abstractions" /> to https://www.nuget.org/packages/Microsoft.Extensions.Hosting.Abstractions 1`] = `18`;
+
+exports[`End to End tests single blob resolves @import '../css/main.css'; to /css/main.css 1`] = `7`;
+
+exports[`End to End tests single blob resolves @import 'import'; to /less/import.less 1`] = `7`;
+
+exports[`End to End tests single blob resolves @import 'import.css'; to /css/import.css 1`] = `5`;
+
+exports[`End to End tests single blob resolves @import 'import.less'; to /less/import.less 1`] = `7`;
+
+exports[`End to End tests single blob resolves @import url('import.css') screen; to /css/import.css 1`] = `5`;
+
+exports[`End to End tests single blob resolves @import url('import.less') screen; to /less/import.less 1`] = `7`;
+
+exports[`End to End tests single blob resolves - uses: actions/checkout@v1 to https://github.com/actions/checkout 1`] = `6`;
+
+exports[`End to End tests single blob resolves - uses: actions/setup-node to https://github.com/actions/setup-node 1`] = `6`;
+
+exports[`End to End tests single blob resolves - uses: actions/upload-artifact@master to https://github.com/actions/upload-artifact 1`] = `6`;
+
+exports[`End to End tests single blob resolves - uses: docker://alpine:3.8 to https://hub.docker.com/_/alpine 1`] = `6`;
+
+exports[`End to End tests single blob resolves - uses: docker://github/super-linter:3.10.0 to https://hub.docker.com/r/github/super-linter 1`] = `6`;
+
+exports[`End to End tests single blob resolves - uses: github/codeql-action/init@v1 to https://github.com/github/codeql-action/tree/main/init 1`] = `6`;
+
+exports[`End to End tests single blob resolves Chessie to https://www.nuget.org/packages/Chessie 1`] = `2`;
+
+exports[`End to End tests single blob resolves ENTRYPOINT ["docker-entrypoint.sh"] to /docker/docker-entrypoint.sh 1`] = `2`;
+
+exports[`End to End tests single blob resolves FROM php:php:5.6-apache to https://hub.docker.com/_/php 1`] = `2`;
+
+exports[`End to End tests single blob resolves FSharp.Core to https://www.nuget.org/packages/FSharp.Core 1`] = `2`;
+
+exports[`End to End tests single blob resolves actix-files = "0.2.1" to https://github.com/actix/actix-web 1`] = `6`;
+
+exports[`End to End tests single blob resolves actix-rt = "1.0.0" to https://github.com/actix/actix-net 1`] = `6`;
+
+exports[`End to End tests single blob resolves actix-web = "2.0.0" to https://github.com/actix/actix-web 1`] = `6`;
+
+exports[`End to End tests single blob resolves background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,0,0.5)), url('../css/icon.png'); to /css/icon.png 1`] = `7`;
+
+exports[`End to End tests single blob resolves background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(0,0,0,0.5)), url('icon.png'); to /css/icon.png 1`] = `5`;
+
+exports[`End to End tests single blob resolves background-image: url('../css/icon.png'); to /css/icon.png 1`] = `7`;
+
+exports[`End to End tests single blob resolves background-image: url('icon.png'); to /css/icon.png 1`] = `5`;
+
+exports[`End to End tests single blob resolves bytes = "0.5" to https://github.com/tokio-rs/bytes 1`] = `6`;
+
+exports[`End to End tests single blob resolves clitool dotnet-fake to https://www.nuget.org/packages/dotnet-fake 1`] = `5`;
+
+exports[`End to End tests single blob resolves const { cluster } = require('cluster'); to https://nodejs.org/api/cluster.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves const http = require('http'); to https://nodejs.org/api/http.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves env_logger = "0.5" to https://github.com/env-logger-rs/env_logger 1`] = `6`;
+
+exports[`End to End tests single blob resolves export { default as net } from 'net'; to https://nodejs.org/api/net.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves futures = "0.3.1" to https://github.com/rust-lang/futures-rs 1`] = `6`;
+
+exports[`End to End tests single blob resolves github fable-compiler/fake-helpers:fake_legacy Fable.FakeHelpers.fs to https://github.com/fable-compiler/fake-helpers/blob/fake_legacy/Fable.FakeHelpers.fs 1`] = `5`;
+
+exports[`End to End tests single blob resolves github fsharp/FAKE modules/Octokit/Octokit.fsx to https://github.com/fsharp/FAKE/blob/master/modules/Octokit/Octokit.fsx 1`] = `5`;
+
+exports[`End to End tests single blob resolves import "context" to https://golang.org/pkg/context 1`] = `5`;
+
+exports[`End to End tests single blob resolves import "github.com/ethereum/go-ethereum/common" to https://github.com/ethereum/go-ethereum/tree/master/common 1`] = `5`;
+
+exports[`End to End tests single blob resolves import "k8s.io/apimachinery/pkg/api/errors" to https://github.com/kubernetes/apimachinery/tree/master/pkg/api/errors 1`] = `5`;
+
+exports[`End to End tests single blob resolves import "math/big" to https://golang.org/pkg/math/big 1`] = `5`;
+
+exports[`End to End tests single blob resolves import 'lodash' to https://github.com/lodash/lodash 1`] = `5`;
+
+exports[`End to End tests single blob resolves import * as fs from "https://deno.land/x/std/fs/mod.ts"; to https://deno.land/x/std/fs/mod.ts 1`] = `11`;
+
+exports[`End to End tests single blob resolves import * as gr from './relative/gentle-resonance'; to /javascript/relative/gentle-resonance.js 1`] = `4`;
+
+exports[`End to End tests single blob resolves import * as pt from './relative/proud-tooth.js'; to /javascript/relative/proud-tooth.js 1`] = `4`;
+
+exports[`End to End tests single blob resolves import * as pt from './relative/proud-tooth.svelte'; to /javascript/relative/proud-tooth.svelte 1`] = `4`;
+
+exports[`End to End tests single blob resolves import { onMount } from 'svelte'; to https://github.com/sveltejs/svelte 1`] = `4`;
+
+exports[`End to End tests single blob resolves import { os } from 'os'; to https://nodejs.org/api/os.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves import com.fasterxml.jackson.databind.JsonNode; to http://fasterxml.github.io/jackson-databind/javadoc/2.9/com/fasterxml/jackson/databind/JsonNode.html 1`] = `3`;
+
+exports[`End to End tests single blob resolves import corev1 "k8s.io/api/core/v1" to https://github.com/kubernetes/api/tree/master/core/v1 1`] = `5`;
+
+exports[`End to End tests single blob resolves import java.util.List; to https://docs.oracle.com/javase/9/docs/api/java/util/List.html 1`] = `3`;
+
+exports[`End to End tests single blob resolves import org.springframework.stereotype.Component; to https://docs.spring.io/spring/docs/5.1.7.RELEASE/javadoc-api/org/springframework/stereotype/Component.html 1`] = `3`;
+
+exports[`End to End tests single blob resolves import path from "path"; to https://nodejs.org/api/path.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves import url from 'url'; to https://nodejs.org/api/url.html 1`] = `11`;
+
+exports[`End to End tests single blob resolves library("rlang") to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves library(rlang) to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves loadNamespace("rlang") to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves nuget Chessie >= 0.6 to https://www.nuget.org/packages/Chessie 1`] = `5`;
+
+exports[`End to End tests single blob resolves nuget FSharp.Core > 4.3 lowest_matching: true, redirects: force to https://www.nuget.org/packages/FSharp.Core 1`] = `5`;
+
+exports[`End to End tests single blob resolves nuget Microsoft.EntityFrameworkCore -> source ./local_source to https://www.nuget.org/packages/Microsoft.EntityFrameworkCore 1`] = `4`;
+
+exports[`End to End tests single blob resolves nuget Microsoft.EntityFrameworkCore 5.0.0-rc.1.20451.13-> source ./local_source to https://www.nuget.org/packages/Microsoft.EntityFrameworkCore 1`] = `4`;
+
+exports[`End to End tests single blob resolves nuget NUnit -> source ./local_source to https://www.nuget.org/packages/NUnit 1`] = `4`;
+
+exports[`End to End tests single blob resolves nuget NUnit 3.12.0 -> source ./local_source to https://www.nuget.org/packages/NUnit 1`] = `4`;
+
+exports[`End to End tests single blob resolves require "rack" to https://github.com/rack/rack 1`] = `2`;
+
+exports[`End to End tests single blob resolves require("lodash"); to https://github.com/lodash/lodash 1`] = `11`;
+
+exports[`End to End tests single blob resolves require("rlang") to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves require('.'); to /javascript/relative/index.js 1`] = `1`;
+
+exports[`End to End tests single blob resolves require('.'); to /javascript/relative/index.js 2`] = `1`;
+
+exports[`End to End tests single blob resolves require('./gentle-resonance.js'); to /javascript/relative/gentle-resonance.js 1`] = `2`;
+
+exports[`End to End tests single blob resolves require('./proud-tooth'); to /javascript/relative/proud-tooth.js 1`] = `1`;
+
+exports[`End to End tests single blob resolves require('./proud-tooth'); to /javascript/relative/proud-tooth.js 2`] = `2`;
+
+exports[`End to End tests single blob resolves require('fs'); to https://nodejs.org/api/fs.html 1`] = `5`;
+
+exports[`End to End tests single blob resolves require('fs'); to https://nodejs.org/api/fs.html 2`] = `11`;
+
+exports[`End to End tests single blob resolves require('react'); to https://github.com/facebook/react/tree/master/packages/react 1`] = `11`;
+
+exports[`End to End tests single blob resolves require(rlang, quietly = TRUE) to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves require_relative "relative/foo" to /ruby/relative/foo.rb 1`] = `2`;
+
+exports[`End to End tests single blob resolves requireNamespace("rlang") to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves requireNamespace("rlang", quietly = TRUE) to https://github.com/r-lib/rlang 1`] = `7`;
+
+exports[`End to End tests single blob resolves use ArrayAccess; to https://www.php.net/manual/en/class.arrayaccess.php 1`] = `5`;
+
+exports[`End to End tests single blob resolves use Closure; to https://www.php.net/manual/en/class.closure.php 1`] = `5`;
+
+exports[`End to End tests single blob resolves use Exception; to https://www.php.net/manual/en/class.exception.php 1`] = `5`;
+
+exports[`End to End tests single blob resolves use function is_array; to https://www.php.net/manual/en/function.is-array.php 1`] = `5`;
+
+exports[`End to End tests single blob resolves use function preg_last_error; to https://www.php.net/manual/en/function.preg-last-error.php 1`] = `5`;
