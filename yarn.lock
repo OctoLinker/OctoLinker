@@ -858,18 +858,10 @@
     "@babel/types" "^7.4.4"
     esutils "^2.0.2"
 
-"@babel/runtime-corejs3@^7.10.2":
-  version "7.10.3"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.10.3.tgz#931ed6941d3954924a7aa967ee440e60c507b91a"
-  integrity sha512-HA7RPj5xvJxQl429r5Cxr2trJwOfPjKiqhCXcdQPSqO2G0RHPZpXu4fkYmBaTKCp2c/jRaMK9GB/lN+7zvvFPw==
-  dependencies:
-    core-js-pure "^3.0.0"
-    regenerator-runtime "^0.13.4"
-
-"@babel/runtime-corejs3@^7.8.3":
-  version "7.9.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.9.2.tgz#26fe4aa77e9f1ecef9b776559bbb8e84d34284b7"
-  integrity sha512-HHxmgxbIzOfFlZ+tdeRKtaxWOMUoCG5Mu3wKeUmOxjYrwb3AAHgnmtCUbPPK11/raIWLIBK250t8E2BPO0p7jA==
+"@babel/runtime-corejs3@^7.10.2", "@babel/runtime-corejs3@^7.12.1":
+  version "7.12.1"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.12.1.tgz#51b9092befbeeed938335a109dbe0df51451e9dc"
+  integrity sha512-umhPIcMrlBZ2aTWlWjUseW9LjQKxi1dpFlQS8DzsxB//5K+u6GLTC/JliPKHsd5kJVPIU6X/Hy0YvWOYPcMxBw==
   dependencies:
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
@@ -10048,12 +10040,12 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
-xregexp@^4.0.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-4.3.0.tgz#7e92e73d9174a99a59743f67a4ce879a04b5ae50"
-  integrity sha512-7jXDIFXh5yJ/orPn4SXjuVrWWoi4Cr8jfV1eHv9CixKSbU+jY4mxfrBwAuDvupPNKpMUY+FeIqsVw/JLT9+B8g==
+xregexp@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/xregexp/-/xregexp-4.4.0.tgz#29660f5d6567cd2ef981dd4a50cb05d22c10719d"
+  integrity sha512-83y4aa8o8o4NZe+L+46wpa+F1cWR/wCGOWI3tzqUso0w3/KAvXy0+Di7Oe/cbNMixDR4Jmi7NEybWU6ps25Wkg==
   dependencies:
-    "@babel/runtime-corejs3" "^7.8.3"
+    "@babel/runtime-corejs3" "^7.12.1"
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"
