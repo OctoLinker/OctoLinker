@@ -2,6 +2,10 @@
   pointer-events: none;
 }
 
+.octotree-show .octolinker-toast  {
+  left: var(--octotree-sidebar-width) !important
+}
+
 .octolinker-toast .octo-toast-image  {
   width: 58px;
   height: 40px;
