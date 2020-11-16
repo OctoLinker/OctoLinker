@@ -1,9 +1,8 @@
+.octolinker-toast {
+  z-index: 1000000002 !important;
+}
 .octolinker-toast svg {
   pointer-events: none;
-}
-
-.octotree-show .octolinker-toast  {
-  left: var(--octotree-sidebar-width) !important
 }
 
 .octolinker-toast .octo-toast-image  {
