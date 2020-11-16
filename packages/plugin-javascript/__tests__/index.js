@@ -47,17 +47,21 @@ describe('javascript-universal', () => {
   });
 
   it("resolves './modules/es6.symbol' without stripping .symbol suffix", () => {
-    expect(plugin.resolve('', ['./modules/es6.symbol'])).toMatchSnapshot();
+    expect(plugin.resolve(path, ['./modules/es6.symbol'])).toMatchSnapshot();
   });
 
   it("resolves './modules/es6.symbol.js' like './modules/es6.symbol'", () => {
-    expect(plugin.resolve('', ['./modules/es6.symbol.js'])).toMatchSnapshot();
+    expect(plugin.resolve(path, ['./modules/es6.symbol.js'])).toMatchSnapshot();
   });
 
   it("fallbacks './lib/foo.js' to './src/foo.js'", () => {
     expect(
       plugin.resolve('/user/repo/package.json', ['./lib/foo.js']),
     ).toMatchSnapshot();
+  });
+
+  it('returns empty array if path is undefined', () => {
+    expect(plugin.resolve(undefined, ['./lib/foo.js'])).toEqual([]);
   });
 
   it("fallbacks './dist/foo.js' to './lib/foo.js' and './src/foo.js'", () => {

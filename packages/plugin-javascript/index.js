@@ -18,6 +18,10 @@ function getTopModuleName(target) {
 }
 
 export function javascriptFile({ path, target }) {
+  if (!path) {
+    return [];
+  }
+
   const list = [];
   const extName = ['.js', '.jsx', '.ts', '.tsx', '.ls', '.json'];
   const basePath = relativeFile({ path, target });
