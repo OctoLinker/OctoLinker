@@ -31,7 +31,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^26.6.3",
-    "babel-loader": "^8.0.6",
+    "babel-loader": "^8.2.1",
     "babel-preset-jest": "^26.1.0",
     "chrome-launch": "^1.1.4",
     "chrome-webstore-upload-cli": "^1.2.0",
