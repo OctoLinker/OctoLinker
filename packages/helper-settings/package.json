@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "linkstate": "^1.1.0",
+    "linkstate": "^2.0.0",
     "preact": "^10.5.7",
     "webext-base-css": "^1.2.0",
     "webextension-polyfill": "^0.7.0"
