@@ -60,9 +60,7 @@ export default class BlobReader {
   read(rootElement) {
     return [].concat(
       ...getBlobWrapper(rootElement)
-        .map((el) => {
-          return parseBlob(el);
-        })
+        .map((el) => parseBlob(el))
         .filter(Boolean),
     );
   }

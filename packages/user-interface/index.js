@@ -39,7 +39,7 @@ export const showNotification = ({
   </div>`;
 
   document.body.append(el);
-  el.addEventListener('click', function (event) {
+  el.addEventListener('click', (event) => {
     if (['a', 'button'].includes(event.target.nodeName.toLowerCase())) {
       clickHandler(event);
       el.remove();
