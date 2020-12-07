@@ -5,6 +5,10 @@ const store = {};
 const defaults = {
   enablePrivateRepositories: true,
   showUpdateNotification: true,
+  stats: {
+    since: Date.now(),
+    counter: 0,
+  },
 };
 
 export const get = (key) => {

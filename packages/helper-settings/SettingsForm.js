@@ -4,7 +4,7 @@ import { h, Component } from 'preact';
 import linkState from 'linkstate';
 
 import './style.css';
-import { Input, Checkbox } from './components';
+import { Input, Checkbox, Stats } from './components';
 import * as storage from './index';
 
 const githubTokenDescription = () => (
@@ -84,110 +84,113 @@ export default class Form extends Component {
   }
 
   render(props, state) {
-    const { errorMessage, tokenLoaded } = this.state;
-
+    const { errorMessage, tokenLoaded, stats } = this.state;
     return (
-      <form
-        onChange={this.onBlur.bind(this)}
-        onSubmit={(event) => event.preventDefault()}
-      >
-        <div className="flash-success">
-          {tokenLoaded && '✔ Token successfully added!'}
-        </div>
-        <Input
-          type="password"
-          name="githubToken"
-          className="js-token"
-          label="Access token"
-          description={githubTokenDescription()}
-          value={state.githubToken}
-          error={errorMessage}
-          onInput={(event) => {
-            linkState(this, 'githubToken')(event);
-            setTimeout(this.validateToken.bind(this), 100);
-          }}
-        />
-        <p>
-          For public repositories,{' '}
-          <a
-            href="https://github.com/settings/tokens/new?scopes=public_repo&description=OctoLinker"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            create a token
-          </a>{' '}
-          with the{' '}
-          <code>
-            <strong>public_repo</strong>
-          </code>{' '}
-          permission. If you want OctoLinker for private repositories,
-          you&apos;ll need to{' '}
-          <a
-            href="https://github.com/settings/tokens/new?scopes=repo&description=OctoLinker"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            create a token
-          </a>{' '}
-          with the{' '}
-          <code>
-            <strong>repo</strong>
-          </code>{' '}
-          permissions. Then copy and paste it into the input field above.
-        </p>
-        <p>
-          <details>
-            <summary>Why is a GitHub token needed?</summary>
-            <p>
-              OctoLinker uses the{' '}
-              <a
-                href="https://developer.github.com/v3/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                GitHub API
-              </a>{' '}
-              to retrieve repository metadata. By default, it makes
-              unauthenticated requests to the GitHub API. However, there are two
-              situations when requests must be authenticated:
-            </p>
-            <p>
-              <ul>
-                <li>You access a private repository</li>
-                <li>
-                  You exceed{' '}
-                  <a
-                    href="https://developer.github.com/v3/#rate-limiting"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    the rate limit for unauthenticated requests
-                  </a>
-                </li>
-              </ul>
-            </p>
-            <p>
-              When that happens, OctoLinker needs an GitHub access token in
-              order to continue to work.
-            </p>
-          </details>
-        </p>
+      <div>
+        <form
+          onChange={this.onBlur.bind(this)}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <div className="flash-success">
+            {tokenLoaded && '✔ Token successfully added!'}
+          </div>
+          <Input
+            type="password"
+            name="githubToken"
+            className="js-token"
+            label="Access token"
+            description={githubTokenDescription()}
+            value={state.githubToken}
+            error={errorMessage}
+            onInput={(event) => {
+              linkState(this, 'githubToken')(event);
+              setTimeout(this.validateToken.bind(this), 100);
+            }}
+          />
+          <p>
+            For public repositories,{' '}
+            <a
+              href="https://github.com/settings/tokens/new?scopes=public_repo&description=OctoLinker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              create a token
+            </a>{' '}
+            with the{' '}
+            <code>
+              <strong>public_repo</strong>
+            </code>{' '}
+            permission. If you want OctoLinker for private repositories,
+            you&apos;ll need to{' '}
+            <a
+              href="https://github.com/settings/tokens/new?scopes=repo&description=OctoLinker"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              create a token
+            </a>{' '}
+            with the{' '}
+            <code>
+              <strong>repo</strong>
+            </code>{' '}
+            permissions. Then copy and paste it into the input field above.
+          </p>
+          <p>
+            <details>
+              <summary>Why is a GitHub token needed?</summary>
+              <p>
+                OctoLinker uses the{' '}
+                <a
+                  href="https://developer.github.com/v3/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub API
+                </a>{' '}
+                to retrieve repository metadata. By default, it makes
+                unauthenticated requests to the GitHub API. However, there are
+                two situations when requests must be authenticated:
+              </p>
+              <p>
+                <ul>
+                  <li>You access a private repository</li>
+                  <li>
+                    You exceed{' '}
+                    <a
+                      href="https://developer.github.com/v3/#rate-limiting"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      the rate limit for unauthenticated requests
+                    </a>
+                  </li>
+                </ul>
+              </p>
+              <p>
+                When that happens, OctoLinker needs an GitHub access token in
+                order to continue to work.
+              </p>
+            </details>
+          </p>
+          <hr />
+          <Checkbox
+            name="enablePrivateRepositories"
+            label="Private repositories"
+            description="Enable support for private repositories (requires a GitHub token)"
+            checked={state.enablePrivateRepositories}
+            onClick={linkState(this, 'enablePrivateRepositories')}
+          />
+          <Checkbox
+            name="showUpdateNotification"
+            label="Update notification"
+            description="Show a notification if a new version is available."
+            checked={state.showUpdateNotification}
+            onClick={linkState(this, 'showUpdateNotification')}
+          />
+        </form>
         <hr />
-        <Checkbox
-          name="enablePrivateRepositories"
-          label="Private repositories"
-          description="Enable support for private repositories (requires a GitHub token)"
-          checked={state.enablePrivateRepositories}
-          onClick={linkState(this, 'enablePrivateRepositories')}
-        />
-        <Checkbox
-          name="showUpdateNotification"
-          label="Update notification"
-          description="Show a notification if a new version is available."
-          checked={state.showUpdateNotification}
-          onClick={linkState(this, 'showUpdateNotification')}
-        />
-      </form>
+        <Stats counter={stats.counter} />
+      </div>
     );
   }
 }

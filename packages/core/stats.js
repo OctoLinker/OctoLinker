@@ -5,10 +5,7 @@ const CLASS_NAME = 'octolinker-link';
 let tid = null;
 
 function updateCounter() {
-  const stats = storage.get('stats') || {
-    since: Date.now(),
-    counter: 0,
-  };
+  const stats = storage.get('stats');
 
   storage.set('stats', {
     ...stats,
