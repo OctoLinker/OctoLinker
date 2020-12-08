@@ -9,6 +9,7 @@ const defaults = {
     since: Date.now(),
     counter: 0,
   },
+  flagPHP: false,
 };
 
 export const get = (key) => {

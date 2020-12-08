@@ -1,18 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`End to End tests diff view links commentbox 1`] = `27`;
+exports[`End to End tests diff view links commentbox 1`] = `28`;
 
 exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/commit/b97dfbfdbf3dee5f4836426e6dac6d6f473461db?diff=split#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L23 to https://github.com/eslint/eslint 1`] = `27`;
 
 exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/commit/b97dfbfdbf3dee5f4836426e6dac6d6f473461db?diff=split#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R24 to https://github.com/eslint/eslint 1`] = `27`;
 
-exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166fL2 to https://github.com/webpack-contrib/copy-webpack-plugin 1`] = `27`;
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166fL2 to https://github.com/webpack-contrib/copy-webpack-plugin 1`] = `28`;
 
-exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166fR2 to https://github.com/webpack-contrib/copy-webpack-plugin 1`] = `27`;
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-1fb26bc12ac780c7ad7325730ed09fc4c2c3d757c276c3dacc44bfe20faf166fR2 to https://github.com/webpack-contrib/copy-webpack-plugin 1`] = `28`;
 
-exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L42 to https://github.com/eslint/eslint 1`] = `27`;
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519L42 to https://github.com/eslint/eslint 1`] = `28`;
 
-exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R42 to https://github.com/eslint/eslint 1`] = `27`;
+exports[`End to End tests diff view resolves https://github.com/OctoLinker/OctoLinker/pull/451/files#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519R42 to https://github.com/eslint/eslint 1`] = `28`;
 
 exports[`End to End tests single blob resolves  to https://nodejs.org/api/dns.html 1`] = `11`;
 
@@ -266,12 +266,16 @@ exports[`End to End tests single blob resolves requireNamespace("rlang") to http
 
 exports[`End to End tests single blob resolves requireNamespace("rlang", quietly = TRUE) to https://github.com/r-lib/rlang 1`] = `7`;
 
-exports[`End to End tests single blob resolves use ArrayAccess; to https://www.php.net/manual/en/class.arrayaccess.php 1`] = `5`;
+exports[`End to End tests single blob resolves use ArrayAccess; to https://www.php.net/manual/en/class.arrayaccess.php 1`] = `7`;
 
-exports[`End to End tests single blob resolves use Closure; to https://www.php.net/manual/en/class.closure.php 1`] = `5`;
+exports[`End to End tests single blob resolves use Closure; to https://www.php.net/manual/en/class.closure.php 1`] = `7`;
 
-exports[`End to End tests single blob resolves use Exception; to https://www.php.net/manual/en/class.exception.php 1`] = `5`;
+exports[`End to End tests single blob resolves use Exception; to https://www.php.net/manual/en/class.exception.php 1`] = `7`;
 
-exports[`End to End tests single blob resolves use function is_array; to https://www.php.net/manual/en/function.is-array.php 1`] = `5`;
+exports[`End to End tests single blob resolves use Illuminate\\Contracts\\Container\\BindingResolutionException; to https://laravel.com/api/8.x/Illuminate/Contracts/Container/BindingResolutionException.html 1`] = `7`;
 
-exports[`End to End tests single blob resolves use function preg_last_error; to https://www.php.net/manual/en/function.preg-last-error.php 1`] = `5`;
+exports[`End to End tests single blob resolves use Illuminate\\Contracts\\Container\\Container as ContainerContract; to https://laravel.com/api/8.x/Illuminate/Contracts/Container/Container.html 1`] = `7`;
+
+exports[`End to End tests single blob resolves use function is_array; to https://www.php.net/manual/en/function.is-array.php 1`] = `7`;
+
+exports[`End to End tests single blob resolves use function preg_last_error; to https://www.php.net/manual/en/function.preg-last-error.php 1`] = `7`;

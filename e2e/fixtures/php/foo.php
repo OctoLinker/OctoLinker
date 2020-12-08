@@ -15,10 +15,10 @@ use function is_array;
 // @OctoLinkerResolve(https://www.php.net/manual/en/function.preg-last-error.php)
 use function preg_last_error;
 
-// @OctoLinkerDoesNotResolve
+// @OctoLinkerResolve(https://laravel.com/api/8.x/Illuminate/Contracts/Container/BindingResolutionException.html)
 use Illuminate\Contracts\Container\BindingResolutionException;
 
-// @OctoLinkerDoesNotResolve
+// @OctoLinkerResolve(https://laravel.com/api/8.x/Illuminate/Contracts/Container/Container.html)
 use Illuminate\Contracts\Container\Container as ContainerContract;
 
 ?>

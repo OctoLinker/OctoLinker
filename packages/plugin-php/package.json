@@ -6,7 +6,9 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
+    "@octolinker/helper-settings": "1.0.0",
     "@octolinker/resolver-live-query": "1.0.0",
+    "@octolinker/resolver-trusted-url": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0"
   }
 }
