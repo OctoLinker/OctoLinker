@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "yarn lint",
-    "test": "jest",
+    "test": "NODE_ENV=test jest",
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
     "test:watch": "jest --watch",
     "version": "./scripts/version.sh",

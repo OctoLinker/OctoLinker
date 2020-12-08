@@ -18,11 +18,35 @@ describe('php', () => {
     });
   });
 
-  it('does not try to resolve packages', () => {
+  it('resolves laravel', () => {
     expect(
       php.resolve(path, [
         'Illuminate\\Contracts\\Container\\BindingResolutionException',
       ]),
-    ).toEqual([]);
+    ).toEqual({
+      type: 'trusted-url',
+      target:
+        'https://laravel.com/api/8.x/Illuminate/Contracts/Container/BindingResolutionException.html',
+    });
+  });
+
+  it('resolves Doctrine', () => {
+    expect(php.resolve(path, ['Doctrine\\foo\\bar\\baz'])).toEqual({
+      type: 'trusted-url',
+      target:
+        'https://github.com/doctrine/foo/blob/HEAD/lib/Doctrine/foo/bar/baz.php',
+    });
+  });
+
+  it('resolves PHPUnit', () => {
+    expect(php.resolve(path, ['PHPUnit\\foo\\bar\\baz'])).toEqual({
+      type: 'trusted-url',
+      target:
+        'https://github.com/sebastianbergmann/phpunit/blob/master/src/foo/bar/baz.php',
+    });
+  });
+
+  it('does not try to resolve packages', () => {
+    expect(php.resolve(path, ['Foo\\Bar\\Baz'])).toEqual([]);
   });
 });
