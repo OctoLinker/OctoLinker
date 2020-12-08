@@ -19,6 +19,10 @@ code {
   opacity: 0.6;
 }
 
+.pt-4 {
+  padding-top: 1rem;
+}
+
 input[type='checkbox'] {
   margin-inline-end: 0.6em;
   margin-top: 0.2em;
