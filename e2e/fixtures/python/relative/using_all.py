@@ -5,7 +5,6 @@ from relative.simple import my_func
 # @OctoLinkerResolve(<root>/python/relative/simple.py)
 from . import simple
 
-
 __all__ = [
     "MyClass",
     "my_func",
