@@ -7,3 +7,5 @@ dist/
 out/
 e2e/fixtures.json
 coverage/
+
+*.pyc
