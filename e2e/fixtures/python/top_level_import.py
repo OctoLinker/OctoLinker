@@ -1,8 +1,10 @@
 # @OctoLinkerResolve(<root>/python/relative/subpackage1)
 from relative import subpackage1
+# @OctoLinkerResolveAbove(<root>/python/relative/)
 
 # @OctoLinkerResolve(<root>/python/relative/simple.py)
 from relative import simple
+# @OctoLinkerResolveAbove(<root>/python/relative/)
 
 # @OctoLinkerResolve(<root>/python/relative/simple.py)
 from relative.simple import my_func
