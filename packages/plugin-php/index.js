@@ -9,7 +9,7 @@ export default {
 
   resolve(path, [target], meta, regExp) {
     const enableBetterPHP = storage.get('enableBetterPHP');
-    if (enableBetterPHP || process.env.NODE_ENV === 'test') {
+    if (enableBetterPHP) {
       const linkMapping = mappingList.find(({ importPath }) =>
         target.startsWith(`${importPath}\\`),
       );
