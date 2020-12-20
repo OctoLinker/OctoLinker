@@ -2,12 +2,25 @@ import { PYTHON_IMPORT } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 import relativeFile from '@octolinker/resolver-relative-file';
 
+function normalizePath(target) {
+  const result = target.match(/^(\.+)(.+)/);
+
+  if (!result) {
+    return target;
+  }
+  const [, relativePath, filePath] = result;
+
+  return (
+    relativePath.slice(1).replace(/\./g, '../') + filePath.replace(/\./g, '/')
+  );
+}
+
 export default {
   name: 'Python',
 
   resolve(path, [target, subTarget]) {
     const isLocalFile = target.startsWith('.');
-    const normalizedTarget = target.replace(/\./g, '/');
+    const normalizedTarget = normalizePath(target);
     const apiDoc = `https://docs.python.org/3/library/${target}.html`;
 
     if (isLocalFile) {
