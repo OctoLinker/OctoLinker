@@ -187,6 +187,17 @@ export default class Form extends Component {
             checked={state.showUpdateNotification}
             onClick={linkState(this, 'showUpdateNotification')}
           />
+          <hr />
+          <h2>Feature preview</h2>
+          <div>
+            <Checkbox
+              name="enableBetterPHP"
+              label="Better PHP support"
+              description="Enable support for Symfony, Laravel, Doctrine, Cake and PHPUnit."
+              checked={state.enableBetterPHP}
+              onClick={linkState(this, 'enableBetterPHP')}
+            />
+          </div>
         </form>
         <hr />
         <Stats counter={stats.counter} />

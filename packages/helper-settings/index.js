@@ -9,11 +9,33 @@ const defaults = {
     since: Date.now(),
     counter: 0,
   },
+  enableBetterPHP: false,
 };
+
+function isTestEnv() {
+  if (process.env.NODE_ENV === 'test') {
+    return true;
+  }
+
+  if (
+    typeof window !== 'undefined' &&
+    /OctoLinker\/OctoLinker\/blob\/.+\/e2e\/fixtures/.test(
+      window.location.pathname,
+    )
+  ) {
+    return true;
+  }
+
+  return false;
+}
 
 export const get = (key) => {
   if (process.env.OCTOLINKER_LIVE_DEMO) {
     return;
+  }
+
+  if (isTestEnv() && key === 'enableBetterPHP') {
+    return true;
   }
 
   return store[key];
