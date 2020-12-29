@@ -1,11 +1,11 @@
 {
   "name": "@octolinker/core",
-  "version": "6.7.0",
+  "version": "6.8.0",
   "description": "OctoLinker browser extension core",
   "repository": "https://github.com/octolinker/octolinker/tree/main/packages/core",
   "license": "MIT",
   "main": "./index.js",
-  "releaseDescription": "Add rlang support, i.NET improvements and bug fixes",
+  "releaseDescription": "Feature preview: Better PHP support to enable Laravel, Symfony, Doctrine, CakePHP and more.",
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
     "@octolinker/helper-github-api": "1.0.0",
