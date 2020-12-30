@@ -19,7 +19,10 @@
     "chrome-open": "yarn build && yarn chrome-launch --",
     "chrome-launch": "node scripts/chrome-launch.js",
     "firefox-open": "yarn build && yarn firefox-launch --",
-    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/main/package.json"
+    "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/main/package.json",
+     "safari-open": "yarn build && yarn safari-pack && yarn safari-launch --",
+     "safari-pack": "xcodebuild -project 'safari/OctoLinker.xcodeproj'",
+     "safari-launch": "open 'safari/build/Release/OctoLinker.app'"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
