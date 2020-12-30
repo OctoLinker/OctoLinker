@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,6 +20,7 @@
 		1F92DE4D259D389B00CBD63E /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE47259D389B00CBD63E /* manifest.json */; };
 		1F92DE4E259D389B00CBD63E /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE48259D389B00CBD63E /* options.html */; };
 		1F92DE4F259D389B00CBD63E /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE49259D389B00CBD63E /* app.js */; };
+ 		E3916F37254B228B0048E94C /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		1F92DE13259D389900CBD63E = {
 			isa = PBXGroup;
 			children = (
+				E3916F37254B228B0048E94C /* Shared.xcconfig */,
 				1F92DE1E259D389900CBD63E /* OctoLinker */,
 				1F92DE35259D389A00CBD63E /* OctoLinker Extension */,
 				1F92DE32259D389A00CBD63E /* Frameworks */,
@@ -208,7 +210,7 @@
 				};
 			};
 			buildConfigurationList = 1F92DE17259D389900CBD63E /* Build configuration list for PBXProject "OctoLinker" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -293,6 +295,7 @@
 /* Begin XCBuildConfiguration section */
 		1F92DE3A259D389A00CBD63E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3916F37254B228B0048E94C /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -349,11 +352,13 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		1F92DE3B259D389A00CBD63E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E3916F37254B228B0048E94C /* Shared.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -403,6 +408,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -417,11 +423,9 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -436,11 +440,9 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker.Extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -458,10 +460,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -479,10 +479,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

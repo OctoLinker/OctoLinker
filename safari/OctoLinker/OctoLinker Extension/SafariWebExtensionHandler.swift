@@ -1,17 +1,9 @@
-//
-//  SafariWebExtensionHandler.swift
-//  OctoLinker Extension
-//
-//  Created by Rico on 30/12/20.
-//
-
 import SafariServices
 import os.log
 
 let SFExtensionMessageKey = "message"
 
-class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
-
+final class SafariWebExtensionHandler: NSObject, NSExtensionRequestHandling {
 	func beginRequest(with context: NSExtensionContext) {
         let item = context.inputItems[0] as! NSExtensionItem
         let message = item.userInfo?[SFExtensionMessageKey]
