@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F92DE21259D389900CBD63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92DE20259D389900CBD63E /* AppDelegate.swift */; };
+		1F92DE24259D389900CBD63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE22259D389900CBD63E /* Main.storyboard */; };
+		1F92DE26259D389900CBD63E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92DE25259D389900CBD63E /* ViewController.swift */; };
+		1F92DE28259D389A00CBD63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE27259D389A00CBD63E /* Assets.xcassets */; };
+		1F92DE2F259D389A00CBD63E /* OctoLinker Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1F92DE34259D389A00CBD63E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F92DE33259D389A00CBD63E /* Cocoa.framework */; };
+		1F92DE37259D389A00CBD63E /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92DE36259D389A00CBD63E /* SafariWebExtensionHandler.swift */; };
+		1F92DE4A259D389B00CBD63E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE44259D389B00CBD63E /* icon.png */; };
+		1F92DE4B259D389B00CBD63E /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE45259D389B00CBD63E /* background.js */; };
+		1F92DE4C259D389B00CBD63E /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE46259D389B00CBD63E /* options.js */; };
+		1F92DE4D259D389B00CBD63E /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE47259D389B00CBD63E /* manifest.json */; };
+		1F92DE4E259D389B00CBD63E /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE48259D389B00CBD63E /* options.html */; };
+		1F92DE4F259D389B00CBD63E /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE49259D389B00CBD63E /* app.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F92DE30259D389A00CBD63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1F92DE14259D389900CBD63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1F92DE2D259D389A00CBD63E;
+			remoteInfo = "OctoLinker Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1F92DE3F259D389A00CBD63E /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1F92DE2F259D389A00CBD63E /* OctoLinker Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1F92DE1C259D389900CBD63E /* OctoLinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoLinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F92DE1F259D389900CBD63E /* OctoLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoLinker.entitlements; sourceTree = "<group>"; };
+		1F92DE20259D389900CBD63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F92DE23259D389900CBD63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F92DE25259D389900CBD63E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F92DE27259D389A00CBD63E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F92DE29259D389A00CBD63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OctoLinker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F92DE33259D389A00CBD63E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1F92DE36259D389A00CBD63E /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		1F92DE38259D389A00CBD63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F92DE39259D389A00CBD63E /* OctoLinker_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoLinker_Extension.entitlements; sourceTree = "<group>"; };
+		1F92DE44259D389B00CBD63E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../dist/icon.png; sourceTree = "<group>"; };
+		1F92DE45259D389B00CBD63E /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../dist/background.js; sourceTree = "<group>"; };
+		1F92DE46259D389B00CBD63E /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = options.js; path = ../../../dist/options.js; sourceTree = "<group>"; };
+		1F92DE47259D389B00CBD63E /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/manifest.json; sourceTree = "<group>"; };
+		1F92DE48259D389B00CBD63E /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../../dist/options.html; sourceTree = "<group>"; };
+		1F92DE49259D389B00CBD63E /* app.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = app.js; path = ../../../dist/app.js; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F92DE19259D389900CBD63E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F92DE2B259D389A00CBD63E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F92DE34259D389A00CBD63E /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F92DE13259D389900CBD63E = {
+			isa = PBXGroup;
+			children = (
+				1F92DE1E259D389900CBD63E /* OctoLinker */,
+				1F92DE35259D389A00CBD63E /* OctoLinker Extension */,
+				1F92DE32259D389A00CBD63E /* Frameworks */,
+				1F92DE1D259D389900CBD63E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1F92DE1D259D389900CBD63E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1F92DE1C259D389900CBD63E /* OctoLinker.app */,
+				1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1F92DE1E259D389900CBD63E /* OctoLinker */ = {
+			isa = PBXGroup;
+			children = (
+				1F92DE1F259D389900CBD63E /* OctoLinker.entitlements */,
+				1F92DE20259D389900CBD63E /* AppDelegate.swift */,
+				1F92DE22259D389900CBD63E /* Main.storyboard */,
+				1F92DE25259D389900CBD63E /* ViewController.swift */,
+				1F92DE27259D389A00CBD63E /* Assets.xcassets */,
+				1F92DE29259D389A00CBD63E /* Info.plist */,
+			);
+			path = OctoLinker;
+			sourceTree = "<group>";
+		};
+		1F92DE32259D389A00CBD63E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F92DE33259D389A00CBD63E /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F92DE35259D389A00CBD63E /* OctoLinker Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1F92DE43259D389B00CBD63E /* Resources */,
+				1F92DE36259D389A00CBD63E /* SafariWebExtensionHandler.swift */,
+				1F92DE38259D389A00CBD63E /* Info.plist */,
+				1F92DE39259D389A00CBD63E /* OctoLinker_Extension.entitlements */,
+			);
+			path = "OctoLinker Extension";
+			sourceTree = "<group>";
+		};
+		1F92DE43259D389B00CBD63E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1F92DE44259D389B00CBD63E /* icon.png */,
+				1F92DE45259D389B00CBD63E /* background.js */,
+				1F92DE46259D389B00CBD63E /* options.js */,
+				1F92DE47259D389B00CBD63E /* manifest.json */,
+				1F92DE48259D389B00CBD63E /* options.html */,
+				1F92DE49259D389B00CBD63E /* app.js */,
+			);
+			name = Resources;
+			path = "OctoLinker Extension";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F92DE1B259D389900CBD63E /* OctoLinker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F92DE40259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker" */;
+			buildPhases = (
+				1F92DE18259D389900CBD63E /* Sources */,
+				1F92DE19259D389900CBD63E /* Frameworks */,
+				1F92DE1A259D389900CBD63E /* Resources */,
+				1F92DE3F259D389A00CBD63E /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F92DE31259D389A00CBD63E /* PBXTargetDependency */,
+			);
+			name = OctoLinker;
+			productName = OctoLinker;
+			productReference = 1F92DE1C259D389900CBD63E /* OctoLinker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1F92DE2D259D389A00CBD63E /* OctoLinker Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F92DE3C259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker Extension" */;
+			buildPhases = (
+				1F92DE2A259D389A00CBD63E /* Sources */,
+				1F92DE2B259D389A00CBD63E /* Frameworks */,
+				1F92DE2C259D389A00CBD63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "OctoLinker Extension";
+			productName = "OctoLinker Extension";
+			productReference = 1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1F92DE14259D389900CBD63E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1220;
+				LastUpgradeCheck = 1220;
+				TargetAttributes = {
+					1F92DE1B259D389900CBD63E = {
+						CreatedOnToolsVersion = 12.2;
+					};
+					1F92DE2D259D389A00CBD63E = {
+						CreatedOnToolsVersion = 12.2;
+					};
+				};
+			};
+			buildConfigurationList = 1F92DE17259D389900CBD63E /* Build configuration list for PBXProject "OctoLinker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1F92DE13259D389900CBD63E;
+			productRefGroup = 1F92DE1D259D389900CBD63E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F92DE1B259D389900CBD63E /* OctoLinker */,
+				1F92DE2D259D389A00CBD63E /* OctoLinker Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1F92DE1A259D389900CBD63E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F92DE28259D389A00CBD63E /* Assets.xcassets in Resources */,
+				1F92DE24259D389900CBD63E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F92DE2C259D389A00CBD63E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F92DE4F259D389B00CBD63E /* app.js in Resources */,
+				1F92DE4D259D389B00CBD63E /* manifest.json in Resources */,
+				1F92DE4B259D389B00CBD63E /* background.js in Resources */,
+				1F92DE4E259D389B00CBD63E /* options.html in Resources */,
+				1F92DE4C259D389B00CBD63E /* options.js in Resources */,
+				1F92DE4A259D389B00CBD63E /* icon.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F92DE18259D389900CBD63E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F92DE26259D389900CBD63E /* ViewController.swift in Sources */,
+				1F92DE21259D389900CBD63E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F92DE2A259D389A00CBD63E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F92DE37259D389A00CBD63E /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F92DE31259D389A00CBD63E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1F92DE2D259D389A00CBD63E /* OctoLinker Extension */;
+			targetProxy = 1F92DE30259D389A00CBD63E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1F92DE22259D389900CBD63E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F92DE23259D389900CBD63E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1F92DE3A259D389A00CBD63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1F92DE3B259D389A00CBD63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		1F92DE3D259D389A00CBD63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "OctoLinker Extension/OctoLinker_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "OctoLinker Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1F92DE3E259D389A00CBD63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "OctoLinker Extension/OctoLinker_Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "OctoLinker Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		1F92DE41259D389A00CBD63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OctoLinker/OctoLinker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = OctoLinker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1F92DE42259D389A00CBD63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = OctoLinker/OctoLinker.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = OctoLinker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stefanbuck.OctoLinker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1F92DE17259D389900CBD63E /* Build configuration list for PBXProject "OctoLinker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F92DE3A259D389A00CBD63E /* Debug */,
+				1F92DE3B259D389A00CBD63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F92DE3C259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F92DE3D259D389A00CBD63E /* Debug */,
+				1F92DE3E259D389A00CBD63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F92DE40259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F92DE41259D389A00CBD63E /* Debug */,
+				1F92DE42259D389A00CBD63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1F92DE14259D389900CBD63E /* Project object */;
+}
