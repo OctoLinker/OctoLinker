@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F92DE21259D389900CBD63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92DE20259D389900CBD63E /* AppDelegate.swift */; };
-		1F92DE24259D389900CBD63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE22259D389900CBD63E /* Main.storyboard */; };
-		1F92DE26259D389900CBD63E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92DE25259D389900CBD63E /* ViewController.swift */; };
-		1F92DE28259D389A00CBD63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE27259D389A00CBD63E /* Assets.xcassets */; };
-		1F92DE2F259D389A00CBD63E /* OctoLinker Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		1F92DE34259D389A00CBD63E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F92DE33259D389A00CBD63E /* Cocoa.framework */; };
-		1F92DE37259D389A00CBD63E /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F92DE36259D389A00CBD63E /* SafariWebExtensionHandler.swift */; };
-		1F92DE4A259D389B00CBD63E /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE44259D389B00CBD63E /* icon.png */; };
-		1F92DE4B259D389B00CBD63E /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE45259D389B00CBD63E /* background.js */; };
-		1F92DE4C259D389B00CBD63E /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE46259D389B00CBD63E /* options.js */; };
-		1F92DE4D259D389B00CBD63E /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE47259D389B00CBD63E /* manifest.json */; };
-		1F92DE4E259D389B00CBD63E /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE48259D389B00CBD63E /* options.html */; };
-		1F92DE4F259D389B00CBD63E /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F92DE49259D389B00CBD63E /* app.js */; };
  		E3916F37254B228B0048E94C /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
+		1F1773B5259D45D200E94B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1773B4259D45D200E94B23 /* AppDelegate.swift */; };
+		1F1773B8259D45D200E94B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773B6259D45D200E94B23 /* Main.storyboard */; };
+		1F1773BA259D45D200E94B23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1773B9259D45D200E94B23 /* ViewController.swift */; };
+		1F1773BC259D45D400E94B23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773BB259D45D400E94B23 /* Assets.xcassets */; };
+		1F1773C3259D45D400E94B23 /* OctoLinker Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1F1773C2259D45D400E94B23 /* OctoLinker Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1F1773C8259D45D400E94B23 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1773C7259D45D400E94B23 /* Cocoa.framework */; };
+		1F1773CB259D45D400E94B23 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1773CA259D45D400E94B23 /* SafariWebExtensionHandler.swift */; };
+		1F1773DE259D45D400E94B23 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773D8259D45D400E94B23 /* icon.png */; };
+		1F1773DF259D45D400E94B23 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773D9259D45D400E94B23 /* background.js */; };
+		1F1773E0259D45D400E94B23 /* options.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773DA259D45D400E94B23 /* options.js */; };
+		1F1773E1259D45D400E94B23 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773DB259D45D400E94B23 /* manifest.json */; };
+		1F1773E2259D45D400E94B23 /* options.html in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773DC259D45D400E94B23 /* options.html */; };
+		1F1773E3259D45D400E94B23 /* app.js in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773DD259D45D400E94B23 /* app.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1F92DE30259D389A00CBD63E /* PBXContainerItemProxy */ = {
+		1F1773C4259D45D400E94B23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 1F92DE14259D389900CBD63E /* Project object */;
+			containerPortal = 1F1773A8259D45D100E94B23 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1F92DE2D259D389A00CBD63E;
+			remoteGlobalIDString = 1F1773C1259D45D400E94B23;
 			remoteInfo = "OctoLinker Extension";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		1F92DE3F259D389A00CBD63E /* Embed App Extensions */ = {
+		1F1773D3259D45D400E94B23 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				1F92DE2F259D389A00CBD63E /* OctoLinker Extension.appex in Embed App Extensions */,
+				1F1773C3259D45D400E94B23 /* OctoLinker Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,106 +48,106 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1F92DE1C259D389900CBD63E /* OctoLinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoLinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F92DE1F259D389900CBD63E /* OctoLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoLinker.entitlements; sourceTree = "<group>"; };
-		1F92DE20259D389900CBD63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F92DE23259D389900CBD63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1F92DE25259D389900CBD63E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1F92DE27259D389A00CBD63E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1F92DE29259D389A00CBD63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OctoLinker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F92DE33259D389A00CBD63E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		1F92DE36259D389A00CBD63E /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
-		1F92DE38259D389A00CBD63E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F92DE39259D389A00CBD63E /* OctoLinker_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoLinker_Extension.entitlements; sourceTree = "<group>"; };
-		1F92DE44259D389B00CBD63E /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../dist/icon.png; sourceTree = "<group>"; };
-		1F92DE45259D389B00CBD63E /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../../dist/background.js; sourceTree = "<group>"; };
-		1F92DE46259D389B00CBD63E /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = options.js; path = ../../../dist/options.js; sourceTree = "<group>"; };
-		1F92DE47259D389B00CBD63E /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../../dist/manifest.json; sourceTree = "<group>"; };
-		1F92DE48259D389B00CBD63E /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../../dist/options.html; sourceTree = "<group>"; };
-		1F92DE49259D389B00CBD63E /* app.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = app.js; path = ../../../dist/app.js; sourceTree = "<group>"; };
+		1F1773B0259D45D100E94B23 /* OctoLinker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OctoLinker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F1773B3259D45D200E94B23 /* OctoLinker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoLinker.entitlements; sourceTree = "<group>"; };
+		1F1773B4259D45D200E94B23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1F1773B7259D45D200E94B23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1F1773B9259D45D200E94B23 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1F1773BB259D45D400E94B23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1F1773BD259D45D400E94B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1773C2259D45D400E94B23 /* OctoLinker Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OctoLinker Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F1773C7259D45D400E94B23 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		1F1773CA259D45D400E94B23 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		1F1773CC259D45D400E94B23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F1773CD259D45D400E94B23 /* OctoLinker_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OctoLinker_Extension.entitlements; sourceTree = "<group>"; };
+		1F1773D8259D45D400E94B23 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../dist/icon.png; sourceTree = "<group>"; };
+		1F1773D9259D45D400E94B23 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = ../../dist/background.js; sourceTree = "<group>"; };
+		1F1773DA259D45D400E94B23 /* options.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = options.js; path = ../../dist/options.js; sourceTree = "<group>"; };
+		1F1773DB259D45D400E94B23 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../dist/manifest.json; sourceTree = "<group>"; };
+		1F1773DC259D45D400E94B23 /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../dist/options.html; sourceTree = "<group>"; };
+		1F1773DD259D45D400E94B23 /* app.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = app.js; path = ../../dist/app.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1F92DE19259D389900CBD63E /* Frameworks */ = {
+		1F1773AD259D45D100E94B23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F92DE2B259D389A00CBD63E /* Frameworks */ = {
+		1F1773BF259D45D400E94B23 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F92DE34259D389A00CBD63E /* Cocoa.framework in Frameworks */,
+				1F1773C8259D45D400E94B23 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F92DE13259D389900CBD63E = {
+		1F1773A7259D45D100E94B23 = {
 			isa = PBXGroup;
 			children = (
 				E3916F37254B228B0048E94C /* Shared.xcconfig */,
-				1F92DE1E259D389900CBD63E /* OctoLinker */,
-				1F92DE35259D389A00CBD63E /* OctoLinker Extension */,
-				1F92DE32259D389A00CBD63E /* Frameworks */,
-				1F92DE1D259D389900CBD63E /* Products */,
+				1F1773B2259D45D100E94B23 /* OctoLinker */,
+				1F1773C9259D45D400E94B23 /* OctoLinker Extension */,
+				1F1773C6259D45D400E94B23 /* Frameworks */,
+				1F1773B1259D45D100E94B23 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		1F92DE1D259D389900CBD63E /* Products */ = {
+		1F1773B1259D45D100E94B23 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1F92DE1C259D389900CBD63E /* OctoLinker.app */,
-				1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */,
+				1F1773B0259D45D100E94B23 /* OctoLinker.app */,
+				1F1773C2259D45D400E94B23 /* OctoLinker Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1F92DE1E259D389900CBD63E /* OctoLinker */ = {
+		1F1773B2259D45D100E94B23 /* OctoLinker */ = {
 			isa = PBXGroup;
 			children = (
-				1F92DE1F259D389900CBD63E /* OctoLinker.entitlements */,
-				1F92DE20259D389900CBD63E /* AppDelegate.swift */,
-				1F92DE22259D389900CBD63E /* Main.storyboard */,
-				1F92DE25259D389900CBD63E /* ViewController.swift */,
-				1F92DE27259D389A00CBD63E /* Assets.xcassets */,
-				1F92DE29259D389A00CBD63E /* Info.plist */,
+				1F1773B3259D45D200E94B23 /* OctoLinker.entitlements */,
+				1F1773B4259D45D200E94B23 /* AppDelegate.swift */,
+				1F1773B6259D45D200E94B23 /* Main.storyboard */,
+				1F1773B9259D45D200E94B23 /* ViewController.swift */,
+				1F1773BB259D45D400E94B23 /* Assets.xcassets */,
+				1F1773BD259D45D400E94B23 /* Info.plist */,
 			);
 			path = OctoLinker;
 			sourceTree = "<group>";
 		};
-		1F92DE32259D389A00CBD63E /* Frameworks */ = {
+		1F1773C6259D45D400E94B23 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F92DE33259D389A00CBD63E /* Cocoa.framework */,
+				1F1773C7259D45D400E94B23 /* Cocoa.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		1F92DE35259D389A00CBD63E /* OctoLinker Extension */ = {
+		1F1773C9259D45D400E94B23 /* OctoLinker Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1F92DE43259D389B00CBD63E /* Resources */,
-				1F92DE36259D389A00CBD63E /* SafariWebExtensionHandler.swift */,
-				1F92DE38259D389A00CBD63E /* Info.plist */,
-				1F92DE39259D389A00CBD63E /* OctoLinker_Extension.entitlements */,
+				1F1773D7259D45D400E94B23 /* Resources */,
+				1F1773CA259D45D400E94B23 /* SafariWebExtensionHandler.swift */,
+				1F1773CC259D45D400E94B23 /* Info.plist */,
+				1F1773CD259D45D400E94B23 /* OctoLinker_Extension.entitlements */,
 			);
 			path = "OctoLinker Extension";
 			sourceTree = "<group>";
 		};
-		1F92DE43259D389B00CBD63E /* Resources */ = {
+		1F1773D7259D45D400E94B23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1F92DE44259D389B00CBD63E /* icon.png */,
-				1F92DE45259D389B00CBD63E /* background.js */,
-				1F92DE46259D389B00CBD63E /* options.js */,
-				1F92DE47259D389B00CBD63E /* manifest.json */,
-				1F92DE48259D389B00CBD63E /* options.html */,
-				1F92DE49259D389B00CBD63E /* app.js */,
+				1F1773D8259D45D400E94B23 /* icon.png */,
+				1F1773D9259D45D400E94B23 /* background.js */,
+				1F1773DA259D45D400E94B23 /* options.js */,
+				1F1773DB259D45D400E94B23 /* manifest.json */,
+				1F1773DC259D45D400E94B23 /* options.html */,
+				1F1773DD259D45D400E94B23 /* app.js */,
 			);
 			name = Resources;
 			path = "OctoLinker Extension";
@@ -156,32 +156,32 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1F92DE1B259D389900CBD63E /* OctoLinker */ = {
+		1F1773AF259D45D100E94B23 /* OctoLinker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F92DE40259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker" */;
+			buildConfigurationList = 1F1773D4259D45D400E94B23 /* Build configuration list for PBXNativeTarget "OctoLinker" */;
 			buildPhases = (
-				1F92DE18259D389900CBD63E /* Sources */,
-				1F92DE19259D389900CBD63E /* Frameworks */,
-				1F92DE1A259D389900CBD63E /* Resources */,
-				1F92DE3F259D389A00CBD63E /* Embed App Extensions */,
+				1F1773AC259D45D100E94B23 /* Sources */,
+				1F1773AD259D45D100E94B23 /* Frameworks */,
+				1F1773AE259D45D100E94B23 /* Resources */,
+				1F1773D3259D45D400E94B23 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1F92DE31259D389A00CBD63E /* PBXTargetDependency */,
+				1F1773C5259D45D400E94B23 /* PBXTargetDependency */,
 			);
 			name = OctoLinker;
 			productName = OctoLinker;
-			productReference = 1F92DE1C259D389900CBD63E /* OctoLinker.app */;
+			productReference = 1F1773B0259D45D100E94B23 /* OctoLinker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1F92DE2D259D389A00CBD63E /* OctoLinker Extension */ = {
+		1F1773C1259D45D400E94B23 /* OctoLinker Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F92DE3C259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker Extension" */;
+			buildConfigurationList = 1F1773D0259D45D400E94B23 /* Build configuration list for PBXNativeTarget "OctoLinker Extension" */;
 			buildPhases = (
-				1F92DE2A259D389A00CBD63E /* Sources */,
-				1F92DE2B259D389A00CBD63E /* Frameworks */,
-				1F92DE2C259D389A00CBD63E /* Resources */,
+				1F1773BE259D45D400E94B23 /* Sources */,
+				1F1773BF259D45D400E94B23 /* Frameworks */,
+				1F1773C0259D45D400E94B23 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -189,103 +189,103 @@
 			);
 			name = "OctoLinker Extension";
 			productName = "OctoLinker Extension";
-			productReference = 1F92DE2E259D389A00CBD63E /* OctoLinker Extension.appex */;
+			productReference = 1F1773C2259D45D400E94B23 /* OctoLinker Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1F92DE14259D389900CBD63E /* Project object */ = {
+		1F1773A8259D45D100E94B23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					1F92DE1B259D389900CBD63E = {
+					1F1773AF259D45D100E94B23 = {
 						CreatedOnToolsVersion = 12.2;
 					};
-					1F92DE2D259D389A00CBD63E = {
+					1F1773C1259D45D400E94B23 = {
 						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
-			buildConfigurationList = 1F92DE17259D389900CBD63E /* Build configuration list for PBXProject "OctoLinker" */;
 			compatibilityVersion = "Xcode 12.0";
+			buildConfigurationList = 1F1773AB259D45D100E94B23 /* Build configuration list for PBXProject "OctoLinker" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 1F92DE13259D389900CBD63E;
-			productRefGroup = 1F92DE1D259D389900CBD63E /* Products */;
+			mainGroup = 1F1773A7259D45D100E94B23;
+			productRefGroup = 1F1773B1259D45D100E94B23 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1F92DE1B259D389900CBD63E /* OctoLinker */,
-				1F92DE2D259D389A00CBD63E /* OctoLinker Extension */,
+				1F1773AF259D45D100E94B23 /* OctoLinker */,
+				1F1773C1259D45D400E94B23 /* OctoLinker Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1F92DE1A259D389900CBD63E /* Resources */ = {
+		1F1773AE259D45D100E94B23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F92DE28259D389A00CBD63E /* Assets.xcassets in Resources */,
-				1F92DE24259D389900CBD63E /* Main.storyboard in Resources */,
+				1F1773BC259D45D400E94B23 /* Assets.xcassets in Resources */,
+				1F1773B8259D45D200E94B23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F92DE2C259D389A00CBD63E /* Resources */ = {
+		1F1773C0259D45D400E94B23 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F92DE4F259D389B00CBD63E /* app.js in Resources */,
-				1F92DE4D259D389B00CBD63E /* manifest.json in Resources */,
-				1F92DE4B259D389B00CBD63E /* background.js in Resources */,
-				1F92DE4E259D389B00CBD63E /* options.html in Resources */,
-				1F92DE4C259D389B00CBD63E /* options.js in Resources */,
-				1F92DE4A259D389B00CBD63E /* icon.png in Resources */,
+				1F1773E3259D45D400E94B23 /* app.js in Resources */,
+				1F1773E1259D45D400E94B23 /* manifest.json in Resources */,
+				1F1773DF259D45D400E94B23 /* background.js in Resources */,
+				1F1773E2259D45D400E94B23 /* options.html in Resources */,
+				1F1773E0259D45D400E94B23 /* options.js in Resources */,
+				1F1773DE259D45D400E94B23 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		1F92DE18259D389900CBD63E /* Sources */ = {
+		1F1773AC259D45D100E94B23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F92DE26259D389900CBD63E /* ViewController.swift in Sources */,
-				1F92DE21259D389900CBD63E /* AppDelegate.swift in Sources */,
+				1F1773BA259D45D200E94B23 /* ViewController.swift in Sources */,
+				1F1773B5259D45D200E94B23 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1F92DE2A259D389A00CBD63E /* Sources */ = {
+		1F1773BE259D45D400E94B23 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F92DE37259D389A00CBD63E /* SafariWebExtensionHandler.swift in Sources */,
+				1F1773CB259D45D400E94B23 /* SafariWebExtensionHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1F92DE31259D389A00CBD63E /* PBXTargetDependency */ = {
+		1F1773C5259D45D400E94B23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1F92DE2D259D389A00CBD63E /* OctoLinker Extension */;
-			targetProxy = 1F92DE30259D389A00CBD63E /* PBXContainerItemProxy */;
+			target = 1F1773C1259D45D400E94B23 /* OctoLinker Extension */;
+			targetProxy = 1F1773C4259D45D400E94B23 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		1F92DE22259D389900CBD63E /* Main.storyboard */ = {
+		1F1773B6259D45D200E94B23 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1F92DE23259D389900CBD63E /* Base */,
+				1F1773B7259D45D200E94B23 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -293,7 +293,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		1F92DE3A259D389A00CBD63E /* Debug */ = {
+		1F1773CE259D45D400E94B23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3916F37254B228B0048E94C /* Shared.xcconfig */;
 			buildSettings = {
@@ -356,7 +356,7 @@
 			};
 			name = Debug;
 		};
-		1F92DE3B259D389A00CBD63E /* Release */ = {
+		1F1773CF259D45D400E94B23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3916F37254B228B0048E94C /* Shared.xcconfig */;
 			buildSettings = {
@@ -412,7 +412,7 @@
 			};
 			name = Release;
 		};
-		1F92DE3D259D389A00CBD63E /* Debug */ = {
+		1F1773D1259D45D400E94B23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "OctoLinker Extension/OctoLinker_Extension.entitlements";
@@ -429,7 +429,7 @@
 			};
 			name = Debug;
 		};
-		1F92DE3E259D389A00CBD63E /* Release */ = {
+		1F1773D2259D45D400E94B23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "OctoLinker Extension/OctoLinker_Extension.entitlements";
@@ -446,7 +446,7 @@
 			};
 			name = Release;
 		};
-		1F92DE41259D389A00CBD63E /* Debug */ = {
+		1F1773D5259D45D400E94B23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -465,7 +465,7 @@
 			};
 			name = Debug;
 		};
-		1F92DE42259D389A00CBD63E /* Release */ = {
+		1F1773D6259D45D400E94B23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -487,34 +487,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1F92DE17259D389900CBD63E /* Build configuration list for PBXProject "OctoLinker" */ = {
+		1F1773AB259D45D100E94B23 /* Build configuration list for PBXProject "OctoLinker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F92DE3A259D389A00CBD63E /* Debug */,
-				1F92DE3B259D389A00CBD63E /* Release */,
+				1F1773CE259D45D400E94B23 /* Debug */,
+				1F1773CF259D45D400E94B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F92DE3C259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker Extension" */ = {
+		1F1773D0259D45D400E94B23 /* Build configuration list for PBXNativeTarget "OctoLinker Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F92DE3D259D389A00CBD63E /* Debug */,
-				1F92DE3E259D389A00CBD63E /* Release */,
+				1F1773D1259D45D400E94B23 /* Debug */,
+				1F1773D2259D45D400E94B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F92DE40259D389A00CBD63E /* Build configuration list for PBXNativeTarget "OctoLinker" */ = {
+		1F1773D4259D45D400E94B23 /* Build configuration list for PBXNativeTarget "OctoLinker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1F92DE41259D389A00CBD63E /* Debug */,
-				1F92DE42259D389A00CBD63E /* Release */,
+				1F1773D5259D45D400E94B23 /* Debug */,
+				1F1773D6259D45D400E94B23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1F92DE14259D389900CBD63E /* Project object */;
+	rootObject = 1F1773A8259D45D100E94B23 /* Project object */;
 }
