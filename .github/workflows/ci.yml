@@ -32,3 +32,16 @@ jobs:
         PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: true
       with:
         args: yarn e2e
+    - uses: actions/upload-artifact@v2
+      with:
+        path: dist
+  safari:
+    runs-on: macos-latest
+    needs: build
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/download-artifact@v2 # npm install+build seems slow and problematic on macOS
+      with:
+        path: dist
+    - uses: maxim-lobanov/setup-xcode@v1
+    - run: yarn safari-pack
