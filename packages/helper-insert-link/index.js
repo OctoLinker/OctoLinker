@@ -46,8 +46,13 @@ function injectUrl(node, value, startOffset, endOffset) {
   if (!el && node.textContent.includes(textMatch)) {
     el = createLinkElement();
 
+    let currentOffset = 0;
     [...node.childNodes].forEach((child) => {
-      if (textMatch.includes(child.textContent)) {
+      if (
+        currentOffset >= startOffset &&
+        currentOffset <= endOffset &&
+        textMatch.includes(child.textContent)
+      ) {
         if (!el.childElementCount) {
           node.appendChild(el);
         }
@@ -55,6 +60,8 @@ function injectUrl(node, value, startOffset, endOffset) {
       } else {
         node.appendChild(child);
       }
+
+      currentOffset += child.textContent.length;
     });
   }
 

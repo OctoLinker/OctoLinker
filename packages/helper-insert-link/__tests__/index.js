@@ -118,4 +118,20 @@ describe('insert-link', () => {
       expect(helper(input).matches[0].urls).toEqual(['bar']);
     });
   });
+
+  describe('when findAndReplaceDOMText does not find any element', () => {
+    it('wraps a nested element', () => {
+      const regex = /foo (bar)/g;
+      const input = 'foo b<span>ar</span>';
+
+      expect(helper(input, regex).el).toMatchSnapshot();
+    });
+
+    it('wraps the matching group element', () => {
+      const regex = /bar (bar)/g;
+      const input = 'b<span>ar</span> b<span>ar</span>';
+
+      expect(helper(input, regex).el).toMatchSnapshot();
+    });
+  });
 });
