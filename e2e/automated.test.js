@@ -14,9 +14,6 @@ async function executeTest(url, targetUrl, selector) {
   }
 
   await page.waitForSelector(`${selector}[href$="${targetUrl}"]`);
-
-  const linkCount = await page.$$eval('.octolinker-link', (el) => el.length);
-  expect(linkCount).toMatchSnapshot();
 }
 
 function createAnnotation({ file, lineNumber, ex }) {
