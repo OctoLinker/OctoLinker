@@ -27,6 +27,44 @@ Array [
 ]
 `;
 
+exports[`insert-link when findAndReplaceDOMText does not find any element wraps a nested element 1`] = `
+<div>
+  foo 
+  <a
+    class="octolinker-link"
+    data-pjax="true"
+  >
+    b
+    <span>
+      ar
+      
+    </span>
+  </a>
+</div>
+`;
+
+exports[`insert-link when findAndReplaceDOMText does not find any element wraps the matching group element 1`] = `
+<div>
+  
+  b
+  <span>
+    ar
+    
+  </span>
+   
+  <a
+    class="octolinker-link"
+    data-pjax="true"
+  >
+    b
+    <span>
+      ar
+      
+    </span>
+  </a>
+</div>
+`;
+
 exports[`insert-link wraps a nested element 1`] = `
 <div>
   foo 
