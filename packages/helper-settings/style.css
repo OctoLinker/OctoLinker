@@ -38,3 +38,20 @@ input[type='checkbox'] {
     color: #165c26;
  }
 }
+
+/* Safari-only selector */
+_::-webkit-full-page-media,
+_:future,
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif, 'Apple Color Emoji';
+}
+
+/* Safari-only selector */
+_::-webkit-full-page-media,
+_:future,
+[type='password'] {
+  border: solid 1px rgb(128 128 128);
+  padding: 0.4em;
+  font: inherit;
+  -webkit-appearance: none;
+}
