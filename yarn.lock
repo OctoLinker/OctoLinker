@@ -9823,10 +9823,10 @@ web-ext@^5.4.1:
     yargs "15.4.1"
     zip-dir "1.0.2"
 
-webext-base-css@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.2.0.tgz#ccb65dd4500842d98c88cd2d954f01b1972b90f0"
-  integrity sha512-QmhbTAVwN1EVHocQSQSG8q3DTh0DQJB4ZWI335E4/DO/EgKUKeCG9ziVhPg4gxe3WVDCRsaVFePn92heFkWL9g==
+webext-base-css@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.3.0.tgz#a7e8979fd77f2fc3a0816a9e5744e30b2cf38440"
+  integrity sha512-JTnFJAqcG9tlU1gwb7dsqC8FTvu2W77aggeI+fmduLwi9IXl6fsCsM8J9zXBW8gqWNS14CrHPIBZwt/TaWgB1Q==
 
 webextension-polyfill@^0.5.0:
   version "0.5.0"
