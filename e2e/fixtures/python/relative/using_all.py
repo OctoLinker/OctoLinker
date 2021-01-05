@@ -2,6 +2,9 @@
 from .simple import MyClass
 # @OctoLinkerResolve(<root>/python/relative/simple.py)
 from relative.simple import my_func
+# @OctoLinkerResolve(<root>/python/relative/simple.py)
+from . import simple
+
 
 __all__ = [
     "MyClass",

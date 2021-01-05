@@ -1,3 +1,9 @@
+# @OctoLinkerResolve(<root>/python/relative/subpackage1/)
+from .. import subpackage1
+
+# @OctoLinkerResolve(<root>/python/relative/)
+from ... import relative
+
 # @OctoLinkerResolve(<root>/python/relative/subpackage1/classes.py)
 from ..subpackage1.classes import MyClass1
 
