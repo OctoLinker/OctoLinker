@@ -50,7 +50,7 @@ async function run(rootElement) {
     });
 
   // Prefetch live resolver results in background
-  requestIdleCallback(() => {
+  (window.requestIdleCallback || setTimeout)(() => {
     loader(matches);
   });
 }
