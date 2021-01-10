@@ -43,5 +43,6 @@ jobs:
     - uses: actions/download-artifact@v2 # npm install+build seems slow and problematic on macOS
       with:
         path: dist
+        name: artifact 
     - uses: maxim-lobanov/setup-xcode@v1
     - run: yarn safari-pack
