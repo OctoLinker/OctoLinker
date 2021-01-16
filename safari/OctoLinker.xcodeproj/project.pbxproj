@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+ 		E3916F37254B228B0048E94C /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		1F1773B5259D45D200E94B23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1773B4259D45D200E94B23 /* AppDelegate.swift */; };
 		1F1773B8259D45D200E94B23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F1773B6259D45D200E94B23 /* Main.storyboard */; };
 		1F1773BA259D45D200E94B23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1773B9259D45D200E94B23 /* ViewController.swift */; };
@@ -65,7 +66,6 @@
 		1F1773DB259D45D400E94B23 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = ../../dist/manifest.json; sourceTree = "<group>"; };
 		1F1773DC259D45D400E94B23 /* options.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = options.html; path = ../../dist/options.html; sourceTree = "<group>"; };
 		1F1773DD259D45D400E94B23 /* app.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = app.js; path = ../../dist/app.js; sourceTree = "<group>"; };
-		E3916F37254B228B0048E94C /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +209,8 @@
 					};
 				};
 			};
-			buildConfigurationList = 1F1773AB259D45D100E94B23 /* Build configuration list for PBXProject "OctoLinker" */;
 			compatibilityVersion = "Xcode 12.0";
+			buildConfigurationList = 1F1773AB259D45D100E94B23 /* Build configuration list for PBXProject "OctoLinker" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -417,7 +417,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "OctoLinker Extension/OctoLinker_Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DQZRJJ39H3;
 				INFOPLIST_FILE = "OctoLinker Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -435,7 +434,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "OctoLinker Extension/OctoLinker_Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = DQZRJJ39H3;
 				INFOPLIST_FILE = "OctoLinker Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -457,7 +455,6 @@
 				CODE_SIGN_ENTITLEMENTS = OctoLinker/OctoLinker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = DQZRJJ39H3;
 				INFOPLIST_FILE = OctoLinker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -477,7 +474,6 @@
 				CODE_SIGN_ENTITLEMENTS = OctoLinker/OctoLinker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = DQZRJJ39H3;
 				INFOPLIST_FILE = OctoLinker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
