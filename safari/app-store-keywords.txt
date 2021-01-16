@@ -1,0 +1,1 @@
+github,gh,git,safari,extension,browser,npm,python,issue,pull,request

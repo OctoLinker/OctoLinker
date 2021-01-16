@@ -1,0 +1,11 @@
+OctoLinker is a browser extension for GitHub, that turns language-specific statements like include require or import into links.
+
+OctoLinker reads the source code you're currently viewing straight from the browser or, in some cases, using the GitHub API.
+
+No source code will ever be sent to a server! Your source code stays in your browser.
+
+Based on the file type, OctoLinker invokes a plugin which then executes a regular expression on the source code to find import statements.
+
+Relative file references are resolved through the GitHub tree API in your browser. External dependencies are resolved using the OctoLinker API.
+
+Only the name of a dependency along with the registry type is sent to this service.
