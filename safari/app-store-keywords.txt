@@ -1,1 +1,1 @@
-github,gh,git,safari,extension,browser,npm,python,issue,pull,request
+github,gh,git,safari,extension,browser,npm,pull,request,javascript,php,npm,composer,go,ruby,python
