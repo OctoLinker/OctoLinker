@@ -11,3 +11,7 @@ Based on the file type, OctoLinker invokes a plugin which then executes a regula
 Relative file references are resolved through the GitHub tree API in your browser. External dependencies are resolved using the OctoLinker API (http://github.com/octoLinker/api).
 
 Only the name of a dependency along with the registry type is sent to this service.
+
+Supported tools and languages:
+
+composer, CSS, Deno, docker, dotnet, go, Haskell, Homebrew, HTML, Java, JavaScript, less, nodejs, npm, Paket, PHP, python, Rlang, Ruby, RubyGems, Rust, Sass, TypeScript, Vim, .Net
