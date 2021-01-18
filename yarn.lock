@@ -6161,10 +6161,10 @@ jsonify@~0.0.0:
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
 
-jsonpath-plus@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-4.0.0.tgz#954b69faa3d8b07f30ae2f9e601176a4b0d2806e"
-  integrity sha512-e0Jtg4KAzDJKKwzbLaUtinCn0RZseWBVRTRGihSpvFlM3wTR7ExSp+PTdeTsDrLNJUe7L7JYJe8mblHX5SCT6A==
+jsonpath-plus@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-5.0.2.tgz#ede88d064264172560ab1420a366a106cfab683d"
+  integrity sha512-J1StEInJIb5INbUkzf/DM6mby0hEyU2o6kw+AUzrJnrgMunvDKdZgGFXEqH5qA2TVF3mVH7A6ZZQJpcNXXg90A==
 
 jsonwebtoken@8.5.1:
   version "8.5.1"
