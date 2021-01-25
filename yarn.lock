@@ -9840,10 +9840,10 @@ web-ext@^5.4.1, web-ext@^5.5.0:
     yargs "15.4.1"
     zip-dir "1.0.2"
 
-webext-base-css@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.3.0.tgz#a7e8979fd77f2fc3a0816a9e5744e30b2cf38440"
-  integrity sha512-JTnFJAqcG9tlU1gwb7dsqC8FTvu2W77aggeI+fmduLwi9IXl6fsCsM8J9zXBW8gqWNS14CrHPIBZwt/TaWgB1Q==
+webext-base-css@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.3.1.tgz#a6baad23a5db9b4573bea71fd59443bee87d6360"
+  integrity sha512-gncbsBjb9S2GTo/IJ9zAokPrzn6ls++zE0HqT/gdWJEBVzuHKB905Mowj4TXIc6so9m9lrfXQ/nQ6GuqLPa42A==
 
 webextension-polyfill@^0.5.0:
   version "0.5.0"
