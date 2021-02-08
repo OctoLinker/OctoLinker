@@ -6243,10 +6243,10 @@ jsonify@~0.0.0:
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
   integrity sha1-LHS27kHZPKUbe1qu6PUDYx0lKnM=
 
-jsonpath-plus@4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-4.0.0.tgz#954b69faa3d8b07f30ae2f9e601176a4b0d2806e"
-  integrity sha512-e0Jtg4KAzDJKKwzbLaUtinCn0RZseWBVRTRGihSpvFlM3wTR7ExSp+PTdeTsDrLNJUe7L7JYJe8mblHX5SCT6A==
+jsonpath-plus@5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/jsonpath-plus/-/jsonpath-plus-5.0.3.tgz#502f0fc953d0f92428b2c2357c0c6809a803ec36"
+  integrity sha512-RDvpzY21CmKTvEfxuGqQmPqRTuzNOim7L+/TcsdBM8jguI5ok38t0p2eKr9GAsVkazrTyylpMZV/hKSQCWqx9g==
 
 jsonwebtoken@8.5.1:
   version "8.5.1"
