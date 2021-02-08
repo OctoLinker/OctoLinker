@@ -65,7 +65,7 @@
     "webpack-extension-reloader": "^1.1.4"
   },
   "optionalDependencies": {
-    "fsevents": "2.2.1"
+    "fsevents": "2.3.2"
   },
   "workspaces": [
     "packages/*"
