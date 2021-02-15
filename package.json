@@ -29,7 +29,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
     "@babel/plugin-transform-react-jsx": "^7.12.13",
     "@babel/plugin-transform-runtime": "^7.12.15",
-    "@babel/preset-env": "^7.12.13",
+    "@babel/preset-env": "^7.12.16",
     "async": "^3.0.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.3",
