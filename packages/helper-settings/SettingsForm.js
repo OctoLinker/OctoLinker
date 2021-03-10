@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 /* eslint-disable react/no-unused-state */
 
 import { h, Component } from 'preact';
