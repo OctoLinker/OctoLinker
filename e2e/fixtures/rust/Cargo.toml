@@ -12,7 +12,7 @@ actix-web = "2.0.0"
 # @OctoLinkerResolve(https://github.com/actix/actix-web)
 actix-files = "0.2.1"
 
-# @OctoLinkerResolve(https://github.com/rust-lang/futures-rs)
+# @OctoLinkerResolve(https://github.com/rust-lang-nursery/futures-rs)
 futures = "0.3.1"
 
 # @OctoLinkerResolve(https://github.com/env-logger-rs/env_logger)
