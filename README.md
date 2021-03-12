@@ -20,14 +20,14 @@ Trusted by over 25,000 developers! Install OctoLinker from [Chrome Web Store](ht
 
 ## Special thanks to
 
-- [▲ Vercel](https://vercel.com/) for sponsoring OctoLinker with hosting!
-- [Redis Green](https://redisgreen.net) for sponsoring OctoLinker with four dedicated Redis servers!
 - [Art Noir](https://www.art-noir.net/) for our amazing logo!
 - Everyone who supported, [contributed](https://github.com/OctoLinker/OctoLinker/graphs/contributors), or promoted the project.
 
 ## Sponsors
 
-[![complex](https://user-images.githubusercontent.com/1393946/76413093-14e43b00-6395-11ea-805a-18138809f6e3.png)](https://www.complex-it.de/jobs/offene-stellen?utm_source=oss-referal&utm_medium=logo&utm_campaign=growwithus)
+[![▲ Vercel](https://user-images.githubusercontent.com/1393946/111010284-576c9900-8396-11eb-9fd9-399cc7dae8bc.png)](https://vercel.com/) 
+[![Redis Green](https://user-images.githubusercontent.com/1393946/111010141-e2995f00-8395-11eb-9533-c074d55a745d.png)](https://redisgreen.net) 
+[![complex](https://user-images.githubusercontent.com/1393946/111010138-e0cf9b80-8395-11eb-9086-e3f19645b399.png)](https://www.complex-it.de/jobs/offene-stellen?utm_source=oss-referal&utm_medium=logo&utm_campaign=growwithus)
 
 I am truly grateful to all the wonderful humans and companies supporting the development of OctoLinker. Please consider donations through [GitHub Sponsors](https://github.com/sponsors/stefanbuck/) or [Open Collective](https://opencollective.com/octolinker) – Thank you 🙇‍♂️
 
