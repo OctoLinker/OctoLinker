@@ -16,7 +16,7 @@ OctoLinker is a browser extension for GitHub, that turns language-specific state
 <a href="https://microsoftedge.microsoft.com/addons/detail/lbbanfffjfmfdahnfbklminikafhcjjb"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_128x128.png" width="48" /></a>
 <a href="https://addons.opera.com/en/extensions/details/octolinker/"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_128x128.png" width="48" /></a>
 
-Trusted by over 25,000 developers! Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/), [Mac App Store](https://apps.apple.com/app/octolinker/id1549308269), [Microsoft Store](https://microsoftedge.microsoft.com/addons/detail/lbbanfffjfmfdahnfbklminikafhcjjb) and [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octolinker/).
+Trusted by over 30,000 developers! Install OctoLinker from [Chrome Web Store](https://chrome.google.com/webstore/detail/octo-linker/jlmafbaeoofdegohdhinkhilhclaklkp), [Mozilla Add-ons Store](https://addons.mozilla.org/en-US/firefox/addon/octolinker/), [Mac App Store](https://apps.apple.com/app/octolinker/id1549308269), [Microsoft Store](https://microsoftedge.microsoft.com/addons/detail/lbbanfffjfmfdahnfbklminikafhcjjb) and [Opera Add-ons Store](https://addons.opera.com/en/extensions/details/octolinker/).
 
 ## Special thanks to
 
