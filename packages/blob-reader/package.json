@@ -7,6 +7,6 @@
   "main": "./index.js",
   "dependencies": {
     "github-url-parse": "^0.1.0",
-    "jquery": "^3.5.1"
+    "jquery": "^3.6.0"
   }
 }
