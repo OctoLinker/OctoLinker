@@ -10,7 +10,7 @@ module.exports = (env, argv) => ({
     background: './packages/core/background/index',
     options: './packages/helper-settings/page',
   },
-  devtool: argv.mode === 'development' ? 'source-map' : false,
+  devtool: false,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
