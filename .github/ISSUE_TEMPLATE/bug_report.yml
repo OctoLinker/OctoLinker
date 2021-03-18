@@ -1,0 +1,28 @@
+name: Bug Report
+description: File a bug report
+labels: "bug"
+issue_body: false
+body:
+- type: markdown
+  attributes:
+    value: This form is for reporting bugs. For feature requests please use the regular issue form!
+- type: textarea
+  attributes:
+    label: Expected Behavior
+    description: What did you expect to happen?
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: What actually happened?
+  validations:
+    required: true
+- type: input
+  attributes:
+    label: URL
+    description: If possible, please provide an example URL that highlights the issue
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Anything else we should know?
