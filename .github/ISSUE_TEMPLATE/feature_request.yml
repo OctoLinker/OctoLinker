@@ -1,0 +1,23 @@
+name: Feature Request
+description: Create a request to help us improve
+labels: "feature"
+issue_body: false
+body:
+- type: markdown
+  attributes:
+    value: This form is for requesting features. For bug reports please use the [bug report](https://github.com/OctoLinker/OctoLinker/issues/new?assignees=&labels=feature&template=bug_report.yml) form!
+- type: textarea
+  attributes:
+    label: Describe the feature
+    description: A clear and concise description of what the features or enhancement you need.
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Demo
+    description: If applicable, share a few links to document the desired behaviour.
+  validations:
+    required: false
+- type: textarea
+  attributes:
+    label: Additional information

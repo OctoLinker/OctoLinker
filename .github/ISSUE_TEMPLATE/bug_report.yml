@@ -5,7 +5,7 @@ issue_body: false
 body:
 - type: markdown
   attributes:
-    value: This form is for reporting bugs. For feature requests please use the regular issue form!
+    value: This form is for reporting bugs. For feature requests please use the [feature request](https://github.com/OctoLinker/OctoLinker/issues/new?assignees=&labels=feature&template=feature_request.yml) form!
 - type: textarea
   attributes:
     label: Expected Behavior
