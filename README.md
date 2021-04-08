@@ -38,7 +38,7 @@ Our [Privacy Policy](https://octolinker.now.sh/privacy/) describes our practices
 ## Related
 
 - [Awesome browser extensions for GitHub](https://github.com/stefanbuck/awesome-browser-extensions-for-github) - Awesome list
-- [Refined GitHub](https://github.com/sindresorhus/refined-github/) - Tones of useful features for GitHub
+- [Refined GitHub](https://github.com/sindresorhus/refined-github/) - Tons of useful features for GitHub
 - [Notifier for GitHub](https://github.com/sindresorhus/notifier-for-github-chrome) - Shows your notification unread count
 - [OctoPermalinker](https://github.com/josephfrazier/octopermalinker) - Fix outdated/broken GitHub links to branches
 
