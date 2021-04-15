@@ -3,7 +3,7 @@ function handleResponse(hoogleSearchUrl, target, response) {
     return item.url.includes(`docs/${target.replace(/\./g, '-')}.html`);
   };
 
-  if (response.length > 0) {
+  if (response?.length > 0) {
     // Multiple packages may provide the same module (see Crypto.MAC.HMAC)
     // We redirect to doc if there is only exact match
     // Otherwise, we redirect to hoogle search to avoid confucion

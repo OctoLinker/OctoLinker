@@ -18,8 +18,8 @@ describe('hoogle-search', () => {
     assert.deepEqual(typeof hoogleSearch({ target }), 'function');
   });
 
-  it('calls the hoogle search api', () => {
-    hoogleSearch({ target })();
+  it('calls the hoogle search api', async () => {
+    await hoogleSearch({ target })();
 
     expect(global.fetch).toBeCalledWith(
       'https://hoogle.haskell.org/?hoogle=Data.Typeable%20is:module%20is:exact&mode=json',
