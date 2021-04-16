@@ -6,14 +6,14 @@ describe('php', () => {
 
   it('resolves classes', () => {
     expect(php.resolve(path, ['FooBar'])).toEqual({
-      registry: 'ping',
+      type: 'trusted-url',
       target: 'https://www.php.net/manual/en/class.foobar.php',
     });
   });
 
   it('resolves functions', () => {
     expect(php.resolve(path, ['Foo_Bar'], {}, PHP_FUNC)).toEqual({
-      registry: 'ping',
+      type: 'trusted-url',
       target: 'https://www.php.net/manual/en/function.foo-bar.php',
     });
   });
