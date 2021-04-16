@@ -1,5 +1,4 @@
 import { PHP, PHP_FUNC } from '@octolinker/helper-grammar-regex-collection';
-import liveResolverQuery from '@octolinker/resolver-live-query';
 import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
 import mappingList from './mapping';
 
@@ -45,16 +44,14 @@ export default {
     }
 
     if (regExp === PHP_FUNC) {
-      return liveResolverQuery({
-        type: 'ping',
+      return resolverTrustedUrl({
         target: `https://www.php.net/manual/en/function.${target
           .toLowerCase()
           .replace(/_/g, '-')}.php`,
       });
     }
 
-    return liveResolverQuery({
-      type: 'ping',
+    return resolverTrustedUrl({
       target: `https://www.php.net/manual/en/class.${target.toLowerCase()}.php`,
     });
   },
