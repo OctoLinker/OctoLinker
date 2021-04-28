@@ -1,0 +1,59 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "12:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: css-loader
+    versions:
+    - 5.1.0
+    - 5.1.1
+    - 5.2.1
+    - 5.2.2
+  - dependency-name: jest-puppeteer
+    versions:
+    - 5.0.1
+  - dependency-name: web-ext-submit
+    versions:
+    - 6.0.0
+  - dependency-name: "@babel/core"
+    versions:
+    - 7.13.13
+    - 7.13.8
+  - dependency-name: elliptic
+    versions:
+    - 6.5.4
+  - dependency-name: jsonpath-plus
+    versions:
+    - 5.0.2
+    - 5.0.3
+    - 5.0.4
+  - dependency-name: "@babel/plugin-transform-runtime"
+    versions:
+    - 7.13.8
+    - 7.13.9
+  - dependency-name: "@babel/preset-env"
+    versions:
+    - 7.13.8
+    - 7.13.9
+  - dependency-name: eslint-config-prettier
+    versions:
+    - 8.0.0
+    - 8.1.0
+  - dependency-name: eslint
+    versions:
+    - 7.21.0
+  - dependency-name: "@babel/plugin-proposal-object-rest-spread"
+    versions:
+    - 7.12.13
+    - 7.13.8
+  - dependency-name: xregexp
+    versions:
+    - 5.0.1
+  - dependency-name: fsevents
+    versions:
+    - 2.3.1
+    - 2.3.2
