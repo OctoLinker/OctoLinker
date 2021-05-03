@@ -52,7 +52,7 @@
     "eslint-plugin-react": "^7.23.2",
     "jest": "^26.6.3",
     "jest-fetch-mock": "^3.0.3",
-    "jest-puppeteer": "^4.4.0",
+    "jest-puppeteer": "^5.0.3",
     "json-loader": "^0.5.7",
     "path-browserify": "^1.0.1",
     "prettier": "^2.2.1",
