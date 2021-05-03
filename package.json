@@ -64,7 +64,7 @@
     "style-loader": "^2.0.0",
     "url": "^0.11.0",
     "vm-browserify": "^1.1.2",
-    "web-ext": "^6.0.0",
+    "web-ext": "^6.1.0",
     "web-ext-submit": "^5.5.0",
     "webpack": "^5.35.1",
     "webpack-cli": "^4.6.0",
