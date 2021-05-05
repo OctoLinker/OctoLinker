@@ -26,7 +26,7 @@ Trusted by over 30,000 developers! Install OctoLinker from [Chrome Web Store](ht
 ## Sponsors
 
 [![▲ Vercel](https://user-images.githubusercontent.com/1393946/111010284-576c9900-8396-11eb-9fd9-399cc7dae8bc.png)](https://vercel.com/) 
-[![Redis Green](https://user-images.githubusercontent.com/1393946/111010141-e2995f00-8395-11eb-9533-c074d55a745d.png)](https://redisgreen.net) 
+[![RedisGreen](https://user-images.githubusercontent.com/1393946/111010141-e2995f00-8395-11eb-9533-c074d55a745d.png)](https://www.redisgreen.com) 
 [![complex](https://user-images.githubusercontent.com/1393946/111010138-e0cf9b80-8395-11eb-9086-e3f19645b399.png)](https://www.complex-it.de/jobs/offene-stellen?utm_source=oss-referal&utm_medium=logo&utm_campaign=growwithus)
 
 I am truly grateful to all the wonderful humans and companies supporting the development of OctoLinker. Please consider donations through [GitHub Sponsors](https://github.com/sponsors/stefanbuck/) or [Open Collective](https://opencollective.com/octolinker) – Thank you 🙇‍♂️
