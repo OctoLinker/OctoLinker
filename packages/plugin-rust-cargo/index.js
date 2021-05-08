@@ -11,8 +11,10 @@ function linkDependency(blob, key, value) {
 function processTOML(blob, plugin) {
   let results = [];
   const json = TOML.parse(blob.toString());
+  const entries = Object.assign(json['dependencies'], json['dev-dependencies']);
 
-  Object.entries(json.dependencies).forEach(([name, version]) => {
+  Object.entries(entries).forEach(([name, value]) => {
+    const version = typeof value === "string" ? value : value.version;
     const linked = linkDependency.call(plugin, blob, name, version);
 
     results = results.concat(linked);
