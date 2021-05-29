@@ -59,7 +59,7 @@
     "process": "^0.11.10",
     "puppeteer": "^9.1.1",
     "recursive-readdir": "^2.2.2",
-    "sinon": "^9.2.4",
+    "sinon": "^11.1.1",
     "stream-browserify": "^3.0.0",
     "style-loader": "^2.0.0",
     "url": "^0.11.0",
