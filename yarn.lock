@@ -2439,10 +2439,10 @@ buffer@^5.5.0:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
 
-builtins@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/builtins/-/builtins-3.0.1.tgz#38c55022f40a752f61de255eabd41892278032ea"
-  integrity sha512-JxlnRUmQpQReAt5mUshMNQpHe7MEZuy1qH+Eck31mc4GBBM9AmGX9oBrzQH/zAOIRM/CAqNA0J2692a/yJiGQQ==
+builtins@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/builtins/-/builtins-4.0.0.tgz#a8345420de82068fdc4d6559d0456403a8fb1905"
+  integrity sha512-qC0E2Dxgou1IHhvJSLwGDSTvokbRovU5zZFuDY6oY8Y2lF3nGt5Ad8YZK7GMtqzY84Wu7pXTPeHQeHcXSXsRhw==
   dependencies:
     semver "^7.0.0"
 
