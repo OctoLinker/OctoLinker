@@ -9050,10 +9050,10 @@ webextension-polyfill@^0.5.0:
   resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.5.0.tgz#795e0bf6a2b8eadcdb6edaecd169e9228c747519"
   integrity sha512-aFrl38x43t1bTboX/paCT8I97+idzX/TY0+fuM52hrIkCpYfROEF9kSn0BXuEIi3J9LTYt2ZZKkhx9NB1qF3nA==
 
-webextension-polyfill@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.7.0.tgz#0df1120ff0266056319ce1a622b09ad8d4a56505"
-  integrity sha512-su48BkMLxqzTTvPSE1eWxKToPS2Tv5DLGxKexLEVpwFd6Po6N8hhSLIvG6acPAg7qERoEaDL+Y5HQJeJeml5Aw==
+webextension-polyfill@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.8.0.tgz#f80e9f4b7f81820c420abd6ffbebfa838c60e041"
+  integrity sha512-a19+DzlT6Kp9/UI+mF9XQopeZ+n2ussjhxHJ4/pmIGge9ijCDz7Gn93mNnjpZAk95T4Tae8iHZ6sSf869txqiQ==
 
 webidl-conversions@^5.0.0:
   version "5.0.0"
