@@ -9,6 +9,6 @@
     "@octolinker/resolver-relative-file": "1.0.0",
     "@octolinker/resolver-github-search": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
-    "path-parse": "^1.0.5"
+    "path-parse": "^1.0.7"
   }
 }
