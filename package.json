@@ -40,7 +40,7 @@
     "chrome-launch": "^1.1.4",
     "chrome-webstore-upload-cli": "^1.2.1",
     "copy-webpack-plugin": "^9.0.0",
-    "css-loader": "^5.2.4",
+    "css-loader": "^5.2.6",
     "dot-json": "^1.2.2",
     "dotenv": "^10.0.0",
     "eslint": "^7.26.0",
