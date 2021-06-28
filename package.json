@@ -61,7 +61,7 @@
     "recursive-readdir": "^2.2.2",
     "sinon": "^9.2.4",
     "stream-browserify": "^3.0.0",
-    "style-loader": "^2.0.0",
+    "style-loader": "^3.0.0",
     "url": "^0.11.0",
     "vm-browserify": "^1.1.2",
     "web-ext": "^6.2.0",
