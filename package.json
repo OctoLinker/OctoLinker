@@ -55,7 +55,7 @@
     "jest-puppeteer": "^5.0.4",
     "json-loader": "^0.5.7",
     "path-browserify": "^1.0.1",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "process": "^0.11.10",
     "puppeteer": "^9.1.1",
     "recursive-readdir": "^2.2.2",
