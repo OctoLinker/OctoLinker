@@ -66,7 +66,7 @@
     "vm-browserify": "^1.1.2",
     "web-ext": "^6.2.0",
     "web-ext-submit": "^6.2.0",
-    "webpack": "^5.44.0",
+    "webpack": "^5.45.1",
     "webpack-cli": "^4.7.2",
     "webpack-extension-reloader": "^1.1.4"
   },
