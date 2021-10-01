@@ -470,6 +470,7 @@ const fixtures = {
       ['import org.hamcrest.Foo', ['org.hamcrest.Foo']],
       ['import com.fasterxml.Foo', ['com.fasterxml.Foo']],
       ['import org.junit.Foo', ['org.junit.Foo']],
+      ['import lombok.Foo', ['lombok.Foo']],
       ['import org.mockito.Foo', ['org.mockito.Foo']],
       ['import org.apache.Foo', ['org.apache.Foo']],
       ['import org.slf4j.Foo', ['org.slf4j.Foo']],
