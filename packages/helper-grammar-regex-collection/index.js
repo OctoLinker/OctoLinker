@@ -241,6 +241,16 @@ export const JAVA_IMPORT = regex`
       |
       lombok
       |
+      org\.atteo
+      |
+      org\.objectweb
+      |
+      org\.hamcrest
+      |
+      ch\.qos\.logback
+      |
+      yapion
+      |
       org\.slf4j
     )
     ((\.[a-zA-Z0-9_]+)+[a-zA-Z0-9_])*
