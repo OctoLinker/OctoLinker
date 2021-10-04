@@ -52,15 +52,15 @@ function getParentSha() {
 
 function getPath(el) {
   // When current page is a diff view get path from "View" button
-  let rootSelector = el.parentElement.parentElement.querySelectorAll(
-    '.file-actions a',
-  );
+  let rootSelector =
+    el.parentElement.parentElement.querySelectorAll('.file-actions a');
 
   // When current diff blob is loaded on-demand get path from "View" button
   if (!rootSelector.length) {
-    rootSelector = el.parentElement.parentElement.parentElement.querySelectorAll(
-      '.file-actions a',
-    );
+    rootSelector =
+      el.parentElement.parentElement.parentElement.querySelectorAll(
+        '.file-actions a',
+      );
   }
 
   let ret = $(rootSelector)
