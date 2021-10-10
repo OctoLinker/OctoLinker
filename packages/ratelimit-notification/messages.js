@@ -73,8 +73,7 @@ export const needsTokenForPrivate = () => {
       }
     },
     type: 'info',
-    body:
-      'OctoLinker needs a GitHub API token to retrieve repository metadata for private repositories. <a href="#" class="js-octolinker-open-settings">Create a token</a> to enable OctoLinker for all your private repositories. <a href="#" class="js-octolinker-open-settings">Disable OctoLinker for private repositories</a> to get rid of this notification.',
+    body: 'OctoLinker needs a GitHub API token to retrieve repository metadata for private repositories. <a href="#" class="js-octolinker-open-settings">Create a token</a> to enable OctoLinker for all your private repositories. <a href="#" class="js-octolinker-open-settings">Disable OctoLinker for private repositories</a> to get rid of this notification.',
   });
 };
 
@@ -91,7 +90,6 @@ export const tokenIsInvalid = () => {
       }
     },
     type: 'error',
-    body:
-      'The token you provided is invalid. You must <a href="#" class="js-octolinker-open-settings">create a new token</a> before you can continue using OctoLinker.',
+    body: 'The token you provided is invalid. You must <a href="#" class="js-octolinker-open-settings">create a new token</a> before you can continue using OctoLinker.',
   });
 };

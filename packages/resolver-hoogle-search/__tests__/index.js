@@ -29,8 +29,7 @@ describe('hoogle-search', () => {
   it('returns url', async () => {
     response = [
       {
-        url:
-          'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
+        url: 'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
       },
     ];
 
@@ -42,12 +41,10 @@ describe('hoogle-search', () => {
   it('returns hoogle search page when search returns more than one result', async () => {
     response = [
       {
-        url:
-          'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
+        url: 'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
       },
       {
-        url:
-          'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
+        url: 'https://hackage.haskell.org/package/base-4.11.1.0/docs/Data-Typeable.html',
       },
     ];
 

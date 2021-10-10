@@ -20,11 +20,13 @@ function parseBlob(el) {
     lines.filter(({ side }) => ['left', 'right'].includes(side)).length > 0;
 
   if (isDiff) {
-    const diffLineFilter = (type) => ({ side, ...rest }) => {
-      if ([type, 'context'].includes(side)) {
-        return { ...rest };
-      }
-    };
+    const diffLineFilter =
+      (type) =>
+      ({ side, ...rest }) => {
+        if ([type, 'context'].includes(side)) {
+          return { ...rest };
+        }
+      };
 
     const leftBlob = new Blob({
       el,
