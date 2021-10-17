@@ -8,16 +8,16 @@ export default [
   },
   {
     // Turn Symfony\Component\Form\Event\SubmitEvent;
-    // into a link pointing to https://github.com/symfony/symfony/blob/5.x/src/Symfony/Component/Form/Event/SubmitEvent.php
+    // into a link pointing to https://github.com/symfony/symfony/blob/5.4/src/Symfony/Component/Form/Event/SubmitEvent.php
     importPath: 'Symfony',
-    url: 'https://github.com/symfony/symfony/blob/5.x/src/%s.php',
+    url: 'https://github.com/symfony/symfony/blob/5.4/src/%s.php',
     delimiter: '/',
   },
   {
     // Turns Cake\Core\Configure;
-    // into a link pointing to https://api.cakephp.org/4.1/class-Cake.Core.Configure.html
+    // into a link pointing to https://api.cakephp.org/4.2/class-Cake.Core.Configure.html
     importPath: 'Cake',
-    url: 'https://api.cakephp.org/4.1/class-%s.html',
+    url: 'https://api.cakephp.org/4.2/class-%s.html',
     delimiter: '.',
   },
 ];
