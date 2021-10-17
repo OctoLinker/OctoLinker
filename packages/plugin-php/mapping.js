@@ -8,9 +8,9 @@ export default [
   },
   {
     // Turn Symfony\Component\Form\Event\SubmitEvent;
-    // into a link pointing to https://github.com/symfony/symfony/blob/5.4/src/Symfony/Component/Form/Event/SubmitEvent.php
+    // into a link pointing to https://github.com/symfony/symfony/blob/master/src/Symfony/Component/Form/Event/SubmitEvent.php
     importPath: 'Symfony',
-    url: 'https://github.com/symfony/symfony/blob/5.4/src/%s.php',
+    url: 'https://github.com/symfony/symfony/blob/master/src/%s.php',
     delimiter: '/',
   },
   {
