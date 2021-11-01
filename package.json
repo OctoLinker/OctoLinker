@@ -12,7 +12,7 @@
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
     "test:watch": "jest --watch",
     "version": "./scripts/version.sh",
-    "release:cws": "cd dist && webstore upload --auto-publish",
+    "release:cws": "cd dist && yarn chrome-webstore-upload upload --auto-publish",
     "release:amo": "cd dist && web-ext-submit",
     "release": "yarn release:cws && yarn release:amo",
     "build": "webpack --mode=production",
