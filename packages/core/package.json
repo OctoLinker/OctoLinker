@@ -1,11 +1,11 @@
 {
   "name": "@octolinker/core",
-  "version": "6.8.1",
+  "version": "6.9.0",
   "description": "OctoLinker browser extension core",
   "repository": "https://github.com/octolinker/octolinker/tree/main/packages/core",
   "license": "MIT",
   "main": "./index.js",
-  "releaseDescription": "Fix import rewriting when keyword appears on both sides of an import statement",
+  "releaseDescription": "PHP support for Symfony, Laravel and more",
   "dependencies": {
     "@octolinker/blob-reader": "1.0.0",
     "@octolinker/helper-github-api": "1.0.0",
