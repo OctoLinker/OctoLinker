@@ -46,6 +46,7 @@
     "@octolinker/plugin-typescript": "1.0.0",
     "@octolinker/plugin-vim": "1.0.0",
     "@octolinker/user-interface": "1.0.0",
+    "@octolinker/plugin-solidity": "1.0.0",
     "github-injection": "^1.0.1",
     "jquery": "^3.6.0",
     "lodash.isequal": "^4.5.0",
