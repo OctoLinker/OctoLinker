@@ -1,0 +1,13 @@
+{
+  "name": "@octolinker/plugin-solidity",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-solidity",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/resolver-live-query": "1.0.0",
+    "@octolinker/resolver-relative-file": "1.0.0",
+    "@octolinker/helper-grammar-regex-collection": "1.0.0"
+  }
+}

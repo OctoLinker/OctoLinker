@@ -320,3 +320,9 @@ export const R_NAMESPACE = regex`
 (?<$1>[\w\.]+) # package name
 :{2,3} # namespace operator
 `;
+
+export const SOLIDITY_IMPORT = regex`
+  import
+  \s
+  ${captureQuotedWord}
+`;
