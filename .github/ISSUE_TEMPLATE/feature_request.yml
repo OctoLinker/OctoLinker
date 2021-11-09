@@ -1,7 +1,6 @@
 name: Feature Request
 description: Create a request to help us improve
 labels: "feature"
-issue_body: false
 body:
 - type: markdown
   attributes:
