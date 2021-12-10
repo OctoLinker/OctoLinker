@@ -26,7 +26,7 @@
     "safari-launch": "open 'safari/build/Release/OctoLinker.app'"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@babel/plugin-transform-react-jsx": "^7.14.9",
     "@babel/plugin-transform-runtime": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
@@ -66,7 +66,7 @@
     "web-ext": "^6.4.0",
     "web-ext-submit": "^6.4.0",
     "webpack": "^5.59.1",
-    "webpack-cli": "^4.9.0",
+    "webpack-cli": "^4.9.1",
     "webpack-extension-reloader": "^1.1.4"
   },
   "optionalDependencies": {
