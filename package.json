@@ -52,7 +52,7 @@
     "eslint-plugin-react": "^7.26.1",
     "jest": "^27.2.5",
     "jest-fetch-mock": "^3.0.3",
-    "jest-puppeteer": "^6.0.0",
+    "jest-puppeteer": "^6.0.2",
     "json-loader": "^0.5.7",
     "path-browserify": "^1.0.1",
     "prettier": "^2.4.1",
@@ -66,7 +66,7 @@
     "web-ext": "^6.4.0",
     "web-ext-submit": "^6.4.0",
     "webpack": "^5.59.1",
-    "webpack-cli": "^4.9.0",
+    "webpack-cli": "^4.9.1",
     "webpack-extension-reloader": "^1.1.4"
   },
   "optionalDependencies": {
