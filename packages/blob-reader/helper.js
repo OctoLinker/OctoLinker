@@ -6,7 +6,6 @@ function $$(selector, rootElement = document) {
   return [...document.querySelectorAll(selector)];
 }
 
-
 function getBlobCodeInner(el) {
   return $$('.blob-code-inner');
 }
@@ -18,8 +17,8 @@ function getBlobWrapper(rootElement) {
       .blob-wrapper,
       .js-blob-wrapper,
       [class*="highlight-source-"]
-    `
-    )
+    `,
+  );
 }
 
 function mergeRepoAndFilePath(repoPath, filePath) {
@@ -70,7 +69,7 @@ function getPath(el) {
   }
 
   let ret = $$(rootSelector)
-    .find(element => element.textContent.trim() === 'View file')
+    .find((element) => element.textContent.trim() === 'View file')
     ?.getAttribute('href');
 
   if (!ret) {
@@ -121,11 +120,16 @@ function getLineNumber(el) {
   }
 
   // split diff view
-  let lineNumber = el.closest('td')?.previousElementSibling?.getAttribute('line-number');
+  let lineNumber = el
+    .closest('td')
+    ?.previousElementSibling?.getAttribute('line-number');
 
   // unified diff view
   if (!lineNumber) {
-    lineNumber = el.closest('tr')?.querySelector('td')?.getAttribute('line-number');
+    lineNumber = el
+      .closest('tr')
+      ?.querySelector('td')
+      ?.getAttribute('line-number');
   }
 
   if (lineNumber) {
