@@ -1,9 +1,9 @@
-function $(selector) {
-  return document.querySelector(selector);
+function $(selector, rootElement = document) {
+  return rootElement.querySelector(selector);
 }
 
 function $$(selector, rootElement = document) {
-  return [...document.querySelectorAll(selector)];
+  return [...rootElement.querySelectorAll(selector)];
 }
 
 function getBlobCodeInner(el) {
@@ -32,25 +32,25 @@ function mergeRepoAndFilePath(repoPath, filePath) {
 }
 
 function isGist() {
-  return !!document.querySelector('#gist-pjax-container');
+  return !!$('#gist-pjax-container');
 }
 
 function getParentSha() {
   // Pull request diff view
-  const input = document.querySelector('[name="comparison_start_oid"]');
+  const input = $('[name="comparison_start_oid"]');
 
   if (input && input.value) {
     return input.value;
   }
 
   // Pull request diff for unauthenticated users
-  const url = document.querySelector('.js-load-contents');
+  const url = $('.js-load-contents');
   if (url && url.dataset.contentsUrl) {
     return url.dataset.contentsUrl.match(/base_sha=([0-9a-z]+)/)[1];
   }
 
   // Commit diff view
-  const el = document.querySelector('.sha-block .sha[data-hotkey]');
+  const el = $('.sha-block .sha[data-hotkey]');
 
   return el ? el.textContent : null;
 }
