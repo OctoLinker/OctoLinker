@@ -1,19 +1,25 @@
-import $ from 'jquery';
-
-function getBlobCodeInner(el) {
-  return [].slice.call(el.getElementsByClassName('blob-code-inner'));
+function $(selector) {
+  return document.querySelector(selector);
 }
 
-function getBlobWrapper(rootElement = document) {
-  const ret = [
-    ...[].slice.call(rootElement.getElementsByClassName('blob-wrapper')),
-    ...[].slice.call(rootElement.getElementsByClassName('js-blob-wrapper')),
-    ...[].slice.call(
-      rootElement.querySelectorAll('[class*="highlight-source-"]'),
-    ),
-  ];
+function $$(selector, rootElement = document) {
+  return [...document.querySelectorAll(selector)];
+}
 
-  return ret;
+
+function getBlobCodeInner(el) {
+  return $$('.blob-code-inner');
+}
+
+function getBlobWrapper(rootElement) {
+  return $$(
+    rootElement,
+    `
+      .blob-wrapper,
+      .js-blob-wrapper,
+      [class*="highlight-source-"]
+    `
+    )
 }
 
 function mergeRepoAndFilePath(repoPath, filePath) {
@@ -63,40 +69,38 @@ function getPath(el) {
       );
   }
 
-  let ret = $(rootSelector)
-    .filter(function () {
-      return $(this).text().trim() === 'View file';
-    })
-    .attr('href');
+  let ret = $$(rootSelector)
+    .find(element => element.textContent.trim() === 'View file')
+    ?.getAttribute('href');
 
   if (!ret) {
-    ret = $('.js-permalink-shortcut').attr('href');
+    ret = $('.js-permalink-shortcut')?.getAttribute('href');
   }
 
   // When current page is a gist, get path from blob name
   if (!ret && isGist()) {
-    ret = $('.gist-blob-name', el.parentElement).text().trim();
+    ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();
     if (ret && !ret.startsWith('/')) {
       ret = `/${ret}`;
     }
   }
 
   // when page has pull request comment(s)
-  const $fileHeader = $('.file-header', el.parentElement);
+  const $fileHeader = $$('.file-header', el.parentElement);
   if (!ret && $fileHeader.length) {
     let repoPath = '';
     let filePath = '';
 
-    if ($('a.file-action', $fileHeader).length) {
+    if ($$('a.file-action', $fileHeader).length) {
       // comment is outdated
 
-      filePath = $('.file-info', $fileHeader).text();
-      repoPath = $('a.file-action', $fileHeader).attr('href');
+      filePath = $('.file-info', $fileHeader)?.textContent;
+      repoPath = $('a.file-action', $fileHeader)?.getAttribute('href');
     } else {
       // comment is up-to-date
 
-      filePath = $('a', $fileHeader).text();
-      repoPath = $('a', $fileHeader).attr('href');
+      filePath = $('a', $fileHeader)?.textContent;
+      repoPath = $('a', $fileHeader)?.getAttribute('href');
     }
 
     if (repoPath && filePath) {
@@ -117,11 +121,11 @@ function getLineNumber(el) {
   }
 
   // split diff view
-  let lineNumber = $(el).closest('td').prev().data('line-number');
+  let lineNumber = el.closest('td')?.previousElementSibling?.getAttribute('line-number');
 
   // unified diff view
   if (!lineNumber) {
-    lineNumber = $(el).closest('tr').find('td').data('line-number');
+    lineNumber = el.closest('tr')?.querySelector('td')?.getAttribute('line-number');
   }
 
   if (lineNumber) {
@@ -134,7 +138,7 @@ function getLineNumber(el) {
 }
 
 function diffMetaInformation(el) {
-  const td = $(el).closest('td').get(0);
+  const td = el.closest('td');
 
   // Blob view
   if (td.classList.contains('js-file-line')) {

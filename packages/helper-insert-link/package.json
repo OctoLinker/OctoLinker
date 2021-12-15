@@ -7,8 +7,7 @@
   "main": "./index.js",
   "dependencies": {
     "@octolinker/helper-settings": "1.0.0",
-    "findandreplacedomtext": "^0.4.5",
-    "jquery": "^3.6.0"
+    "findandreplacedomtext": "^0.4.5"
   },
   "devDependencies": {
     "@octolinker/helper-grammar-regex-collection": "1.0.0"
