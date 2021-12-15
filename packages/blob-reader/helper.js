@@ -68,7 +68,7 @@ function getPath(el) {
       );
   }
 
-  let ret = $$(rootSelector)
+  let ret = [...rootSelector]
     .find((element) => element.textContent.trim() === 'View file')
     ?.getAttribute('href');
 
@@ -80,26 +80,26 @@ function getPath(el) {
   if (!ret && isGist()) {
     ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();
     if (ret && !ret.startsWith('/')) {
-      ret = `/${ret}`;
+      return `/${ret}`;
     }
   }
 
   // when page has pull request comment(s)
-  const $fileHeader = $$('.file-header', el.parentElement);
-  if (!ret && $fileHeader.length) {
+  const fileHeader = $('.file-header', el.parentElement);
+  if (!ret && fileHeader) {
     let repoPath = '';
     let filePath = '';
 
-    if ($$('a.file-action', $fileHeader).length) {
+    if ($('a.file-action', fileHeader)) {
       // comment is outdated
 
-      filePath = $('.file-info', $fileHeader)?.textContent;
-      repoPath = $('a.file-action', $fileHeader)?.getAttribute('href');
+      filePath = $('.file-info', fileHeader)?.textContent;
+      repoPath = $('a.file-action', fileHeader)?.getAttribute('href');
     } else {
       // comment is up-to-date
 
-      filePath = $('a', $fileHeader)?.textContent;
-      repoPath = $('a', $fileHeader)?.getAttribute('href');
+      filePath = $('a', fileHeader)?.textContent;
+      repoPath = $('a', fileHeader)?.getAttribute('href');
     }
 
     if (repoPath && filePath) {
