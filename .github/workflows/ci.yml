@@ -16,6 +16,7 @@ jobs:
         node-version: 16
         cache: 'yarn'
     - run: yarn install
+    - run: ./packages/blob-reader/scripts/update-fixtures.sh
     - run: yarn test
     - run: yarn build
     - name: Run E2E
