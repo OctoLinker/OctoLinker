@@ -12,12 +12,12 @@ function getBlobCodeInner(el) {
 
 function getBlobWrapper(rootElement) {
   return $$(
-    rootElement,
     `
       .blob-wrapper,
       .js-blob-wrapper,
       [class*="highlight-source-"]
     `,
+    rootElement,
   );
 }
 
