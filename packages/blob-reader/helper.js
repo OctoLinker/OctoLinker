@@ -77,34 +77,19 @@ function getPath(el) {
   }
 
   // When current page is a gist, get path from blob name
-  if (!ret && isGist()) {
-    ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();
+  if (isGist()) {
+    ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();;
     if (ret && !ret.startsWith('/')) {
       return `/${ret}`;
     }
   }
 
   // when page has pull request comment(s)
-  const fileHeader = $('.file-header', el.parentElement);
-  if (!ret && fileHeader) {
-    let repoPath = '';
-    let filePath = '';
-
-    if ($('a.file-action', fileHeader)) {
-      // comment is outdated
-
-      filePath = $('.file-info', fileHeader)?.textContent;
-      repoPath = $('a.file-action', fileHeader)?.getAttribute('href');
-    } else {
-      // comment is up-to-date
-
-      filePath = $('a', fileHeader)?.textContent;
-      repoPath = $('a', fileHeader)?.getAttribute('href');
-    }
-
-    if (repoPath && filePath) {
-      ret = mergeRepoAndFilePath(repoPath, filePath);
-    }
+  const fileHeader = $('summary', el.parentElement.parentElement);
+  if (!ret && fileHeader.length) {
+    const filePath = $('a', fileHeader)?.textContent;
+    const repoPath = $('a', fileHeader)?.getAttribute('href');
+    ret = mergeRepoAndFilePath(repoPath, filePath);
   }
 
   return ret ? ret.trim() : undefined;
@@ -145,7 +130,7 @@ function diffMetaInformation(el) {
   const td = el.closest('td');
 
   // Blob view
-  if (td.classList.contains('js-file-line')) {
+  if (td.id.startsWith('LC') || isGist()) {
     return {};
   }
 
