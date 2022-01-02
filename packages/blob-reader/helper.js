@@ -78,7 +78,7 @@ function getPath(el) {
 
   // When current page is a gist, get path from blob name
   if (isGist()) {
-    ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();;
+    ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();
     if (ret && !ret.startsWith('/')) {
       return `/${ret}`;
     }
@@ -86,7 +86,7 @@ function getPath(el) {
 
   // when page has pull request comment(s)
   const fileHeader = $('summary', el.parentElement.parentElement);
-  if (!ret && fileHeader.length) {
+  if (!ret && fileHeader) {
     const filePath = $('a', fileHeader)?.textContent;
     const repoPath = $('a', fileHeader)?.getAttribute('href');
     ret = mergeRepoAndFilePath(repoPath, filePath);
