@@ -1,6 +1,6 @@
 import builtins from 'builtins';
 
-const docs = builtins('10.0.0').reduce((result, builtin) => {
+const docs = builtins({ version: '10.0.0' }).reduce((result, builtin) => {
   let filename = builtin;
   if (filename === 'module') {
     filename = 'modules';
