@@ -9,7 +9,7 @@
     "@octolinker/resolver-live-query": "1.0.0",
     "@octolinker/resolver-trusted-url": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
-    "builtins": "^3.0.1",
+    "builtins": "^4.0.0",
     "concat-map": "^0.0.1"
   }
 }
