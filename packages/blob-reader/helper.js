@@ -7,7 +7,7 @@ function $$(selector, rootElement = document) {
 }
 
 function getBlobCodeInner(el) {
-  return $$('.blob-code-inner');
+  return $$('.blob-code-inner', el);
 }
 
 function getBlobWrapper(rootElement) {
