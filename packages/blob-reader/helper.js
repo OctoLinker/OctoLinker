@@ -107,23 +107,18 @@ function getLineNumber(el) {
   // split diff view
   let lineNumber = el
     .closest('td')
-    ?.previousElementSibling?.getAttribute('line-number');
+    ?.previousElementSibling?.getAttribute('data-line-number');
 
   // unified diff view
   if (!lineNumber) {
     lineNumber = el
       .closest('tr')
       ?.querySelector('td')
-      ?.getAttribute('line-number');
+      ?.getAttribute('data-line-number');
   }
 
-  if (lineNumber) {
-    if (Number.isInteger(lineNumber)) {
-      return lineNumber;
-    }
-  }
-
-  return null;
+  lineNumber = Number.parseInt(lineNumber, 10);
+  return Number.isNaN(lineNumber) ? null : lineNumber;
 }
 
 function diffMetaInformation(el) {
