@@ -48,7 +48,6 @@
     "@octolinker/user-interface": "1.0.0",
     "@octolinker/plugin-solidity": "1.0.0",
     "github-injection": "^1.0.1",
-    "jquery": "^3.6.0",
     "lodash.isequal": "^4.5.0",
     "lodash.uniqwith": "^4.5.0"
   }

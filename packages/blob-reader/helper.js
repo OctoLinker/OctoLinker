@@ -1,19 +1,24 @@
-import $ from 'jquery';
-
-function getBlobCodeInner(el) {
-  return [].slice.call(el.getElementsByClassName('blob-code-inner'));
+function $(selector, rootElement = document) {
+  return rootElement.querySelector(selector);
 }
 
-function getBlobWrapper(rootElement = document) {
-  const ret = [
-    ...[].slice.call(rootElement.getElementsByClassName('blob-wrapper')),
-    ...[].slice.call(rootElement.getElementsByClassName('js-blob-wrapper')),
-    ...[].slice.call(
-      rootElement.querySelectorAll('[class*="highlight-source-"]'),
-    ),
-  ];
+function $$(selector, rootElement = document) {
+  return [...rootElement.querySelectorAll(selector)];
+}
 
-  return ret;
+function getBlobCodeInner(el) {
+  return $$('.blob-code-inner', el);
+}
+
+function getBlobWrapper(rootElement) {
+  return $$(
+    `
+      .blob-wrapper,
+      .js-blob-wrapper,
+      [class*="highlight-source-"]
+    `,
+    rootElement,
+  );
 }
 
 function mergeRepoAndFilePath(repoPath, filePath) {
@@ -27,25 +32,25 @@ function mergeRepoAndFilePath(repoPath, filePath) {
 }
 
 function isGist() {
-  return !!document.querySelector('#gist-pjax-container');
+  return !!$('#gist-pjax-container');
 }
 
 function getParentSha() {
   // Pull request diff view
-  const input = document.querySelector('[name="comparison_start_oid"]');
+  const input = $('[name="comparison_start_oid"]');
 
   if (input && input.value) {
     return input.value;
   }
 
   // Pull request diff for unauthenticated users
-  const url = document.querySelector('.js-load-contents');
+  const url = $('.js-load-contents');
   if (url && url.dataset.contentsUrl) {
     return url.dataset.contentsUrl.match(/base_sha=([0-9a-z]+)/)[1];
   }
 
   // Commit diff view
-  const el = document.querySelector('.sha-block .sha[data-hotkey]');
+  const el = $('.sha-block .sha[data-hotkey]');
 
   return el ? el.textContent : null;
 }
@@ -63,29 +68,27 @@ function getPath(el) {
       );
   }
 
-  let ret = $(rootSelector)
-    .filter(function () {
-      return $(this).text().trim() === 'View file';
-    })
-    .attr('href');
+  let ret = [...rootSelector]
+    .find((element) => element.textContent.trim() === 'View file')
+    ?.getAttribute('href');
 
   if (!ret) {
-    ret = $('.js-permalink-shortcut').attr('href');
+    ret = $('.js-permalink-shortcut')?.getAttribute('href');
   }
 
   // When current page is a gist, get path from blob name
   if (isGist()) {
-    ret = $('.gist-blob-name', el.parentElement).text().trim();
+    ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();
     if (ret && !ret.startsWith('/')) {
-      ret = `/${ret}`;
+      return `/${ret}`;
     }
   }
 
   // when page has pull request comment(s)
-  const $fileHeader = $('summary', el.parentElement.parentElement);
-  if (!ret && $fileHeader.length) {
-    const filePath = $('a', $fileHeader).text();
-    const repoPath = $('a', $fileHeader).attr('href');
+  const fileHeader = $('summary', el.parentElement.parentElement);
+  if (!ret && fileHeader) {
+    const filePath = $('a', fileHeader)?.textContent;
+    const repoPath = $('a', fileHeader)?.getAttribute('href');
     ret = mergeRepoAndFilePath(repoPath, filePath);
   }
 
@@ -102,24 +105,24 @@ function getLineNumber(el) {
   }
 
   // split diff view
-  let lineNumber = $(el).closest('td').prev().data('line-number');
+  let lineNumber = el
+    .closest('td')
+    ?.previousElementSibling?.getAttribute('data-line-number');
 
   // unified diff view
   if (!lineNumber) {
-    lineNumber = $(el).closest('tr').find('td').data('line-number');
+    lineNumber = el
+      .closest('tr')
+      ?.querySelector('td')
+      ?.getAttribute('data-line-number');
   }
 
-  if (lineNumber) {
-    if (Number.isInteger(lineNumber)) {
-      return lineNumber;
-    }
-  }
-
-  return null;
+  lineNumber = Number.parseInt(lineNumber, 10);
+  return Number.isNaN(lineNumber) ? null : lineNumber;
 }
 
 function diffMetaInformation(el) {
-  const td = $(el).closest('td').get(0);
+  const td = el.closest('td');
 
   // Blob view
   if (td.id.startsWith('LC') || isGist()) {
