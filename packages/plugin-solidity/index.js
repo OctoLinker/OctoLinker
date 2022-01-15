@@ -1,4 +1,4 @@
-import { SOLIDITY_IMPORT } from '@octolinker/helper-grammar-regex-collection';
+import { IMPORT } from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '@octolinker/resolver-relative-file';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 
@@ -33,6 +33,6 @@ export default {
   },
 
   getLinkRegexes() {
-    return SOLIDITY_IMPORT;
+    return IMPORT;
   },
 };
