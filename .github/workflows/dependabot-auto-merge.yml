@@ -1,14 +1,37 @@
-name: auto-merge
+# https://gist.github.com/xt0rted/46475099dc0a70ba63e16e3177407872
+name: Dependabot auto-merge
 
-on:
-  pull_request_target:
+on: pull_request_target
+
+permissions:
+  contents: read
+  pull-requests: read
 
 jobs:
-  auto-merge:
+  dependabot:
     runs-on: ubuntu-latest
+
+    if: ${{ github.actor == 'dependabot[bot]' }}
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1.5.1
         with:
-          target: major
-          github-token: ${{ secrets.DEPENDABOT_TOKEN }}
+          app_id: ${{ secrets.BOT_APP_ID }}
+          private_key: ${{ secrets.BOT_PRIVATE_KEY }}
+
+      - name: Dependabot metadata
+        id: dependabot_metadata
+        uses: dependabot/fetch-metadata@v1.1.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Authenticate cli
+        run: echo "${{ steps.generate_token.outputs.token }}" | gh auth login --with-token
+
+      - name: Enable auto-merge for Dependabot PRs
+        if: ${{ steps.dependabot_metadata.outputs.update-type == 'version-update:semver-minor' || steps.dependabot_metadata.outputs.update-type == 'version-update:semver-patch' }}
+        run: gh pr merge --auto --merge "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
