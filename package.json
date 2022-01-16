@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
-    "@babel/plugin-transform-react-jsx": "^7.14.9",
+    "@babel/plugin-transform-react-jsx": "^7.16.7",
     "@babel/plugin-transform-runtime": "^7.16.8",
     "@babel/preset-env": "^7.16.8",
     "assert": "^2.0.0",
