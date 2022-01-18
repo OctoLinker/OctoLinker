@@ -1,5 +1,5 @@
 import 'webext-base-css';
 
-export { default as Input } from './input';
-export { default as Checkbox } from './checkbox';
-export { default as Stats } from './stats';
+export { Input } from './input';
+export { Checkbox } from './checkbox';
+export { Stats } from './stats';

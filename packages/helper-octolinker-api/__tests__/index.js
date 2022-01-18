@@ -91,7 +91,7 @@ describe('helper-octolinker-api', () => {
   });
 
   it('returns an empty array on failure', async () => {
-    fetch.mockResponseOnce(() => new Promise((resolve, reject) => reject()));
+    fetch.mockResponseOnce(() => Promise.reject());
 
     expect(await bulkAction(data)).toEqual([]);
   });
