@@ -1,3 +1,4 @@
 * text=auto
 *.js text eol=lf
+*.sh text eol=lf
 packages/blob-reader/fixtures/* linguist-documentation
