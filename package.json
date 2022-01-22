@@ -1,6 +1,6 @@
 {
   "name": "OctoLinker",
-  "version": "6.10.1",
+  "version": "6.10.2",
   "engines": {
     "node": ">= 16",
     "npm": ">= 7"
