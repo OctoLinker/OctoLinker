@@ -74,6 +74,10 @@ export default {
   name: 'JavaScript',
 
   resolve(path, [target]) {
+    if (target.startsWith('node:')) {
+      target = target.substring(5);
+    }
+
     if (isURLImport(target)) {
       return resolverTrustedUrl({ target });
     }

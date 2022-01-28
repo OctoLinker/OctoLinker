@@ -25,6 +25,13 @@ describe('javascript-universal', () => {
     });
   });
 
+  it("resolves 'node:module' to 'https://nodejs.org/api/module.html'", () => {
+    expect(plugin.resolve(path, ['node:module'])).toEqual({
+      target: 'https://nodejs.org/api/modules.html',
+      type: 'trusted-url',
+    });
+  });
+
   it("resolves 'https://example.org/foo.ts' to 'https://example.org/foo.ts'", () => {
     expect(plugin.resolve(path, ['https://example.org/foo.ts'])).toEqual({
       target: 'https://example.org/foo.ts',
