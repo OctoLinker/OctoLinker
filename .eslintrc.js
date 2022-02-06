@@ -10,7 +10,7 @@ module.exports = {
       pragma: 'h',
     },
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       modules: true,
