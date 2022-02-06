@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { GITHUB_ACTIONS } from '@octolinker/helper-grammar-regex-collection';
-import { dockerHubUrl } from '@octolinker/plugin-docker';
+import { dockerUrl } from '@octolinker/plugin-docker';
 
 const DOCKER_SOURCE = 'docker://';
 
@@ -28,7 +28,7 @@ export default {
     if (target.startsWith(DOCKER_SOURCE)) {
       const image = target.substring(DOCKER_SOURCE.length);
 
-      return dockerHubUrl(image);
+      return dockerUrl(image);
     }
 
     if (target.startsWith('.')) {
