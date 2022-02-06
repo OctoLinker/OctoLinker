@@ -4,11 +4,24 @@ import { dockerHubUrl } from '@octolinker/plugin-docker';
 
 const DOCKER_SOURCE = 'docker://';
 
+export function isWorkflowFile(path) {
+  if (path.includes('.github/workflows')) {
+    return true;
+  }
+
+  const [, , repo, , , folder] = path.split('/');
+  if (repo === '.github' && folder === 'workflow-templates') {
+    return true;
+  }
+
+  return false;
+}
+
 export default {
   name: 'GitHubActions',
 
   resolve(path, [target]) {
-    if (!path.includes('.github/workflows')) {
+    if (!isWorkflowFile(path)) {
       return '';
     }
 

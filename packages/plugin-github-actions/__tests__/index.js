@@ -1,5 +1,5 @@
 import assert from 'assert';
-import GiHubActions from '../index';
+import GiHubActions, { isWorkflowFile } from '../index';
 
 describe('GiHubActions', () => {
   const target = 'foo/bar';
@@ -16,5 +16,27 @@ describe('GiHubActions', () => {
       GiHubActions.resolve('/octo/cat/.github/dog.yml', [target]),
       '',
     );
+  });
+});
+
+describe('isWorkflowFile', () => {
+  it('matches on .github/workflows folder', () => {
+    expect(
+      isWorkflowFile('/OctoLinker/.github/blob/main/.github/workflows/ci.yml'),
+    ).toBe(true);
+  });
+
+  it('matches on workflows-templates folder in .github repo', () => {
+    expect(
+      isWorkflowFile('/OctoLinker/.github/blob/main/workflow-templates/ci.yml'),
+    ).toBe(true);
+  });
+
+  it("doesn't match on workflows-templates folder in non .github repo", () => {
+    expect(
+      isWorkflowFile(
+        '/OctoLinker/OctoLinker/blob/main/workflow-templates/ci.yml',
+      ),
+    ).toBe(false);
   });
 });
