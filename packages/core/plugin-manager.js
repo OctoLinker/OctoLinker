@@ -55,24 +55,7 @@ function getPluginsForGithubClasses(plugins, classList) {
 export default class {
   constructor(plugins) {
     plugins = Object.values(plugins);
-    this._pluginsList = plugins;
     this._plugins = buildPluginCache(plugins);
-  }
-
-  getResolver(pluginName) {
-    const plugin = this._pluginsList.find(({ name }) => name === pluginName);
-
-    if (!plugin) {
-      console.error(`Plugin ${pluginName} not found`); // eslint-disable-line no-console
-      return;
-    }
-
-    if (!plugin.resolve) {
-      console.error(`No resolve found for ${pluginName}`); // eslint-disable-line no-console
-      return;
-    }
-
-    return plugin.resolve;
   }
 
   get(filepath, classList) {
