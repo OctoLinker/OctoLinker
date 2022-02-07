@@ -39,7 +39,7 @@
     "babel-preset-jest": "^27.2.0",
     "chrome-launch": "^1.1.4",
     "copy-webpack-plugin": "^10.2.4",
-    "css-loader": "^6.5.1",
+    "css-loader": "^6.6.0",
     "dot-json": "^1.2.2",
     "dotenv": "^15.0.0",
     "eslint": "^8.8.0",
