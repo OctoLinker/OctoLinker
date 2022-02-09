@@ -1,7 +1,7 @@
-require('dotenv').config();
+import 'dotenv/config';
 
-const fixtures = require('./fixtures.json'); // eslint-disable-line import/no-unresolved
-const diffFixtures = require('./diff-fixtures.json'); // eslint-disable-line import/no-unresolved
+import fixtures from './fixtures.json'; // eslint-disable-line import/no-unresolved
+import diffFixtures from './diff-fixtures.json';
 
 async function executeTest(url, targetUrl, selector) {
   if ((await page.url()) !== url) {
