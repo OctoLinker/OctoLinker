@@ -5,13 +5,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    # @OctoLinkerResolve(https://github.com/actions/checkout)
+    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v1)
     - uses: actions/checkout@v1
+    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2)
+    - uses: 'actions/checkout@v2'
+    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2)
+    - uses: "actions/checkout@v2"
     # @OctoLinkerResolve(https://github.com/actions/setup-node)
     - uses: actions/setup-node
-    # @OctoLinkerResolve(https://github.com/actions/upload-artifact)
+    # @OctoLinkerResolve(https://github.com/actions/upload-artifact/tree/master)
     - uses: actions/upload-artifact@master
-    # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/main/init)
+    # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/v1/init)
     - uses: github/codeql-action/init@v1
     # @OctoLinkerResolve(https://hub.docker.com/_/alpine)
     - uses: docker://alpine:3.8

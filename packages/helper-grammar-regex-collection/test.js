@@ -528,8 +528,12 @@ const fixtures = {
   GITHUB_ACTIONS: {
     valid: [
       ['uses: foo/bar', ['foo/bar']],
-      ['uses: foo/bar@v1', ['foo/bar']],
-      ['uses: foo/bar@master', ['foo/bar']],
+      ['uses: foo/bar@v1', ['foo/bar', 'v1']],
+      ['uses: foo/bar@master', ['foo/bar', 'master']],
+      ['uses: "foo/bar"', ['foo/bar']],
+      ['uses: "foo/bar@v1"', ['foo/bar', 'v1']],
+      ["uses: 'foo/bar'", ['foo/bar']],
+      ["uses: 'foo/bar@v1'", ['foo/bar', 'v1']],
     ],
     invalid: [],
   },

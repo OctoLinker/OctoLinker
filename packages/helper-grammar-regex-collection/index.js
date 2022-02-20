@@ -212,7 +212,14 @@ export const NET_PACKAGE = regex`
 `;
 
 export const GITHUB_ACTIONS = regex`
-  uses:\s(?<$1>[^@\s]+)
+  uses:\s*
+  ['"]?               # begin optional quote
+  (?<$1>[^@'"\s]+)    # repo with optional file path
+  (
+    @
+    (?<$2>[^'"\s]+)   # hash/tag
+  )?                  # the version is optional
+  ['"]?               # end optional quote
 `;
 
 export const JAVA_IMPORT = regex`
