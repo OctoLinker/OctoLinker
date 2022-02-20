@@ -7,10 +7,10 @@ jobs:
     steps:
     # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v1)
     - uses: actions/checkout@v1
-    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2)
-    - uses: 'actions/checkout@v2'
-    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2)
-    - uses: "actions/checkout@v2"
+    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2.4.0)
+    - uses: 'actions/checkout@v2.4.0'
+    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2.4.0)
+    - uses: "actions/checkout@v2.4.0"
     # @OctoLinkerResolve(https://github.com/actions/setup-node)
     - uses: actions/setup-node
     # @OctoLinkerResolve(https://github.com/actions/upload-artifact/tree/master)
