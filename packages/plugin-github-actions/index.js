@@ -20,7 +20,7 @@ export function isWorkflowFile(path) {
 export default {
   name: 'GitHubActions',
 
-  resolve(path, [target]) {
+  resolve(path, [target, version]) {
     if (!isWorkflowFile(path)) {
       return '';
     }
@@ -40,10 +40,18 @@ export default {
     const [org, repo, ...folder] = target.split('/');
 
     if (folder.length) {
+      if (version) {
+        return `{BASE_URL}/${join(org, repo, 'tree', version, ...folder)}`;
+      }
+
       return [
         `{BASE_URL}/${join(org, repo, 'tree', 'main', ...folder)}`,
         `{BASE_URL}/${join(org, repo, 'tree', 'master', ...folder)}`,
       ];
+    }
+
+    if (version) {
+      return `{BASE_URL}/${target}/tree/${version}`;
     }
 
     return `{BASE_URL}/${target}`;
