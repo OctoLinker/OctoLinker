@@ -35,7 +35,7 @@
     "async": "^3.2.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^27.5.1",
-    "babel-loader": "^8.2.3",
+    "babel-loader": "^8.2.4",
     "babel-preset-jest": "^27.5.1",
     "chrome-launch": "^1.1.4",
     "copy-webpack-plugin": "^10.2.4",
