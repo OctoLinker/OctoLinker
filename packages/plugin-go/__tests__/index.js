@@ -15,7 +15,7 @@ describe('go-universal', () => {
   it('resolves package', () => {
     expect(goUniversal.resolve(path, ['foo'])).toEqual([
       'https://foo',
-      'https://golang.org/pkg/foo',
+      'https://pkg.go.dev/foo',
       liveResolverQuery({ type: 'go', target: 'foo' }),
     ]);
   });
