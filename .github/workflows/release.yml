@@ -1,23 +1,53 @@
 name: Release
 on:
-  push:
-    tags:
-      - v*
+  release:
+   types: [published]
 jobs:
   release:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 16
-    - run: yarn install
-    - run: yarn build
-    - run: 'yarn release'
-      env:
-        CLIENT_ID: ${{ secrets.PUBLISHER_CHROME_CLIENT_ID }}
-        CLIENT_SECRET: ${{ secrets.PUBLISHER_CHROME_CLIENT_SECRET }}
-        REFRESH_TOKEN: ${{ secrets.PUBLISHER_CHROME_REFRESH_TOKEN }}
-        WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
-        WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
-        EXTENSION_ID: 'jlmafbaeoofdegohdhinkhilhclaklkp'
+      - name: Get version from tag
+        id: tag_name
+        run: echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+        shell: bash
+
+      - name: Checkout repository
+        uses: actions/checkout@v3.0.0
+
+      - name: Install node
+        uses: actions/setup-node@v3.1.0
+        with:
+          node-version: 16
+
+      - name: Get changelog entry
+        uses: mindsers/changelog-reader-action@v2.0.0
+        id: changelog_reader
+        with:
+          version: ${{ steps.tag_name.outputs.current_version }}
+
+      - run: yarn install
+      - run: yarn version ${{ steps.tag_name.outputs.current_version }}
+      - run: yarn build
+
+      - name: Package dist folder
+        run: tar -zcvf octolinker-${{ steps.tag_name.outputs.current_version }}.tar.gz ./dist
+
+      - name: Upload release to GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          body: ${{ steps.changelog_reader.outputs.changes }}
+          files: octolinker-${{ steps.tag_name.outputs.current_version }}.tar.gz
+
+      - name: Publish release
+        run: yarn release
+        env:
+          CLIENT_ID: ${{ secrets.PUBLISHER_CHROME_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.PUBLISHER_CHROME_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.PUBLISHER_CHROME_REFRESH_TOKEN }}
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+          EXTENSION_ID: 'jlmafbaeoofdegohdhinkhilhclaklkp'

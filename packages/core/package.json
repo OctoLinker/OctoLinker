@@ -1,6 +1,6 @@
 {
   "name": "@octolinker/core",
-  "version": "6.10.2",
+  "version": "0.0.0",
   "description": "OctoLinker browser extension core",
   "repository": "https://github.com/octolinker/octolinker/tree/main/packages/core",
   "license": "MIT",
