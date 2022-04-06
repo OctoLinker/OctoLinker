@@ -11,6 +11,7 @@ const ALLOWED_DOMAINS = [
   'gopkg.in',
   'golang.org',
   'k8s.io',
+  'pkg.go.dev',
 ];
 
 // For go.mod file

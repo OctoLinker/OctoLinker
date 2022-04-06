@@ -50,7 +50,7 @@ export default {
 
     return [
       `https://${target}`,
-      `https://golang.org/pkg/${target}`,
+      `https://pkg.go.dev/${target}`,
       liveResolverQuery({ type: 'go', target }),
     ];
   },

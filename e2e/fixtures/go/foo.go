@@ -1,12 +1,12 @@
 package master
 
-// @OctoLinkerResolve(https://golang.org/pkg/context)
+// @OctoLinkerResolve(https://pkg.go.dev/context)
 import "context"
 
-// @OctoLinkerResolve(https://golang.org/pkg/math/big)
+// @OctoLinkerResolve(https://pkg.go.dev/math/big)
 import "math/big"
 
-// @OctoLinkerResolve(https://golang.org/pkg/k8s.io/apimachinery/pkg/api/errors)
+// @OctoLinkerResolve(https://pkg.go.dev/k8s.io/apimachinery/pkg/api/errors)
 import "k8s.io/apimachinery/pkg/api/errors"
 
 // @OctoLinkerResolve(https://github.com/kubernetes/api/tree/master/core/v1)
