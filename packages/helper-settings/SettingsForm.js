@@ -181,13 +181,6 @@ export default class Form extends Component {
             checked={state.enablePrivateRepositories}
             onClick={linkState(this, 'enablePrivateRepositories')}
           />
-          <Checkbox
-            name="showUpdateNotification"
-            label="Update notification"
-            description="Show a notification if a new version is available."
-            checked={state.showUpdateNotification}
-            onClick={linkState(this, 'showUpdateNotification')}
-          />
         </form>
         <hr />
         <Stats counter={stats.counter} />
