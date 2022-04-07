@@ -23,12 +23,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Get changelog entry
-        uses: mindsers/changelog-reader-action@v2.0.0
-        id: changelog_reader
-        with:
-          version: ${{ steps.tag_name.outputs.current_version }}
-
       - run: yarn install
       - run: yarn version ${{ steps.tag_name.outputs.current_version }}
       - run: yarn build
