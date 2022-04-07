@@ -24,7 +24,7 @@ jobs:
           node-version: 16
 
       - run: yarn install
-      - run: npm version ${{ steps.tag_name.outputs.current_version }}
+      - run: npx dot-json assets/manifest.json version ${{ steps.tag_name.outputs.current_version }}
       - run: yarn build
 
       - name: Package dist folder

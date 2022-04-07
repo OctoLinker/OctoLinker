@@ -11,7 +11,6 @@
     "test": "jest",
     "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
     "test:watch": "jest --watch",
-    "version": "./scripts/version.sh",
     "release:cws": "cd dist && npx chrome-webstore-upload-cli@next upload --auto-publish",
     "release:amo": "cd dist && npx web-ext-submit@5",
     "release": "yarn release:cws && yarn release:amo",
