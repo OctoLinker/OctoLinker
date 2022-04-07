@@ -33,7 +33,6 @@ jobs:
       - name: Upload release to GitHub
         uses: softprops/action-gh-release@v1
         with:
-          body: ${{ steps.changelog_reader.outputs.changes }}
           files: octolinker-${{ steps.tag_name.outputs.current_version }}.tar.gz
 
       - name: Publish release
