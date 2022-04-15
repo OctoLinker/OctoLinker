@@ -2,6 +2,8 @@ name: Release
 on:
   release:
    types: [published]
+env:
+  FORCE_COLOR: 2
 jobs:
   release:
     runs-on: ubuntu-latest
