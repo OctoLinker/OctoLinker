@@ -40,7 +40,7 @@ jobs:
     needs: build
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/download-artifact@v2 # npm install+build seems slow and problematic on macOS
+    - uses: actions/download-artifact@v3 # npm install+build seems slow and problematic on macOS
       with:
         path: dist
         name: artifact 
