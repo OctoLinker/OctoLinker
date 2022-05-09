@@ -33,7 +33,7 @@
     "assert": "^2.0.0",
     "async": "^3.2.3",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^28.0.3",
+    "babel-jest": "^28.1.0",
     "babel-loader": "^8.2.5",
     "babel-preset-jest": "^28.0.2",
     "chrome-launch": "^1.1.4",
