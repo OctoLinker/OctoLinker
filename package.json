@@ -62,7 +62,7 @@
     "url": "^0.11.0",
     "vm-browserify": "^1.1.2",
     "web-ext": "^6.8.0",
-    "webpack": "^5.72.0",
+    "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2",
     "webpack-extension-reloader": "^1.1.4"
   },
