@@ -4075,10 +4075,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-github-injection@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/github-injection/-/github-injection-1.0.1.tgz#fad4bee67b988993c527556101a87138245ed0dc"
-  integrity sha1-+tS+5nuYiZPFJ1VhAahxOCRe0Nw=
+github-injection@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/github-injection/-/github-injection-1.1.0.tgz#3804bcb65cfdc302df49c8a5152bd43ac00aa95f"
+  integrity sha512-XoypofQSVTLaMlMlcp52Y6v+E58FhonB2iK2FzlBPRP/XxrnfJa4rEDgiD5phiki2jeW5oaP+tcwplbiiA3rMg==
 
 github-url-from-git@^1.5.0:
   version "1.5.0"
