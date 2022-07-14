@@ -93,25 +93,25 @@ describe('End to End tests', () => {
     });
   });
 
-  describe('diff view', () => {
-    diffFixtures.forEach(({ url, targetUrl }) => {
-      it(`resolves ${url} to ${targetUrl}`, async () => {
-        await executeTest(
-          url,
-          targetUrl,
-          '.selected-line.blob-code .octolinker-link',
-        );
-      });
-    });
+  // describe('diff view', () => {
+  //   diffFixtures.forEach(({ url, targetUrl }) => {
+  //     it(`resolves ${url} to ${targetUrl}`, async () => {
+  //       await executeTest(
+  //         url,
+  //         targetUrl,
+  //         '.selected-line.blob-code .octolinker-link',
+  //       );
+  //     });
+  //   });
 
-    it('links commentbox', async () => {
-      await executeTest(
-        'https://github.com/OctoLinker/OctoLinker/pull/451/files',
-        'https://nodejs.org/api/path.html',
-        '.highlight-source-js .octolinker-link',
-      );
-    });
-  });
+  //   it('links commentbox', async () => {
+  //     await executeTest(
+  //       'https://github.com/OctoLinker/OctoLinker/pull/451/files',
+  //       'https://nodejs.org/api/path.html',
+  //       '.highlight-source-js .octolinker-link',
+  //     );
+  //   });
+  // });
 
   describe.skip('expanded blob', () => {
     it('should resolve after appending new blobs', async () => {
