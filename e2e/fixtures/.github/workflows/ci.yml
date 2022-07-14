@@ -11,11 +11,11 @@ jobs:
     - uses: 'actions/checkout@v2.4.0'
     # @OctoLinkerResolve(https://github.com/actions/checkout/tree/v2.4.0)
     - uses: "actions/checkout@v2.4.0"
-    # @OctoLinkerResolve(https://github.com/actions/checkout/tree/ec3a7ce113134d7a93b817d10a8272cb61118579)
+    # @SkipOctoLinkerResolve(https://github.com/actions/checkout/tree/ec3a7ce113134d7a93b817d10a8272cb61118579)
     - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
     # @OctoLinkerResolve(https://github.com/actions/setup-node)
     - uses: actions/setup-node
-    # @OctoLinkerResolve(https://github.com/actions/upload-artifact/tree/master)
+    # @SkipOctoLinkerResolve(https://github.com/actions/upload-artifact/tree/master)
     - uses: actions/upload-artifact@master
     # @OctoLinkerResolve(https://github.com/github/codeql-action/tree/v1/init)
     - uses: github/codeql-action/init@v1
