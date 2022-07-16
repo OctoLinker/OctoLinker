@@ -7,6 +7,6 @@
   "main": "./index.js",
   "dependencies": {
     "escape-regex-string": "^1.0.4",
-    "xregexp": "^5.0.2"
+    "xregexp": "^5.1.1"
   }
 }

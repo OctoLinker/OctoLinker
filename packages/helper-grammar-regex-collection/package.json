@@ -8,6 +8,6 @@
   "dependencies": {
     "@octolinker/helper-parser-byline": "^1.0.0",
     "escape-regex-string": "^1.0.4",
-    "xregexp": "^5.0.2"
+    "xregexp": "^5.1.1"
   }
 }
