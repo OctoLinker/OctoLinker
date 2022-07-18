@@ -6,6 +6,6 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "jsonpath-plus": "6.0.1"
+    "jsonpath-plus": "7.0.0"
   }
 }
