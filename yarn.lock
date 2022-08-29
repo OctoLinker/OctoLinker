@@ -2225,6 +2225,16 @@ babel-plugin-jest-hoist@^28.1.1:
     "@types/babel__core" "^7.1.14"
     "@types/babel__traverse" "^7.0.6"
 
+babel-plugin-jest-hoist@^29.0.0:
+  version "29.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-29.0.0.tgz#ae4873399a199ede93697a15919d3d0f614a2eb1"
+  integrity sha512-B9oaXrlxXHFWeWqhDPg03iqQd2UN/mg/VdZOsLaqAVBkztru3ctTryAI4zisxLEEgmcUnLTKewqx0gGifoXD3A==
+  dependencies:
+    "@babel/template" "^7.3.3"
+    "@babel/types" "^7.3.3"
+    "@types/babel__core" "^7.1.14"
+    "@types/babel__traverse" "^7.0.6"
+
 babel-plugin-polyfill-corejs2@^0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/babel-plugin-polyfill-corejs2/-/babel-plugin-polyfill-corejs2-0.3.2.tgz#e4c31d4c89b56f3cf85b92558954c66b54bd972d"
@@ -2275,12 +2285,20 @@ babel-preset-jest@^27.5.1:
     babel-plugin-jest-hoist "^27.5.1"
     babel-preset-current-node-syntax "^1.0.0"
 
-babel-preset-jest@^28.0.2, babel-preset-jest@^28.1.1:
+babel-preset-jest@^28.1.1:
   version "28.1.1"
   resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-28.1.1.tgz#5b6e5e69f963eb2d70f739c607b8f723c0ee75e4"
   integrity sha512-FCq9Oud0ReTeWtcneYf/48981aTfXYuB9gbU4rBNNJVBSQ6ssv7E6v/qvbBxtOWwZFXjLZwpg+W3q7J6vhH25g==
   dependencies:
     babel-plugin-jest-hoist "^28.1.1"
+    babel-preset-current-node-syntax "^1.0.0"
+
+babel-preset-jest@^29.0.0:
+  version "29.0.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-29.0.0.tgz#52d7f1afe3a15d14a3c5ab4349cbd388d98d330b"
+  integrity sha512-B5Ke47Xcs8rDF3p1korT3LoilpADCwbG93ALqtvqu6Xpf4d8alKkrCBTExbNzdHJcIuEPpfYvEaFFRGee2kUgQ==
+  dependencies:
+    babel-plugin-jest-hoist "^29.0.0"
     babel-preset-current-node-syntax "^1.0.0"
 
 balanced-match@^1.0.0:
