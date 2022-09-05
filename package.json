@@ -40,7 +40,7 @@
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
     "dot-json": "^1.2.2",
-    "dotenv": "^16.0.1",
+    "dotenv": "^16.0.2",
     "eslint": "^8.23.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
