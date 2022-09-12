@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3.0.2
       with:
         ref: ${{ github.event.pull_request.head.sha }}
     - uses: actions/setup-node@v3
@@ -39,7 +39,7 @@ jobs:
     runs-on: macos-latest
     needs: build
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3.0.2
     - uses: actions/download-artifact@v3 # npm install+build seems slow and problematic on macOS
       with:
         path: dist
