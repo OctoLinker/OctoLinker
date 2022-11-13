@@ -31,3 +31,4 @@ export { default as Vim } from '@octolinker/plugin-vim';
 export { default as GitHubActions } from '@octolinker/plugin-github-actions';
 export { default as GitHubCodeowners } from '@octolinker/plugin-github-codeowners';
 export { default as PHP } from '@octolinker/plugin-php';
+export { default as VSCodeExtensionsManifest } from '@octolinker/plugin-vscode-extensions-manifest';

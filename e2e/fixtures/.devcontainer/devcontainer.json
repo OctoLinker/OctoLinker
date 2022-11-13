@@ -1,0 +1,18 @@
+// For format details, see https://aka.ms/devcontainer.json
+{
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    // @OctoLinkerResolve(https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    "dbaeumer.vscode-eslint"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // @OctoLinkerResolve(https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
+        "ms-azuretools.vscode-docker",
+        // @OctoLinkerResolve(https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+        "eamodio.gitlens"
+      ]
+    }
+  }
+}

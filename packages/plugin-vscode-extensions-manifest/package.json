@@ -1,0 +1,14 @@
+{
+  "name": "@octolinker/plugin-vscode-extensions-manifest",
+  "version": "1.0.0",
+  "description": "",
+  "repository": "https://github.com/octolinker/octolinker/tree/main/packages/plugin-vscode-extensions-manifest",
+  "license": "MIT",
+  "main": "./index.js",
+  "dependencies": {
+    "@octolinker/helper-process-json": "1.0.0",
+    "@octolinker/helper-regex-builder": "1.0.0",
+    "@octolinker/resolver-trusted-url": "1.0.0",
+    "@octolinker/helper-insert-link": "1.0.0"
+  }
+}
