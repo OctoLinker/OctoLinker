@@ -7,12 +7,17 @@ function $$(selector, rootElement = document) {
 }
 
 function getBlobCodeInner(el) {
+  if ($$('.react-blob-row').length) {
+    return $$('.react-blob-row', el);
+  }
+
   return $$('.blob-code-inner', el);
 }
 
 function getBlobWrapper(rootElement) {
   return $$(
     `
+      [data-selector="repos-split-pane-content"] table,
       .blob-wrapper,
       .js-blob-wrapper,
       [class*="highlight-source-"]
@@ -56,6 +61,11 @@ function getParentSha() {
 }
 
 function getPath(el) {
+  // New code view experience
+  if ($('react-app')?.attributes['initial-path']?.value) {
+    return $('react-app').attributes['initial-path'].value;
+  }
+
   // When current page is a diff view get path from "View" button
   let rootSelector =
     el.parentElement.parentElement.querySelectorAll('.file-actions a');
@@ -122,6 +132,11 @@ function getLineNumber(el) {
 }
 
 function diffMetaInformation(el) {
+  // New code view experience
+  if (el.classList.contains('react-blob-row')) {
+    return {};
+  }
+
   const td = el.closest('td');
 
   // Blob view
