@@ -36,7 +36,7 @@ describe('blob-reader', () => {
         );
       });
 
-      it('when PR comment is up-to-date', () => {
+      it.skip('when PR comment is up-to-date', () => {
         fixture.load(
           '/packages/blob-reader/fixtures/github.com/pull/comments.html',
         );
@@ -50,7 +50,7 @@ describe('blob-reader', () => {
         );
       });
 
-      it('when PR comment is outdated', () => {
+      it.skip('when PR comment is outdated', () => {
         fixture.load(
           '/packages/blob-reader/fixtures/github.com/pull/comments.html',
         );
