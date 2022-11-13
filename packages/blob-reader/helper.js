@@ -86,6 +86,13 @@ function getPath(el) {
     ret = $('.js-permalink-shortcut')?.getAttribute('href');
   }
 
+  // When current page is an actions run workflow file
+  if (!ret) {
+    ret = $(
+      '.actions-fullwidth-module .text-small .Link--secondary',
+    )?.getAttribute('href');
+  }
+
   // When current page is a gist, get path from blob name
   if (isGist()) {
     ret = $('.gist-blob-name', el.parentElement)?.textContent.trim();
