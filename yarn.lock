@@ -8227,10 +8227,10 @@ web-ext@^6.8.0:
     yargs "16.2.0"
     zip-dir "2.0.0"
 
-webext-base-css@^1.4.2:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.4.2.tgz#bd8e0ee0a81f592ecce9cb6cba915507d8fff838"
-  integrity sha512-Le1bQea6wlkvKIrg0J5MH/EWh0gxRdlR8q9Q1d7pHbHNQ2ltHAaoz/q9UQd1GpEq7i+R5Acd3VGIDVbaUCbxhw==
+webext-base-css@^1.4.3:
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.4.3.tgz#413b28bfca0e65fd42d7652fb963eedaad327191"
+  integrity sha512-LKbDiNn94MTu9Uz1MwgSLjkPIWfBAyt+xpU9Ad+6fy3A7BpxSSFVmqrvcs/6CzaTdRb+5gL1xtLVB/++DZP05g==
 
 webextension-polyfill@^0.10.0:
   version "0.10.0"
