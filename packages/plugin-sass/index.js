@@ -1,8 +1,10 @@
-import { join } from 'path';
+import { posix } from 'path';
 import pathParse from 'path-parse';
 import { CSS_IMPORT } from '@octolinker/helper-grammar-regex-collection';
 import relativeFile from '@octolinker/resolver-relative-file';
 import githubSearch from '@octolinker/resolver-github-search';
+
+const { join } = posix;
 
 export default {
   name: 'Sass',

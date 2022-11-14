@@ -1,10 +1,12 @@
-import { join } from 'path';
+import { posix } from 'path';
 import {
   REQUIRE,
   REQUIRE_RELATIVE,
 } from '@octolinker/helper-grammar-regex-collection';
 import liveResolverQuery from '@octolinker/resolver-live-query';
 import relativeFile from '@octolinker/resolver-relative-file';
+
+const { join } = posix;
 
 export default {
   name: 'Ruby',

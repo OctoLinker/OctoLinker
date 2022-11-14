@@ -1,6 +1,7 @@
 {
   "name": "OctoLinker",
   "version": "0.0.0",
+  "type": "module",
   "engines": {
     "node": ">= 16",
     "npm": ">= 7"
@@ -8,8 +9,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "yarn lint",
-    "test": "jest",
-    "e2e": "node ./e2e/generate-fixtures-json.js && jest --config=e2e/jest-e2e.config.js",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "e2e": "node ./e2e/generate-fixtures-json.cjs && jest --config=e2e/jest-e2e.config.cjs",
     "test:watch": "jest --watch",
     "release:cws": "cd dist && npx chrome-webstore-upload-cli@next upload --auto-publish",
     "release:amo": "cd dist && npx web-ext-submit@5",
@@ -17,7 +18,7 @@
     "build": "webpack --mode=production",
     "start": "webpack --watch --mode=development",
     "chrome-open": "yarn build && yarn chrome-launch --",
-    "chrome-launch": "node scripts/chrome-launch.js",
+    "chrome-launch": "node scripts/chrome-launch.cjs",
     "firefox-open": "yarn build && yarn firefox-launch --",
     "firefox-launch": "web-ext run --source-dir dist --pref startup.homepage_welcome_url=https://github.com/OctoLinker/OctoLinker/blob/main/package.json",
     "safari-open": "yarn build && yarn safari-pack && yarn safari-launch --",
@@ -48,6 +49,7 @@
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.31.8",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
     "jest-fetch-mock": "^3.0.3",

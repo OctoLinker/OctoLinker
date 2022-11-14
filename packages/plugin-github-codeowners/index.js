@@ -1,6 +1,8 @@
-import { join, dirname, extname } from 'path';
+import { dirname, extname, posix } from 'path';
 import relativeFile from '@octolinker/resolver-relative-file';
 import resolverTrustedUrl from '@octolinker/resolver-trusted-url';
+
+const { join } = posix;
 
 export default {
   name: 'GithubCodeowners',
