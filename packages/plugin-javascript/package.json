@@ -10,6 +10,6 @@
     "@octolinker/resolver-trusted-url": "1.0.0",
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
     "builtins": "^4.1.0",
-    "concat-map": "^0.0.1"
+    "concat-map": "^0.0.2"
   }
 }
