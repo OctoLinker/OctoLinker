@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { jest } from '@jest/globals';
 import fetchMock from 'jest-fetch-mock';
-
-jest.mock('path');
 
 global.fetch = fetchMock;
 
@@ -17,7 +17,7 @@ chrome.runtime.id = 'fake-chrome';
 
 global.fixture = {
   load: (file) => {
-    const fullPath = path.join(__dirname, file);
+    const fullPath = join(fileURLToPath(import.meta.url), '..', file);
     const fixture = fs.readFileSync(fullPath);
     document.body.innerHTML = fixture.toString();
   },

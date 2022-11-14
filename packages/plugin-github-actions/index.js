@@ -1,7 +1,8 @@
-import { join } from 'path';
+import { posix } from 'path';
 import { GITHUB_ACTIONS } from '@octolinker/helper-grammar-regex-collection';
 import { dockerUrl } from '@octolinker/plugin-docker';
 
+const { join } = posix;
 const DOCKER_SOURCE = 'docker://';
 
 export function isWorkflowFile(path) {
