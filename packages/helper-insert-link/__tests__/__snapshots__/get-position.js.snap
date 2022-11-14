@@ -3,14 +3,14 @@
 exports[`get-position match input "START
 hello
 END" with regexp "/START\\n(hello)\\nEND/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 5,
     "endPosInBlob": 11,
     "lineNumber": 2,
     "startPos": 0,
     "startPosInBlob": 6,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -21,14 +21,14 @@ exports[`get-position match input "foo
 START
 hello
 END" with regexp "/START\\n(hello)\\nEND/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 5,
     "endPosInBlob": 15,
     "lineNumber": 3,
     "startPos": 0,
     "startPosInBlob": 10,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -39,14 +39,14 @@ exports[`get-position match input "foo
 START
 hello
 END" with regexp "/START\\n(hello)\\nEND/g" 2`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 5,
     "endPosInBlob": 15,
     "lineNumber": 3,
     "startPos": 0,
     "startPosInBlob": 10,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -55,14 +55,14 @@ Array [
 
 exports[`get-position match input "foo
 hello "hello" bar" with regexp "/(["']hello["'])/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 13,
     "endPosInBlob": 17,
     "lineNumber": 2,
     "startPos": 6,
     "startPosInBlob": 10,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -71,14 +71,14 @@ Array [
 
 exports[`get-position match input "foo
 hello bar" with regexp "/(hello)/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 5,
     "endPosInBlob": 9,
     "lineNumber": 2,
     "startPos": 0,
     "startPosInBlob": 4,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -86,14 +86,14 @@ Array [
 `;
 
 exports[`get-position match input "foo hello "hello" bar" with regexp "/(["']hello["'])/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 17,
     "endPosInBlob": 17,
     "lineNumber": 1,
     "startPos": 10,
     "startPosInBlob": 10,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -101,14 +101,14 @@ Array [
 `;
 
 exports[`get-position match input "foo hello "hello"" with regexp "/(["']hello["'])/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 17,
     "endPosInBlob": 17,
     "lineNumber": 1,
     "startPos": 10,
     "startPosInBlob": 10,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -116,14 +116,14 @@ Array [
 `;
 
 exports[`get-position match input "foo hello bar" with regexp "/(hello)/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 9,
     "endPosInBlob": 9,
     "lineNumber": 1,
     "startPos": 4,
     "startPosInBlob": 4,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -131,14 +131,14 @@ Array [
 `;
 
 exports[`get-position match input "foo hello" with regexp "/(hello)/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 9,
     "endPosInBlob": 9,
     "lineNumber": 1,
     "startPos": 4,
     "startPosInBlob": 4,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -146,14 +146,14 @@ Array [
 `;
 
 exports[`get-position match input "hello "hello"" with regexp "/(["']hello["'])/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 13,
     "endPosInBlob": 13,
     "lineNumber": 1,
     "startPos": 6,
     "startPosInBlob": 6,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -161,14 +161,14 @@ Array [
 `;
 
 exports[`get-position match input "hello 'hello'" with regexp "/(["']hello["'])/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 13,
     "endPosInBlob": 13,
     "lineNumber": 1,
     "startPos": 6,
     "startPosInBlob": 6,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -176,14 +176,14 @@ Array [
 `;
 
 exports[`get-position match input "hello" with regexp "/(hello)/g" 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 5,
     "endPosInBlob": 5,
     "lineNumber": 1,
     "startPos": 0,
     "startPosInBlob": 0,
-    "values": Array [
+    "values": [
       "hello",
     ],
   },
@@ -191,14 +191,14 @@ Array [
 `;
 
 exports[`get-position returns an empty array when capture group is empty 1`] = `
-Array [
-  Object {
+[
+  {
     "endPos": 3,
     "endPosInBlob": 3,
     "lineNumber": 1,
     "startPos": 0,
     "startPosInBlob": 0,
-    "values": Array [
+    "values": [
       "foo",
       "bar",
     ],

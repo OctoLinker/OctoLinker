@@ -14,8 +14,8 @@ exports[`insert-link does not remove closing parentheses from commented out requ
 `;
 
 exports[`insert-link returns returns an array 1`] = `
-Array [
-  Object {
+[
+  {
     "link": <a
       class="octolinker-link"
       data-pjax="true"

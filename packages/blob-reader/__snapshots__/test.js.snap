@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`blob-reader blob fetchBlob fetch raw blob and update blob.lines property 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "// Most popular rabbit names",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Thumper",
   },
-  Object {
+  {
     "lineNumber": 4,
     "value": "Daisy",
   },
@@ -22,20 +22,20 @@ Array [
 `;
 
 exports[`blob-reader blob internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "// Most popular rabbit names",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Thumper",
   },
-  Object {
+  {
     "lineNumber": 4,
     "value": "Daisy",
   },
@@ -43,7 +43,7 @@ Array [
 `;
 
 exports[`blob-reader blob toJSON() returns a JSON representation of the blobs content 1`] = `
-Object {
+{
   "foo": "bar",
 }
 `;
@@ -54,24 +54,24 @@ b"
 `;
 
 exports[`blob-reader diff split left internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "// Most popular rabbit names",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Thumper",
   },
-  Object {
+  {
     "lineNumber": 4,
     "value": "Daisy",
   },
-  Object {
+  {
     "lineNumber": 5,
     "value": "Lily",
   },
@@ -87,28 +87,28 @@ Lily"
 `;
 
 exports[`blob-reader diff split right internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "// Most popular rabbit names",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Thumper",
   },
-  Object {
+  {
     "lineNumber": 4,
     "value": "Mozart",
   },
-  Object {
+  {
     "lineNumber": 5,
     "value": "Daisy",
   },
-  Object {
+  {
     "lineNumber": 6,
     "value": "Annelie",
   },
@@ -125,24 +125,24 @@ Annelie"
 `;
 
 exports[`blob-reader diff unified left internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "// Most popular rabbit names",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Thumper",
   },
-  Object {
+  {
     "lineNumber": 5,
     "value": "Daisy",
   },
-  Object {
+  {
     "lineNumber": 5,
     "value": "Lily",
   },
@@ -158,28 +158,28 @@ Lily"
 `;
 
 exports[`blob-reader diff unified right internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "// Most popular rabbit names",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Thumper",
   },
-  Object {
+  {
     "lineNumber": 4,
     "value": "Mozart",
   },
-  Object {
+  {
     "lineNumber": 5,
     "value": "Daisy",
   },
-  Object {
+  {
     "lineNumber": 6,
     "value": "Annelie",
   },
@@ -196,16 +196,16 @@ Annelie"
 `;
 
 exports[`blob-reader gist internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "Max",
   },
-  Object {
+  {
     "lineNumber": 2,
     "value": "Buddy",
   },
-  Object {
+  {
     "lineNumber": 3,
     "value": "Charlie",
   },
@@ -213,8 +213,8 @@ Array [
 `;
 
 exports[`blob-reader issue internals 1`] = `
-Array [
-  Object {
+[
+  {
     "lineNumber": 1,
     "value": "import os",
   },
