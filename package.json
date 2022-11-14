@@ -35,7 +35,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^28.1.1",
     "babel-loader": "^8.2.5",
-    "babel-preset-jest": "^28.0.2",
+    "babel-preset-jest": "^29.2.0",
     "chrome-launch": "^1.1.4",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.7.1",
