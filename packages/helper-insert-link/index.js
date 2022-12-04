@@ -38,6 +38,9 @@ function injectUrl(node, value, startOffset, endOffset) {
         return el;
       },
     });
+
+    // Prevent's GitHub's code navigation styling from being applied to our links
+    el.parentElement.setAttribute('clickadded', 'false');
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
