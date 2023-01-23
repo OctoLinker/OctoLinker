@@ -47,7 +47,7 @@
     "eslint-plugin-import": "^2.27.4",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.32.0",
+    "eslint-plugin-react": "^7.32.1",
     "jest": "^27.5.1",
     "jest-fetch-mock": "^3.0.3",
     "jest-puppeteer": "^6.2.0",
