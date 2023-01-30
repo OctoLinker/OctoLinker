@@ -2213,10 +2213,10 @@ babel-jest@^29.4.1:
     graceful-fs "^4.2.9"
     slash "^3.0.0"
 
-babel-loader@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-9.1.0.tgz#839e9ae88aea930864ef9ec0f356dfca96ecf238"
-  integrity sha512-Antt61KJPinUMwHwIIz9T5zfMgevnfZkEVWYDWlG888fgdvRRGD0JTuf/fFozQnfT+uq64sk1bmdHDy/mOEWnA==
+babel-loader@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-9.1.2.tgz#a16a080de52d08854ee14570469905a5fc00d39c"
+  integrity sha512-mN14niXW43tddohGl8HPu5yfQq70iUThvFL/4QzESA7GcZoC0eVOhvWdQ8+3UlSjaDE9MVtsW9mxDY07W7VpVA==
   dependencies:
     find-cache-dir "^3.3.2"
     schema-utils "^4.0.0"
@@ -2302,7 +2302,7 @@ babel-preset-jest@^27.5.1:
     babel-plugin-jest-hoist "^27.5.1"
     babel-preset-current-node-syntax "^1.0.0"
 
-babel-preset-jest@^29.2.0, babel-preset-jest@^29.4.0:
+babel-preset-jest@^29.4.0:
   version "29.4.0"
   resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-29.4.0.tgz#c2b03c548b02dea0a18ae21d5759c136f9251ee4"
   integrity sha512-fUB9vZflUSM3dO/6M2TCAepTzvA4VkOvl67PjErcrQMGt9Eve7uazaeyCZ2th3UtI7ljpiBJES0F7A1vBRsLZA==
