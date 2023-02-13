@@ -2242,10 +2242,10 @@ babel-plugin-jest-hoist@^27.5.1:
     "@types/babel__core" "^7.0.0"
     "@types/babel__traverse" "^7.0.6"
 
-babel-plugin-jest-hoist@^29.4.0:
-  version "29.4.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-29.4.0.tgz#3fd3dfcedf645932df6d0c9fc3d9a704dd860248"
-  integrity sha512-a/sZRLQJEmsmejQ2rPEUe35nO1+C9dc9O1gplH1SXmJxveQSRUYdBk8yGZG/VOUuZs1u2aHZJusEGoRMbhhwCg==
+babel-plugin-jest-hoist@^29.4.2:
+  version "29.4.2"
+  resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-29.4.2.tgz#22aa43e255230f02371ffef1cac7eedef58f60bc"
+  integrity sha512-5HZRCfMeWypFEonRbEkwWXtNS1sQK159LhRVyRuLzyfVBxDy/34Tr/rg4YVi0SScSJ4fqeaR/OIeceJ/LaQ0pQ==
   dependencies:
     "@babel/template" "^7.3.3"
     "@babel/types" "^7.3.3"
@@ -2302,12 +2302,12 @@ babel-preset-jest@^27.5.1:
     babel-plugin-jest-hoist "^27.5.1"
     babel-preset-current-node-syntax "^1.0.0"
 
-babel-preset-jest@^29.4.0:
-  version "29.4.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-29.4.0.tgz#c2b03c548b02dea0a18ae21d5759c136f9251ee4"
-  integrity sha512-fUB9vZflUSM3dO/6M2TCAepTzvA4VkOvl67PjErcrQMGt9Eve7uazaeyCZ2th3UtI7ljpiBJES0F7A1vBRsLZA==
+babel-preset-jest@^29.4.0, babel-preset-jest@^29.4.2:
+  version "29.4.2"
+  resolved "https://registry.yarnpkg.com/babel-preset-jest/-/babel-preset-jest-29.4.2.tgz#f0b20c6a79a9f155515e72a2d4f537fe002a4e38"
+  integrity sha512-ecWdaLY/8JyfUDr0oELBMpj3R5I1L6ZqG+kRJmwqfHtLWuPrJStR0LUkvUhfykJWTsXXMnohsayN/twltBbDrQ==
   dependencies:
-    babel-plugin-jest-hoist "^29.4.0"
+    babel-plugin-jest-hoist "^29.4.2"
     babel-preset-current-node-syntax "^1.0.0"
 
 balanced-match@^1.0.0:
