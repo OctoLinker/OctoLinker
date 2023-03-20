@@ -58,7 +58,7 @@
     "puppeteer": "^16.2.0",
     "recursive-readdir": "^2.2.3",
     "stream-browserify": "^3.0.0",
-    "style-loader": "^3.3.1",
+    "style-loader": "^3.3.2",
     "url": "^0.11.0",
     "vm-browserify": "^1.1.2",
     "web-ext": "^7.5.0",
