@@ -25,7 +25,7 @@
     "safari-launch": "open 'safari/build/Release/OctoLinker.app'"
   },
   "devDependencies": {
-    "@babel/core": "^7.21.0",
+    "@babel/core": "^7.21.3",
     "@babel/eslint-parser": "^7.21.3",
     "@babel/plugin-transform-react-jsx": "^7.21.0",
     "@babel/plugin-transform-runtime": "^7.21.0",
