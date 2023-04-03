@@ -55,7 +55,7 @@
     "path-browserify": "^1.0.1",
     "prettier": "^2.8.7",
     "process": "^0.11.10",
-    "puppeteer": "^16.2.0",
+    "puppeteer": "^19.8.3",
     "recursive-readdir": "^2.2.3",
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.2",
