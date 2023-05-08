@@ -8321,10 +8321,10 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-web-ext@^7.6.1:
-  version "7.6.1"
-  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-7.6.1.tgz#cadfdd98cdeb7fdd6edadc6e1746705e140f180a"
-  integrity sha512-zU7nCiUiNgrZbiF1M9f1HJmwoeyKqb/QTahsEF8ke6aBFQYK6x3NcASi7Mrd7vUrPUvhWLvWB1YFC72VZnARAg==
+web-ext@^7.6.2:
+  version "7.6.2"
+  resolved "https://registry.yarnpkg.com/web-ext/-/web-ext-7.6.2.tgz#70c3cd64b915e32819a99630c4c60758017e6512"
+  integrity sha512-xlxbzgFBIS/UWWlvWxyR1PIqRRzDj1cutoHh+VZu4ZTcJTfv35KVdKkLRZv4PQwHu4dg8VfTg7WEcNP4QLaaFQ==
   dependencies:
     "@babel/runtime" "7.21.0"
     "@devicefarmer/adbkit" "3.2.3"
