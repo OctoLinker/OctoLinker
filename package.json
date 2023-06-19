@@ -59,7 +59,7 @@
     "recursive-readdir": "^2.2.3",
     "stream-browserify": "^3.0.0",
     "style-loader": "^3.3.3",
-    "url": "^0.11.0",
+    "url": "^0.11.1",
     "vm-browserify": "^1.1.2",
     "web-ext": "^7.6.2",
     "webpack": "^5.87.0",
