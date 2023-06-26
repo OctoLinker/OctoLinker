@@ -8,6 +8,6 @@
   "dependencies": {
     "@octolinker/helper-grammar-regex-collection": "1.0.0",
     "github-url-from-username-repo": "^1.0.2",
-    "giturl": "^1.0.0"
+    "giturl": "^2.0.0"
   }
 }

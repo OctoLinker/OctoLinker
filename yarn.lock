@@ -4349,10 +4349,10 @@ github-url-parse@^0.1.0:
   resolved "https://registry.yarnpkg.com/github-url-parse/-/github-url-parse-0.1.0.tgz#1f7109d10f251390777f6130ead57342d283ea8f"
   integrity sha1-H3EJ0Q8lE5B3f2Ew6tVzQtKD6o8=
 
-giturl@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/giturl/-/giturl-1.0.1.tgz#926c69bda5c48a3d8f74254e99f826835e6a4aa0"
-  integrity sha512-wQourBdI13n8tbjcZTDl6k+ZrCRMU6p9vfp9jknZq+zfWc8xXNztpZFM4XkPHVzHcMSUZxEMYYKZjIGkPlei6Q==
+giturl@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/giturl/-/giturl-2.0.0.tgz#98c1b83823a46965a2f889f842e2561c62f09dd6"
+  integrity sha512-FB0MmghWLcqsyrBZyqsLCNeS2kIzYymT34t/6BxM5R0/9Pxvj0K1eK25SBbwRHMjKMLgQ7nYqBSduF6XyfkgFg==
 
 glob-parent@^5.1.2:
   version "5.1.2"
