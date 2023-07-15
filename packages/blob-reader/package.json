@@ -6,6 +6,7 @@
   "license": "MIT",
   "main": "./index.js",
   "dependencies": {
-    "github-url-parse": "^0.1.0"
+    "github-url-parse": "^0.1.0",
+    "strip-json-comments": "^5.0.0"
   }
 }

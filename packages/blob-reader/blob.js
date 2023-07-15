@@ -1,4 +1,5 @@
 import ghParse from 'github-url-parse';
+import stripJsonComments from 'strip-json-comments';
 
 async function fetchRaw({ user, repo, ref, path }) {
   const response = await fetch(
@@ -67,7 +68,7 @@ export default class Blob {
 
   toJSON() {
     try {
-      return JSON.parse(this.toString());
+      return JSON.parse(stripJsonComments(this.toString()));
     } catch (err) {
       return {};
     }

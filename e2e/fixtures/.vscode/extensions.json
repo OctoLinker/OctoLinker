@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    // @OctoLinkerResolve(https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    "dbaeumer.vscode-eslint",
+    // @OctoLinkerResolve(https://marketplace.visualstudio.com/items?itemName=rbuckton.tsserver-live-reload)
+    "rbuckton.tsserver-live-reload"
+  ],
+
+  "unwantedRecommendations": [
+    // @OctoLinkerResolve(https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
+    "ms-vscode.vscode-typescript-tslint-plugin"
+  ]
+}

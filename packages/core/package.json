@@ -45,6 +45,7 @@
     "@octolinker/plugin-solidity": "1.0.0",
     "@octolinker/plugin-typescript": "1.0.0",
     "@octolinker/plugin-vim": "1.0.0",
+    "@octolinker/plugin-vscode-extensions-manifest": "1.0.0",
     "@octolinker/user-interface": "1.0.0",
     "github-injection": "^1.1.0",
     "lodash.isequal": "^4.5.0",

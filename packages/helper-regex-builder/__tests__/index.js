@@ -1,4 +1,8 @@
-import { jsonRegExValue, jsonRegExKeyValue } from '../index';
+import {
+  jsonRegExArrayValue,
+  jsonRegExKeyValue,
+  jsonRegExValue,
+} from '../index';
 
 describe('helper-regex-builder', () => {
   it('jsonRegExValue', () => {
@@ -15,5 +19,9 @@ describe('helper-regex-builder', () => {
     expect(jsonRegExKeyValue('foo', 'bar', true)).toEqual(
       /("foo")\s*:\s*"(bar)"/g,
     );
+  });
+
+  it('jsonRegExArrayValue', () => {
+    expect(jsonRegExArrayValue('foo')).toEqual(/("foo")/g);
   });
 });
