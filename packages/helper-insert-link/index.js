@@ -32,6 +32,13 @@ function injectUrl(node, value, startOffset, endOffset) {
           return portion.text;
         }
 
+        const isAlreadyWrapped = (
+          portion.node.parentNode || portion.node
+        ).classList.contains(CLASS_NAME);
+        if (isAlreadyWrapped) {
+          return portion.text;
+        }
+
         el = createLinkElement();
         el.textContent = portion.text;
 

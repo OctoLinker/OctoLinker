@@ -32,6 +32,7 @@
     "@octolinker/plugin-html": "1.0.0",
     "@octolinker/plugin-java": "1.0.0",
     "@octolinker/plugin-javascript": "1.0.0",
+    "@octolinker/plugin-json-config": "1.0.0",
     "@octolinker/plugin-less": "1.0.0",
     "@octolinker/plugin-nodejs-relative-path": "1.0.0",
     "@octolinker/plugin-npm-manifest": "1.0.0",

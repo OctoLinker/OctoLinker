@@ -15,6 +15,7 @@ export { default as Homebrew } from '@octolinker/plugin-homebrew-manifest';
 export { default as HTML } from '@octolinker/plugin-html';
 export { default as Java } from '@octolinker/plugin-java';
 export { default as JavaScript } from '@octolinker/plugin-javascript';
+export { default as Jsonconfig } from '@octolinker/plugin-json-config';
 export { default as Less } from '@octolinker/plugin-less';
 export { default as NodejsRelativePath } from '@octolinker/plugin-nodejs-relative-path';
 export { default as NpmManifest } from '@octolinker/plugin-npm-manifest';
