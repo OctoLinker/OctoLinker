@@ -59,7 +59,7 @@ export default {
 
   getPattern() {
     return {
-      pathRegexes: [/\.ya?ml$/],
+      pathRegexes: [/\.ya?ml$/, /\/actions\/runs\/\d*\/workflow$/],
       githubClasses: [],
     };
   },
