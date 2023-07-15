@@ -20,3 +20,32 @@ env_logger = "0.5"
 
 # @OctoLinkerResolve(https://github.com/tokio-rs/bytes)
 bytes = "0.5"
+
+# @OctoLinkerResolve(https://github.com/tokio-rs/slab)
+slab = { version = "0.4.1", optional = true } # Backs `DelayQueue`
+
+[dev-dependencies]
+# @OctoLinkerResolve(https://github.com/tokio-rs/tokio)
+tokio = { version = "1.0", features = ["full"] }
+
+# @OctoLinkerResolve(https://github.com/tokio-rs/tokio)
+tokio-stream = { version = "0.1", path = "../tokio-stream" }
+
+# @OctoLinkerResolve(https://github.com/async-rs/async-std)
+async-std = "1.4"
+
+[build-dependencies]
+# @OctoLinkerResolve(https://github.com/rust-lang/pkg-config-rs)
+pkg-config = "0.3.7"
+# @OctoLinkerResolve(https://github.com/alexcrichton/cc-rs)
+cc = { version = "1.0.43", features = ['parallel'] }
+
+[target.'cfg(windows)'.dependencies]
+# @OctoLinkerResolve(https://github.com/retep998/winapi-rs)
+winapi = "0.3.9"
+
+[target.'cfg(unix)'.dependencies]
+# @OctoLinkerResolve(https://github.com/sfackler/rust-openssl)
+openssl-sys = { version = "0.9", optional = true }
+# @OctoLinkerResolve(https://github.com/sfackler/rust-openssl)
+openssl = "1.0.1"

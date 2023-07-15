@@ -11,8 +11,29 @@ function linkDependency(blob, key, value) {
 function processTOML(blob, plugin) {
   let results = [];
   const json = TOML.parse(blob.toString());
+  // target.*.[dependencies|dev-dependencies|build-dependencies]
+  // https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html
+  let targets = {};
+  Object.entries(json["target"]).forEach(([_, obj]) => {
+    targets = Object.assign(
+      obj["dependencies"],
+      obj["dev-dependencies"],
+      obj['build-dependencies']
+    );
+  })
 
-  Object.entries(json.dependencies).forEach(([name, version]) => {
+  const entries = Object.assign(
+    json['dependencies'],
+    json['dev-dependencies'],
+    json['build-dependencies'],
+    targets
+  );
+
+  Object.entries(entries).forEach(([name, value]) => {
+    const version = typeof value === "string" ? value : value.version;
+    // filter entries don't have version
+    if (!version) return;
+
     const linked = linkDependency.call(plugin, blob, name, version);
 
     results = results.concat(linked);
