@@ -28,7 +28,7 @@
     "@babel/core": "^7.21.8",
     "@babel/eslint-parser": "^7.21.8",
     "@babel/plugin-transform-react-jsx": "^7.21.5",
-    "@babel/plugin-transform-runtime": "^7.22.4",
+    "@babel/plugin-transform-runtime": "^7.22.9",
     "@babel/preset-env": "^7.21.4",
     "assert": "^2.0.0",
     "async": "^3.2.4",
