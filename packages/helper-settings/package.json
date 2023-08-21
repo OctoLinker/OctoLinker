@@ -7,7 +7,7 @@
   "main": "./index.js",
   "dependencies": {
     "linkstate": "^2.0.1",
-    "preact": "^10.15.0",
+    "preact": "^10.17.1",
     "webext-base-css": "^1.4.3",
     "webextension-polyfill": "^0.10.0"
   }
